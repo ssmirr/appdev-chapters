@@ -184,7 +184,7 @@ Programming boils down to:
  1. The next time you encounter that error message, it will be vaguely familiar and it will take slightly less time to debug it.
  1. After you've encountered that error message for the 25th time, you will debug it instantly.
 
-Your skill level as a programmer is essentially **the number of error messages that you have encountered in the past and now recognize**. So start paying attention to them now.
+Your skill level as a programmer is essentially **the number of error messages that you have encountered in the past and now recognize**. So start paying attention to them now — we want to collect 'em all!
 
 ## An aside: Code comments
 
