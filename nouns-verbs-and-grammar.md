@@ -246,7 +246,7 @@ When you are choosing your variable names, there are some rules:
 That's it for the fundamental grammar of Ruby!
 
 ```ruby
-storage_box = object.method(argument1, argument2)
+storage_box = noun.verb(input1, input2)
 ```
 
 It's not _that_ much worse than the calculator language, is it? Of course, there's a bit more syntax (like how to define our own nouns and verbs) that we need to learn, but for the most part, `object.method` is the bulk of what we do.
