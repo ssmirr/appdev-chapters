@@ -237,7 +237,7 @@ When you are choosing your variable names, there are some rules:
 
 - Variable names can only contain **lowercase** letters (`a..z`), numbers (`0..9`), and underscores (`_`) — they can't contain spaces.
 - Variable names cannot begin with a number.
-- Rubyists strive to choose **descriptive** variable names, no matter how long they are, so that it's obvious to teammates what the contents are (supposed to be) at a glance.
+- Rubyists strive to choose **descriptive** variable names, no matter how long they are, so that it's obvious to teammates what the contents are at a glance.
 
     _Please_ avoid naming your variables `x`, `y`, and `z`. Use underscores to separate words in multi-word variable names, since we can't use spaces.
 
