@@ -98,7 +98,7 @@ Different **classes** can perform different **methods**. Try the following:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3043048/e3a0f724d73a975907c6441b855876aa"></iframe>
 
-### Read The Error Message
+### Read the error message (RTEM)
 
 Aha! If you were typing out every expression and running it, then
 
@@ -176,7 +176,7 @@ It's a very easy mistake to make, so I just wanted to warn you early on so you t
 
 Programming boils down to:
 
- 1. Forming a plan of what you want to do (e.g. "I want to remove the 'l's in this string and replace them with 'z's (for some reason).")
+ 1. Forming a plan of what you want to do (e.g. "I want to remove the 'l's in this string and replace them with 'z's, for some odd reason.")
  1. Typing some code to try and do it.
  1. It _never_ works the first time.
  1. Seeing an error message.
