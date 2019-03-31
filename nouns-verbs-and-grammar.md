@@ -1,4 +1,4 @@
-# Nouns, Verbs, and Grammar
+# Nouns, verbs, and grammar
 
 ## You already know how to program
 
@@ -124,7 +124,7 @@ In this case, it is saying: "Hey, friend — there's no method called 'swapcase'
 
 The bottomline is: at all times as you are writing Ruby, you should be thinking: **What class of object do I have to work with?** **What methods am I allowed to call on this kind of object?** Then, the syntax itself is simple — `my_object.cool_method`.
 
-## Arguments
+## Arguments are inputs
 
 Alright, so the **primary syntax** in Ruby is straightforward — `object.method`. However, there's a wrinkle: some methods require additional inputs. For example, there is a method called `gsub` which we can call on `String`s, which will substitute characters with other characters. Try it:
 
@@ -148,7 +148,7 @@ In reality, `gsub` is more often used to do things like removing illegal charact
 
 ### One of the only times when whitespace matters
 
-Unlike some other languages (e.g. Python) where indentation and spacing can change the entire meaning of the program, Ruby is, generally, very permissive about how you use whitespace. You can _usually_ use spacing according to your own taste, and Ruby will be able to make sense of your code.
+Unlike some other languages (e.g. Python) where indentation and spacing can change the entire meaning of a program, Ruby is, generally, very permissive about how you use whitespace. You can _usually_ use spacing according to your own taste, and Ruby will be able to make sense of your code.
 
 So, for example, whether you have spaces between arguments doesn't matter; these two are equivalent:
 
@@ -168,7 +168,9 @@ However, one situation in which whitespace _does_ matter has to do with the _par
 
 Can you spot the difference? **Don't put a space between the method and the opening parenthesis.**
 
-It's a very easy mistake to make, so I just wanted to warn you early so you can develop good muscle memory. Try the bad version in your sandbox and see what the error message looks like.
+It's a very easy mistake to make, so I just wanted to warn you early on so you that can begin developing good muscle memory. Try the bad version in your sandbox and see what the error message looks like:
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3046469/7ab45ec233949ca51a2c16814df9dea9"></iframe>
 
 ## An aside: Code comments
 
@@ -222,7 +224,7 @@ When you are choosing your variable names, there are some rules:
 - Variable names cannot _begin_ with a number.
 - Rubyists strive to choose **descriptive** variable names, no matter how long they are, so that it's obvious to teammates what the contents are (supposed to be) at a glance.
 
-    _Please_ avoid naming your variables `x`, `y`, and `z`. Use underscores to separate words in multi-word variable names.
+    _Please_ avoid naming your variables `x`, `y`, and `z`. Use underscores to separate words in multi-word variable names, since we can't use spaces.
 
 ## Conclusion
 
