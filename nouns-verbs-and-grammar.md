@@ -4,13 +4,13 @@
 
 Programming is the art of getting a computer to do useful things with information.
 
-If you think about it that way, then you already know how to program this computer:
+If you think about it that way, then you already know at least one programming language:
 
 ![](/assets/youalreadyknow.png)
 
 In the case of a calculator, the "information" is numbers and the "useful things" are adding, subtracting, multiplying, etc. Like any computer (or person), we get the calculator to do useful work by writing instructions that it can understand.
 
-For example, if we press the keys <kbd>7</kbd> <kbd>×</kbd> <kbd>6</kbd> <kbd>=</kbd> (in that sequence), then the calculator will return `42` on the screen; but if we press the keys <kbd>x</kbd> <kbd>7</kbd> <kbd>=</kbd> <kbd>6</kbd>, then it won't.
+For example, if we press the keys <kbd>7</kbd> <kbd>×</kbd> <kbd>6</kbd> <kbd>=</kbd> (in that order), then the calculator will return `42` on the screen; but if we press the keys <kbd>x</kbd> <kbd>7</kbd> <kbd>=</kbd> <kbd>6</kbd>, then it won't.
 
 - In the above example, `7` and `6` are known as **data**, or as I think of it, _nouns_.
 - `x` and `=` are known as **methods**, or as I think of it, _verbs_.
@@ -42,7 +42,7 @@ Got it? Good, because that's basically all that there is to any other programmin
 
 ## Ruby's vocabulary
 
-Let's get started learning your second programming language — Ruby! As we now know, that means we need to familiarize ourselves with Ruby's **data**, **methods**, and the **syntax** for putting them together.
+Let's start learning your second programming language — Ruby! As we now know, that means we need to familiarize ourselves with Ruby's **data**, **methods**, and the **syntax** for putting them together.
 
 First of all, Ruby can work with many more kinds of data than just numbers. That's what makes it much more powerful than the calculator language. Ruby has:
 
@@ -64,11 +64,11 @@ Ruby is known as a "batteries included" language because it comes with _so many_
 
 Finally, *we can even make up our own nouns and verbs* and add them to the language. For example, we can create a data type `Venue`, give it a method that calculates the average rating from its reviews, and then use that method whenever we want.
 
-One of the best things about Ruby is its wonderful **open-source** community: programmers very often share these new classes that they write with one another, making the language ever easier to use and ever more powerful!
+One of the best things about Ruby is its wonderful **open-source** community: programmers very often share these new classes that they write with one another, making the language ever easier to use and ever more powerful.
 
 ## Ruby's primary syntax
 
-So, in terms of **data** and **methods**, Ruby comes with a powerful set out-of-the-box *and* is always getting better! That's good news. Here's even more good news: to access all of this power, the **primary syntax** is straightforward. It looks like this: `some_object.some_method`
+So, in terms of **data** and **methods**, Ruby comes with a powerful set out-of-the-box *and* is always getting better. That's good news! Here's even more good news: to access all of this power, the **primary syntax** is straightforward. It looks like this: `some_object.some_method`
 
 Here's a real example:
 
@@ -108,9 +108,9 @@ Aha! If you were typing out every expression and running it, then
 
 should have produced your very first error message! 🎉
 
-(If you weren't typing out every expression, then you're doing this wrong. If you're just reading, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. It's all about practice.)
+(If you weren't typing out every expression, then you're doing this wrong. If you're just reading, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. Practice is crucial.)
 
-Error messages can look scary, but one of **the most important skills you have to develop** when learning to program is to **not panic** when you see them. Slow down, **read the error message**, and see if you can make any sense of it at all. Over time, you will find that they are _very_ helpful — and you will miss them when something is going wrong *silently*.
+Error messages can look scary, but one of **the most important skills you have to develop** when learning to program is to **not panic** when you see them. Slow down, **read the error message**, and see if you can make any sense of it at all. Over time, you will find that they are _very_ helpful (and you will miss them if something goes wrong silently).
 
 So, what do you think
 
@@ -141,10 +141,10 @@ In order to do its job, the `gsub` method needs to know what substring to get ri
 In reality, `gsub` is more often used to do things like removing illegal characters from usernames before saving:
 
 ```ruby
-"D+h+H".gsub("+", "")
+"Raghu@Bet@ina".gsub("@", "")
 ```
 
-(`""` is an empty string, so all `+`s get replaced with nothing.)
+(`""` is an empty string, so all `@`s will be replaced with nothing, i.e. removed.)
 
 ### One of the only times when whitespace matters
 
@@ -157,9 +157,9 @@ So, for example, whether you have spaces between arguments doesn't matter; these
 "Hello".gsub("l","z")
 ```
 
-(The most common style is to have one space after each comma.)
+(The most common _style_ is to have one space after each comma.)
 
-However, one situation in which whitespace _does_ matter has to do with the _parentheses_ around arguments:
+However, one situation in which whitespace _does_ matter has to do with the **parentheses** around arguments:
 
 ```ruby
 "Hello".gsub("l", "z") # good
@@ -171,6 +171,20 @@ Can you spot the difference? **Don't put a space between the method and the open
 It's a very easy mistake to make, so I just wanted to warn you early on so you that can begin developing good muscle memory. Try the bad version in your sandbox and see what the error message looks like:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3046469/7ab45ec233949ca51a2c16814df9dea9"></iframe>
+
+## Seriously: please read the error message
+
+Programming boils down to:
+
+ 1. Forming a plan of what you want to do (e.g. "I want to remove the 'l's in this string and replace them with 'z's (for some reason).")
+ 1. Typing some code to try and do it.
+ 1. It _never_ works the first time.
+ 1. Seeing an error message.
+ 1. Learning how to deal with that particular error message.
+ 1. The next time you encounter that error message, it will be vaguely familiar and it will take slightly less time to debug it.
+ 1. After you've encountered that error message for the 25th time, you will debug it instantly.
+
+Your skill level as a programmer is essentially **the number of error messages that you have encountered in the past and now recognize**. So start paying attention to them now.
 
 ## An aside: Code comments
 
