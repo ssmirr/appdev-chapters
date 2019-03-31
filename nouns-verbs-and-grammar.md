@@ -188,10 +188,10 @@ Your skill level as a programmer is essentially **the number of error messages t
 
 ## An aside: Code comments
 
-A debate that will rage forever: what do you call this symbol?
+Here's a debate that will rage until the end of time: what do you call this symbol?
 
 ```
-#
+               #
 ```
 
 Is it a number sign? Is it a pound sign? Is it a hashtag? Is it a waffle?
