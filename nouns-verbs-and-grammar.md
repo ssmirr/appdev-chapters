@@ -219,9 +219,9 @@ So: let's start to store our return values for future reference, instead of drop
 You may have noticed that the variable assignment syntax is a departure from the primary syntax of `object.method`. But we do it all day long, so we need to know it just as well. Our programs will end up looking like this (these are made-up method names):
 
 ```ruby
-storage_box_1 = "starting data".first_method
-storage_box_2 = storage_box_1.second_method
-storage_box_3 = storage_box_2.third_method.maybe_even("another", "method")
+storage_box_1 = "starting data".first_transformation
+storage_box_2 = storage_box_1.second_step
+storage_box_3 = storage_box_2.third_method.maybe_even("another", "one")
 # etc for dozens or hundreds of lines
 ```
 
