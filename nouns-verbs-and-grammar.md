@@ -220,7 +220,8 @@ You may have noticed that the variable assignment syntax is a departure from the
 
 ```ruby
 storage_box_1 = "starting data".first_method
-storage_box_2 = storage_box_1.second_method.maybe_even("another", "method")
+storage_box_2 = storage_box_1.second_method
+storage_box_3 = storage_box_2.third_method.maybe_even("another", "method")
 # etc for dozens or hundreds of lines
 ```
 
