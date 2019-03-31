@@ -129,7 +129,7 @@ The bottomline is: at all times as you are writing Ruby, you should be thinking:
 Alright, so the **primary syntax** in Ruby is straightforward — `object.method`. However, there's a wrinkle: some methods require additional inputs. For example, there is a method called `gsub` which we can call on `String`s, which will substitute characters with other characters. Try it:
 
 ```ruby
-"Java is a joy to program in".gsub("Java", "Ruby")
+"Java is a joy".gsub("Java", "Ruby")
 ```
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3044475/1042c1330f295bf2626ebc732be74e2b"></iframe>
