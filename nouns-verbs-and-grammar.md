@@ -176,7 +176,7 @@ It's a very easy mistake to make, so I just wanted to warn you early on so you t
 
 Programming boils down to:
 
- 1. Forming a plan of what you want to do (e.g. "I want to remove the 'l's in this string and replace them with 'z's, for some odd reason.")
+ 1. Forming a plan of what you want to do (e.g. "I want to remove any '@'s in this input.")
  1. Typing some code to try and do it.
  1. It _never_ works the first time.
  1. Seeing an error message.
