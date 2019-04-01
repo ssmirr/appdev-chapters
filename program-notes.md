@@ -89,9 +89,9 @@ I'm also going to start including challenges in the REPLs that you have to pass.
 
 If all went well, you should have seen this:
 
-![](/assets/tests-pass.png)
+![](/assets/solution-submitted.png)
 
-and then clicked the green "submit" button at the top-right. Please follow that process for the rest of the REPLs that you encounter from here on out!
+Once you've gotten the tests to pass and submitted your solution, you can click "See Model Solution" to see a solution that I've written. Remember that there's no single "correct" solution — if yours worked, then it's just as good as mine!
 
 ### Exceptional things about `puts`
 
