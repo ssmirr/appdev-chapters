@@ -25,7 +25,7 @@ Matz's focus when he designed Ruby was on "developer happiness", which was prett
 Happily, computers are very fast today[^developer_hours], and they can run Ruby just fine; so now we beginners can have the best of both worlds. Besides, once you've learned the basic concepts of programming, it's easy to translate into the syntax of other languages[^right_tool].
 
 [^right_tool]:
-    If you decide to pursue software development, you'll end up learning at least half-a-dozen languages. Whatever challenge is thrown your way, you'll choose the right tool for the job.
+    If you decide to pursue software development, you'll end up learning at _least_ half-a-dozen languages. Whatever challenge is thrown your way, you'll choose the right tool for the job.
 
 [^developer_hours]: From a business perspective, servers are very cheap while developers are _very_ expensive; so you should pick the language that makes developers the most productive.
 
