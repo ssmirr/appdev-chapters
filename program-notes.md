@@ -44,7 +44,7 @@ The programming world at large can be pretty competitive and harsh, but I've fou
 
 > His demeanor has brought about a motto in the Ruby community: "Matz is nice and so we are nice," commonly abbreviated as MINASWAN.
 
-### Heroku
+### Heroku and other SAAS
 
 Another way in which the Ruby community's philosophy seems to have manifested is the amazing amount of tooling that exists around it. For example, [Heroku](https://heroku.com) was the first "platform as a service", a layer on top of Amazon Web Services that makes it incredibly easy to deploy applications to an industrial-grade infrastructure. Something that would have itself required a whole separate course to learn how to do — deployment — we can now do with just one click; and we can focus instead on building features for our users.
 
