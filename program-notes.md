@@ -4,7 +4,7 @@ Before we continue, I want to pause and discuss what, why, and how we're going t
 
 Our goal is to build and deploy a fully-functional application, which will require that we learn a little bit about every part of the "stack" — the interface that users interact with all the way through to the server that the application runs on.
 
-We're going to work from the inside-out. We'll start by learning how to manage information with a _database_, because that is the heart of any useful application. Then we're going to learn how to expose an _interface_ for users to get information in and out of our database — we'll be starting with a web app because that's the quickest way to get up and running, but we could add an iPhone or Android app later.
+We're going to work from the inside-out. We'll start by learning how to manage information with a _database_, because that is the heart of any useful application. Then we're going to learn how to expose an _interface_ for users to get information in and out of our database — we'll be starting with a web client because that's the quickest way to get up and running, but we could add an iPhone or Android client later.
 
 For all of the above, we're going to use the Ruby language. There are many languages we could have chosen, but Ruby has a lot of advantages for beginners:
 
@@ -12,14 +12,37 @@ For all of the above, we're going to use the Ruby language. There are many langu
 
     > Often people, especially computer engineers, focus on the machines. They think, "By doing this, the machine will run faster. By doing this, the machine will run more effectively. By doing this, the machine will something something something." They are focusing on machines. But in fact we need to focus on humans, on how humans care about doing programming or operating the application of the machines.
     >
-    > — Yukihiro Matsumoto, [The Philosophy of Ruby](https://www.artima.com/intv/ruby4.html)
+    > — Yukihiro Matsumoto, [The Philosophy of Ruby](https://www.artima.com/intv/ruby4.html){:target="_blank"}
 
- - Rails
+    Matz's focus when he designed Ruby was on "developer happiness", which was pretty bold in back 1995 when Ruby was first released. Optimizing for human readability rather than computer readability meant paying a cost in terms of performance, and computers were slow back then; but Matz didn't care.
+
+    Happily, computers are fast today, and they can run Ruby just fine; so we can have the best of both worlds.
+
+ - The programming world can be pretty competitive and harsh, but I've found that the Ruby community is very inclusive and welcoming. Maybe this can also be traced back to Matz; from [his Wikipedia page](https://en.wikipedia.org/wiki/Yukihiro_Matsumoto){:target="_blank"},
+
+    > His demeanor has brought about a motto in the Ruby community: "Matz is nice and so we are nice," commonly abbreviated as MINASWAN.
+ - People often ask "What's the best language for task X?" Depending on the task, sometimes a language is particularly well suited to it technically; but that is very rare. In general, any programming language can do anything that any other language can (unless maybe there is some kind of proprietary lock-in).
+
+    However, there's another very important consideration: which language has the largest **community** of developers doing task X? More community means more shared code (known as "libraries", or in Ruby-land, "gems"), more blog posts, more answers when you Google a question, etc.
+
+    For example, Python and Ruby are very similar languages in terms of their technical features and performance profile. However, by some historical accident, Python seems to have gathered more of scientific/data analysis/machine learning community around it, so more open-source libraries in those areas have been developed and shared in Python than in Ruby; and so now Python is the go-to language for those tasks.
+
+    On the other hand, for agilely developing database-backed applications, Ruby has a huge and thriving community. In particular, there is an open-source library for building applications called Ruby-on-Rails ("Rails", for short) that makes small teams incredibly productive. The existence of Rails alone makes the Ruby language a good choice[^rails_relevant] for both startups and beginners.
+
+    The philosophy of Rails is "convention over configuration" — it makes a lot of decisions on your behalf, and if you go with the flow, then things "just work". (If you want to fiddle with settings, then of course you can, to your heart's content; but you don't _have to_ spend hours or days doing so before anything will even show up, like you do in most other frameworks.)
+ - 
+
+
+
+
  - Other libraries
  - Heroku
 
 
+[^rails_relevant]:
+    Here's a longer blog post on why Ruby on Rails is still a good choice in 2019:
 
+    https://devbrett.com/2019/03/why-i-believe-rails-is-still-relevant-in-2019.html
 
 This is _not_ a course about a single programming language. We believe in [making learning whole](https://www.amazon.com/Making-Learning-Whole-Principles-Transform/dp/0470633719) — it's more useful to first experience a simplified version of the  to do a deep dive on one piece.
 
