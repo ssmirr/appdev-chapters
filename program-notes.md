@@ -105,7 +105,7 @@ puts "HELLO WORLD!"
 
 And when you are roaming the internet, you will see this style often, especially in conjunction with `puts`. My advice to you is: you can drop the parentheses when you are `puts`ing, but other than that, always include them. They help to keep things clear, and they prevent order-of-operations errors.
 
-But yes, I like to `puts` **a lot** while I am programming. One of my fundamental programming principles is **make the invisible visible** — don't try to guess what's going on, find a way to _see_ what's going on. `puts` is an excellent tool for that, so I `puts` like crazy, almost every line sometimes while I am debugging. It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `puts ` at the beginning of a line. So in this one case, I give you permission to omit the parentheses around arguments to a method. Enjoy it.
+But yes, I like to `puts` **a lot** while I am programming. One of my fundamental programming principles is **make the invisible visible** — don't try to _guess_ what's going on, find a way to _see_ what's going on. `puts` is an excellent tool for that, so I `puts` like crazy, almost every line sometimes while I am debugging. It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `puts ` at the beginning of a line. So in this one case, I give you permission to omit the parentheses around arguments to a method. Enjoy it.
 
 ## Onwards
 
