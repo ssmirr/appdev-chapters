@@ -22,7 +22,7 @@ Matz's focus when he designed Ruby was on "developer happiness", which was prett
 
 Happily, computers are very fast today[^developer_hours], and they can run Ruby just fine; so now we beginners can have the best of both worlds.
 
-[^developer_hours]: From a business perspective, CPU-cycles are very cheap while developer-hours are _very_ expensive; so optimize for making your developers the most productive, not making your computers the most performant.
+[^developer_hours]: From a business perspective, servers are very cheap while developers are _very_ expensive; so pick the language that makes your developers the most productive.
 
 ### Ruby on Rails and other libraries
 
