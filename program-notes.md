@@ -75,7 +75,7 @@ As you've already seen, we're going to start by writing Ruby right here in the m
 
 Later, when we're ready to write full-fledged Rails applications, we're going to switch to a different cloud-based programming environment called Cloud9. This will save us the trouble of installing Rails on our own laptops, and we'll get some nice collaboration features from it.
 
-### REPL tests
+### Feedback
 
 For now though, I want to talk a little bit more about how the REPLs work. So far, we've been clicking "run ▶" and seeing the return value of the expression of the _last line_ of our programs in the black window (known as the "terminal") at the bottom left; but what if we wanted to see more than just the return value of the last line?
 
@@ -93,7 +93,7 @@ If you got the tests to pass and submitted your solution successfully, you shoul
 
 Whenever you've submitted a solution, you'll be able to click "See Model Solution" to see one that I've written. Remember that there's no single "correct" solution — if yours worked, then it's just as good as mine!
 
-### Exceptional things about puts
+### Make the invisible visible
 
 The challenge above could be solved with the following:
 
@@ -121,6 +121,30 @@ My advice to you is: you can drop the parentheses when you are `puts`ing, but ot
 But yes, I like to `puts` **a lot** while I am programming. One of my fundamental programming principles is **make the invisible visible** — don't try to _guess_ what's going on, find a way to _see_ what's going on. `puts` is an excellent tool for that, so I `puts` like crazy, almost every line sometimes while I am debugging.
 
 It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `puts ` at the beginning of a line. So in this one case, I give you permission to omit the parentheses around arguments to a method. Enjoy!
+
+### Roadmap
+
+Before we continue learning Ruby, I just want to give you sneak peek of where we're heading. Most of these words won't make sense right now, but they will soon!
+
+#### Part 1: Database
+
+ - Ruby basics
+ - Conditionals
+ - Loops
+ - Arrays
+ - Hashes
+ - Classes
+ - Storing data permanently with models
+ - Querying, querying, querying
+
+#### Part 2: Interface
+
+ - Route, Controller, Action, View
+ - Parameters
+ - HTML
+ - The Golden Seven
+ - Partials
+ - Sign-in/sign-out
 
 ## Onwards
 
