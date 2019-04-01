@@ -2,6 +2,8 @@
 
 Before we continue, I want to pause and discuss what, why, and how we're going to be learning.
 
+## What are we learning?
+
 Our goal is to build and deploy a fully-functional application, which will require that we learn a little bit about every part of the "stack" — the interface that users interact with all the way through to the server that the application runs on.
 
 We're going to work from the inside-out. We'll start by learning how to manage information with a _database_, because that is the heart of any useful application. Then we're going to learn how to expose an _interface_ for users to get information in and out of our database — we'll be starting with a web client because that's the quickest way to get up and running, but we could add an iPhone or Android client later.
@@ -20,7 +22,9 @@ Compared to other languages, Ruby is a pleasure to write and to read. Here's Yuk
 
 Matz's focus when he designed Ruby was on "developer happiness", which was pretty bold in back 1995 when Ruby was first released. Optimizing for human readability rather than computer readability meant paying a cost in terms of performance, and computers were slow back then; but Matz didn't care.
 
-Happily, computers are very fast today[^developer_hours], and they can run Ruby just fine; so now we beginners can have the best of both worlds.
+Happily, computers are very fast today[^developer_hours], and they can run Ruby just fine; so now we beginners can have the best of both worlds. Besides, once you've learned the basic concepts of programming, it's easy to translate into the syntax of other languages[^right_tool].
+
+[^right_tool]: If you decide to pursue software development, you'll end up learning at least half-a-dozen languages. Whatever challenge is thrown your way, you'll choose the right tool for the job. There's no such thing as learning just one language as a professional software developer, so we might as well start with the one that makes learning most effective.
 
 [^developer_hours]: From a business perspective, servers are very cheap while developers are _very_ expensive; so pick the language that makes your developers the most productive.
 
@@ -48,7 +52,9 @@ The programming world at large can be pretty competitive and harsh, but I've fou
 
 Another way in which the Ruby community's philosophy seems to have manifested is the amazing amount of tooling that exists around it. For example, [Heroku](https://heroku.com) was the first "platform as a service", a layer on top of Amazon Web Services that makes it incredibly easy to deploy applications to an industrial-grade infrastructure. Something that would have itself required a whole separate course to learn how to do — deployment — we can now do with just one click; and we can focus instead on building features for our users.
 
-Rails was the first platform that Heroku supported, and Rails developers are still Heroku's primary users. There are many other services, everything from performance monitoring to error reporting to email delivery to A/B testing to analytics, that offer tight integrations with Ruby and/or Rails and make using them hyper-productive for small teams, solo developers, and therefore beginners.
+Rails was the first platform that Heroku supported, and Rails developers are still Heroku's primary users. There are many other services, everything from performance monitoring to error reporting to email delivery to A/B testing to analytics, that offer tight integrations with Ruby and/or Rails and make using them hyper-productive for small teams, solo developers, and therefore also for us beginners.
+
+
 
 [^choose_boring]:
     I, personally, agree with this author who prefers boring technologies over cutting-edge ones:
@@ -60,7 +66,9 @@ Rails was the first platform that Heroku supported, and Rails developers are sti
 
     [https://devbrett.com/2019/03/why-i-believe-rails-is-still-relevant-in-2019.html](https://devbrett.com/2019/03/why-i-believe-rails-is-still-relevant-in-2019.html){:target="_blank"}
 
-## Roadmap
+## How are we going to go from zero to Hero(ku)?
+
+
 
 We'll start with repl.it in the browser
 
