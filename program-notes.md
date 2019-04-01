@@ -87,15 +87,15 @@ I'm also going to start including challenges in the REPLs that you have to pass.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047597/c3646e3314f9eaa6aedda51dfdc8d59b"></iframe>
 
-If all went well, you should have seen this:
+If you got the tests to pass and submitted your solution successfully, you should now see something like this (the below is a screenshot, not a real REPL):
 
 ![](/assets/solution-submitted.png)
 
-Once you've gotten the tests to pass and submitted your solution, you can click "See Model Solution" to see a solution that I've written. Remember that there's no single "correct" solution — if yours worked, then it's just as good as mine!
+Whenever you've submitted a solution, you'll be able to click "See Model Solution" to see one that I've written. Remember that there's no single "correct" solution — if yours worked, then it's just as good as mine!
 
-### Exceptional things about `puts`
+### Exceptional things about puts
 
-The challenge above could be solved with the following code:
+The challenge above could be solved with the following:
 
 ```ruby
 puts("HELLO WORLD!")
@@ -105,7 +105,14 @@ I wanted to point out a couple of things the code above.
 
 First, you may have noticed that we aren't using the primary syntax of `object.method`; it's just `method` all by itself. Without going into too much detail, the reason for this is known as "syntactic sugar" — Ruby includes some niceties that allow us to type less. In reality, under the hood, it is always `object.method` going on[^self_puts].
 
-[^self_puts]: Okay, if you _must_ know the fully written out form of it, it's `self.send(:puts, "HELLO WORLD!")`. Try it out. And we'll leave at that, for now.
+[^self_puts]:
+    Okay fine, if you _must_ know the fully written out form of it, it's
+
+    ```ruby
+    self.send(:puts, "HELLO WORLD!")
+    ```
+
+    Happy now? You can try it out in a REPL; and we'll leave at that, for now.
 
 Second, when we discussed [Arguments](https://chapters.firstdraft.com/chapters/754#arguments-are-inputs){:target="_blank"}, we said that they always come within parentheses. That's not quite true. Ruby allows you to, optionally, omit the parentheses; so the following will also work:
 
