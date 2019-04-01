@@ -107,29 +107,6 @@ And when you are roaming the internet, you will see this style often, especially
 
 But yes, I like to `puts` **a lot** while I am programming. One of my fundamental programming principles is **make the invisible visible** — don't try to guess what's going on, find a way to _see_ what's going on. `puts` is an excellent tool for that, so I `puts` like crazy, almost every line sometimes while I am debugging. It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `puts ` at the beginning of a line. So in this one case, I give you permission to omit the parentheses around arguments to a method. Enjoy it.
 
+## Onwards
 
-### Roadmap
-
-Before we continue learning Ruby, I just want to give you an overview of where we're heading. Most of these words won't make sense right now, but they will soon!
-
-#### Part 1: Database
-
- - Ruby basics
- - Conditionals
- - Loops
- - Arrays
- - Hashes
- - Classes
- - Storing data permanently with models
- - Querying, querying, querying
-
-#### Part 2: Interface
-
- - Route, Controller, Action, View
- - Parameters
- - HTML
- - The Golden Seven
- - Partials
- - Sign-in/sign-out
-
-Okay! Let's move on and learn more about the Fundamental Classes in Ruby.
+Okay! With that housekeeping out of the way, let's move on and learn more about the Fundamental Classes of Ruby.
