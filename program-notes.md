@@ -69,7 +69,7 @@ Rails was the first platform that Heroku supported, and Rails developers are sti
 
 To go from _complete beginner_ to _deploying a fully functional application_ is quite a bit of ground to cover. Here's how we're going to do it:
 
-### Editors
+### Cloud editors
 
 As you've already seen, we're going to start by writing Ruby right here in the middle of these readings by using a service called repl.it. This is the lowest-friction way to get started, and will allow us to focus on learning Ruby without having to waste mental energy on things like learning how to navigate the command-line (non-graphical) interface of our computers.
 
