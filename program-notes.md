@@ -75,13 +75,15 @@ As you've already seen, we're going to start by writing Ruby right here in the m
 
 Later, when we're ready to write full-fledged Rails applications, we're going to switch to a different cloud-based programming environment called Cloud9. This will save us the trouble of installing Rails on our own laptops, and we'll get some nice collaboration features from it.
 
-For now though, I want to talk a little bit more about how repl.it works. So far, we've been clicking "run ▶" and seeing the return value of the expression on the _last line_ in the black window (known as the "terminal") at the bottom left; but what if we wanted to see more than just the return value of the last line?
+For now though, I want to talk a little bit more about how repl.it works. So far, we've been clicking "run ▶" and seeing the return value of the expression of the _last line_ of our programs in the black window (known as the "terminal") at the bottom left; but what if we wanted to see more than just the return value of the last line?
 
-It turns out there's a special method in Ruby called `puts` (short for "put string") that will print out values to the terminal:
+It turns out there's a special method in Ruby called `puts` (short for "put string") that will print out values to the terminal. Try running the following:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047594/4899c0331ceb9b7b0cd60032e0bb0e0d"></iframe>
 
+I'm also going to start including challenges in the REPLs that you have to pass. Try this one to see how it works:
 
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047597/c3646e3314f9eaa6aedda51dfdc8d59b"></iframe>
 
 ### Roadmap
 
