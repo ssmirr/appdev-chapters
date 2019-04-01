@@ -75,7 +75,7 @@ As you've already seen, we're going to start by writing Ruby right here in the m
 
 Later, when we're ready to write full-fledged Rails applications, we're going to switch to a different cloud-based programming environment called Cloud9. This will save us the trouble of installing Rails on our own laptops, and we'll get some nice collaboration features from it.
 
-For now though, I want to talk a little bit more about how repl.it works. So far, we've been clicking "run ▶" and seeing the return value of the expression of the _last line_ of our programs in the black window (known as the "terminal") at the bottom left; but what if we wanted to see more than just the return value of the last line?
+For now though, I want to talk a little bit more about how the REPLs work. So far, we've been clicking "run ▶" and seeing the return value of the expression of the _last line_ of our programs in the black window (known as the "terminal") at the bottom left; but what if we wanted to see more than just the return value of the last line?
 
 It turns out there's a special method in Ruby called `puts` (short for "put string") that will print out values to the terminal. Try running the following:
 
@@ -84,6 +84,29 @@ It turns out there's a special method in Ruby called `puts` (short for "put stri
 I'm also going to start including challenges in the REPLs that you have to pass. Try this one to see how it works:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047597/c3646e3314f9eaa6aedda51dfdc8d59b"></iframe>
+
+The challenge above could be solved with the following code:
+
+```ruby
+puts("HELLO WORLD!")
+```
+
+I wanted to point out a couple of things the code above.
+
+First, you may have noticed that we aren't using the primary syntax of `object.method`; it's just `method` all by itself. Without going into too much detail, the reason for this is known as "syntactic sugar" — Ruby includes some niceties that allow us to type less. In reality, under the hood, it is always `object.method` going on[^self_puts].
+
+[^self_puts]: Okay, if you _must_ know the fully written out form of it, it's `self.send(:puts, "HELLO WORLD!")`. Try it out. And we'll leave at that, for now.
+
+Second, when we discussed [Arguments](https://chapters.firstdraft.com/chapters/754#arguments-are-inputs){:target="_blank"}, we said that they always come within parentheses. That's not quite true. Ruby allows you to, optionally, omit the parentheses; so the following will also work:
+
+```ruby
+puts "HELLO WORLD!"
+```
+
+And when you are roaming the internet, you will see this style often, especially in conjunction with `puts`. My advice to you is: you can drop the parentheses when you are `puts`ing, but other than that, always include them. They help to keep things clear, and they prevent order-of-operations errors.
+
+But yes, I like to `puts` **a lot** while I am programming. One of my fundamental programming principles is **make the invisible visible** — don't try to guess what's going on, find a way to _see_ what's going on. `puts` is an excellent tool for that, so I `puts` like crazy, almost every line sometimes while I am debugging. It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `puts ` at the beginning of a line. So in this one case, I give you permission to omit the parentheses around arguments to a method. Enjoy it.
+
 
 ### Roadmap
 
