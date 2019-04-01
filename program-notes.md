@@ -67,20 +67,44 @@ Rails was the first platform that Heroku supported, and Rails developers are sti
 
 ## How are we going to go from zero to Hero(ku)?
 
-We'll start with repl.it in the browser
+To go from _complete beginner_ to _deploying a fully functional application_ is quite a bit of ground to cover. Here's how we're going to do it:
 
-Then we'll move on to writing programs using Cloud9
+### Tools
 
-We're going to focus on the database first
+As you've already seen, we're going to start by writing Ruby right here in the middle of these readings by using a service called repl.it. This is the lowest-friction way to get started, and will allow us to focus on learning Ruby without having to waste mental energy on things like learning how to navigate the command-line (non-graphical) interface of our computers.
+
+Later, when we're ready to write full-fledged Rails applications, we're going to switch to a different cloud-based programming environment called Cloud9. This will save us the trouble of installing Rails on our own laptops, and we'll get some nice collaboration features from it.
+
+For now though, I want to talk a little bit more about how repl.it works. So far, we've been clicking "run ▶" and seeing the return value of the expression on the _last line_ in the black window (known as the "terminal") at the bottom left; but what if we wanted to see more than just the return value of the last line?
+
+It turns out there's a special method in Ruby called `puts` (short for "put string") that will print out values to the terminal:
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047594/4899c0331ceb9b7b0cd60032e0bb0e0d"></iframe>
 
 
-Then we'll add the interface
 
-The wiring we build can support any client, but we're going to learn HTML for simplicity
+### Roadmap
 
-We'll see some tricks for making it work well on phones
+Before we continue learning Ruby, I just want to give you an overview of where we're heading. Most of these words won't make sense right now, but they will soon!
 
-## Teaching philosophy
+#### Part 1: Database
 
-- Questions are where answers fit
-- Make learning whole
+ - Ruby basics
+ - Conditionals
+ - Loops
+ - Arrays
+ - Hashes
+ - Classes
+ - Storing data permanently with models
+ - Querying, querying, querying
+
+#### Part 2: Interface
+
+ - Route, Controller, Action, View
+ - Parameters
+ - HTML
+ - The Golden Seven
+ - Partials
+ - Sign-in/sign-out
+
+Okay! Let's move on and learn more about the Fundamental Classes in Ruby.
