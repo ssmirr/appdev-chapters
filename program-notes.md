@@ -12,7 +12,7 @@ For all of the above, we're going to use the Ruby language. There are many langu
 
 ### Developer happiness
 
-Compared to other languages, Ruby is a pleasure to write. Here's Yukihiro Matsumoto (a.k.a. "Matz"), the creator of Ruby:
+Compared to other languages, Ruby is a pleasure to write and to read. Here's Yukihiro Matsumoto (a.k.a. "Matz"), the creator of Ruby:
 
 > Often people, especially computer engineers, focus on the machines. They think, "By doing this, the machine will run faster. By doing this, the machine will run more effectively. By doing this, the machine will something something something." They are focusing on machines. But in fact we need to focus on humans, on how humans care about doing programming or operating the application of the machines.
 >
@@ -20,11 +20,13 @@ Compared to other languages, Ruby is a pleasure to write. Here's Yukihiro Matsum
 
 Matz's focus when he designed Ruby was on "developer happiness", which was pretty bold in back 1995 when Ruby was first released. Optimizing for human readability rather than computer readability meant paying a cost in terms of performance, and computers were slow back then; but Matz didn't care.
 
-Happily, computers are fast today, and they can run Ruby just fine; so we can have the best of both worlds.
+Happily, computers are very fast today[^developer_hours], and they can run Ruby just fine; so now we beginners can have the best of both worlds.
+
+[^developer_hours]: From a business perspective, CPU-cycles are very cheap while developer-hours are _very_ expensive; so optimize for making your developers the most productive, not making your computers the most performant.
 
 ### Ruby on Rails and other libraries
 
-People often ask "What's the best language for task X?" Depending on the task, sometimes a language is particularly well suited to it technically; but that is very rare. In general, any programming language can do anything that any other language can (unless maybe there is some kind of proprietary lock-in).
+People often ask "What's the best language for task X?" Depending on the task, sometimes a language is particularly well-suited to it technically; but that is very rare. In general, any programming language can do anything that any other language can (unless maybe there is some kind of proprietary lock-out).
 
 However, there's another very important consideration: which language has the largest **community** of developers doing task X? More community means more shared code (known as "libraries", or in Ruby-land, "gems"), more blog posts, more answers when you Google a question, etc.
 
