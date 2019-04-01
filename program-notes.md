@@ -44,7 +44,9 @@ The programming world can be pretty competitive and harsh, but I've found that t
 
 ### Heroku
 
-Another way in which the Ruby community's philosophy seems to have manifested is the amazing amount of tooling that exists around it. Heroku was the first "platform as a service", a layer on top of Amazon Web Services that makes it incredibly easy to deploy industrial grade applications. Rails was the first platform that Heroku supported, and Rails developers are still Heroku's primary users. There are many other companies that offer tight integrations with Rails and make using it hyper-productive.
+Another way in which the Ruby community's philosophy seems to have manifested is the amazing amount of tooling that exists around it. For example, Heroku was the first "platform as a service", a layer on top of Amazon Web Services that makes it incredibly easy to deploy applications to an industrial-grade infrastructure. Something that would have required a whole course to learn how to do, we can now do with one command.
+
+Rails was the first platform that Heroku supported, and Rails developers are still Heroku's primary users. There are many other companies that offer tight integrations with Rails and make using it hyper-productive.
 
 [^choose_boring]:
     I, personally, agree with this author who prefers boring technologies over cutting-edge ones:
