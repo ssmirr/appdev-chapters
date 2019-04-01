@@ -69,11 +69,13 @@ Rails was the first platform that Heroku supported, and Rails developers are sti
 
 To go from _complete beginner_ to _deploying a fully functional application_ is quite a bit of ground to cover. Here's how we're going to do it:
 
-### Tools
+### Editors
 
 As you've already seen, we're going to start by writing Ruby right here in the middle of these readings by using a service called repl.it. This is the lowest-friction way to get started, and will allow us to focus on learning Ruby without having to waste mental energy on things like learning how to navigate the command-line (non-graphical) interface of our computers.
 
 Later, when we're ready to write full-fledged Rails applications, we're going to switch to a different cloud-based programming environment called Cloud9. This will save us the trouble of installing Rails on our own laptops, and we'll get some nice collaboration features from it.
+
+### REPL tests
 
 For now though, I want to talk a little bit more about how the REPLs work. So far, we've been clicking "run ▶" and seeing the return value of the expression of the _last line_ of our programs in the black window (known as the "terminal") at the bottom left; but what if we wanted to see more than just the return value of the last line?
 
@@ -84,6 +86,14 @@ It turns out there's a special method in Ruby called `puts` (short for "put stri
 I'm also going to start including challenges in the REPLs that you have to pass. Try this one to see how it works:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047597/c3646e3314f9eaa6aedda51dfdc8d59b"></iframe>
+
+If all went well, you should have seen this:
+
+![](/assets/tests-pass.png)
+
+and then clicked the green "submit" button at the top-right. Please follow that process for the rest of the REPLs that you encounter from here on out!
+
+### Exceptional things about `puts`
 
 The challenge above could be solved with the following code:
 
