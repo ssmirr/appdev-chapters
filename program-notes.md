@@ -26,7 +26,7 @@ Happily, computers are very fast today[^developer_hours], and they can run Ruby 
 
 [^right_tool]: If you decide to pursue software development, you'll end up learning at least half-a-dozen languages. Whatever challenge is thrown your way, you'll choose the right tool for the job. There's no such thing as learning just one language as a professional software developer, so we might as well start with the one that makes learning most effective.
 
-[^developer_hours]: From a business perspective, servers are very cheap while developers are _very_ expensive; so pick the language that makes your developers the most productive.
+[^developer_hours]: From a business perspective, servers are very cheap while developers are _very_ expensive; so you should pick the language that makes developers the most productive.
 
 ### Ruby on Rails and other libraries
 
