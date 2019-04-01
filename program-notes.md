@@ -28,17 +28,17 @@ People often ask "What's the best language for task X?" Depending on the task, s
 
 However, there's another very important consideration: which language has the largest **community** of developers doing task X? More community means more shared code (known as "libraries", or in Ruby-land, "gems"), more blog posts, more answers when you Google a question, etc.
 
-For example, Python and Ruby are very similar languages in terms of their technical features and performance profile. However, by some historical accident, Python seems to have gathered more of scientific/data analysis/machine learning community around it, so more open-source libraries in those areas have been developed and shared in Python than in Ruby; and so now Python is the go-to language for those tasks.
+For example, Python and Ruby are very similar languages in terms of their technical features and performance profile. However, by some historical accident, Python seems to have gathered more of the scientific/data analysis/machine learning community around it, so more open-source libraries in those areas have been developed and shared in Python than in Ruby; and so now Python is the go-to language for those tasks.
 
 On the other hand, for agilely developing database-backed applications, Ruby has a huge and thriving community. In particular, there is an open-source library for building applications called Ruby-on-Rails ("Rails", for short) that makes small teams incredibly productive. The existence of Rails alone makes the Ruby language a good choice[^rails_relevant] for both startups and beginners.
 
 The philosophy of Rails is "convention over configuration" — it makes a lot of decisions on your behalf, and if you go with the flow, then things "just work". (If you want to fiddle with settings, then of course you can, to your heart's content; but you don't _have to_ spend hours or days doing so before anything will even show up, like you do in most other frameworks.)
 
-Ruby seems to have attracted a community of developers and companies around it who are more about creating value for users, and less about [bike shedding](https://en.wikipedia.org/wiki/Law_of_triviality){:target="_blank"} over technical details[^choose_boring].
+Ruby seems to have attracted a community of developers and companies around it who are more about creating value for users, and less about [bike shedding](https://en.wiktionary.org/wiki/bikeshedding){:target="_blank"} over technical details[^choose_boring].
 
 ### MINASWAN
 
-The programming world can be pretty competitive and harsh, but I've found that the Ruby community is very inclusive and welcoming. Maybe this can also be traced back to Matz; from [his Wikipedia page](https://en.wikipedia.org/wiki/Yukihiro_Matsumoto){:target="_blank"},
+The programming world can be pretty competitive and harsh, but I've found that the Ruby community is very inclusive and welcoming, which is a relief for beginners. Maybe this can also be traced back to Matz; from [his Wikipedia page](https://en.wikipedia.org/wiki/Yukihiro_Matsumoto){:target="_blank"},
 
 > His demeanor has brought about a motto in the Ruby community: "Matz is nice and so we are nice," commonly abbreviated as MINASWAN.
 
@@ -47,14 +47,14 @@ The programming world can be pretty competitive and harsh, but I've found that t
 Another way in which the Ruby community's philosophy seems to have manifested is the amazing amount of tooling that exists around it. Heroku was the first "platform as a service", a layer on top of Amazon Web Services that makes it incredibly easy to deploy industrial grade applications. Rails was the first platform that Heroku supported, and Rails developers are still Heroku's primary users. There are many other companies that offer tight integrations with Rails and make using it hyper-productive.
 
 [^choose_boring]:
-    I, personally, agree with this author who prefers boring technologies:
+    I, personally, agree with this author who prefers boring technologies over cutting-edge ones:
 
-    [https://mcfunley.com/choose-boring-technology](https://mcfunley.com/choose-boring-technology)
+    [https://mcfunley.com/choose-boring-technology](https://mcfunley.com/choose-boring-technology){:target="_blank"}
 
 [^rails_relevant]:
     Here's a longer blog post on why Ruby on Rails is still a good choice in 2019:
 
-    [https://devbrett.com/2019/03/why-i-believe-rails-is-still-relevant-in-2019.html](https://devbrett.com/2019/03/why-i-believe-rails-is-still-relevant-in-2019.html)
+    [https://devbrett.com/2019/03/why-i-believe-rails-is-still-relevant-in-2019.html](https://devbrett.com/2019/03/why-i-believe-rails-is-still-relevant-in-2019.html){:target="_blank"}
 
 ## Roadmap
 
