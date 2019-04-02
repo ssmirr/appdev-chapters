@@ -81,7 +81,7 @@ Here, you try it in the interactive Ruby sandbox[^replit] below:
 [^replit]:
     The interactive Ruby playgrounds that are embedded in these readings are hosted on a service called repl.it. If you see a message below asking you to sign up or sign in, then click the <i class="fab fa-github fa-fw"></i> icon to sign in using your GitHub account.
 
-    If you see the message "repl.it refused to connect" after signing in for the first time, you might have to refresh this page to get the sandbox to load.
+    If you see the message "repl.it refused to connect" after signing in, you might have to refresh this page to get the sandbox to load.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3043043/c68c4738e364e9b4dbb0b7cf4c224003"></iframe>
 
