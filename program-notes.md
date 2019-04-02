@@ -79,7 +79,7 @@ Later, when we're ready to write full-fledged Rails applications, we're going to
 
 For now though, I want to talk a little bit more about how the REPLs work. So far, we've been clicking "run ▶" and seeing the return value of the expression of the _last line_ of our programs in the black window (known as the "terminal") at the bottom left; but what if we wanted to see more than just the return value of the last line?
 
-It turns out there's a special method in Ruby called `p` (short for "put string") that will print out values to the terminal. Try running the following:
+It turns out there's a special method in Ruby called `p` (short for "print inspect") that will display values in the terminal. Try running the following:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047594/4899c0331ceb9b7b0cd60032e0bb0e0d"></iframe>
 
