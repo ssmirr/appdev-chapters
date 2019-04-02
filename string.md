@@ -41,8 +41,6 @@ whitespace
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055716/b14358704094311fe491d83c5834474e"></iframe>
 ### `gsub(/[^a-z0-9\s]/i, "").strip`
 
-### `capitalize`
-
 ### `titlecase`
 
 ### `split`
