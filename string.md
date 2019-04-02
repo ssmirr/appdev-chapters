@@ -22,18 +22,50 @@ This will, however, just give us back an empty string `""`. We would then have t
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056236/3c6d24e0123cbf5688e28063b6c552c5"></iframe>
 
-Okay, now that we've gotten that over with, let's never do it again; from now on, we'll use the syntactic sugar of creating _string literals_ in place within double-quotes.
+Okay, now that we've gotten that over with, let's never do it again; from now on, we'll use the **syntactic sugar** (exceptions to the standard grammar rules of `object.method(arguments)`) of creating _string literals_ in place within double-quotes — `"thank goodness!"`.
 
 ## Methods
 
-Next, let's familiarize ourselves with some of `String`'s methods. For
+Next, let's familiarize ourselves with some of `String`'s methods. For each method below, we've provided some REPLs; some of them are just there for you to click "run ▶" and see how the methods work, but in other ones there are tests that you have to write some code and use the methods in order to make pass.
 
+**Either way, make sure you click "Submit" in the top-right corner of every REPL before you move on.**
 
-### `+`
-`String`s can be added together
+### concat, a.k.a. +
+
+We've already met the `.concat` method. `.concat` can accept an integer as an argument, which it interprets as an ASCII code, translates into a single character, and adds to the original string:
+
+```ruby
+"hi".concat(33) # => "hi!"
+```
+
+`.concat` can also accept a string literal as an argument, in which case it just adds the whole thing to the end of the original string.
+
+```ruby
+"hi".concat(" there") # => "hi there"
+```
+
+There's also a shorthand for `.concat`, `.+`. It looks a little funny, but it's nothing special, really; just a method with a very short (one letter long) name:
+
+```ruby
+"hi".+(" there") # => "hi there"
+```
+
+But here's where it gets interesting; Ruby has another bit of nice syntactic sugar for us. If a class has a method named `+`, then you are allowed to drop the `.` and just say:
+
+```ruby
+"hi" +(" there") # => "hi there"
+```
+
+and, as we learned earlier when we were [introducing](https://chapters.firstdraft.com/chapters/755#make-the-invisible-visible){:target="_blank"} the `p` method, Ruby also allows you to omit the parentheses around arguments if you want to; so this can be further shortened to:
+
+```ruby
+"hi" + " there" # => "hi there"
+```
+
+Now this is really starting to look familiar! It's a lot like the calculator language, actually. Developer happiness, indeed.
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054739/1cc4addd0db0fc551a3150b705aec540"></iframe>
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054821/8ae9caede166ee39391c41fd99c4695c"></iframe>
 
 ### `*`
 `String`s can be multiplied, but the order matters
