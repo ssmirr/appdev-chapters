@@ -70,8 +70,6 @@ This is a shorthand syntax for `at()`.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056050/12ad63f6ff8f0591d49eb11bcf3d73fb"></iframe>
 
-### `count`
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055402/5e1552549fe9e9f23f0dddab47c099ac"></iframe>
 
 ## To Learn More
 
