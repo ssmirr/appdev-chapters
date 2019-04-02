@@ -44,19 +44,19 @@ We've already met the `.concat` method. `.concat` can accept an integer as an ar
 "hi".concat(" there") # => "hi there"
 ```
 
-There's also a shorthand for `.concat`, `.+`. It looks a little funny, but it's nothing special, really; just a method with a very short (one letter long) name:
+There's also a shorthand for `.concat`: `.+`. It looks a little funny, but it's nothing special, really; just a method with a very short (one letter long) name:
 
 ```ruby
 "hi".+(" there") # => "hi there"
 ```
 
-But here's where it gets interesting; Ruby has another bit of nice syntactic sugar for us. If a class has a method named `+`, then you are allowed to drop the `.` and just say:
+But here's where it gets interesting; Ruby has another bit of nice syntactic sugar for us. If a class has a method named `+`, then you are allowed to drop the `.` before the method name when you call it, and just say:
 
 ```ruby
 "hi" +(" there") # => "hi there"
 ```
 
-and, as we learned earlier when we were [introducing](https://chapters.firstdraft.com/chapters/755#make-the-invisible-visible){:target="_blank"} the `p` method, Ruby also allows you to omit the parentheses around arguments if you want to; so this can be further shortened to:
+Crazy! And, as we learned earlier when we were [introducing](https://chapters.firstdraft.com/chapters/755#make-the-invisible-visible){:target="_blank"} the `p` method, Ruby also allows you to omit the parentheses around arguments if you want to; so this can be further shortened to:
 
 ```ruby
 "hi" + " there" # => "hi there"
@@ -67,8 +67,10 @@ Now this is really starting to look familiar! It's a lot like the calculator lan
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054739/1cc4addd0db0fc551a3150b705aec540"></iframe>
 
 
-### `*`
-`String`s can be multiplied, but the order matters
+### *
+
+`String`s can be multiplied by numbers, but the order matters:
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055223/0d5863acb6b355c53573fb78e13c0107"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055761/b8091d3eabe958cc55c0dd0d0845ec75"></iframe>
