@@ -1,7 +1,34 @@
-# `String`
-We've already met the `String` class a few times, but here are some handy
-methods to try:
+# String
+
+Let's start by getting a more formal introduction to our friend, `String`.
+
+First of all, notice that I when I refer to Ruby classes, I capitalize the first letter. The _only_ time we use capital letters when we're programming is when we refer to Ruby classes. All other times — variable names, file names, etc — we're going to use lowercase letters only (other than when we're writing some copy inside a string, of course).
+
+## Creating strings
+
+We've actually been taking a shortcut this whole time when we've been saying something like
+
+```ruby
+s = "Hello, world!"
+```
+
+In Ruby, the formal way to create a new object is to use the `.new` method on the parent class:
+
+```ruby
+s = String.new
+```
+
+This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts an integer [ASCII](http://www.asciitable.com/){:target="_blank"} code as an argument, and will translate that into letters.
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056236/3c6d24e0123cbf5688e28063b6c552c5"></iframe>
+
+Okay, now that we've gotten that over with, let's never do it again; from now on, we'll use the syntactic sugar of creating _string literals_ in place within double-quotes.
+
 ## Methods
+
+Next, let's familiarize ourselves with some of `String`'s methods. For
+
+
 ### `+`
 `String`s can be added together
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054739/1cc4addd0db0fc551a3150b705aec540"></iframe>
