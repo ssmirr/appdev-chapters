@@ -73,7 +73,21 @@ Now this is really starting to look familiar! It's a lot like the calculator lan
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055223/0d5863acb6b355c53573fb78e13c0107"></iframe>
 
+See what happens when you try:
+
+```ruby
+3 * "Hello"
+```
+
+RTEM!
+
+
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/upcase?lite=true"></iframe>
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055761/b8091d3eabe958cc55c0dd0d0845ec75"></iframe>
+
+
 ### `upcase`
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055582/03f0b9912e42550cc2f5871b06e7a4c7"></iframe>
 
