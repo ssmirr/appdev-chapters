@@ -20,37 +20,34 @@ a = [8, 3, 1, 19, 23, 3]
 
 ### `count`
 Counts all elements in the list and can count the occurrences of an argument.
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055402/5e1552549fe9e9f23f0dddab47c099ac"></iframe>
 ### `reverse`
-
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055408/abcf14392a218e7ffb87bccdb83752b2"></iframe>
 ### `sort`
-
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055728/b398992e3f51660438e503f22d985cd1"></iframe>
 ### `shuffle`
-
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055405/295d1cd4b80df9827aad2cef7ac007a5"></iframe>
 ### `sample`
-
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055406/7a15d3da296bedb370187b70d80e42bc"></iframe>
 ### `min`
-
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055731/69cd6c4071c6dc599274cdc5d1863439"></iframe>
 ### `max`
-
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055734/f9ea7e01a947d243dfb385bd90148a55"></iframe>
 ### `sum`
-
-### `first`
-
-### `last`
-
-### `second`
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055735/3fe14df42cfb520b9934263b223a3e8d"></iframe>
 
 ### `at`
 Accesses an element in the array at the position given as an argument.
 Positioning in an array starts at 0. Given an array of `[21, 7, 99, 34, 13]`,
 `21` is in position 0, `7` is in position 1, `99` is in position 2, and so on...
-
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055738/b7780eb0fe565890a511c584589ebc5e"></iframe>
 ### `[]`
 This is a shorthand syntax for `at()`.
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055741/ec9e6ebd2e001e9f69d121db230df8c7"></iframe>
 ### `push`
-
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055415/d3fd3e80f9cb08788c2a7abaedba3bdf"></iframe>
 ### `count`
-
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055402/5e1552549fe9e9f23f0dddab47c099ac"></iframe>
 ## To Learn More
 
 That's a fun selection of some common methods, but obviously there are a lot
