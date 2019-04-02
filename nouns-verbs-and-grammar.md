@@ -30,7 +30,7 @@ A basic calculator's entire vocabulary consists of the following:
 
 And there are only a few syntax rules:
 
-- **Primary syntax**: A number, then an operator, then a number, then the <kbd>=</kbd>.
+- **Primary syntax**: A number, then an operator, then another number, then the <kbd>=</kbd>.
 - Numbers can contain a single decimal point.
 - Numbers can be modified by the plus/minus sign.
 - Numbers can be modified by the percentage sign.
@@ -78,7 +78,10 @@ Here's a real example:
 
 Here, you try it in the interactive Ruby sandbox[^replit] below:
 
-[^replit]: The interactive Ruby playgrounds that are embedded in these readings are hosted on a service called repl.it. If you see a message below asking you to sign up or sign in, then click the <i class="fab fa-github fa-fw"></i> icon to sign in using your GitHub account. After signing in for the first time, you might have to refresh this page to get the sandbox to load.
+[^replit]:
+    The interactive Ruby playgrounds that are embedded in these readings are hosted on a service called repl.it. If you see a message below asking you to sign up or sign in, then click the <i class="fab fa-github fa-fw"></i> icon to sign in using your GitHub account.
+
+    If you see the message "repl.it refused to connect" after signing in for the first time, you might have to refresh this page to get the sandbox to load.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3043043/c68c4738e364e9b4dbb0b7cf4c224003"></iframe>
 
