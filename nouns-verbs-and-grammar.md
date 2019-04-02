@@ -143,7 +143,7 @@ Alright, so the **primary syntax** in Ruby is straightforward — `object.method
 
 In order to do its job, the `gsub` method needs to know what substring to get rid of and what to replace it with. So we give it inputs, or **arguments**, which must come in parentheses _immediately_ following the method. If the method takes multiple arguments, as `gsub` does, then they are separated by commas.
 
-In reality, `gsub` is more often used to do things like removing illegal characters from usernames before saving:
+In reality, `gsub` is more often used to do things like removing illegal characters from usernames before saving, e.g.:
 
 ```ruby
 "Raghu@Bet@ina".gsub("@", "")

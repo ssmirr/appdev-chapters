@@ -44,7 +44,7 @@ On the other hand, for agile development of database-backed applications, Ruby h
 
     [https://devbrett.com/2019/03/why-i-believe-rails-is-still-relevant-in-2019.html](https://devbrett.com/2019/03/why-i-believe-rails-is-still-relevant-in-2019.html){:target="_blank"}
 
-The philosophy of Rails is "convention over configuration" — it makes a lot of decisions on your behalf, and if you go with the flow, then things "just work". (If you want to fiddle with settings, then of course you can, to your heart's content; but you don't _have to_ spend hours or days doing so before anything will even show up, like you do in most other frameworks.) You can focus on building the unique features of _your_ application, not plumbing.
+The philosophy of Rails is "convention over configuration" — it makes a lot of decisions on your behalf, and if you go with the flow, then things "just work". (If you want to fiddle with settings, then of course you can, to your heart's content; but you don't _have to_ spend hours or days doing so before anything will even show up, like you do in most other frameworks.) You can focus on building the unique features of _your_ application, not on plumbing that's common to all applications.
 
 There are a lot of other powerful, easy-to-use Ruby libraries that have philosophies similar to Rails. Ruby seems to have gathered a community of developers around it who are more about creating value for our users, and less about [bike shedding](https://en.wiktionary.org/wiki/bikeshedding){:target="_blank"} over technical details[^choose_boring].
 
@@ -98,7 +98,7 @@ Whenever you've submitted a solution, you'll be able to click "See Model Solutio
 The challenge above could be solved with the following:
 
 ```ruby
-puts("HELLO WORLD!")
+p("HELLO WORLD!")
 ```
 
 I wanted to point out a couple of things the code above.
@@ -106,21 +106,21 @@ I wanted to point out a couple of things the code above.
 First, you may have noticed that we aren't using the primary syntax of `noun.verb`; it's just `verb` all by itself. Without going into too much detail, the reason for this is known as "syntactic sugar" — Ruby includes some niceties that allow us to type less. In reality, under the hood, it is always `noun.verb` going on[^self_puts].
 
 [^self_puts]:
-    Okay fine, if you _must_ know the fully written out form of it, it's `self.send(:puts, "HELLO WORLD!")`. Happy now? You can try it out in a REPL; and we'll leave at that, for now.
+    Okay fine, if you _must_ know the fully written out form of it, it's `self.send(:p, "HELLO WORLD!")`. Happy now? You can try it out in a REPL; and we'll leave at that, for now.
 
 Second, when we discussed [Arguments](https://chapters.firstdraft.com/chapters/754#arguments-are-inputs){:target="_blank"}, we said that they always come within parentheses. That's not quite true. Ruby allows you to, optionally, leave out the parentheses; so the following will also work:
 
 ```ruby
-puts "HELLO WORLD!"
+p "HELLO WORLD!"
 ```
 
-And when you are roaming the internet, you will see this style often, especially with `puts`.
+And when you are roaming the internet, you will see this style often, especially with `p`.
 
-My advice to you is: you can drop the parentheses when you are `puts`ing, but other than that, always include them. They help to keep things clear, and they prevent order-of-operations errors.
+My advice to you is: you can drop the parentheses when you are `p`rinting, but other than that, always include them. They help to keep things clear, and they prevent order-of-operations errors.
 
-But yes, I like to `puts` _a lot_ while I am programming. One of my fundamental programming principles is **make the invisible visible** — don't try to _guess_ what's going on, find a way to _see_ what's going on. `puts` is an excellent tool for that, so I `puts` like crazy, almost every line sometimes while I am debugging.
+But yes, I like to use `p` _a lot_ while I am programming. One of my fundamental programming principles is **make the invisible visible** — don't try to _guess_ what's going on, find a way to _see_ what's going on. `p` is an excellent tool for that, so I use `p` like crazy, before almost every line sometimes while I am debugging.
 
-It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `puts ` at the beginning of a line. So in this one case, I give you permission to omit the parentheses around arguments to a method. Enjoy!
+It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `p` at the beginning of a line. So in this one case, I give you permission to omit the parentheses around arguments to a method. Enjoy!
 
 ### Roadmap
 
