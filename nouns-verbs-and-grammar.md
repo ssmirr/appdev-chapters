@@ -113,7 +113,7 @@ Aha! If you were typing out every expression and running it, then
 
 should have produced your very first error message! 🎉
 
-(If you weren't typing out every expression, then you're doing this wrong. If you're just reading, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. Practice is crucial. You should not only be typing the things I ask you to type, but also be trying ourt random other things that occur to you.)
+(If you weren't typing out every expression, then you're doing this wrong. If you're just reading, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. Practice is crucial. You should not only be typing the things I ask you to type, but also be trying out random other things that occur to you.)
 
 Error messages can look scary, but one of **the most important skills you have to develop** when learning to program is to **not panic** when you see them. Slow down, **read the error message**, and see if you can make any sense of it at all. Over time, you will find that they are _very_ helpful (and you will miss them if something goes wrong silently).
 
