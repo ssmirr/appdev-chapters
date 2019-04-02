@@ -89,7 +89,9 @@ If all went well, you should have seen `=> "HELLO WORLD!"` in the black box to t
 
 [^tradition]: It is [a time-honored tradition](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){:target="_blank"} that the very first thing a programmer does in a new language is print out "Hello, World!" Congratulations — you're now one of us 🙌🏾
 
-The primary way to write an expression in Ruby is: `object.method`. We ask the _thing_, or noun, on the left side of the dot to perform the _action_, or the verb, on the right side of the dot. The computer then evaluates that expression and returns a new piece of data in its place (just like with the calculator).
+The primary way to write an expression in Ruby is: `object.method`. We ask the _thing_, or noun, on the left side of the dot to perform the _action_, or the verb, on the right side of the dot.
+
+The computer then evaluates that expression and **returns** a new piece of data in its place (just like with the calculator).
 
 In this case, we asked `"hello world!"`, which is a string (Ruby's name for a piece of text[^string_name]), to `upcase` itself, which it (very) happily does, and we're left with `"HELLO WORLD!"` at the end of the day.
 
@@ -111,7 +113,7 @@ Aha! If you were typing out every expression and running it, then
 
 should have produced your very first error message! 🎉
 
-(If you weren't typing out every expression, then you're doing this wrong. If you're just reading, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. Practice is crucial.)
+(If you weren't typing out every expression, then you're doing this wrong. If you're just reading, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. Practice is crucial. You should not only be typing the things I ask you to type, but also be trying random other things that occur to you.)
 
 Error messages can look scary, but one of **the most important skills you have to develop** when learning to program is to **not panic** when you see them. Slow down, **read the error message**, and see if you can make any sense of it at all. Over time, you will find that they are _very_ helpful (and you will miss them if something goes wrong silently).
 
