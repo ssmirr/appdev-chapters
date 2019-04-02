@@ -26,7 +26,7 @@ Okay, now that we've gotten that over with, let's never do it again; from now on
 
 ## Methods
 
-Next, let's familiarize ourselves with some of `String`'s methods. For each method below, we've provided some REPLs; some of them are just there for you to click "run ▶" and see how the methods work, but in other ones there are tests that you have to write some code and use the methods in order to make pass.
+Next, let's familiarize ourselves with some of `String`'s methods. For each method below, we've provided some REPLs; some of them are just there for you to click "run ▶" and see how the methods work, but in other ones you need to use the methods you're reading about to make some tests pass.
 
 **Either way, make sure you click "Submit" in the top-right corner of every REPL before you move on.**
 
