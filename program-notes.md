@@ -79,7 +79,7 @@ Later, when we're ready to write full-fledged Rails applications, we're going to
 
 For now though, I want to talk a little bit more about how the REPLs work. So far, we've been clicking "run ▶" and seeing the return value of the expression of the _last line_ of our programs in the black window (known as the "terminal") at the bottom left; but what if we wanted to see more than just the return value of the last line?
 
-It turns out there's a special method in Ruby called `puts` (short for "put string") that will print out values to the terminal. Try running the following:
+It turns out there's a special method in Ruby called `p` (short for "put string") that will print out values to the terminal. Try running the following:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047594/4899c0331ceb9b7b0cd60032e0bb0e0d"></iframe>
 
@@ -103,9 +103,9 @@ p("HELLO WORLD!")
 
 I wanted to point out a couple of things the code above.
 
-First, you may have noticed that we aren't using the primary syntax of `noun.verb`; it's just `verb` all by itself. Without going into too much detail, the reason for this is known as "syntactic sugar" — Ruby includes some niceties that allow us to type less. In reality, under the hood, it is always `noun.verb` going on[^self_puts].
+First, you may have noticed that we aren't using the primary syntax of `noun.verb`; it's just `verb` all by itself. Without going into too much detail, the reason for this is known as "syntactic sugar" — Ruby includes some niceties that allow us to type less. In reality, under the hood, it is always `noun.verb` going on[^p_implicit_receiver].
 
-[^self_puts]:
+[^p_implicit_receiver]:
     Okay fine, if you _must_ know the fully written out form of it, it's `self.send(:p, "HELLO WORLD!")`. Happy now? You can try it out in a REPL; and we'll leave at that, for now.
 
 Second, when we discussed [Arguments](https://chapters.firstdraft.com/chapters/754#arguments-are-inputs){:target="_blank"}, we said that they always come within parentheses. That's not quite true. Ruby allows you to, optionally, leave out the parentheses; so the following will also work:
