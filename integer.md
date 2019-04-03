@@ -32,7 +32,7 @@ Try each of the following:
 
 Whoa! Did you get what you expected for that last one?
 
-It turns out that the `Integer` version of the `/` method does _whole number_ division (like in elementary school) and will only return the whole part. If you want the remainder, you have to use the `%` (called the _modulus_) operator. Try this:
+It turns out that the `Integer` version of division will only return another `Integer` division, and so `\` only returns the whole part (like in elementary school). If you want the remainder, you have to use the `%` (called the _modulus_) operator. Try this:
 
 ```ruby
 12 % 5
@@ -79,6 +79,10 @@ Uh oh! [RTEM!](https://chapters.firstdraft.com/chapters/754#seriously-please-rea
 It turns out that `String`'s `+` method can only add two strings together, not a string and an object of some other class. So, a lot of times we'll need to convert an `Integer` into a `String` prior to output. Fortunately `Integer` has a handy method, `to_s` (or "to string"), that does just that:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/tos?lite=true"></iframe>
+
+### to_f
+
+Similarly, there's a `to_f` (or "to float") method to convert an `Integer` to a `Float`, which is often handy for doing math, as we'll see next.
 
 ## Conclusion
 

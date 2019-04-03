@@ -1,23 +1,55 @@
 # Float
 
-Ruby calls decimal numbers `Float`s.
+Ruby calls decimal numbers `Float`s. To create a `Float` rather than an `Integer`, just make sure to use a decimal point:
 
-I won't say too much more about Floats for now, since they are mostly the same as `Integer`s. Use them as needed, but I try to default to integers.
+```ruby
+5.class # => Integer
+5.0.class # => Float
+```
 
 ## Methods
 
-### `round`
+### + - * / ** (math)
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055284/0e2ff70c9c6e5b17143ab956aa382510"></iframe>
+The math methods work mostly like you'd expect, and similarly to [the ones for integers](https://chapters.firstdraft.com/chapters/760#-------math){:target="_blank"}.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056033/7aa7099b585e775a081f42be4a82c72d"></iframe>
+The main difference to keep in mind is with `/`. Division with floats works the way that we're used to — it returns fractional results, as a `Float`:
 
-### `/`
+```ruby
+12.0 / 5.0 # => 2.4
+```
+
+Try the following and see what you get:
+
+```ruby
+12 / 5
+12.0 / 5
+12 / 5.0
+```
+
+<iframe frameborder="0" width="100%" height="600px" src="
+https://repl.it/@raghubetina/Float-math?lite=true"></iframe>
+
+What did you discover? That's why `Integer`'s `to_f` method can come in handy.
+
+One other thing to keep in mind: you can use `**` in conjunction with fractions to e.g. take square roots:
+
+```ruby
+9**(0.5) # => 3.0
+```
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055287/9bfd51695d1309c88b7e802395190fed"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055426/d721e1044eb3966a6258d16a9e267b93"></iframe>
 
-### `rand`
+### round
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/round?lite=true"></iframe>
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056033/7aa7099b585e775a081f42be4a82c72d"></iframe>
+
+
+
+### rand
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055723/2eb9d4915e59ca47aa80c2391189915a"></iframe>
