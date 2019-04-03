@@ -83,7 +83,9 @@ It turns out there's a special method in Ruby called `p` (short for "print inspe
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/first-real-output?lite=true"></iframe>
 
-I'm also going to start including challenges in the REPLs that you have to pass. Try this one to see how it works:
+From now on, we'll use `p` to display values that we want to see, not just rely on the return value of last line being display.
+
+I'm also going to start including challenges in some of the REPLs that you have to pass. Try this one to see how it works:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047597/c3646e3314f9eaa6aedda51dfdc8d59b"></iframe>
 
