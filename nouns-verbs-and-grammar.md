@@ -76,13 +76,13 @@ Here's a real example:
 "hello world!".upcase
 ```
 
-Here, you try it in the interactive Ruby sandbox[^replit] below. In the text editor to the left, type
+Here, you try it in the interactive Ruby sandbox below. In the text editor to the left, type
 
 ```ruby
 "hello world!".upcase
 ```
 
-exactly as written. Then click the button at the top of the editor labeled "run ▶".
+exactly as written. Then click the button at the top of the editor labeled "run ▶".[^replit]
 
 You'll see the output of the program you've written in the black window to the bottom left.
 
