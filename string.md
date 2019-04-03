@@ -136,12 +136,9 @@ The `chomp` method is mostly used to remove the `"\n"` (newline) character from 
 
 The gsub method returns a copy of the `String` it was called on with all occurrences of the first argument substituted for the second argument.
 
-An argument is an input to a method. In the file on the left, "ll" and "ww" are arguments that are passed to the method that affect how the method works.
-
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055040/35043a91cfe78e61421921e1f0a437ce"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055200/37255ba7d887c35597b69abd8c7cdc9d"></iframe>
-
 
 ```ruby
 my_string.gsub(/\s+/, "")
