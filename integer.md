@@ -15,21 +15,21 @@ We'll learn about integers first.
 
 Let's experiment with some common methods for `Integer`s:
 
-### `odd?`
+### odd?
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/odd?lite=true"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056037/e07ade44985a4e87ac21180b5edf2db2"></iframe>
 
-### `rand`
+### rand
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/rand?lite=true"></iframe>
 
-### `to_s`
+### to_s
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055720/b67932171a15ce3ded5b4872d3771b7f"></iframe>
 
-### `+` `-` `*` `/` `**`
+### + - * / ** (math)
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/add-subtract-multiply-divide-exponent?lite=true"></iframe>
 
