@@ -124,7 +124,12 @@ The length method  returns the number of characters (as an `Integer`) that a `St
 
 The `chomp` method is mostly used to remove the `"\n"` (newline) character from the end of a string, if it is present. This seemingly strange task is very common due to the way that getting user input works; usually someone has to type something at a prompt and then they press <kbd>return</kbd> to submit it, and that adds a newline to the end of the string that they typed. Typically, we want to `chomp` that off of their input before we do anything with it.
 
-`chomp` can also remove other specified character(s) from the end of the string, if they are provided as an argument.
+`chomp` can also remove other specified character(s) from the end of the string, if they are provided as an argument:
+
+```ruby
+"1 apple".chomp("s") # => "1 apple"
+"1 apples".chomp("s") # => "1 apple"
+```
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/chomp?lite=true"></iframe>
 
@@ -134,21 +139,25 @@ The `chomp` method is mostly used to remove the `"\n"` (newline) character from 
 
 The gsub method returns a copy of the `String` it was called on with all occurrences of the first argument substituted for the second argument.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055040/35043a91cfe78e61421921e1f0a437ce"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/gsub?lite=true"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055200/37255ba7d887c35597b69abd8c7cdc9d"></iframe>
+
+#### Advanced gsub techniques
+
+You can provide some advanced pattern-matchers known as _regular expressions_ as the first argument to `gsub`. For example,
 
 ```ruby
 my_string.gsub(/\s+/, "")
 ```
 
-This is an advanced technique that removes all whitespace.
+will match and remove all whitespace from `my_string.`
 
 ```ruby
-gsub(/[^a-z0-9\s]/i, "")
+my_string.gsub(/[^a-z0-9\s]/i, "")
 ```
 
-This is an advanced technique that removes everything except alphanumerics and whitespace.
+will match and remove everything except alphanumerics and whitespace.
 
 ### to_i
 
@@ -160,7 +169,7 @@ Sometimes you have a string that contains a number, usually input from a user, a
 
 `strip` removes all leading and trailing whitespace.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055572/55951eda552514e8e7ec0b70dcbaf8c9"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/strip?lite=true"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056024/e3e79ed5afa47389e0299abf09e3369f"></iframe>
 
@@ -168,13 +177,13 @@ Sometimes you have a string that contains a number, usually input from a user, a
 
 capitalize returns a `String` with the first character converted to uppercase and the remainder to lowercase.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055716/b14358704094311fe491d83c5834474e"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/capitalize?lite=true"></iframe>
 
 ### split
 
 This transforms the `String` into an `Array`, which we'll read more about later. By default, the string is split upon whitespace, but you can also provide an argument (e.g. `","` to split on commas).
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056028/5081a3ff7359af302bb4574448801dda"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/split?lite=true"></iframe>
 
 ## More on adding strings together
 
