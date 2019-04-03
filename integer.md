@@ -56,8 +56,18 @@ The `odd?` and `even?` method return `true` or `false` based on whether the numb
 
 ### rand
 
+There's another special method like `p` that we are allowed to call "in space", i.e. not on the right side of a dot, called `rand`. It returns a random number, and is very useful for all kinds of stuff, everything from games to statistical analysis:
+
+```ruby
+rand(6) # => returns a random integer between 0 and 5
+```
+
+Somewhat oddly, `rand(n)` will return a random integer from `0` to `n - 1` rather than `1` to `n`. The reasons for that will become clear when we get to the chapter on `Array`s.
+
+Give it a try:
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/rand?lite=true"></iframe>
 
 ### to_s
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055720/b67932171a15ce3ded5b4872d3771b7f"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/tos?lite=true"></iframe>
