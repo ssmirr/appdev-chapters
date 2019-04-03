@@ -18,17 +18,19 @@ In Ruby, the formal way to create a new object is to use the `.new` method on th
 s = String.new
 ```
 
-This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts an integer [ASCII](http://www.asciitable.com/){:target="_blank"} code as an argument, and will translate that into letters.
+This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts an integer [ASCII](http://www.asciitable.com/){:target="_blank"} code as an argument, translates it into a single character, and adds it onto the end of the original string:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056236/3c6d24e0123cbf5688e28063b6c552c5"></iframe>
 
-Okay, now that we've gotten that over with, let's never do it again; from now on, we'll use the **syntactic sugar** (exceptions to the standard grammar rules of `object.method(arguments)`) of creating _string literals_ in place within double-quotes — `"thank goodness!"`.
+What a pain! Now that we're clear that under hood, even creating a string is `noun.verb`, let's never do it again; from now on, we'll use the shortcut of creating _string literals_ in place within quotes. `"Thank goodness!"`
+
+These kinds of exceptions to the regular grammar in order to make life easier are known as **syntactic sugar**.
 
 ## Methods
 
 Next, let's familiarize ourselves with some of `String`'s methods. For each method below, we've provided some REPLs; some of them are just there for you to click "run ▶" and see how the methods work, but in other ones you need to use the methods you're reading about to make some tests pass.
 
-**Either way, make sure you click "Submit" in the top-right corner of every REPL before you move on.**
+**Make sure you click "Submit" for any REPL that has tests in order to get credit for your work!**
 
 ### concat, a.k.a. +
 
