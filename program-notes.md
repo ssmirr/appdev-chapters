@@ -148,4 +148,4 @@ Before we continue learning Ruby, I just want to give you sneak peek of where we
 
 ## Onwards
 
-Okay! With that housekeeping out of the way, let's move on and learn more about the Fundamental Classes of Ruby.
+Okay! With that housekeeping out of the way, let's move on and learn more about the Fundamental Classes of Ruby, starting with [our friend `String`](https://chapters.firstdraft.com/chapters/757).
