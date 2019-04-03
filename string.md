@@ -74,7 +74,7 @@ Now this is really starting to look familiar! It's a lot like the calculator lan
 
 `String`s can be multiplied by numbers, but the order matters:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055223/0d5863acb6b355c53573fb78e13c0107"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/multiplication?lite=true"></iframe>
 
 See what happens when you try:
 
@@ -84,7 +84,7 @@ See what happens when you try:
 
 Read The Error Message ([RTEM](https://chapters.firstdraft.com/chapters/754#seriously-please-read-the-error-message){:target="_blank"})!
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/upcase?lite=true"></iframe>
+**Here's a submittable REPL!** You need to write some code to make the tests pass and then click Submit. Notice how it looks different — I won't keep reminding you which ones are which!
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055761/b8091d3eabe958cc55c0dd0d0845ec75"></iframe>
 
