@@ -293,7 +293,7 @@ s = 2.odd?
 s
 ```
 
-You could even replace the value in the same box with an updated version of the old value, because the expression on the right side of the assignment operator is evaluated before the assignment takes place. Type this:
+You could even replace the value in the same box with an updated version of the old value, because _the expression on the right side of the assignment operator is evaluated before the assignment takes place_. Type this:
 
 ```ruby
 s = "hi"

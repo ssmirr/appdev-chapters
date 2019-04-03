@@ -81,7 +81,7 @@ For now though, I want to talk a little bit more about how the REPLs work. So fa
 
 It turns out there's a special method in Ruby called `p` (short for "print inspect") that will display values in the terminal. Try running the following:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047594/4899c0331ceb9b7b0cd60032e0bb0e0d"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/first-real-output?lite=true"></iframe>
 
 I'm also going to start including challenges in the REPLs that you have to pass. Try this one to see how it works:
 
