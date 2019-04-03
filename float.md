@@ -30,9 +30,11 @@ Try the following and see what you get:
 <iframe frameborder="0" width="100%" height="600px" src="
 https://repl.it/@raghubetina/Float-math?lite=true"></iframe>
 
-What did you discover? That's why `Integer`'s `to_f` method can come in handy.
+What did you discover?
 
-One other thing to keep in mind: you can use `**` in conjunction with fractions to e.g. take square roots:
+This is why `Integer`'s `to_f` method can come in handy; if either side is a float, float division will be performed.
+
+One other thing to keep in mind: you can use `**` in conjunction with fractions to e.g. take square roots, since 9<sup>1/2</sup> is the same as the square root of 9:
 
 ```ruby
 9**(0.5) # => 3.0
