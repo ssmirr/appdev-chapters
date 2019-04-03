@@ -70,7 +70,7 @@ Now this is really starting to look familiar! It's a lot like the calculator lan
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054739/1cc4addd0db0fc551a3150b705aec540"></iframe>
 
-### *
+### * (string multiplication)
 
 `String`s can be multiplied by numbers, but the order matters:
 
@@ -90,12 +90,19 @@ Read The Error Message ([RTEM](https://chapters.firstdraft.com/chapters/754#seri
 
 ### upcase
 
+The upcase method returns a copy of the `String` with all lowercase letters replaced with their uppercase counterparts.
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055582/03f0b9912e42550cc2f5871b06e7a4c7"></iframe>
 
 ### downcase
+
+The downcase method returns a copy of the String with all uppercase letters replaced with their lowercase counterparts.
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055585/368b0578faa55ae7f025a9808e51d885"></iframe>
 
 ### swapcase
+
+The swapcase returns a copy of the String with uppercase letters replaced with lowercase counterparts, and vice versa.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055713/54ad2cc82183a62b5d62b5c61d14dbe5"></iframe>
 
@@ -103,15 +110,21 @@ Read The Error Message ([RTEM](https://chapters.firstdraft.com/chapters/754#seri
 
 ### reverse
 
+The reverse method returns a new String with the characters from the String in reverse order.
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054840/6d6e7c37386f001d85ca9a6949c722c7"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054730/4e44347737416ad6d635474a0e3369f1"></iframe>
 
 ### length
 
+The length method  returns the number of characters (as an `Integer`) that a `String` has.
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054853/4064e68cc52741fb36ad36bcd0f97b81"></iframe>
 
 ### chomp
+
+The `chomp` method removes a specified character(s) from the end of a String and returns a copy of the String with the characters removed. If no characters are given, chomp will remove `\n`, which is a special hidden character that represents a newline.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055034/4d88518a794de6d0b8b0bdbd50e2012d"></iframe>
 
@@ -119,9 +132,27 @@ Read The Error Message ([RTEM](https://chapters.firstdraft.com/chapters/754#seri
 
 ### gsub
 
+The gsub method returns a copy of the String it was called on with all occurrences of the first argument substituted for the second argument.
+
+An argument is an input to a method. In the file on the left, "ll" and "ww" are arguments that are passed to the method that affect how the method works.
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055040/35043a91cfe78e61421921e1f0a437ce"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055200/37255ba7d887c35597b69abd8c7cdc9d"></iframe>
+
+
+```ruby
+my_string.gsub(/\s+/, "")
+```
+
+This is an advanced technique that removes all whitespace.
+
+```ruby
+gsub(/[^a-z0-9\s]/i, "")
+```
+
+This is an advanced technique that removes everything except alphanumerics and
+whitespace.
 
 ### to_i
 
@@ -139,34 +170,19 @@ an `Integer` object.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056024/e3e79ed5afa47389e0299abf09e3369f"></iframe>
 
-### gsub(/\s+/, "")
-
-This is an advanced technique that removes all whitespace
-
-### gsub(/[^a-z0-9\s]/i, "")
-
-This is an advanced technique that removes everything except alphanumerics and
-whitespace
-
 ### capitalize
+
+capitalize returns a String with the first character converted to uppercase and the remainder to lowercase.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055716/b14358704094311fe491d83c5834474e"></iframe>
 
-### gsub(/[^a-z0-9\s]/i, "").strip
-
 ### split
 
-This produces an Array, which you can read about [here.](array.md)
+This produces an Array, which we'll read more about later.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056028/5081a3ff7359af302bb4574448801dda"></iframe>
 
-### split.count
-
-Arrays are lists, and can be counted.
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056031/c3f32f8021d7a4eac0adaaf47baf45be"></iframe>
-
-## More
+## More on adding strings together
 
 We spend a lot of time composing strings of output for our users, so let's see a
 few more examples. Try this:
