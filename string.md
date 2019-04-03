@@ -20,7 +20,7 @@ s = `String`.new
 
 This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts an integer [ASCII](http://www.asciitable.com/){:target="_blank"} code as an argument, translates it into a single character, and adds it on to the end of the original string:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056236/3c6d24e0123cbf5688e28063b6c552c5"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/creating-objects-with-new"></iframe>
 
 What a pain! Now that we're clear that under hood, even creating a string is `noun.verb`, let's never do it again; from now on, we'll use the shortcut of creating _string literals_ in place within quotes. `"Thank goodness!"`
 
