@@ -217,3 +217,7 @@ converted to a string, and added to the string right in that spot. You can
 interpolate as many expressions as you want into a single string. Pretty neat!
 
 If you find interpolation confusing, feel free to just use concatenation.
+
+## Conclusion
+
+That's about all we'll need to know about strings to do most anything related to web applications! Next, we'll take a look at numbers.
