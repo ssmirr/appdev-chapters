@@ -1,6 +1,6 @@
 # Float
 
-Ruby calls decimal numbers `Float`s. To create a `Float` rather than an `Integer`, just make sure to use a decimal point:
+Ruby calls decimal numbers `Float`s. To create a `Float` rather than an `Integer`, just make sure to include a decimal point:
 
 ```ruby
 5.class # => Integer

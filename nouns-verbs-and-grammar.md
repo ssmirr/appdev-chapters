@@ -82,14 +82,9 @@ Here, you try it in the interactive Ruby sandbox below. In the text editor to th
 "hello world!".upcase
 ```
 
-exactly as written. Then click the button at the top of the editor labeled "run ▶".[^replit]
+exactly as written. Then click the button at the top of the editor labeled "run ▶".
 
 You'll see the output of the program you've written in the black window to the bottom left.
-
-[^replit]:
-    The interactive Ruby playgrounds that are embedded in these readings are hosted on a service called repl.it. If you see a message below asking you to sign up or sign in, then click the <i class="fab fa-github fa-fw"></i> icon to sign in using your GitHub account.
-
-    If you see the message "repl.it refused to connect" after signing in, you might have to refresh this page to get the sandbox to load.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hello-world?lite=true"></iframe>
 

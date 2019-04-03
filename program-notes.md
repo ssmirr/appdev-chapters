@@ -85,15 +85,20 @@ It turns out there's a special method in Ruby called `p` (short for "print inspe
 
 From now on, we'll use `p` to display values that we want to see, not just rely on the return value of last line being display.
 
-I'm also going to start including challenges in some of the REPLs that you have to pass. Try this one to see how it works:
+I'm also going to start including challenges in some of the REPLs that you have to pass. You will have to submit your solutions to these challenges, so you'll have to sign in now using a repl.it account[^replit]::
+
+[^replit]:
+    The interactive Ruby playgrounds that are embedded in these readings are hosted on a service called repl.it. If you see a message below asking you to sign up or sign in, then click the <i class="fab fa-github fa-fw"></i> icon to sign in using your GitHub account.
+
+    If you see the message "repl.it refused to connect" after signing in, you might have to refresh this page to get the sandbox to load.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047597/c3646e3314f9eaa6aedda51dfdc8d59b"></iframe>
 
-If you got the tests to pass and submitted your solution successfully, you should now see something like this (the below is a screenshot, not a real REPL):
+Once you completed the challenge, got the tests to pass, and submitted your solution successfully, you should see something like this (the below is a screenshot, not a real REPL):
 
 ![](/assets/solution-submitted.png)
 
-Whenever you've submitted a solution, you'll be able to click "See Model Solution" to see one that I've written. Remember that there's no single "correct" solution — if yours worked, then it's just as good as mine!
+After you've submitted a solution, you'll be able to click "See Model Solution" to see one that I've written. Remember that there's no single "correct" solution — if yours worked, then it's just as good as mine!
 
 ### Make the invisible visible
 
