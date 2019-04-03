@@ -32,7 +32,7 @@ Try each of the following:
 
 Whoa! Did you get what you expected for that last one?
 
-It turns out that in Ruby, the `/` operator does _whole number_ division, and will only return the whole part. If you want the remainder, you have to use the `%` (called the _modulus_) operator. Try this:
+It turns out that the `Integer` version of the `/` method does _whole number_ division (like in elementary school) and will only return the whole part. If you want the remainder, you have to use the `%` (called the _modulus_) operator. Try this:
 
 ```ruby
 12 % 5
