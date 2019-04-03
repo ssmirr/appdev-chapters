@@ -68,7 +68,7 @@ Crazy! And, as we learned earlier when we were [introducing](https://chapters.fi
 
 Now this is really starting to look familiar! It's a lot like the calculator language, actually. [Developer happiness](https://chapters.firstdraft.com/chapters/755#developer-happiness){:target="_blank"}, indeed.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054739/1cc4addd0db0fc551a3150b705aec540"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/concatenation?lite=true"></iframe>
 
 ### * (string multiplication)
 
