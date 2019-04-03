@@ -151,8 +151,7 @@ This is an advanced technique that removes all whitespace.
 gsub(/[^a-z0-9\s]/i, "")
 ```
 
-This is an advanced technique that removes everything except alphanumerics and
-whitespace.
+This is an advanced technique that removes everything except alphanumerics and whitespace.
 
 ### to_i
 
@@ -196,8 +195,7 @@ The solution is to tell the integer to convert itself to a string first:
 message = "Your lucky number for today is " + rand(100).to_s + "."
 ```
 
-The above technique for composing strings, adding them together with `+`, is
-called **string concatenation**.
+The above technique for composing strings, adding them together with `+`, is called **string concatenation**.
 
 There's another technique for composing strings that I personally find a bit easier; it's called **string interpolation**. It goes like this:
 
