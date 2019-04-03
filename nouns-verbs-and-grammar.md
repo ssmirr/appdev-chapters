@@ -76,14 +76,22 @@ Here's a real example:
 "hello world!".upcase
 ```
 
-Here, you try it in the interactive Ruby sandbox[^replit] below:
+Here, you try it in the interactive Ruby sandbox[^replit] below. In the text editor to the left, type
+
+```ruby
+"hello world!".upcase
+```
+
+exactly as written. Then click the button at the top of the editor labeled "run ▶".
+
+You'll see the output of the program you've written in the black window to the bottom left.
 
 [^replit]:
     The interactive Ruby playgrounds that are embedded in these readings are hosted on a service called repl.it. If you see a message below asking you to sign up or sign in, then click the <i class="fab fa-github fa-fw"></i> icon to sign in using your GitHub account.
 
     If you see the message "repl.it refused to connect" after signing in, you might have to refresh this page to get the sandbox to load.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3043043/c68c4738e364e9b4dbb0b7cf4c224003"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hello-world?lite=true"></iframe>
 
 If all went well, you should have seen `=> "HELLO WORLD!"` in the black box to the bottom left. Yay[^tradition]! What just happened?
 
@@ -99,9 +107,22 @@ In this case, we asked `"hello world!"`, which is a string (Ruby's name for a pi
 
 ## Every class has different methods
 
-Different **classes** can perform different **methods**. Try the following:
+Different **classes** can perform different **methods**. Here are a few expressions to try out. Type each one and then click "run ▶".
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3043048/e3a0f724d73a975907c6441b855876aa"></iframe>
+```ruby
+7.odd?
+7.even?
+"Raghu Betina".reverse
+"Your Name".swapcase
+```
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/different-classes-have-different-methods?lite=true"></iframe>
+
+What do you expect will happen if we ask 7 to swapcase itself? Try it:
+
+```ruby
+7.swapcase
+```
 
 ### Read the error message (RTEM)
 
@@ -137,11 +158,15 @@ Alright, so the **primary syntax** in Ruby is straightforward — `object.method
 "Java is a joy".gsub("Java", "Ruby")
 ```
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3044475/1042c1330f295bf2626ebc732be74e2b"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/arguments-are-inputs?lite=true"></iframe>
 
 `gsub` is short for "globally substitute", because it will replace _all_ occurrences of one _substring_ with another _substring_.
 
 In order to do its job, the `gsub` method needs to know what substring to get rid of and what to replace it with. So we give it inputs, or **arguments**, which must come in parentheses _immediately_ following the method. If the method takes multiple arguments, as `gsub` does, then they are separated by commas.
+
+Try replacing `"Java is a joy"` with any string you like, and experiment with different arguments instead of `"Java"` and `"Ruby"`. For example, maybe start with `"Fizz"` and try to transform it into `"Buzz"` using `gsub`.
+
+What is the purpose of the first argument, and what is the purpose of the second argument?
 
 In reality, `gsub` is more often used to do things like removing illegal characters from usernames before saving, e.g.:
 
@@ -175,7 +200,7 @@ Can you spot the difference? **Don't put a space between the method and the open
 
 It's a very easy mistake to make, so I just wanted to warn you early on so you that can begin developing good muscle memory. Try the bad version in your sandbox and see what the error message looks like:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3046469/7ab45ec233949ca51a2c16814df9dea9"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/bad-argument-syntax?lite=true"></iframe>
 
 ### Seriously: please read the error message
 
@@ -217,7 +242,64 @@ Programs get interesting only when we start to take the return value of one expr
 
 So: let's start to store our return values for future reference, instead of dropping them on the ground. We do this using **variables**, or as I like to think of them, _boxes_. Let's get our feet wet:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3044609/57a19463be616e484b188e67bb75a7d0"></iframe>
+Type the following and click "run":
+
+```ruby
+s = "hello world!".upcase
+```
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/variables-are-boxes?lite=true"></iframe>
+
+This creates a box, labels it s, and stores the string `"HELLO WORLD!"` in it.
+
+The single equals sign, `=`, is called the "variable assignment operator". When I read that line of code out loud, I say "the variable s is assigned the string hello world dot upcase".
+
+Now add another line,
+
+```ruby
+s = "hello world!".upcase
+s.reverse
+```
+
+and click "run" again.
+
+Great! Now we're making progress (towards what, though, ¯\_(ツ)_/¯).
+
+What would you expect to happen if you add a third line so that your program reads:
+
+```ruby
+s = "hello world!".upcase
+s.reverse
+s.gsub("L", "Z")
+```
+
+Before you click "run", take a guess in your head. Then click "run". Did it match your expectation?
+
+Most Ruby methods don't modify the object that they are called upon; they just return a modified copy. The original variable is untouched, so if we want to hold on to the new value then we better store that too. Type this:
+
+```ruby
+s = "hello world!".upcase
+t = s.reverse
+u = t.gsub("L", "Z")
+```
+
+Fortunately, we can create as many variables as we want.
+
+You could also throw away what you have in the box labeled `s` and put in something entirely different. Type this:
+
+```ruby
+s = "hi"
+s = 2.odd?
+s
+```
+
+You could even replace the value in the same box with an updated version of the old value, because the expression on the right side of the assignment operator is evaluated before the assignment takes place. Type this:
+
+```ruby
+s = "hi"
+s = s.capitalize
+s
+```
 
 ### Variable syntax
 

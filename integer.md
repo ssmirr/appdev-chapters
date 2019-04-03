@@ -1,16 +1,21 @@
 # Integer
 
-Try this:
+Ruby differentiates between whole numbers, or `Integer`s, and decimal numbers, or `Float`s.
+
+Try these both:
 
  ```ruby
 7.class
+7.0.class
 ```
 
-In fact, you can always call `.class` on *any* object, ever, at any time, to ask it what class it is.
+(In fact, you can always call `.class` on *any* object, ever, at any time, to ask it what class it is.)
+
+We'll learn about integers first.
 
 ## Methods
 
-Let's experiment with some common methods for `Integer`s
+Let's experiment with some common methods for `Integer`s:
 
 ### `odd?`
 

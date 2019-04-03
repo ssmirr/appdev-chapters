@@ -18,7 +18,7 @@ In Ruby, the formal way to create a new object is to use the `.new` method on th
 s = "String".new
 ```
 
-This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts an integer [ASCII](http://www.asciitable.com/){:target="_blank"} code as an argument, translates it into a single character, and adds it on to the end of the original string:
+This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts a number as an argument, interprets it as an  [ASCII](http://www.asciitable.com/){:target="_blank"} code, translates it into a single character, and adds it on to the end of the original string:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/creating-objects-with-new?lite=true"></iframe>
 
@@ -72,7 +72,15 @@ Now this is really starting to look familiar! It's a lot like the calculator lan
 
 ### * (string multiplication)
 
-`String`s can be multiplied by numbers, but the order matters:
+`String`s can be multiplied by numbers using the `*` method[^more_sugar], but the order matters:
+
+```ruby
+"Ya" * 5 # => "YaYaYaYaYa"
+```
+
+Sort of makes sense, if you think about multiplication as being repeated addition.
+
+[^more_sugar]: More syntactic sugar here, like with the `+` method above; you can call `"Ya" * 5` rather than `"Ya".*(5)`. You'll notice the same pattern frequently.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/multiplication?lite=true"></iframe>
 
@@ -84,7 +92,7 @@ See what happens when you try:
 
 Read The Error Message ([RTEM](https://chapters.firstdraft.com/chapters/754#seriously-please-read-the-error-message){:target="_blank"})!
 
-**Here's a submittable REPL!** You need to write some code to make the tests pass and then click Submit. Notice how it looks different — I won't keep reminding you which ones are which!
+**Here come's a submittable REPL!** You need to write some code to make the tests pass and then click Submit. Notice how it looks different — I won't keep reminding you which ones are which!
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055761/b8091d3eabe958cc55c0dd0d0845ec75"></iframe>
 
@@ -190,15 +198,17 @@ This transforms the `String` into an `Array`, which we'll read more about later.
 We spend a lot of time composing strings of output for our users, so let's see a few more examples. Try this:
 
 ```ruby
-message = "Your lucky number for today is " + rand(100) + "."
+number = 6 * 7
+message = "Your lucky number for today is " + number + "."
 ```
 
 You'll see that Ruby gets confused, because we are trying to add an integer to a string and it doesn't feel comfortable with that.
 
-The solution is to tell the integer to convert itself to a string first:
+The solution is to tell the `Integer` to convert itself to a `String` first using the method called `.to_s`, or "to string":
 
 ```ruby
-message = "Your lucky number for today is " + rand(100).to_s + "."
+number = 6 * 7
+message = "Your lucky number for today is " + number.to_s + "."
 ```
 
 The above technique for composing strings, adding them together with `+`, is called **string concatenation**.
@@ -206,7 +216,8 @@ The above technique for composing strings, adding them together with `+`, is cal
 There's another technique for composing strings that I personally find a bit easier; it's called **string interpolation**. It goes like this:
 
 ```ruby
-message = "Your lucky number for today is #{rand(100)}."
+number = 6 * 7
+message = "Your lucky number for today is #{number}."
 ```
 
 Basically, inside the string, you place `#{}` where you eventually want your value to go. Inside the curly braces, you can write any Ruby expression without worrying about whether it is a string or not. The expression will be evaluated, converted to a string, and added to the string right in that spot. You can interpolate as many expressions as you want into a single string. Pretty neat!
@@ -215,4 +226,4 @@ If you find interpolation confusing, feel free to just use concatenation.
 
 ## Conclusion
 
-That's about all we'll need to know about strings to do most anything related to web applications! Next, we'll take a look at numbers.
+That's about all we'll need to know about strings to do most anything related to web applications! Next, we'll take a look at numbers, starting with `Integer`.
