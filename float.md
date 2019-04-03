@@ -62,4 +62,4 @@ The `rand` method that we met earlier can also accept a `Float` as an argument, 
 
 ## Conclusion
 
-That's it for `Float`s! Next up, we'll look at how we can use these basic data types together with _conditionals_ to start building smart programs.
+That's it for `Float`s! Next up, we'll look at how we can use these basic data types together with _conditionals_ to start building smart programs that can make decisions based on varying input.
