@@ -92,19 +92,19 @@ Read The Error Message ([RTEM](https://chapters.firstdraft.com/chapters/754#seri
 
 The upcase method returns a copy of the `String` with all lowercase letters replaced with their uppercase counterparts.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055582/03f0b9912e42550cc2f5871b06e7a4c7"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/upcase?lite=true"></iframe>
 
 ### downcase
 
 The downcase method returns a copy of the `String` with all uppercase letters replaced with their lowercase counterparts.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055585/368b0578faa55ae7f025a9808e51d885"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/downcase?lite=true"></iframe>
 
 ### swapcase
 
 The swapcase returns a copy of the `String` with uppercase letters replaced with lowercase counterparts, and vice versa.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055713/54ad2cc82183a62b5d62b5c61d14dbe5"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/swapcase?lite=true"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054730/4e44347737416ad6d635474a0e3369f1"></iframe>
 
@@ -112,15 +112,13 @@ The swapcase returns a copy of the `String` with uppercase letters replaced with
 
 The reverse method returns a new `String` with the characters from the `String` in reverse order.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054840/6d6e7c37386f001d85ca9a6949c722c7"></iframe>
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054730/4e44347737416ad6d635474a0e3369f1"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/reverse?lite=true"></iframe>
 
 ### length
 
 The length method  returns the number of characters (as an `Integer`) that a `String` has.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054853/4064e68cc52741fb36ad36bcd0f97b81"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/length?lite=true"></iframe>
 
 ### chomp
 
@@ -128,7 +126,7 @@ The `chomp` method is mostly used to remove the `"\n"` (newline) character from 
 
 `chomp` can also remove other specified character(s) from the end of the string, if they are provided as an argument.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055034/4d88518a794de6d0b8b0bdbd50e2012d"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/chomp?lite=true"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055768/5eff4e7c735dc2a2821e719a87c82c36"></iframe>
 
