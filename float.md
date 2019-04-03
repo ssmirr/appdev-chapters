@@ -40,8 +40,6 @@ One other thing to keep in mind: you can use `**` in conjunction with fractions 
 9 ** 0.5 # => 3.0
 ```
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/float-division?lite=true"></iframe>
-
 Test your skills:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055426/d721e1044eb3966a6258d16a9e267b93"></iframe>
@@ -52,8 +50,6 @@ Test your skills:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056033/7aa7099b585e775a081f42be4a82c72d"></iframe>
 
-
-
 ### rand
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055723/2eb9d4915e59ca47aa80c2391189915a"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/float-rand?lite=true"></iframe>
