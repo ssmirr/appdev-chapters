@@ -228,4 +228,4 @@ If you find interpolation confusing, feel free to just use concatenation.
 
 ## Conclusion
 
-That's about all we'll need to know about strings to do most anything related to web applications! Next, we'll take a look at numbers, starting with `Integer`.
+That's about all we'll need to know about strings to do most anything related to web applications! Next, we'll take a look at numbers, [starting with `Integer`](https://chapters.firstdraft.com/chapters/760).
