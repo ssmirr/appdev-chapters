@@ -76,7 +76,7 @@ Here's a real example:
 "hello world!".upcase
 ```
 
-Here, you try it in the interactive Ruby sandbox below. In the text editor to the left, type
+Here, you try it in the interactive Ruby sandbox below. In the text editor at the top, type:
 
 ```ruby
 "hello world!".upcase
@@ -84,11 +84,11 @@ Here, you try it in the interactive Ruby sandbox below. In the text editor to th
 
 exactly as written. Then click the button at the top of the editor labeled "run ▶".
 
-You'll see the output of the program you've written in the black window to the bottom left.
+You'll see the output of the program you've written in the black window at the bottom.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hello-world?lite=true"></iframe>
 
-If all went well, you should have seen `=> "HELLO WORLD!"` in the black box to the bottom left. Yay[^tradition]! What just happened?
+If all went well, you should have seen `=> "HELLO WORLD!"` in the black window at the bottom (known as the "terminal"). Yay[^tradition]! What just happened?
 
 [^tradition]: It is [a time-honored tradition](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){:target="_blank"} that the very first thing a programmer does in a new language is print out "Hello, World!" Congratulations — you're now one of us 🙌🏾
 
