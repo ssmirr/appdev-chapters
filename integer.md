@@ -15,11 +15,11 @@ We'll learn about integers first.
 
 Let's experiment with some common methods for `Integer`s:
 
-### odd?
+### odd? and even?
+
+The `odd?` and `even?` method return `true` or `false` based on whether the number is, well, odd or even. Don't be thrown off by the question mark at the end of the method name — it's nothing special, just another letter. Rubyists like to end method names with a question mark when the method returns `true` or `false`.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/odd?lite=true"></iframe>
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056037/e07ade44985a4e87ac21180b5edf2db2"></iframe>
 
 ### rand
 
