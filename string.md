@@ -48,7 +48,7 @@ We've already met the `.concat` method. `.concat` can accept an integer as an ar
 
 There's also a shorthand for `.concat`: `.+`.[^concat_lie] That may look a little funny, but it's nothing special, really; it's just a method with a very short (one letter long) name:
 
-[^concat_lie]: This is not _quite_ true. The `+` method is not just an alias for `concat` — they do different things. But they're close enough, for our purposes.
+[^concat_lie]: This is not _quite_ true. The `+` method is not just an alias for `concat` — they do slightly different things. But they're close enough, for our purposes.
 
 ```ruby
 "hi".+(" there") # => "hi there"
