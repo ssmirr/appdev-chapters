@@ -86,4 +86,4 @@ Similarly, there's a `to_f` (or "to float") method to convert an `Integer` to a 
 
 ## Conclusion
 
-That's it for `Integer`. Next up, it's close cousin: `Float`.
+That's it for `Integer`. Next up, [it's close cousin: `Float`](https://chapters.firstdraft.com/chapters/759).
