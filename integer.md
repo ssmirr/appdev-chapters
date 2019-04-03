@@ -41,7 +41,7 @@ It turns out that the `Integer` version of division will only return another `In
 Another maybe unexpected thing: raising a number to a power, e.g. 3<sup>2</sup>, is not done using the `^` like in many other computing environments. Instead, use the double-star `**` operator:
 
 ```ruby
-3**2
+3 ** 2
 ```
 
 Test your skills:

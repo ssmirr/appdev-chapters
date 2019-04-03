@@ -37,7 +37,7 @@ This is why `Integer`'s `to_f` method can come in handy; if either side is a flo
 One other thing to keep in mind: you can use `**` in conjunction with fractions to e.g. take square roots, since 9<sup>1/2</sup> is the same as the square root of 9:
 
 ```ruby
-9**(0.5) # => 3.0
+9 ** 0.5 # => 3.0
 ```
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055287/9bfd51695d1309c88b7e802395190fed"></iframe>
