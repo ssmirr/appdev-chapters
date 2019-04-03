@@ -18,7 +18,7 @@ In Ruby, the formal way to create a new object is to use the `.new` method on th
 s = String.new
 ```
 
-This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts an integer [ASCII](http://www.asciitable.com/){:target="_blank"} code as an argument, translates it into a single character, and adds it onto the end of the original string:
+This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts an integer [ASCII](http://www.asciitable.com/){:target="_blank"} code as an argument, translates it into a single character, and adds it on to the end of the original string:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056236/3c6d24e0123cbf5688e28063b6c552c5"></iframe>
 
@@ -28,7 +28,7 @@ These kinds of exceptions to the regular grammar in order to make life easier ar
 
 ## Methods
 
-Next, let's familiarize ourselves with some of `String`'s methods. For each method below, we've provided some REPLs; some of them are just there for you to click "run ▶" and see how the methods work, but in other ones you need to use the methods you're reading about to make some tests pass.
+Next, let's familiarize ourselves with some of `String`'s methods. For each method below, we've provided some REPLs; some of them are just there for you to experiment with the code, click "run ▶", and see how the methods work; but in other ones **you need to use the methods you're reading about to make some tests pass**.
 
 **Make sure you click "Submit" for any REPL that has tests in order to get credit for your work!**
 
@@ -156,15 +156,13 @@ whitespace.
 
 ### to_i
 
-Sometimes you have a string that contains a number, usually input from a user,
-and want to do math on it. `to_i` will attempt to convert a `String` object into
-an `Integer` object.
+Sometimes you have a string that contains a number, usually input from a user, and want to do math on it. `to_i` will attempt to convert a `String` object into an `Integer` object.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055570/9e0d4bf6a7c462730fb6af44c352bc36"></iframe>
 
 ### strip
 
-`strip` removes all leading and trailing whitespace
+`strip` removes all leading and trailing whitespace.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055572/55951eda552514e8e7ec0b70dcbaf8c9"></iframe>
 
@@ -184,15 +182,13 @@ This produces an Array, which we'll read more about later.
 
 ## More on adding strings together
 
-We spend a lot of time composing strings of output for our users, so let's see a
-few more examples. Try this:
+We spend a lot of time composing strings of output for our users, so let's see a few more examples. Try this:
 
 ```ruby
 message = "Your lucky number for today is " + rand(100) + "."
 ```
 
-You'll see that Ruby gets confused, because we are trying to add an integer to a
-string and it doesn't feel comfortable with that.
+You'll see that Ruby gets confused, because we are trying to add an integer to a string and it doesn't feel comfortable with that.
 
 The solution is to tell the integer to convert itself to a string first:
 
@@ -203,18 +199,13 @@ message = "Your lucky number for today is " + rand(100).to_s + "."
 The above technique for composing strings, adding them together with `+`, is
 called **string concatenation**.
 
-There's another technique for composing strings that I personally find a bit
-easier; it's called **string interpolation**. It goes like this:
+There's another technique for composing strings that I personally find a bit easier; it's called **string interpolation**. It goes like this:
 
 ```ruby
 message = "Your lucky number for today is #{rand(100)}."
 ```
 
-Basically, inside the string, you place `#{}` where you eventually want your
-value to go. Inside the curly braces, you can write any Ruby expression without
-worrying about whether it is a string or not. The expression will be evaluated,
-converted to a string, and added to the string right in that spot. You can
-interpolate as many expressions as you want into a single string. Pretty neat!
+Basically, inside the string, you place `#{}` where you eventually want your value to go. Inside the curly braces, you can write any Ruby expression without worrying about whether it is a string or not. The expression will be evaluated, converted to a string, and added to the string right in that spot. You can interpolate as many expressions as you want into a single string. Pretty neat!
 
 If you find interpolation confusing, feel free to just use concatenation.
 
