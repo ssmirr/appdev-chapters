@@ -40,7 +40,9 @@ One other thing to keep in mind: you can use `**` in conjunction with fractions 
 9 ** 0.5 # => 3.0
 ```
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055287/9bfd51695d1309c88b7e802395190fed"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/float-division?lite=true"></iframe>
+
+Test your skills:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055426/d721e1044eb3966a6258d16a9e267b93"></iframe>
 
