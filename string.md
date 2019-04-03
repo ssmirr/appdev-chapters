@@ -124,7 +124,7 @@ The length method  returns the number of characters (as an `Integer`) that a `St
 
 ### chomp
 
-The `chomp` method is mostly used to remove the `"\n"` (newline) character from the end of a string, if it is present. This seemingly strange task is very common due to the way that getting user input works; usually someone has to type something at a prompt and then they press <kbd>return</kbd> to submit it, and that adds a newline to the end of the string that they typed. Typically, we want to `chomp` that off of their input before we do anyything with it.
+The `chomp` method is mostly used to remove the `"\n"` (newline) character from the end of a string, if it is present. This seemingly strange task is very common due to the way that getting user input works; usually someone has to type something at a prompt and then they press <kbd>return</kbd> to submit it, and that adds a newline to the end of the string that they typed. Typically, we want to `chomp` that off of their input before we do anything with it.
 
 `chomp` can also remove other specified character(s) from the end of the string, if they are provided as an argument.
 
