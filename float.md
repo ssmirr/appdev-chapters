@@ -46,10 +46,20 @@ Test your skills:
 
 ### round
 
+`Float`s can round themselves. Play around with the `.round` method:
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/round?lite=true"></iframe>
+
+Test your skills:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056033/7aa7099b585e775a081f42be4a82c72d"></iframe>
 
 ### rand
 
+The `rand` method that we met earlier can also accept a `Float` as an argument, in which case it returns a `Float` between 0 and 1. This is very handy for e.g. probabilities. Give it a try:
+
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/float-rand?lite=true"></iframe>
+
+## Conclusion
+
+That's it for `Float`s! Next up, we'll look at how we can use these basic data types together with _conditionals_ to start building smart programs.
