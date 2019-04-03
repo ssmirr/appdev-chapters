@@ -15,7 +15,7 @@ s = "Hello, world!"
 In Ruby, the formal way to create a new object is to use the `.new` method on the parent class:
 
 ```ruby
-s = String.new
+s = `String`.new
 ```
 
 This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts an integer [ASCII](http://www.asciitable.com/){:target="_blank"} code as an argument, translates it into a single character, and adds it on to the end of the original string:
@@ -96,13 +96,13 @@ The upcase method returns a copy of the `String` with all lowercase letters repl
 
 ### downcase
 
-The downcase method returns a copy of the String with all uppercase letters replaced with their lowercase counterparts.
+The downcase method returns a copy of the `String` with all uppercase letters replaced with their lowercase counterparts.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055585/368b0578faa55ae7f025a9808e51d885"></iframe>
 
 ### swapcase
 
-The swapcase returns a copy of the String with uppercase letters replaced with lowercase counterparts, and vice versa.
+The swapcase returns a copy of the `String` with uppercase letters replaced with lowercase counterparts, and vice versa.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055713/54ad2cc82183a62b5d62b5c61d14dbe5"></iframe>
 
@@ -110,7 +110,7 @@ The swapcase returns a copy of the String with uppercase letters replaced with l
 
 ### reverse
 
-The reverse method returns a new String with the characters from the String in reverse order.
+The reverse method returns a new `String` with the characters from the `String` in reverse order.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054840/6d6e7c37386f001d85ca9a6949c722c7"></iframe>
 
@@ -124,7 +124,9 @@ The length method  returns the number of characters (as an `Integer`) that a `St
 
 ### chomp
 
-The `chomp` method removes a specified character(s) from the end of a String and returns a copy of the String with the characters removed. If no characters are given, chomp will remove `\n`, which is a special hidden character that represents a newline.
+The `chomp` method is mostly used to remove the `"\n"` (newline) character from the end of a string, if it is present. This seemingly strange task is very common due to the way that getting user input works; usually someone has to type something at a prompt and then they press <kbd>return</kbd> to submit it, and that adds a newline to the end of the string that they typed. Typically, we want to `chomp` that off of their input before we do anyything with it.
+
+`chomp` can also remove other specified character(s) from the end of the string, if they are provided as an argument.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055034/4d88518a794de6d0b8b0bdbd50e2012d"></iframe>
 
@@ -132,7 +134,7 @@ The `chomp` method removes a specified character(s) from the end of a String and
 
 ### gsub
 
-The gsub method returns a copy of the String it was called on with all occurrences of the first argument substituted for the second argument.
+The gsub method returns a copy of the `String` it was called on with all occurrences of the first argument substituted for the second argument.
 
 An argument is an input to a method. In the file on the left, "ll" and "ww" are arguments that are passed to the method that affect how the method works.
 
@@ -169,13 +171,13 @@ Sometimes you have a string that contains a number, usually input from a user, a
 
 ### capitalize
 
-capitalize returns a String with the first character converted to uppercase and the remainder to lowercase.
+capitalize returns a `String` with the first character converted to uppercase and the remainder to lowercase.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055716/b14358704094311fe491d83c5834474e"></iframe>
 
 ### split
 
-This produces an Array, which we'll read more about later.
+This transforms the `String` into an `Array`, which we'll read more about later. By default, the string is split upon whitespace, but you can also provide an argument (e.g. `","` to split on commas).
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056028/5081a3ff7359af302bb4574448801dda"></iframe>
 
