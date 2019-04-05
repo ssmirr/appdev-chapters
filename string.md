@@ -121,7 +121,9 @@ Read The Error Message ([RTEM](https://chapters.firstdraft.com/chapters/754#seri
 
 Does this make sense? `"Hello" * 3` is calling the `String` method `*` with an argument of `3`, which kinda makes sense (do `"Hello" + "Hello" + "Hello"`).
 
-But `3 * "Hello"` is calling the `Integer` method `*` with an argument of "Hello", which doesn't make much sense (what would it mean to multiply 3 by "Hello" times?). Both the `String` version of `*` and the `Integer` version of `*` both need an integer argument.
+But `3 * "Hello"` is calling the `Integer` method `*` with an argument of `"Hello"`, which doesn't make much sense (what would it mean to multiply 3 by "Hello" times?).
+
+Thus we can see why the `String` version of `*` and the `Integer` version of `*` both need an integer argument.
 
 Test your skills:
 
