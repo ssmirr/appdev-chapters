@@ -123,7 +123,9 @@ Does this make sense? `"Hello" * 3` is calling the `String` method `*` with an a
 
 But `3 * "Hello"` is calling the `Integer` method `*` with an argument of "Hello", which doesn't make much sense (what would it mean to multiply 3 by "Hello" times?). Both the `String` version of `*` and the `Integer` version of `*` both need an integer argument.
 
-Test your skills: **Here come's a submittable REPL!** You need to write some code to make the tests pass and then click Submit. Notice how it looks different — I won't keep reminding you which ones are which!
+Test your skills:
+
+**Here come's a submittable REPL!** You need to write some code to make the tests pass and then click Submit. Notice how it looks different — I won't keep reminding you which ones are which!
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055761/b8091d3eabe958cc55c0dd0d0845ec75"></iframe>
 
