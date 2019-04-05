@@ -97,7 +97,7 @@ Now this is really starting to look familiar! It's a lot like the calculator lan
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/concatenation?lite=true"></iframe>
 
-### * (string multiplication)
+### String multiplication, a.k.a *
 
 `String`s can be multiplied by numbers using the `*` method[^more_sugar], but the order matters:
 
