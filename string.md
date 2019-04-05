@@ -54,13 +54,13 @@ There's also a shorthand for `.concat`: `.+`.[^concat_lie] That may look a littl
 "hi".+(" there") # => "hi there"
 ```
 
-But here's where it gets interesting; Ruby has another bit of nice syntactic sugar for us. If a class has a method named `+`, then you are allowed to drop the `.` before the method name when you call it, and just say:
+But here's where it gets interesting; Ruby has another bit of nice _syntactic sugar_ for us. If a class has a method named `+`, then you are allowed to drop the `.` before the method name when you call it, and just say:
 
 ```ruby
 "hi" +(" there") # => "hi there"
 ```
 
-Crazy! And, as we learned earlier when we were [introducing](https://chapters.firstdraft.com/chapters/755#make-the-invisible-visible){:target="_blank"} the `p` method, Ruby also allows you to omit the parentheses around arguments if you want to; so this can be further shortened to:
+Crazy! And, as we learned earlier when we were [introduced](https://chapters.firstdraft.com/chapters/755#make-the-invisible-visible){:target="_blank"} to the `p` method, Ruby also allows you to omit the parentheses around arguments if you want to; so this can be further shortened to:
 
 ```ruby
 "hi" + " there" # => "hi there"
