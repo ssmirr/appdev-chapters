@@ -58,7 +58,7 @@ The `odd?` and `even?` method return `true` or `false` based on whether the numb
 
 There's another special method like `p` that we are allowed to call "in space", i.e. not on the right side of a dot[^rand_implicit_receiver], called `rand`. It returns a random number, and is very useful for all kinds of stuff, everything from games to statistical analysis:
 
-[^rand_implicit_receiver]: If you must know the full `noun.verb` syntax, it's `self.send(:rand, 9)`. We'll defer a full explanation until later.
+[^rand_implicit_receiver]: If you must know the full `noun.verb` syntax, it's `self.send(:rand, 6)`. We'll defer a full explanation until later.
 
 ```ruby
 rand(6) # => returns a random integer between 0 and 5
