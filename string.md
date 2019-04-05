@@ -40,10 +40,10 @@ What's an ASCII code? At the hardware level, computers only store integers (spec
 41|)|57|9|73|I|89|Y|105|i|121|y
 42|*|58|:|74|J|90|Z|106|j|122|z
 43|+|59|;|75|K|91|[|107|k|123|{
-44|,|60|<|76|L|92|\|108|l|124|\|
+44|,|60|<|76|L|92|\\|108|l|124|\|
 45|-|61|=|77|M|93|]|109|m|125|}
 46|.|62|>|78|N|94|^|110|n|126|~
-47|/|63|?|79|O|95|\_|111|o| |
+47|/|63|?|79|O|95|\_|111|o| | 
 
 Given those ASCII codes, we can now build up a new string like so:
 
