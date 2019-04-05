@@ -17,7 +17,7 @@ Let's experiment with some common methods for `Integer`s:
 
 ### + - * / % ** (math)
 
-We, of course, have the standard math methods, like the calculator language. These methods all have the same syntactic sugar that the `String` version did, so we can say `12 + 5` rather than `12.+(5)` (thankfully).
+We, of course, have the standard math methods, like the calculator language. These methods all have the same syntactic sugar that the `String` versions did, so we can say `12 + 5` rather than `12.+(5)` (thankfully).
 
 Try each of the following:
 
@@ -32,7 +32,7 @@ Try each of the following:
 
 Whoa! Did you get what you expected for that last one?
 
-It turns out that the `Integer` version of division will only return another `Integer` division, and so `/` only returns the whole part (like in elementary school). If you want the remainder, you have to use the `%` (called the _modulus_) operator. Try this:
+It turns out that the `Integer` version of division will only return another `Integer`, and so `/` only returns the whole part (like in elementary school). If you want the remainder, you have to use the `%` (called the _modulus_) operator. Try this:
 
 ```ruby
 12 % 5
