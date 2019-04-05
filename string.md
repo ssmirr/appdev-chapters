@@ -68,7 +68,7 @@ Given those ASCII codes, we can now build up a new string like so:
 
 What a pain! Now that we've shown that, under the hood, even creating a string follows the syntax of `noun.verb` — let's never do it again. From now on, we'll use the shortcut of creating **string literals** in place within quotes. `"Thank goodness!"`
 
-These kinds of exceptions to the regular grammar in order to make life easier are known as **syntactic sugar**.
+These kinds of exceptions to the regular grammar in order to make life easier are known as "**syntactic sugar**".
 
 ## Methods
 
