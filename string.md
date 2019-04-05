@@ -28,7 +28,7 @@ What's an ASCII code? At the hardware level, computers only store integers (spec
 
 **ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-32|` ` (space)|48|`0`|64|`@`|80|`P`|96|<code>`</code>|112|`p`
+32|(space)|48|`0`|64|`@`|80|`P`|96|<code>`</code>|112|`p`
 33|`!`|49|`1`|65|`A`|81|`Q`|97|`a`|113|`q`
 34|`"`|50|`2`|66|`B`|82|`R`|98|`b`|114|`r`
 35|`#`|51|`3`|67|`C`|83|`S`|99|`c`|115|`s`
