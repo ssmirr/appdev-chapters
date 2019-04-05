@@ -20,9 +20,9 @@ s = "String".new
 
 This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts a number as an argument, interprets it as an ASCII code, translates it into a single character, and adds it on to the end of the original string.
 
-What's an ASCII code? At the hardware level, computers only store numbers; so all other datatypes need to be encoded somehow as a number. [ASCII](https://en.wikipedia.org/wiki/ASCII), or American Standard Code for Information Interchange, was one scheme that was developed in the early days of computing[^unicode] to store English characters as integers. The codes are as follows:
+What's an ASCII code? At the hardware level, computers only store integers (specifically, in _binary_ form — using only `0`s and `1s`); so all other datatypes need to be encoded somehow as a number. [ASCII](https://en.wikipedia.org/wiki/ASCII), or American Standard Code for Information Interchange, was one scheme that was developed in the early days of computing[^unicode] to store English characters as integers. The codes are as follows:
 
-[^unicode]: Nowadays we use much more sophisticated encoding schemes such as [Unicode](https://en.wikipedia.org/wiki/Unicode){:target="_blank"} that supports glyphs from many more languages, and even emojis 🙌🏾 Fortunately Ruby handles most of this for us behind the scenes, so we never really have to worry about it anymore.
+[^unicode]: Nowadays we use much more sophisticated encoding schemes such as [Unicode](https://en.wikipedia.org/wiki/Unicode){:target="_blank"} that supports glyphs from many more languages, and even emojis 🙌🏾 Fortunately, Ruby handles most of this low-level stuff for us behind the scenes, so we never really have to worry about it anymore.
 
 **ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:
