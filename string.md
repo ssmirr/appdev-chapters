@@ -45,7 +45,7 @@ What's an ASCII code? At the hardware level, computers only store integers (spec
 46|`.`|62|`>`|78|`N`|94|`^`|110|`n`|126|`~`
 47|`/`|63|`?`|79|`O`|95|`_`|111|`o`|
 
-Given those ASCII codes, we can now build up a new string like so:
+Given those ASCII codes, we can now build up a new string from scratch like so:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/creating-objects-with-new?lite=true"></iframe>
 
