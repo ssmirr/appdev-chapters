@@ -80,7 +80,7 @@ Next, let's familiarize ourselves with some of `String`'s methods. For each meth
 
 ### concat, a.k.a. +
 
-We've already met the `.concat` method. `.concat` can accept an integer as an argument, which it interprets as an ASCII code, translates into a single character, and adds to the original string:
+We've already met the `.concat` method. `.concat` can accept an integer as an argument, which it interprets as an [ASCII code](https://chapters.firstdraft.com/chapters/757#ascii-codes), translates into a single character, and adds to the original string:
 
 ```ruby
 "hi".concat(33) # => "hi!"
