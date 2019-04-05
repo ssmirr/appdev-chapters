@@ -22,47 +22,28 @@ This will, however, just give us back an empty string `""`. We would then have t
 
 ### ASCII Codes
 
-What's an ASCII code? At the hardware level, computers only store integers (specifically, in _binary_ form — using only `0`s and `1s`); so all other datatypes need to be encoded somehow as a number. [ASCII](https://en.wikipedia.org/wiki/ASCII){:target="_blank"}, or American Standard Code for Information Interchange, was one scheme that was developed in the early days of computing[^unicode] to store English characters as integers. The codes are as follows:
+What's an ASCII code? At the hardware level, computers only store integers (specifically, in _binary_ form — using only `0`s and `1s`); so all other datatypes need to be encoded somehow as a number. [ASCII](https://en.wikipedia.org/wiki/ASCII){:target="_blank"}, or American Standard Code for Information Interchange, was one scheme that was developed in the early days of computing to store English characters as integers[^unicode]. The codes are as follows:
 
 [^unicode]: Nowadays we use much more sophisticated encoding schemes such as [Unicode](https://en.wikipedia.org/wiki/Unicode){:target="_blank"} that supports glyphs from many more languages, and even emojis 🙌🏾 Fortunately, Ruby handles most of this low-level stuff for us behind the scenes, so we never really have to worry about it anymore.
 
-**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**
-:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-32|(space)|48|0|64|@
-33|!|49|1|65|A
-34|"|50|2|66|B
-35|#|51|3|67|C
-36|$|52|4|68|D
-37|%|53|5|69|E
-38|&|54|6|70|F
-39|'|55|7|71|G
-40|(|56|8|72|H
-41|)|57|9|73|I
-42|*|58|:|74|J
-43|+|59|;|75|K
-44|,|60|<|76|L
-45|-|61|=|77|M
-46|.|62|>|78|N
-47|/|63|?|79|O
-
-**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**
-:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-80|P|96|`|112|p
-81|Q|97|a|113|q
-82|R|98|b|114|r
-83|S|99|c|115|s
-84|T|100|d|116|t
-85|U|101|e|117|u
-86|V|102|f|118|v
-87|W|103|g|119|w
-88|X|104|h|120|x
-89|Y|105|i|121|y
-90|Z|106|j|122|z
-91|[|107|k|123|{
-92|\|108|l|124||
-93|]|109|m|125|}
-94|^|110|n|126|~
-95|\_|111|o| |
+**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**
+:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
+32|(space)|48|0|64|@|80|P|96|`|112|p
+33|!|49|1|65|A|81|Q|97|a|113|q
+34|"|50|2|66|B|82|R|98|b|114|r
+35|#|51|3|67|C|83|S|99|c|115|s
+36|$|52|4|68|D|84|T|100|d|116|t
+37|%|53|5|69|E|85|U|101|e|117|u
+38|&|54|6|70|F|86|V|102|f|118|v
+39|'|55|7|71|G|87|W|103|g|119|w
+40|(|56|8|72|H|88|X|104|h|120|x
+41|)|57|9|73|I|89|Y|105|i|121|y
+42|*|58|:|74|J|90|Z|106|j|122|z
+43|+|59|;|75|K|91|[|107|k|123|{
+44|,|60|<|76|L|92|\|108|l|124||
+45|-|61|=|77|M|93|]|109|m|125|}
+46|.|62|>|78|N|94|^|110|n|126|~
+47|/|63|?|79|O|95|\_|111|o| |
 
 Given those ASCII codes, we can now build up a new string like so:
 
