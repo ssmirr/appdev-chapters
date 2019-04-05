@@ -18,7 +18,7 @@ In Ruby, the formal way to create a new object is to use the `.new` method on th
 s = "String".new
 ```
 
-This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts a number as an argument, interprets it as an  [ASCII](http://www.asciitable.com/){:target="_blank"} code, translates it into a single character, and adds it on to the end of the original string:
+This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts a number as an argument, interprets it as an [ASCII code](http://www.asciitable.com/){:target="_blank"}, translates it into a single character, and adds it on to the end of the original string:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/creating-objects-with-new?lite=true"></iframe>
 
@@ -34,7 +34,7 @@ Next, let's familiarize ourselves with some of `String`'s methods. For each meth
 
 ### concat, a.k.a. +
 
-We've already met the `.concat` method. `.concat` can accept an integer as an argument, which it interprets as an ASCII code, translates into a single character, and adds to the original string:
+We've already met the `.concat` method. `.concat` can accept an integer as an argument, which it interprets as an [ASCII code](http://www.asciitable.com/){:target="_blank"}, translates into a single character, and adds to the original string:
 
 ```ruby
 "hi".concat(33) # => "hi!"
