@@ -22,7 +22,7 @@ This will, however, just give us back an empty string `""`. We would then have t
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/creating-objects-with-new?lite=true"></iframe>
 
-What a pain! Now that we've shown that, under the hood, even creating a string follows the syntax of `noun.verb` — let's never do it again. From now on, we'll use the shortcut of creating _string literals_ in place within quotes. `"Thank goodness!"`
+What a pain! Now that we've shown that, under the hood, even creating a string follows the syntax of `noun.verb` — let's never do it again. From now on, we'll use the shortcut of creating **string literals** in place within quotes. `"Thank goodness!"`
 
 These kinds of exceptions to the regular grammar in order to make life easier are known as **syntactic sugar**.
 
