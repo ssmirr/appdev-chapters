@@ -59,7 +59,7 @@ Next, let's familiarize ourselves with some of `String`'s methods. For each meth
 
 **Make sure you click "Submit" for any REPL that has tests in order to get credit for your work!**
 
-### concat, a.k.a. +
+### String addition, a.k.a. +
 
 We've already met the `.concat` method. `.concat` can accept an integer as an argument, which it interprets as an [ASCII code](https://chapters.firstdraft.com/chapters/757#ascii-codes), translates into a single character, and adds to the original string:
 
