@@ -239,7 +239,7 @@ message = "Your lucky number for today is " + number + "."
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/String-interpolation?lite=true"></iframe>
 
-You'll see that Ruby gets confused, because we are trying to add an integer to a string and it doesn't feel comfortable with that.
+You'll see that Ruby gets confused (RTEM!), because we are trying to add an integer to a string and it doesn't feel comfortable with that.
 
 The solution is to tell the `Integer` to convert itself to a `String` first using the method called `.to_s`, or "to string". Try this instead:
 
@@ -248,7 +248,7 @@ number = 6 * 7
 message = "Your lucky number for today is " + number.to_s + "."
 ```
 
-The above technique for composing strings, adding them together with `+`, is called **string concatenation**.
+The above technique for composing strings, adding them together with `+`, is called string addition.
 
 There's another technique for composing strings that I personally find a bit easier; it's called **string interpolation**. Try this instead:
 
@@ -259,7 +259,7 @@ message = "Your lucky number for today is #{number}."
 
 Basically, inside the string, you place `#{}` where you eventually want your value to go. Inside the curly braces, you can write any Ruby expression without worrying about whether it is a string or not. The expression will be evaluated, converted to a string, and added to the string right in that spot. You can interpolate as many expressions as you want into a single string. Pretty neat!
 
-If you find interpolation confusing, feel free to just use concatenation.
+If you find interpolation confusing, feel free to just use addition.
 
 ## Conclusion
 
