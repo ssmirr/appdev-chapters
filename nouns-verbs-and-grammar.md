@@ -145,7 +145,7 @@ In this case, it is saying: "Hey, friend — there's no method called 'swapcase'
 
 #### The bottom line
 
-The bottomline is: at all times as you are writing Ruby, you should be thinking: **What class of object do I have to work with?** **What methods am I allowed to call on this kind of object?** Then, the syntax itself is simple — `my_object.cool_method`.
+The bottomline is — at all times as you are writing Ruby, you should be thinking: "What **class of object** do I have to work with? What **methods does _this_ class have** available?" Then, the syntax itself is simple — `my_object.cool_method`.
 
 ## Arguments are inputs
 
