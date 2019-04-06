@@ -30,14 +30,15 @@ Try the following and see what you get:
 <iframe frameborder="0" width="100%" height="600px" src="
 https://repl.it/@raghubetina/Float-math?lite=true"></iframe>
 
-What did you discover?
+What did you discover? If _either_ side is a float, float division will be performed.
 
-This is why `Integer`'s `to_f` method can come in handy; if either side is a float, float division will be performed.
+This is why `Integer`'s `.to_f` method can come in handy while doing math; at some point if you need to do division and need a fractional answer, then convert it to a `Float` first.
 
-One other thing to keep in mind: you can use `**` in conjunction with fractions to e.g. take square roots, since 9<sup>1/2</sup> is the same as the square root of 9:
+One other thing to keep in mind: you can use `**` in conjunction with fractions to calculate roots, since 9<sup>1/2</sup> is the same as the square root of 9, 8<sup>1/3</sup> is the same as the cube root of 8, etc.
 
 ```ruby
 9 ** 0.5 # => 3.0
+8 ** (1/3.0) # => 2.0
 ```
 
 Test your skills:
