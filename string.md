@@ -123,7 +123,7 @@ Does this make sense? `"Hello" * 3` is calling the `String` method `*` with an a
 
 But `3 * "Hello"` is calling the `Integer` method `*` with an argument of `"Hello"`, which doesn't make much sense (what would it mean to add `3` `"Hello"` times?).
 
-Thus we can see why the `String` version of `*` and the `Integer` version of `*` both need an integer argument.
+Thus we can see why the `String` version of `*` and the `Integer` version of `*` both need an integer argument. Again, [the bottomline] is — at all times as you are writing Ruby, you should be thinking: "What class of object do I have to work with? What methods am I allowed to call on this kind of object?" Then, the syntax itself is simple — `my_object.cool_method`, even when the `.` is hidden by syntactic sugar!
 
 Test your skills:
 

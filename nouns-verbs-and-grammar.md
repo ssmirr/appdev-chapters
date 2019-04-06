@@ -143,6 +143,8 @@ might mean?
 
 In this case, it is saying: "Hey, friend — there's no method called 'swapcase' for 7, which is an integer. Sorry." Fair enough, that makes sense.
 
+#### The bottom line
+
 The bottomline is: at all times as you are writing Ruby, you should be thinking: **What class of object do I have to work with?** **What methods am I allowed to call on this kind of object?** Then, the syntax itself is simple — `my_object.cool_method`.
 
 ## Arguments are inputs
