@@ -15,7 +15,7 @@ s = "Hello, world!"
 In Ruby, the formal way to create a new object is to use the `.new` method on the parent class:
 
 ```ruby
-s = "String".new
+s = String.new
 ```
 
 This will, however, just give us back an empty string `""`. We would then have to add each character to it one by one. One way to do so is by using the `.concat` method, which accepts a number as an argument, interprets it as an ASCII code, translates it into a single character, and adds it on to the end of the original string.
