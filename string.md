@@ -105,9 +105,9 @@ Now this is really starting to look familiar! It's a lot like the calculator lan
 "Ya" * 5 # => "YaYaYaYaYa"
 ```
 
-Sort of makes sense, if you think about multiplication as being repeated addition.
+This sort of makes sense, if you think about multiplication as being repeated addition.
 
-[^more_sugar]: More syntactic sugar here, like with the `+` method above; you can call `"Ya" * 5` rather than `"Ya".*(5)`. You'll notice the same pattern frequently.
+[^more_sugar]: More syntactic sugar here, like with the `+` method above; you can say `"Ya" * 5` rather than `"Ya".*(5)`.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/multiplication?lite=true"></iframe>
 
@@ -119,9 +119,9 @@ The order matters, though. See what happens when you try:
 
 Read The Error Message ([RTEM](https://chapters.firstdraft.com/chapters/754#seriously-please-read-the-error-message){:target="_blank"})!
 
-Does this make sense? `"Hello" * 3` is calling the `String` method `*` with an argument of `3`, which kinda makes sense (do `"Hello" + "Hello" + "Hello"`).
+Does this make sense? `"Hello" * 3` is calling the `String` method `*` with an argument of `3`, which kinda makes sense (add `"Hello"` `3` times).
 
-But `3 * "Hello"` is calling the `Integer` method `*` with an argument of `"Hello"`, which doesn't make much sense (what would it mean to multiply 3 by "Hello" times?).
+But `3 * "Hello"` is calling the `Integer` method `*` with an argument of `"Hello"`, which doesn't make much sense (what would it mean to add `3` `"Hello"` times?).
 
 Thus we can see why the `String` version of `*` and the `Integer` version of `*` both need an integer argument.
 
