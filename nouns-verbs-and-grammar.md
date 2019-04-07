@@ -260,7 +260,7 @@ s.reverse
 
 and click "run" again.
 
-Great! Now we're making progress (towards what, though, who knows).
+Great! Now we're making progress (towards what, though, who knows?).
 
 What would you expect to happen if you add a third line so that your program reads:
 
