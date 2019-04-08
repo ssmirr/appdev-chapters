@@ -2,7 +2,7 @@
 
 ## gets
 
-We can make our programs much more interesting if we allow the users of the program to interact with them by supplying input. We can do this with the `gets` method (pronounced "get S", short for "get string"), which will pause the program and wait for the user to type something in the terminal and press <kbd>return</kbd>. The return value of the `gets` method will be a string containing what the user typed, which we can store in a variable and do whatever we want with.
+We can make our programs much more interesting if we allow the users of the program to interact with them by supplying input. We can do this with the `gets` method (pronounced "get S", short for "get string"), which will pause the program and wait for the user to type something in the terminal and press <kbd>return</kbd>. The return value of the `gets` method will be a `String` containing what the user typed, which we can store in a variable and then process further like any other `String`.
 
 For example, rather than saying "Hello, world!", let's have the computer say hello to the user by name instead. When you run this program, it will pause after saying `"What's your name?"` and you will have to type something in and press <kbd>return</kbd>. Click on the terminal to put focus there, and then you'll be able to type into it:
 
@@ -26,11 +26,13 @@ puts "Hello, " + their_name + "!"
 
 and see how the output is different.
 
-You can see that the quotes around the string are removed, which makes sense if you're actually displaying output to a user and not debugging — users should not know or care about the quotes around Ruby strings. And the newline character causes the text to move to the next line. Most of the time, we'll stick with `p`, since it provides more details while debugging, but it's good to know that `puts` exists.
+You can see that the quotes around the string are removed, which makes sense if you're actually displaying output to a user and not debugging — users should not know or care about the quotes around Ruby `String`s. And the newline character causes a line break.
+
+Most of the time, we'll stick with `p`, since it provides more details while debugging; but it's good to know that `puts` exists.
 
 ## gets.chomp
 
-We almost never actually want the `\n` that results from the <kbd>return</kbd> keypress that submits the user's input to remain in the string. Fortunately, [the handy `.chomp` method](https://chapters.firstdraft.com/chapters/757#chomp){:target="_blank"} does exactly what we need — if there's a `\n` on the end of a string, it will remove it; if there isn't, it does nothing. So, in practice, when we call `gets` we almost always tack a `.chomp` on to it. Try modifying the program to:
+We almost never want to keep `\n` that results from the <kbd>return</kbd> keypress that submits the user's input. Fortunately, [the handy `.chomp` method](https://chapters.firstdraft.com/chapters/757#chomp){:target="_blank"} does exactly what we need — if there's a `\n` at the end of a string, it will remove it; if there isn't, it does nothing. So, in practice, when we call `gets` we almost always tack a `.chomp` on to it immediately. Try modifying the program to:
 
 ```ruby
 their_name = gets.chomp
