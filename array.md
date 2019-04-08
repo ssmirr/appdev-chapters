@@ -75,7 +75,7 @@ The `.at` method takes an `Integer` argument, which is interpreted as the positi
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-at?lite=true"></iframe>
 
-Whoa! Did you expect `cities.at(2)` to return `"LA"`? I sure didn't, the first time I tried it.
+Whoa! Did you expect `cities.at(2)` to return `"LA"`? I sure didn't, the first time I tried it; I was expecting `"NYC"`.
 
 It turns out that pretty much every programming language indexes the elements in an array starting at _zero_, not at one. So the first element is retrieved with `cities.at(0)`, the second element with `cities.at(1)`, etc. You'll get used to it after a while.
 
@@ -106,15 +106,46 @@ Which is sort of nice. I prefer `.at` because I think it reads better, but feel 
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-square-bracket?lite=true"></iframe>
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056046/2a38280792b66bcfd9b18610c1bc7b81"></iframe>
+### index
+
+The `.index` method is sort of the inverse of `.at`: given an object, `.index` searches within the array and returns the index where it resides. Give it a try:
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-index?lite=true"></iframe>
+
+Some further things for you to experiment with:
+
+ - What will `.index` return if the element is present in the array more than once?
+ - What will `.index` return if the element is not present in the array at all?
 
 ### count
 
-`.count` counts how many elements are in the list, if called with no arguments. If an argument is provided, it counts how many times that argument occurs in the list.
+ `.count` counts how many elements are in the list, if called with no arguments. If an argument is provided, it counts how many times that argument occurs in the list.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/count?lite=true"></iframe>
+ <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/count?lite=true"></iframe>
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055583/c12a04f9499595923047a48b7780f4ba"></iframe>
+ <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055583/c12a04f9499595923047a48b7780f4ba"></iframe>
+
+### String#split
+
+Before we proceed with more `Array` methods, I want to go back for a minute and talk about [the `.split` method from the `String` class](https://chapters.firstdraft.com/chapters/757#split){:target="_blank"}. This method, when called on a `String`, will return an `Array` of substrings:
+
+```ruby
+"alice bob carol".split # => ["alice", "bob", "carol"]
+```
+
+When no arguments are given to `.split`, it will split the string on whitespace; but you can also provide an argument to split on something else:
+
+```ruby
+"alice@example.com".split("@") # => ["alice", "example.com"]
+```
+
+This is particularly handy for us because it allows us to get a `String` of input from users with `gets` and then transform it into an `Array` for processing:
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/gets-with-split?lite=true"></iframe>
+
+We'll be using this technique for the remainder of our test REPLs, to make things more interesting.
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056046/2a38280792b66bcfd9b18610c1bc7b81"></iframe>
 
 ### reverse
 
