@@ -57,7 +57,7 @@ Test your skills:
 
 ### rand
 
-The `rand` method that we met earlier can also accept a `Float` as an argument, in which case it returns a `Float` between 0 and 1. This is very handy for e.g. probabilities. Give it a try:
+The `rand` method that we met earlier can also be called with no arguments, in which case it returns a `Float` between 0 and 1. This is very handy for e.g. probabilities. Give it a try:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/float-rand?lite=true"></iframe>
 
