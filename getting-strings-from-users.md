@@ -1,5 +1,41 @@
 # Getting strings from users
 
-We can make our programs much more interesting if we allow the users of the program to interact with them by supplying input.
+## gets
 
-For example, rather than saying "Hello, world!", let's have the computer greet the user by name instead. We can do this with the `gets` method
+We can make our programs much more interesting if we allow the users of the program to interact with them by supplying input. We can do this with the `gets` method (pronounced "get S", short for "get string"), which will pause the program and wait for the user to type something in the terminal and press <kbd>return</kbd>. The return value of the `gets` method will be a string containing what the user typed, which we can store in a variable and do whatever we want with.
+
+For example, rather than saying "Hello, world!", let's have the computer say hello to the user by name instead. When you run this program, it will pause after saying `"What's your name?"` and you will have to type something in and press <kbd>return</kbd>. Click on the terminal to put focus there, and then you'll be able to type into it:
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/Hello-gets?lite=true"></iframe>
+
+Great! Our first user input. You'll notice a couple of things, however. First of all, there's a `\n` sneaking into the input. `\n` represents a newline character, and it's in there because of the <kbd>return</kbd> that is pressed to submit the input.
+
+## puts
+
+If you want to see the newline in action, we can use a different printing method called `puts` (pronounced "put S", short for "put string"). `puts` is actually the printing method that is used most when crafting the output of command-line programs; as opposed to `p`, which is used most for making the invisible visible while debugging. Try switching
+
+```ruby
+p "Hello, " + their_name + "!"
+```
+
+to
+
+```ruby
+puts "Hello, " + their_name + "!"
+```
+
+and see how the output is different.
+
+You can see that the quotes around the string are removed, which makes sense if you're actually displaying output to a user and not debugging — users should not know or care about the quotes around Ruby strings. And the newline character causes the text to move to the next line. Most of the time, we'll stick with `p`, since it provides more details while debugging, but it's good to know that `puts` exists.
+
+## gets.chomp
+
+We almost never actually want the `\n` that results from the <kbd>return</kbd> keypress that submits the user's input to remain in the string. Fortunately, [the handy `.chomp` method](https://chapters.firstdraft.com/chapters/757#chomp){:target="_blank"} does exactly what we need — if there's a `\n` on the end of a string, it will remove it; if there isn't, it does nothing. So, in practice, when we call `gets` we almost always tack a `.chomp` on to it. Try modifying the program to:
+
+```ruby
+their_name = gets.chomp
+```
+
+and then `puts` the output to see how it's different.
+
+Test your skills:

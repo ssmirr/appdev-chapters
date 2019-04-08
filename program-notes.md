@@ -113,7 +113,7 @@ I wanted to point out a couple of things the code above.
 First, you may have noticed that we aren't using the primary syntax of `noun.verb`; it's just `verb` all by itself. Without going into too much detail, the reason for this is known as "syntactic sugar" — Ruby includes some niceties that allow us to type less. In reality, under the hood, it is always `noun.verb` going on[^p_implicit_receiver].
 
 [^p_implicit_receiver]:
-    Okay fine, if you _must_ know the fully written out form of it, it's `self.send(:p, "HELLO WORLD!")`. Happy now? You can try it out in a REPL; and we'll leave at that, for now.
+    Okay fine, if you _must_ know the fully written out form of it, it's `self.send("p", "HELLO WORLD!")`. Happy now? You can try it out in a REPL; and we'll leave at that, for now.
 
 Second, when we discussed [Arguments](https://chapters.firstdraft.com/chapters/754#arguments-are-inputs){:target="_blank"}, we said that they always come within parentheses. That's not quite true. Ruby allows you to, optionally, leave out the parentheses; so the following will also work:
 
