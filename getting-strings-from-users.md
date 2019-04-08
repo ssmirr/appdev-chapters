@@ -36,6 +36,6 @@ We almost never actually want the `\n` that results from the <kbd>return</kbd> k
 their_name = gets.chomp
 ```
 
-and then `puts` the output to see how it's different.
+and see how it's different.
 
 Test your skills:
