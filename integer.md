@@ -64,7 +64,7 @@ There's another special method like `p` that we are allowed to call "in space", 
 rand(6) # => returns a random integer between 0 and 5
 ```
 
-Somewhat oddly, `rand(n)` will return a random integer between `0` and `n - 1` rather than between `1` and `n`. The reasons for that will become clear when we get to the chapter on `Array`s.
+Somewhat oddly, `rand(n)` will return a random integer between `0` and `n - 1` rather than between `1` and `n`. That may seem surprising, but it's actually pretty handy because a lot of times what we want to do is generate a random _offset_ and it's convenient for that to include 0 as a possibility.
 
 Give it a try:
 

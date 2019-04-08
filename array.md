@@ -67,6 +67,47 @@ This is the technique that we'll be using most often.
 
 Now let's familiarize ourselves with some of `Array`s methods.
 
+### at
+
+After adding elements to the list, the next most important thing we need to be able to do is retrieve an element back out from the list. Our first tool for doing that is `.at`.
+
+The `.at` method takes an `Integer` argument, which is interpreted as the position, or **index**, in the `Array` of the element that you want to retrieve. Give it a try:
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-at?lite=true"></iframe>
+
+Whoa! Did you expect `cities.at(2)` to return `"LA"`? I sure didn't, the first time I tried it.
+
+It turns out that pretty much every programming language indexes the elements in an array starting at _zero_, not at one. So the first element is retrieved with `cities.at(0)`, the second element with `cities.at(1)`, etc. You'll get used to it after a while.
+
+A couple of other things for you to experiment with:
+
+ - What happens when you use an index greater than the length of the array?
+ - What happens when you use a negative index?
+
+### at shorthand, []
+
+There's a shorthand for `.at()` which is very common, so you should be familiar with it. It's the `.[]` method, so we _could_ write:
+
+```ruby
+cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
+
+p cities.[](2)
+```
+
+You guessed it — there's some syntactic sugar coming up. When a class has a method named `[]`, Ruby allows the dot to be dropped, but the method name has to then move immediately next to the object it's being called on (no space), and the argument moves _inside_ the method name! Altogether, this allows us to write:
+
+```ruby
+cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
+
+p cities[2]
+```
+
+Which is sort of nice. I prefer `.at` because I think it reads better, but feel free to use the square brackets if you like that style better.
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-square-bracket?lite=true"></iframe>
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056046/2a38280792b66bcfd9b18610c1bc7b81"></iframe>
+
 ### count
 
 `.count` counts how many elements are in the list, if called with no arguments. If an argument is provided, it counts how many times that argument occurs in the list.
@@ -110,17 +151,3 @@ Now let's familiarize ourselves with some of `Array`s methods.
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/sum?lite=true"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056044/a9ab190d99bac78dae3ac95dbb523719"></iframe>
-
-### at
-
-Accesses an element in the array at the position given as an argument.
-Positioning in an array starts at 0. Given an array of `[21, 7, 99, 34, 13]`,
-`21` is in position 0, `7` is in position 1, `99` is in position 2, and so on...
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-at?lite=true"></iframe>
-
-### []
-
-This is a shorthand syntax for `at()`.
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-square-bracket?lite=true"></iframe>
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056046/2a38280792b66bcfd9b18610c1bc7b81"></iframe>
