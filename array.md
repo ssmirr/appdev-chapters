@@ -91,7 +91,7 @@ There's a shorthand for `.at()` which is very common, so you should be familiar 
 ```ruby
 cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
 
-p cities.[](2)
+p cities.[](2) # => "LA"
 ```
 
 You guessed it — there's some syntactic sugar coming up. When a class has a method named `[]`, Ruby allows the dot to be dropped, but the method name has to then move immediately next to the object it's being called on (no space), and the argument moves _inside_ the method name! Altogether, this allows us to write:
@@ -99,7 +99,7 @@ You guessed it — there's some syntactic sugar coming up. When a class has a m
 ```ruby
 cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
 
-p cities[2]
+p cities[2] # => "LA"
 ```
 
 Which is sort of nice. I prefer `.at` because I think it reads better, but feel free to use the square brackets if you like that style better.
