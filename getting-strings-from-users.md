@@ -26,7 +26,7 @@ puts "Hello, " + their_name + "!"
 
 and see how the output is different.
 
-You can see that the quotes around the string are removed, which makes sense if you're actually displaying output to a user and not debugging — users should not know or care about the quotes around Ruby `String`s. And the newline character causes a line break when a string is printed with `puts`, as it should.
+You can see that the quotes around the string are removed, which makes sense if you're actually displaying output to a user and not debugging — users should not know or care about the quotes around Ruby string literals. And the newline character causes a line break when a string is printed with `puts`, as it should.
 
 Most of the time, we'll stick with `p`, since it provides more details while debugging; but it's good to know that `puts` exists.
 
