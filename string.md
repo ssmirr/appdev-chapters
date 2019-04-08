@@ -49,6 +49,8 @@ Given those ASCII codes, we can now build up a new string from scratch like so:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/creating-objects-with-new?lite=true"></iframe>
 
+### String literals
+
 What a pain! Now that we've shown that, under the hood, even creating a string follows the syntax of `noun.verb` — let's never do it again. From now on, we'll use the shortcut of creating string "**literals**" in place by typing the characters we want within quotes: `"Thank goodness!"`
 
 These kinds of exceptions to the regular grammar in order to make life easier are known as "**syntactic sugar**".
@@ -165,13 +167,20 @@ The length method  returns the number of characters (as an `Integer`) that a `St
 
 ### chomp
 
-The `chomp` method is mostly used to remove the `"\n"` (newline) character from the end of a string, if it is present. This seemingly strange task is very common due to the way that getting user input works; usually someone has to type something at a prompt and then they press <kbd>return</kbd> to submit it, and that adds a newline to the end of the string that they typed. Typically, we want to `chomp` that off the end of their input before we do anything further with it.
+The `chomp` method is mostly used to remove the `"\n"` (newline) character from the end of a string, if it is present:
+
+```ruby
+"Raghu\n".chomp # => "Hello there"
+"Raghu".chomp # => "Hello there"
+```
+
+This seemingly strange task is very common due to the way that getting user input works; usually someone has to type something at a prompt and then they press <kbd>return</kbd> to submit it, and that adds a newline to the end of the string that they typed. Typically, we want to `chomp` that off the end of their input before we do anything further with it.
 
 `chomp` can also remove other specified character(s) from the end of the string, if they are provided as an argument:
 
 ```ruby
-"1 apple".chomp("s") # => "1 apple"
 "1 apples".chomp("s") # => "1 apple"
+"1 apple".chomp("s") # => "1 apple"
 ```
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/chomp?lite=true"></iframe>
