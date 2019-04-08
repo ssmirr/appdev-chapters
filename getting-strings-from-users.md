@@ -12,7 +12,7 @@ Great! Our first user input. You'll notice a couple of things, however. First of
 
 ## puts
 
-If you want to see the newline in action, we can use a different printing method called `puts` (pronounced "put S", short for "put string"). `puts` is actually the printing method that is used most when crafting the final output of command-line programs; as opposed to `p`, which is used most for making the invisible visible while debugging. Try switching
+If you want to see the newline in action, we can use a different printing method called `puts` (pronounced "put S", short for "put string"). `puts` is actually the printing method that is used most when crafting the final output of command-line programs; as opposed to `p`, which is used most for _making the invisible visible_ while debugging. Try switching
 
 ```ruby
 p "Hello, " + their_name + "!"

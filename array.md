@@ -94,7 +94,7 @@ cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
 p cities.[](2) # => "LA"
 ```
 
-You guessed it — there's some syntactic sugar coming up. When a class has a method named `[]`, Ruby allows the dot to be dropped, but the method name has to then move immediately next to the object it's being called on (no space), and the argument moves _inside_ the method name! Altogether, this allows us to write:
+You guessed it — there's some syntactic sugar coming up. When a class has a method named `.[]`, Ruby allows the dot to be dropped, but the method name has to then move immediately next to the object it's being called on (no space), and the argument moves _inside_ the method name! Altogether, this allows us to write:
 
 ```ruby
 cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
