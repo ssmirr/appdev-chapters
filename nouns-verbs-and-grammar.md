@@ -300,7 +300,7 @@ s
 
 ### Variable syntax
 
-You may have noticed that the variable assignment syntax is a departure from the primary syntax of `object.method`. But we do it all day long, so we need to know it just as well. Our programs will end up looking like this (these are made-up method names):
+You may have noticed that the variable assignment syntax is a departure from the primary syntax of `object.method`. But we do it all day long, so we need to know it just as well. Our programs will end up looking like this (these are made-up method names, so this code won't work):
 
 ```ruby
 storage_box_1 = "starting data".first_transformation
