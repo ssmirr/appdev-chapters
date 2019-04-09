@@ -102,6 +102,8 @@ In the REPL above, replace `10.times` with each of the following and play around
 
 Test your skills with [the classic programmer's interview question, FizzBuzz](http://wiki.c2.com/?FizzBuzzTest){:target="_blank"}. You'll have to combine multiples skills that you've learned so far — loops, conditionals, etc — but you shouldn't have to Google[^the_internet] for help. All the knowledge you need is in the readings that you've covered already.
 
+However, you should as always ask lots of questions on Piazza! You're only allowed to get stuck for 15 minutes before you post a question; and then, comment out your old approach and try a new approach while you're waiting for an answer.
+
 [^the_internet]: The answers that you find on the internet will, at this stage, more than likely just confuse you. They will reference advanced techniques, or sometimes will just be flat-out wrong; and it's hard for beginners to tell the difference.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3083364/0d77446ddf0c7f77340d0617b042a371"></iframe>
