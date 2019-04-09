@@ -231,7 +231,7 @@ Another nice trick is: when experimenting with some code and it's not working, j
 
 ## Variables are boxes
 
-Now that you've seen arguments, you know the full **primary syntax** of Ruby. No kidding: crafting expressions with `object.method(arguments)` is the *vast* majority of what we'll be doing. That's it.
+Now that you've seen arguments, you know all there is to know about crafting _expressions_ in Ruby. No kidding: `object.method(arguments)` is the *vast* majority of what we'll be doing. That's it.
 
 However, so far we haven't been doing much with the **return value** of each expression. We've just been reading it off the screen, and then dropping it on the ground.
 
@@ -282,22 +282,6 @@ u = t.gsub("L", "Z")
 
 Fortunately, we can create as many variables as we want.
 
-You could also throw away what you have in the box labeled `s` and put in something entirely different. Type this:
-
-```ruby
-s = "hi"
-s = 2.odd?
-s
-```
-
-You could even replace the value in the same box with an updated version of the old value, because _the expression on the right side of the assignment operator is evaluated before the assignment takes place_. Type this:
-
-```ruby
-s = "hi"
-s = s.capitalize
-s
-```
-
 ### Variable syntax
 
 You may have noticed that the variable assignment syntax is a departure from the primary syntax of `object.method`. But we do it all day long, so we need to know it just as well. Our programs will end up looking like this (these are made-up method names, so this code won't work):
@@ -323,7 +307,35 @@ When you are choosing your variable names, there are some rules:
 - Variable names cannot begin with a number.
 - Rubyists strive to choose **descriptive** variable names, no matter how long they are, so that it's obvious to teammates what the contents are at a glance.
 
-    _Please_ avoid naming your variables `x`, `y`, and `z`. Use underscores to separate words in multi-word variable names, since we can't use spaces.
+_Please_ avoid naming your variables `x`, `y`, and `z`. Use underscores to separate words in multi-word variable names, since we can't use spaces.
+
+### Updating variables
+
+You can also throw away what you have in a box and put in something entirely different. Type this:
+
+```ruby
+s = "hi"
+s = 2.odd?
+s
+```
+
+We can even replace the value in the box with an updated version of the _old_ value, because _the expression on the right side of the assignment operator is evaluated before the assignment takes place_. Type this:
+
+```ruby
+s = "hi"
+s = s.capitalize
+s
+```
+
+That may look strange — how can we use `s` on the right side and the left side? But it's because this is not the equals sign from math class; this is the _variable assignment operator_, and the right side is evaluated first until a single return value is left; and then that object is assigned into the box on the left (replacing whatever was there, if necessary).
+
+So you will very often see something like this:
+
+```ruby
+counter = counter + 1
+```
+
+When we're keeping track of e.g. how many times we've printed something out on the screen. We are taking the original value of `counter`, adding `1` to it, and then replacing the contents of `counter` with that new total.
 
 ## That's it
 
