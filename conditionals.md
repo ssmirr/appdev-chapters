@@ -83,7 +83,7 @@ Inside a branch of an `if` statement, you can have as many lines of code as you 
 
 ## Combining conditions with AND and OR
 
-Finally, another handy thing to have in your toolbelt are the **logical operators** `&&` and `||`. These allow you to combine comparisons; try these out below:
+Finally, another handy thing to have in your toolbelt are the **logical operators** `&&` (AND) and `||` (OR). These allow you to combine comparisons; try these out below:
 
 ```ruby
 1 < 2 && 2 < 3   # Is 1 less than 2 AND 2 less than 3?
