@@ -29,7 +29,9 @@ end
 
 Every `if` requires a matching `end`, and forgetting it is a _very_ common mistake.
 
-My advice: type the `end` _immediately_ after typing the `if` so that you don't forget it; _then_ worry about typing the condition, and the code that comes on the lines between the `if` and the `end`. (While you're at it, indent the code on the lines between by two spaces so that it is visually clear what's inside the `if` statement.)
+My advice: type the `end` _immediately_ after typing the `if` so that you don't forget it; _then_ worry about typing the condition, and the code that comes on the lines between the `if` and the `end`.
+
+(While you're at it, indent the code on the lines between by two spaces so that it is visually clear what's inside the `if` statement.)
 
 ## truthiness and falsiness
 
