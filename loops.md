@@ -89,9 +89,9 @@ Try running it. Here's what's going on:
  - The `.times` method executed the block of code the second time.
  - Etc.
 
-Why does `.times` start by assigning `0` to its block variable rather than `1`? Well, that's just how the author of the `.times` method made it work. We can easily solve the off-by-one problem by adding `1` to `mississipis` before converting it to a string for output.
+Why does `.times` start by assigning `0` to its block variable during the first iteration, rather than `1`? Well, that's just how the author of the `.times` method made it work.
 
-Fortunately, we don't need to; Ruby provides lots of other looping convenience methods that we can take advantage of instead, and each one assigns different values to its block variable.
+Fortunately, Ruby provides lots of other looping convenience methods that we can take advantage of instead, and each one assigns different values to its block variable.
 
 In the REPL above, replace `10.times` with each of the following and play around with the arguments to get a sense of how each method works:
 
@@ -104,10 +104,10 @@ In the REPL above, replace `10.times` with each of the following and play around
 
 ## FizzBuzz
 
-Test your skills with [the classic programmer's interview question, FizzBuzz](http://wiki.c2.com/?FizzBuzzTest){:target="_blank"}. You'll have to combine multiples skills that you've learned so far — loops, conditionals, etc — but you shouldn't have to Google[^the_internet] for help. All the knowledge you need is in the readings that you've covered already.
-
-However, you should as always ask lots of questions on Piazza! You're only allowed to get stuck for 15 minutes before you post a question; and then, comment out your old approach and try a new approach while you're waiting for an answer.
+Test your skills with [the classic programmer's interview question, FizzBuzz](http://wiki.c2.com/?FizzBuzzTest){:target="_blank"}. You'll have to combine multiple skills that you've learned so far — loops, conditionals, etc — but you shouldn't have to Google[^the_internet] for help. All the knowledge you need is in the readings that you've covered already.
 
 [^the_internet]: The answers that you find on the internet will, at this stage, more than likely just confuse you. They will reference advanced techniques, or sometimes will just be flat-out wrong; and it's hard for beginners to tell the difference.
+
+However, you should as always ask lots of questions on Piazza! You're only allowed to get stuck for 15 minutes before you post a question; and then, comment out your old approach and try a new approach while you're waiting for an answer.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3083364/0d77446ddf0c7f77340d0617b042a371"></iframe>
