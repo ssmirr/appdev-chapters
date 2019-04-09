@@ -6,51 +6,70 @@ Consider the following program, which utilizes an `if` statement:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/loops-conditionally-doing-something-once?lite=true"></iframe>
 
-We start off with a blank array, `a`. If its length is less than `3` (this is true, since length is currently `0`), we push a new random number into it.
+What do you expect the output of the program to be when you click run? Try to interpret the program yourself before you ask Ruby to.
+
+Okay, now you can click "run ▶". Did you guess right?
+
+We start off with a blank array, `numbers`. If its length is less than `10` (this is true, since length is currently `0`), we push a new random number into it.
 
 Once Ruby reaches the `end` statement paired with an `if`, it proceeds to the next line and continues to execute the rest of the code (whether the `if` condition was true or not).
 
-At the end of the day, `a` has one element in it and `len` is `1`.
+At the end of the day, `numbers` has one element in it and `len` is `1`.
 
 ## Conditionally doing something multiple times
 
-Now, consider almost identical code, but with the `if` keyword swapped for another keyword — `while`:
+Now, consider almost identical code, but with the `if` keyword swapped for a new keyword — `while`:
 
-```ruby
-a = []
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/loops-conditionally-doing-something-multiple-times?lite=true"></iframe>
 
-while a.length < 3
-  new_element = rand(100)
-  a.push(new_element)
-end
+`while` works almost exactly like `if` — it evaluates the expression next to it, and if the expression is truthy, it executes the code on the lines between it and the `end`; if not, it ignores the code on the lines between it and the `end`.
 
-len = a.length
-```
-
-`while` works almost exactly like `if` — it evaluates the expression next to it, and if it is true, it executes the code up until the `end`; if not, it ignores the code up until the `end`.
-
-There is one key difference: if the condition is true, after we reach the `end`, the execution of the program **jumps back up to the `while` statement**. Then the condition is evaluated *again*. **If it is *still* true, then the code is executed again.** And then the execution of the program jumps back up to the `while` statement *again*. Etc.
+There is one key difference: if the condition is truthy, after we reach the `end`, the execution of the program **jumps back up to the `while` statement**. Then the condition is evaluated *again*. **If it is *still* true, then the code inside the `while` statement is executed _again_.** And then the execution of the program jumps back up to the `while` statement *again*. Etc.
 
 So in this case,
 
- - the first time we reach the `end`, we jump back up to the `while`
- - evaluate `a.length < 3` again — still true, since `1 < 3`
- - so we push in another random number, and jump back up
- - `2 < 3`? Yep, so we do it again.
- - `3 < 3`? Nope, so now we skip down to the end and continue
- - and `len` ends up being `3`.
+ - The first time we reach the `end`, we jump back up to the `while`.
+ - Evaluate `a.length < 10` again — still true, since `1 < 10`.
+ - So we push in another random number, and jump back up.
+ - `2 < 10`? Yep, so we do it again.
+ - We push in another random number, and jump back up.
+ - `3 < 10`? Yep, so we do it again.
+ - `4 < 10`? Yep, so we do it again.
+ - Etc.
+ - `10 < 10`? Nope, so now proceed to the line after the `end` and continue.
+ - And `len` ends up being `10`.
 
 What we've seen here is our very first **loop**; code that is executed multiple times. It could be an arbitrary number of times, perhaps even an infinite number of times if we aren't careful.
+
+## Some other techniques for looping
+
+Fundamentally, all looping is implemented with `while`; but, this being Ruby, there are sorts of convenience methods on top to make it as easy as possible to create loops for various contexts. For example, let's say I wanted to print
+```
+"1 Mississippi"
+"2 Mississippi"
+"3 Mississippi"
+# etc
+"10 Mississippi"
+```
+
+I could do it using `while` like this:
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/loops-mississippis-with-while?lite=true"></iframe>
+
+Or, I could use `Integer`'s `.times` method, like this:
+
+
+
 
 ## The importance of loops
 
 Loops are absolutely essential to doing anything interesting with computing. If you want anything interactive, where the computer does something and then the user does something and then the computer reacts and then the user responds, etc, then you need a loop.
 
-In fact, when you started up the `rails server`, you basically started a program that went into an infinite loop of listening for web requests so that it could send back responses (and that's why you have to force it to shut down with <kbd>Ctrl</kbd>+<kbd>C</kbd>).
+In fact, when we start up our web servers (coming up soon), we will be starting a program that goes into an infinite loop of listening for web requests so that it can send back responses.
 
-But most importantly for us, as web developers: we spend 99% of our time **managing lists of things**. Lists of photos, likes, messages, events, reviews, users, tweets, whatever. These objects usually come to us in `Array`s, and we usually need to loop across (or "iterate over") the array and do some work with each element in the array (like draw some nice HTML around it). **So we need to get *really* good at iterating over arrays.**
+Another crucial use of loops for us, as web developers: we spend 99% of our time **managing lists of things**. Lists of photos, likes, messages, events, reviews, users, tweets, etc. These objects usually come to us in `Array`s, and we usually need to loop across (or "iterate over") the array and do some work with each element in the array (like add some HTML around it to format it nicely for our users). **So we need to get _really_ good at iterating over arrays.**
 
-## Easier loops in Ruby with `.each`
+## Iterating over Arrays with .each
 
 We could do all of our looping using the `while` statement, but Ruby gives us an easier way.
 

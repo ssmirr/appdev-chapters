@@ -57,7 +57,7 @@ It turns out that **only `false` and `nil` are falsy**. _All_ other objects in R
 
 That said, we'll mostly use expressions after `if` that return `true` or `false`. There are lot of methods that are designed to do this; we've seen `Integer`'s `.odd?` and `.even?`, but there are a lot more.
 
-For example, classes have ways to compare _instances_ of the class to one another:
+For example, most classes have ways to compare _instances_ of the class to one another:
 
 ```ruby
 1 < 2          # "1 is less than 2"
@@ -65,6 +65,8 @@ For example, classes have ways to compare _instances_ of the class to one anothe
 24*365 > 10000 # There are more than 10,000 hours in a year
 1 == 1         # "1 is equivalent to 1"
 1 == 2         # "1 is equivalent to 2"
+1 <= 2         # "1 is less than or equal to 2"
+1 >= 2         # "1 is greater than or equal to 2"
 1 != 1         # "1 is NOT equivalent to 1"
 1 != 2         # "1 is NOT equivalent to 2"
 "apple" < "banana"
