@@ -55,9 +55,13 @@ Fundamentally, all looping is implemented with `while`; but, this being Ruby, th
 "10 Mississippi"
 ```
 
-exactly 10 times. I could do it using `while` like this:
+exactly 10 times. I could do it using `while` like this; try interpreting the following code before you click "run":
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/loops-mississippis-with-while?lite=true"></iframe>
+
+Does the code make sense to you?[^incrementing]
+
+[^incrementing]: If the line `mississipis = missippis + 1` looks a little odd to you, you're not alone. [Remember, this is _variable assignment_](https://chapters.firstdraft.com/chapters/754#updating-variables){:target="_blank"}, not equivalence. So the expression on the right side of the `=` is evaluated _first_ (and the left side is ignored) until there's just one object left; and then that object replaces the contents of the variable named on the left.
 
 Or, I could use `Integer`'s `.times` method, like this:
 
