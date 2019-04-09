@@ -108,6 +108,10 @@ Which is sort of nice. I prefer `.at` because I think it reads better, but feel 
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-square-bracket?lite=true"></iframe>
 
+### first, last
+
+Since retrieving the elements at positions `0` (the first one) and `-1` (the last one) is so common, there are handy shortcut methods for those: `.first` and `.last`. Give them a try.
+
 ### index
 
 The `.index` method is sort of the inverse of `.at`: given an object, `.index` searches within the array and returns the index where it resides. Give it a try:
@@ -118,14 +122,6 @@ Some further things for you to experiment with:
 
  - What will `.index` return if the element is present in the array more than once?
  - What will `.index` return if the element is not present in the array at all?
-
-### count
-
- `.count` counts how many elements are in the list, if called with no arguments. If an argument is provided, it counts how many times that argument occurs in the list.
-
- <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/count?lite=true"></iframe>
-
- <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055583/c12a04f9499595923047a48b7780f4ba"></iframe>
 
 ### String#split
 
@@ -149,6 +145,14 @@ We'll be using this technique for the remainder of our test REPLs, to make thing
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056046/2a38280792b66bcfd9b18610c1bc7b81"></iframe>
 
+### count
+
+ `.count` counts how many elements are in the list, if called with no arguments. If an argument is provided, it counts how many times that argument occurs in the list.
+
+ <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/count?lite=true"></iframe>
+
+ <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055583/c12a04f9499595923047a48b7780f4ba"></iframe>
+ 
 ### reverse
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-reverse?lite=true"></iframe>
