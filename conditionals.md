@@ -65,7 +65,7 @@ For example, classes have ways to compare _instances_ of the class to one anothe
 "apple" != "banana"
 ```
 
-Note the difference between the **equivalence operator** — two equals signs, `==` — and the variable assignment operator — one equals sign, `=`. Confusing the two of them is probably _the_ most common typo programmers make. Don't say I didn't warn you!
+Note the difference between the **equivalence operator** — two equals signs, `==` — and the variable assignment operator — one equals sign, `=`. Mixing up the two of them is probably _the_ most common typo programmers make. Don't say I didn't warn you!
 
 ## Multibranch if statements
 
