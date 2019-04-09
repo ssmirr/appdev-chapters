@@ -159,7 +159,6 @@ We'll be using this technique for the remainder of our test REPLs, to make thing
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/sort?lite=true"></iframe>
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055739/27223a5c670df74bf54e1768e4e720aa"></iframe>
 
 ### shuffle
 
