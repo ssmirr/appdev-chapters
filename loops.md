@@ -77,13 +77,15 @@ But the `.times` method will save us even more trouble than that; we can stop wo
 
 Try running it. Here's what's going on:
 
- - We created a block of code with `do`/`end` and give it to `.times`.
+ - We created a block of code with `do`/`end` and gave it to `.times`.
  - We chose a name for a **block variable**, `mississipis`, with the `| |` after the `do`.
- - Behind the scenes, `.times` method did `mississipis = 0` before the first iteration.
- - Behind the scenes, `.times` method did `mississipis = 1` before the first iteration.
+ - Behind the scenes, the `.times` method did `mississipis = 0` before the first iteration.
+ - The `.times` method executed the block of code the first time.
+ - Behind the scenes, the `.times` method did `mississipis = 1` before the second iteration.
+ - The `.times` method executed the block of code the second time.
  - Etc.
 
-Why does `.times` start by assigning `0` to its block variable rather than `1`? Well, that's just how the author of the `.times` method made it work. We can easily solve the off-by-one problem by adding `1` to `mississipis` before converting it to a string.
+Why does `.times` start by assigning `0` to its block variable rather than `1`? Well, that's just how the author of the `.times` method made it work. We can easily solve the off-by-one problem by adding `1` to `mississipis` before converting it to a string for output.
 
 Fortunately, we don't need to; Ruby provides lots of other looping convenience methods that we can take advantage of instead, and each one assigns different values to its block variable.
 
