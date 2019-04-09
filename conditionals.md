@@ -20,9 +20,9 @@ end
 ```
 
  1. First comes the `if` keyword.
- 1. `if` is followed by any Ruby expression, which is evaluated until only one piece of data is left.
- 1. If that final return value of `condition` is "truthy", then the code between the `if` and `end` keywords is executed.
- 1. If the final return value of `condition` is "falsy", then the code between the `if` and `end` keywords is ignored.
+ 1. After the `if`, on the same line, comes any Ruby expression, which is evaluated until only one piece of data is left.
+ 1. If that final return value of `condition` is "truthy", then the code on the lines between the `if` and `end` keywords is executed.
+ 1. If the final return value of `condition` is "falsy", then the code on the lines between the `if` and `end` keywords is ignored.
  1. Either way, the program picks up execution on the next line after the `end` keyword and continues on.
 
 ## truthiness and falsiness
@@ -34,7 +34,6 @@ In the REPL below, try replacing `lucky_number.odd?` with each of the following.
  - `0`
  - `"false"`
  - `[]`
- - `[4, 7, 1].at(5)` (What happens when you use an index greater than the length of the array?)
  - `nil`
  - `true`
  - `""`
