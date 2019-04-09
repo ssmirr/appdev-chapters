@@ -1,16 +1,56 @@
 # Conditionals
 
-Now that we can get input from our users, we can start to make our programs smart, by behaving differently based on different conditions.
+Now that we can get input from our users, we can start to make our programs
+smart, by behaving differently based on different conditions.
 
-We do this using a new grammar rule: the `if`/`end` **keywords**. Here's how it looks:
+To do this, we need to add a new grammar to our toolbox: the `if`/`end` **keywords**. Here's how it looks:
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/first-conditional?lite=true"></iframe>
+
+Try running this program a few times and see how it behaves.
+
+## The basic anatomy of if statements
+
+The anatomy of an `if` statement is:
 
 ```ruby
-user
+if condition
+  # code that runs if the condition is true
+end
 ```
 
+ 1. First comes the `if` keyword.
+ 1. `if` is followed by any Ruby expression, which is evaluated until only one piece of data is left.
+ 1. If that final return value of `condition` is "truthy", then the code between the `if` and `end` keywords is executed.
+ 1. If the final return value of `condition` is "falsy", then the code between the `if` and `end` keywords is ignored.
+ 1. Either way, the program picks up execution on the next line after the `end` keyword and continues on.
 
+## truthiness and falsiness
 
-Previously, we mentioned that Ruby allows us to compare values, and returns `true` or `false`:
+Why did I say "truthy" and "falsy" instead of just `true` and `false`? Because many — most — Ruby expressions return values other than `true` or `false`. _Any_ object can appear next to an `if`, and some will cause the code inside the `if` statement to execute (these values are known as "truthy") and some will not (these are "falsy").
+
+In the REPL below, try replacing `lucky_number.odd?` with each of the following. Before clicking "run" for each one, ask yourself, do you expect to see the output `"The condition is truthy."` or not?
+
+ - `0`
+ - `"false"`
+ - `[]`
+ - `[4, 7, 1].at(5)` (What happens when you use an index greater than the length of the array?)
+ - `nil`
+ - `true`
+ - `""`
+ - `false`
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/truthiness?lite=true"></iframe>
+
+For how many of the above did you correctly predict the output? What did you learn about what objects count as truthy and what objects count as falsy in Ruby?
+
+It turns out that **only `false` and `nil` are falsy**. _All_ other objects in Ruby are truthy — even `0` and `""`.
+
+## Comparisons
+
+That said, we'll mostly use expressions after `if` that return `true` or `false`. There are lot of methods that are designed to do this; we've seen `Integer`'s `.odd?` and `.even?`, but there are a lot more.
+
+For example, classes have ways to compare _instances_ of the class to one another:
 
 ```ruby
 1 < 2          # "1 is less than 2"
@@ -20,93 +60,49 @@ Previously, we mentioned that Ruby allows us to compare values, and returns `tru
 1 == 2         # "1 is equivalent to 2"
 1 != 1         # "1 is NOT equivalent to 1"
 1 != 2         # "1 is NOT equivalent to 2"
+"apple" < "banana"
+"apple" > "banana"
+"apple" == "banana"
+"apple" != "banana"
 ```
 
-This becomes useful in conjunction with the `if` statement, which allows us to do things _conditionally_ in our programs, rather than doing them on every run.
+Note the difference between the **equivalence operator** — two equals signs, `==` — and the variable assignment operator — one equals sign, `=`. Confusing the two of them is probably _the_ most common typo programmers make. Don't say I didn't warn you!
 
-Let's see how this works. Locate the file called `app/controllers/programs_controller.rb` and let's start a new program where it says:
+## Multibranch if statements
 
-```ruby
-def first_program
-  # Your code goes below.
+We can also have **multibranch** `if` statements, where we specify fallback conditions to check and code to execute if the first condition is falsy:
 
-  @your_output = "Replace this string with your output"
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/multibranch-if?lite=true"></iframe>
 
-  render("programs/first_program.html.erb")
-end
-```
-
-First, in Chrome, navigate to `https://ruby-intro-[YOUR CLOUD 9 USERNAME].c9users.io/first`. That is where the output of this other program is being displayed. Modify `@your_output` to confirm this.
-
-Next, let's try this:
-
-```ruby
-def first_program
-  # Your code goes below.
-
-  @your_output = "Hi!"
-
-  if 1 < 2
-    @your_output = "duh"
-  end
-
-  render("programs/first_program.html.erb")
-end
-```
-
-Now switch the `1 < 2` to `2 < 1` and refresh the page.
-
-Ok, here's the deal with `if`:
-
- - It **must** have a matching `end`, so just type it before you type anything else and forget it.
- - Code that comes between the `if` and `end` will only be executed if the expression next to the `if` evaluates to `true`.
- - If the expression is `false`, then the code inside the `if` statement will simply be ignored.
-
-You can also have _multi-branch_ `if` statements:
-
-```ruby
-def first_program
-  # Your code goes below.
-
-  the_number = rand(100)
-
-  if the_number < 25
-    @your_output = "It's going to be your lucky day today"
-  elsif the_number > 75
-    @your_output = "Don't leave home today"
-  else
-    @your_output = "It'll be an okay day today"
-  end
-
-  render("programs/first_program.html.erb")
-end
-```
-
- - Note that there's no space in `elsif`.
+ - Note that **there is no space** in the `elsif` keyword.
  - The conditions are checked in top-down priority, so even if more than one is true, whichever one is first has its branch executed; the rest are ignored.
  - If none are true, the final `else` fallback branch is executed; but you don't have to have one if you don't want one.
 
-Inside a branch of an `if` statement, you can have as many lines of code as you want -- and you can even have whole other multi-branch if statements, if that's what you need.
+Inside a branch of an `if` statement, you can have as many lines of code as you want — and you can even have whole other multi-branch if statements, if that's what you need.
 
-Finally, another handy thing to have in your toolbelt are the **logical operators** `&&` and `||`. These allow you to combine comparisons; try these out in `rails console`:
+## Combining conditions with AND and OR
 
+Finally, another handy thing to have in your toolbelt are the **logical operators** `&&` and `||`. These allow you to combine comparisons; try these out below:
+
+```ruby
+1 < 2 && 2 < 3   # Is 1 less than 2 AND 2 less than 3?
+1 < 2 && 3 < 2   # Is 1 less than 2 AND 3 less than 2?
+2 < 1 && 3 < 2   # Is 2 less than 1 AND 3 less than 2?
+1 < 2 || 2 < 3   # Is 1 less than 2 OR 2 less than 3?
+1 < 2 || 3 < 2   # Is 1 less than 2 OR 3 less than 2?
+2 < 1 || 3 < 2   # Is 2 less than 1 OR 3 less than 2?
 ```
-1 < 2 && 2 < 3   # Is 1 less than 2 AND 2 less than 3? Duh
-1 < 2 && 3 < 2   # Is 1 less than 2 AND 3 less than 2? I guess not
-2 < 1 && 3 < 2   # Is 2 less than 1 AND 3 less than 2? Duh
-1 < 2 || 2 < 3   # Is 1 less than 2 OR 2 less than 3? Yep
-1 < 2 || 3 < 2   # Is 1 less than 2 OR 3 less than 2? I guess so
-2 < 1 || 3 < 2   # Is 2 less than 1 OR 3 less than 2? Duh
-```
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/and-and-or?lite=true"></iframe>
 
 Basically, `&&` is stricter than `||`; both comparisons have to be true in order for the whole statement to be true when combined with `&&`; either one being true is sufficient for `||`.
 
 ## Challenge
 
-Can you modify the program to randomly choose between "rock", "paper", and "scissors", and display it on the page on each refresh?
+Can you create a simple Rock, Paper, Scissors game?
 
-After that, can you display whether the random choice would have won, lost, or tied against "rock"?
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3079909/05408ed63586e04010be2c0788354f60"></iframe>
 
-## Next Up
+Now, can you create a better version of the game, where the computer chooses its move randomly instead of always choosing scissors?
 
-As you might be starting to notice, computers just do very simple things, but they do them really fast. And one of the most useful things to have computers do quickly for us is process big lists of things. For that, we need to learn about [Loops in Ruby](loops-in-ruby.md).
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/rps-2?lite=true"></iframe>

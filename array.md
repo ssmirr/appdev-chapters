@@ -82,6 +82,8 @@ It turns out that pretty much every programming language indexes the elements in
 A couple of other things for you to experiment with:
 
  - What happens when you use an index greater than the length of the array?
+
+    This is our first contact with `nil`, an object that represents **the absence of anything**. When you use an index "outside" the array, you might have expected to see an error message; but instead, Ruby returns `nil`.
  - What happens when you use a negative index?
 
 ### at shorthand, []
