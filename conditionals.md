@@ -83,15 +83,15 @@ Inside a branch of an `if` statement, you can have as many lines of code as you 
 
 ## Combining conditions with AND and OR
 
-Finally, another handy thing to have in your toolbelt are the **logical operators** `&&` (AND) and `||` (OR). These allow you to combine comparisons; try these out below:
+Finally, another handy thing to have in your toolbelt are the **logical operators** `&&` (AND) and `||` (OR). These allow you to combine conditions; try these combined conditions out below:
 
 ```ruby
-1 < 2 && 2 < 3   # Is 1 less than 2 AND 2 less than 3?
-1 < 2 && 3 < 2   # Is 1 less than 2 AND 3 less than 2?
-2 < 1 && 3 < 2   # Is 2 less than 1 AND 3 less than 2?
-1 < 2 || 2 < 3   # Is 1 less than 2 OR 2 less than 3?
-1 < 2 || 3 < 2   # Is 1 less than 2 OR 3 less than 2?
-2 < 1 || 3 < 2   # Is 2 less than 1 OR 3 less than 2?
+3.odd? && 4.even?
+3.odd? && 4.odd?
+3.even? && 4.odd?
+3.odd? || 4.even?
+3.odd? || 4.odd?
+3.even? || 4.odd?
 ```
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/and-and-or?lite=true"></iframe>
