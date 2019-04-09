@@ -25,6 +25,12 @@ end
  1. If the final return value of `condition` is "falsy", then the code on the lines between the `if` and `end` keywords is ignored.
  1. Either way, the program picks up execution on the next line after the `end` keyword and continues on.
 
+### Don't forget the end
+
+Every `if` requires a matching `end`, and forgetting it is a _very_ common mistake.
+
+My advice: type the `end` _immediately_ after typing the `if` so that you don't forget it; _then_ worry about typing the condition, and the code that comes on the lines between the `if` and the `end`. (While you're at it, indent the code on the lines between by two spaces so that it is visually clear what's inside the `if` statement.)
+
 ## truthiness and falsiness
 
 Why did I say "truthy" and "falsy" instead of just `true` and `false`? Because many — most — Ruby expressions return values other than `true` or `false`. _Any_ object can appear next to an `if`, and some will cause the code inside the `if` statement to execute (these values are known as "truthy") and some will not (these are "falsy").
