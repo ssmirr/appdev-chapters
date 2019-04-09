@@ -1,6 +1,6 @@
 # Loops in Ruby
 
-## Conditionally doing something once
+## if: conditionally doing something once
 
 Consider the following program, which utilizes an `if` statement:
 
@@ -12,19 +12,21 @@ Okay, now you can click "run ▶". Did you guess right?
 
 We start off with a blank array, `numbers`. If its length is less than `10` (this is true, since length is currently `0`), we push a new random number into it.
 
-Once Ruby reaches the `end` statement paired with an `if`, it proceeds to the next line and continues to execute the rest of the code (whether the `if` condition was true or not).
+Once Ruby reaches the `if`'s `end`, it proceeds to the next line and continues to execute the rest of the code (whether the `if`'s condition was true or not).
 
 At the end of the day, `numbers` has one element in it and `len` is `1`.
 
-## Conditionally doing something multiple times
+## while: conditionally doing something multiple times
 
 Now, consider almost identical code, but with the `if` keyword swapped for a new keyword — `while`:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/loops-conditionally-doing-something-multiple-times?lite=true"></iframe>
 
-`while` works almost exactly like `if` — it evaluates the expression next to it, and if the expression is truthy, it executes the code on the lines between it and the `end`; if not, it ignores the code on the lines between it and the `end`.
+`while` works almost exactly like `if` — it evaluates the expression next to it, and if the expression is truthy, it executes the code on the lines between it and it's `end`; if not, it ignores the code on the lines between it and it's `end`.
 
-There is one key difference: if the condition is truthy, after we reach the `end`, the execution of the program **jumps back up to the `while` statement**. Then the condition is evaluated *again*. **If it is *still* true, then the code inside the `while` statement is executed _again_.** And then the execution of the program jumps back up to the `while` statement *again*. Etc.
+There is one key difference: if the condition next to a `while` is truthy, after we reach it's `end`, the execution of the program **jumps back up to the `while` statement**.
+
+Then the condition is evaluated *again*. **If it is *still* true, then the code inside the `while` statement is executed _again_.** And then the execution of the program jumps back up to the `while` statement *again*. Etc.
 
 So in this case,
 
@@ -41,9 +43,10 @@ So in this case,
 
 What we've seen here is our very first **loop**; code that is executed multiple times. It could be an arbitrary number of times, perhaps even an infinite number of times if we aren't careful.
 
-## Some other techniques for looping
+## Blocks
 
-Fundamentally, all looping is implemented with `while`; but, this being Ruby, there are sorts of convenience methods on top to make it as easy as possible to create loops for various contexts. For example, let's say I wanted to print
+Fundamentally, all looping is implemented with `while`; but, this being Ruby, there are all sorts of convenience methods on top to make it as easy as possible to create loops for various contexts. For example, let's say I wanted to print
+
 ```
 "1 Mississippi"
 "2 Mississippi"
@@ -52,98 +55,47 @@ Fundamentally, all looping is implemented with `while`; but, this being Ruby, th
 "10 Mississippi"
 ```
 
-I could do it using `while` like this:
+exactly 10 times. I could do it using `while` like this:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/loops-mississippis-with-while?lite=true"></iframe>
 
 Or, I could use `Integer`'s `.times` method, like this:
 
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/loops-mississippis-with-times?lite=true"></iframe>
 
+Notice there's a new keyword here: `do`. This is because the `.times` method, in order to do its job of executing some code 10 times, needs an argument — _the code to execute_.
 
+In order to pass a method _some lines of code_ as an argument, we need to wrap the lines of code within the `do` and `end` keywords, creating what's called a **block** of code.
 
-## The importance of loops
+So, given a **block** of code, the `10.times` method will execute it for us exactly 10 times; this saves us the trouble of writing the condition after `while`.
 
-Loops are absolutely essential to doing anything interesting with computing. If you want anything interactive, where the computer does something and then the user does something and then the computer reacts and then the user responds, etc, then you need a loop.
+### Block variables
 
-In fact, when we start up our web servers (coming up soon), we will be starting a program that goes into an infinite loop of listening for web requests so that it can send back responses.
+But the `.times` method will save us even more trouble than that; we can stop worrying about creating and incrementing the counter variable, `mississipis`, too. The `.times` method will create a **block variable** and assign values to it for us automatically, but we have to choose a name for it using some new syntax after the `do`: the vertical bars, `| |`, or "pipes". It looks like this:
 
-Another crucial use of loops for us, as web developers: we spend 99% of our time **managing lists of things**. Lists of photos, likes, messages, events, reviews, users, tweets, etc. These objects usually come to us in `Array`s, and we usually need to loop across (or "iterate over") the array and do some work with each element in the array (like add some HTML around it to format it nicely for our users). **So we need to get _really_ good at iterating over arrays.**
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/loops-first-block-variable?lite=true"></iframe>
 
-## Iterating over Arrays with .each
+Try running it. Here's what's going on:
 
-We could do all of our looping using the `while` statement, but Ruby gives us an easier way.
+ - We created a block of code with `do`/`end` and give it to `.times`.
+ - We chose a name for a **block variable**, `mississipis`, with the `| |` after the `do`.
+ - Behind the scenes, `.times` method did `mississipis = 0` before the first iteration.
+ - Behind the scenes, `.times` method did `mississipis = 1` before the first iteration.
+ - Etc.
 
-Since most of our looping as web developers is to do interesting things with elements in `Array`s, let me instead just show you a purpose-built `Array` method that we're going to use 1000 times a day: `.each`.
+Why does `.times` start by assigning `0` to its block variable rather than `1`? Well, that's just how the author of the `.times` method made it work. We can easily solve the off-by-one problem by adding `1` to `mississipis` before converting it to a string.
 
-Let's suppose that I have an array of numbers. For some reason, let's suppose that I want to square each number in the array and then add up all the squares. I could do that work with the following code (which you should try out in `app/controllers/programs_controller.rb` and view the output at `https://ruby-intro-[YOUR CLOUD 9 USERNAME].c9users.io/second`:
+Fortunately, we don't need to; Ruby provides lots of other looping convenience methods that we can take advantage of instead, and each one assigns different values to its block variable.
 
-```ruby
-def second_program
-  # Your code goes below.
-
-  our_numbers = [4, 10, 6]        # Create an array of numbers
-  squared_numbers = []            # Create an empty array
-
-  our_numbers.each do |num|       # For each element in numbers, (refer to it as "num")
-    square = num * num            # Square the number
-    squared_numbers.push(square)  # Push it into the squared_numbers array
-  end
-
-  @your_output = squared_numbers.sum  # Sum the squares
-
-  render("programs/second_program.html.erb")
-end
-```
-
-Here's how `.each` works:
-
- - When we have an array and we need to do some work with every element in it, we use `.each`.
- - We put the `do` keyword next to it.
- - The `do` keyword has a matching `end` keyword, and the code to be repeated goes between them. (The whole thing from `do` through `end` is known as a "block".) I just type the matching `end` as soon as I type the `do` so that I don't forget it, just the same as when I type an opening tag in HTML.
- - After the `do` keyword, we put vertical bars known as "pipes" — `| |`. Within the pipes, **we choose a name that we want to use to refer to each element in the list as we are looping through it**. In this case, I chose "`num`". (This is known as a "block variable".)
- - Within the `do` and `end` block, I used the variable `num` while writing the code I want executed for each element in the list.
- - Voilà! Now we don't have to worry counting the length of the list, keeping a counter to keep track of where we are, indexing in to the list, etc; `.each` takes care of all of that.
-
-So, while `while` is neat to know about, the most important looping method that you need to understand right now is `.each`.
-
-The hardest part, I think, is getting your head around the block variable `|num|`. It takes some practice. Try to remember that it's just a name that we make up for use within the `do` and `end` block to refer to each element in the array as the loop is being executed. I could have called it `zebra` if I wanted to, and behind the scenes, Ruby would have assigned each element in the list to the variable `zebra` as we got to its turn.
-
-Soon, you'll be embedding Ruby loops in your view templates to create dynamic, data-driven pages with code that looks something like this:
-
-```erb
-<% timeline_photos.each do |the_photo| %>
-  <div class="card">
-    <img src="<%= the_photo.image_source %>">
-
-    <p>
-      <%= the_photo.caption %>
-    </p>
-  </div>
-<% end %>
-```
-
-So it's important to clear up fuzziness now about the pure Ruby parts of it.
-
-## Challenge
-
-If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-
-Can you find the sum of all the multiples of 3 or 5 below 1000?
-
-Try writing a program in `app/controllers/programs_controller.rb` within:
+In the REPL above, replace `10.times` with each of the following and play around with the arguments to get a sense of how each method works:
 
 ```ruby
-def third_program
-  numbers = (1..999).to_a
-
-  # Your code goes below.
-
-  @your_output = "Replace this string with your output"
-
-  render("programs/third_program.html.erb")
-end
+5.upto(10)
+99.downto(90)
+1.step(10, 3)
+10.step(1, -4)
 ```
 
-and view your output at `https://ruby-intro-[YOUR CLOUD 9 USERNAME].c9users.io/third`. I've provided a variable for you, `numbers`, which has an array in it containing the first 999 natural numbers.
+Test your skills with [the classic programmer's interview question, FizzBuzz](http://wiki.c2.com/?FizzBuzzTest){:target="_blank"}:
 
-(Credit for this challenge goes to [Project Euler](https://projecteuler.net). This is the first in a series of puzzles that they provide. You can check your answer by signing up for an account there and submitting it, and find lots more puzzles to practice your Ruby on!)
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3083364/0d77446ddf0c7f77340d0617b042a371"></iframe>
