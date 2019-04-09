@@ -61,7 +61,7 @@ exactly 10 times. I could do it using `while` like this; try interpreting the fo
 
 Does the code make sense to you?[^incrementing]
 
-[^incrementing]: If the line `mississipis = missippis + 1` looks a little odd to you, you're not alone. [Remember, this is _variable assignment_](https://chapters.firstdraft.com/chapters/754#updating-variables){:target="_blank"}, not equivalence. So the expression on the right side of the `=` is evaluated _first_ (and the left side is ignored) until there's just one object left; and then that object replaces the contents of the variable named on the left.
+[^incrementing]: If the line `mississipis = missippis + 1` looks a little odd to you, you're not alone. [Remember, this is _variable assignment_](https://chapters.firstdraft.com/chapters/754#updating-variables){:target="_blank"}, not equivalence. So the expression on the right side (`mississipis + 1`) is evaluated _first_ until there's just one object (e.g `2`) left; and then that object replaces the contents of the variable (`missippis`) named on the left.
 
 Or, I could use `Integer`'s `.times` method, like this:
 
