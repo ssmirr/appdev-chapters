@@ -8,3 +8,4 @@
  1. [Getting strings from users](https://chapters.firstdraft.com/chapters/762)
  1. [Array](https://chapters.firstdraft.com/chapters/758)
  1. [Conditionals](https://chapters.firstdraft.com/chapters/763)
+ 1. [Loops](https://chapters.firstdraft.com/chapters/764)
