@@ -58,7 +58,7 @@ Try to remember that it's just a name that _we make up_, and `.each` takes care 
 Just a sneak peek as to why we `.each` is so important to get comfortable with: soon, you'll be embedding Ruby loops in your web applications to create dynamic, data-driven pages with code that looks something like this:
 
 ```erb
-<% timeline_photos.each do |the_photo| %>
+<% newsfeed_photos.each do |the_photo| %>
   <div class="card">
     <img src="<%= the_photo.image_source %>">
 
