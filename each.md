@@ -31,7 +31,9 @@ But we can do even better than using `Integer`'s `.times` method to iterate over
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/each-iterating-with-each?lite=true"></iframe>
 
-Click "run" and verify that both programs do the same thing. Nice! `.each` has two clear benefits over using `.times`:
+Click "run" and verify that both programs do the same thing.
+
+Nice! `.each` has two clear benefits over using `.times`:
 
  - We don't need to count the length of the array; `.each` does it for us and will take care of looping for the correct number of iterations.
  - The block variable, rather than containing an integer that we can use to access the correct element, will contain **the element itself**.
