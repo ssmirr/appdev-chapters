@@ -27,7 +27,7 @@ Using `.times` to iterate over an `Array` is not bad at all, especially because 
 
 ## Array's each method
 
-But we can do even better than using `Integer`'s' `.times` method to iterate over an `Array`. There's a method that you can call directly on the `Array` itself called `.each`. Compare the code below to the code above and try to find the differences:
+But we can do even better than using `Integer`'s' `.times` method to iterate over an `Array`. There's a method that you can call directly on the `Array` itself called `.each`. Compare the code below to the model solution above and try to find the differences:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/each-iterating-with-each?lite=true"></iframe>
 
