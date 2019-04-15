@@ -123,16 +123,18 @@ _However_, unlike with `Array`, `Hash`'s `.[]` method and `.fetch` method do _no
 
 Were you able to find the difference between the two methods?
 
-`Hash`'s `.[]`, when used with a key that is not present in the hash, _returns `nil` rather than throwing an error_. I personally prefer getting the descriptive error message if the key is not present in the hash, because it means that I probably made a typo or some other mistake. In the rare case that it should be possible for a key to be optionally present in a hash, then I can use a fallback second argument to `.fetch`, as described above.
+---
 
-Out on the internet, using `.[]` is the most prevalent style of accessing hashes, so you should be familiar with it. But in this text, I will stick with `.fetch`.
+`Hash`'s `.[]` method, when used with a key that is not present in the hash, _returns `nil` rather than throwing an error_. I personally prefer getting the descriptive error message if the key is not present in the hash, because it means that I probably made a typo or some other mistake, and I prefer being alerted to that fact rather the program proceeding quietly only to fail elsewhere. In the rare case that it should be possible for a key to be optionally present in a hash, then I can use a fallback second argument to `.fetch`, as described above.
+
+That said, out on the internet, using `.[]` is the most prevalent style of accessing hashes, so you should be familiar with it. But in this text, I will stick with `.fetch`.
 
 ## keys can be anything
 
-The keys can be any class — String, Fixnum, whatever — but we almost always use Symbols as keys to our Hashes. (I like using symbols as the keys simply because since values are usually strings, syntax highlighting makes keys stand out from values.)
+The keys can be any class — `String`, `Integer`, whatever — but we almost always use `Symbol`s as keys to our `Hash`es. (I like using symbols as the keys simply because since values are usually strings, syntax highlighting makes keys stand out from values.)
 
 ## The bottom line
 
-`Array`s are very useful for storing a list of things that are all basically the same, and so it's nice for Ruby to automatically number them for you.
+`Array`s are very useful for storing a list of things that are all basically the same, and for lists that are of unknown length, and so it's nice for Ruby to automatically number them for you.
 
-But when you are storing a list of things that are categorically different, and you'd rather label them yourself, then `Hash`es are a better choice. That's about it!
+But when you are storing a list of things that are categorically different and you'd rather label them yourself, then `Hash`es are a better choice. That's about it!
