@@ -17,7 +17,7 @@ Try transforming the words in an Array using what you've learned so far about [l
 
 ---
 
-In the model solution, you'll see that I chose to use `.times` for this job.
+After you've got it working, examine the model solution. You'll see that I chose to use `.times` for this job.
 
  - On Line 6, we count the length of the array.
  - On Line 8, we use that length with the `.times` method to kick off a loop with the correct number of iterations.
