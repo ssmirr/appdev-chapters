@@ -133,7 +133,7 @@ That said, out on the internet, using `.[]` is the most prevalent style of acces
 
 ## keys can be anything
 
-The keys can be any class — `String`, `Integer`, whatever — but we almost always use `Symbol`s as keys to our `Hash`es. (I like using symbols as the keys simply because since values are usually strings, syntax highlighting makes keys stand out from values.)
+The keys in a `Hash` can be any class — `String`, `Integer`, whatever — but we almost always use `Symbol`s as keys to our `Hash`es. (I like using symbols as the keys simply because since the values are usually strings, syntax highlighting makes keys stand out from values in our code.)
 
 ## The bottom line
 
