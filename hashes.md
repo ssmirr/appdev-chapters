@@ -2,27 +2,22 @@
 
 `Array` is a very good structure for containing multiple objects, but it's not the only one. In some situations, another structure is a better tool for the job: `Hash`.
 
-Suppose we have `Array`s of instructors and students:
+Suppose we have instructors and students:
 
 ```ruby
 instructors = ["Raghu", "Logan", "Jelani"]
 students = ["Jocelyn", "Arthur", "Tom", "Lindsey"]
 ```
 
-Suppose we want to combine them into a roster, and add last names and roles?  One way is an Array of Arrays:
+Suppose we want add last names and roles?
 
 ```ruby
-people_in_class = [
-  ["Raghu", "Betina", "Instructor"],
-  ["Logan", "Price", "Instructor"],
-  ["Jelani", "Woods", "Instructor"],
-  ["Jocelyn", "Williams", "Student"],
-  ["Arthur", "Benson", "Student"],
-  ["Tom", "Flannigan", "Student"],
-  ["Lindsey", "Kallo", "Student"]
-]
+person1 = ["Raghu", "Betina", "Instructor"]
+person2 = ["Jocelyn", "Williams", "Student"]
+# etc
 
-p "The last name of the 4th person is #{people_in_class.at(3).at(1)}" # => Williams
+p person1.at(0) + " is a " + person1.at(2)
+p person2.at(0) + " is a " + person2.at(2)
 ```
 
 This may suffice if the list of attributes is small, but six months later when you come back to this code, do you really want to remember which index number was last name and which was first name and which was role? Not to mention always dealing with the array-indexes-begin-with-0-and-not-1 thing in your head.
