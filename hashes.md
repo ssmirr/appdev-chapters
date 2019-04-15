@@ -101,7 +101,7 @@ person2 = { :first_name => "Jocelyn", :last_name => "Williams", :role => "Studen
 
 Like with `String` and `Array`, this is the style that we're going to use the vast majority of the time.
 
-In particular, `Hash`es are very often used as the arguments to methods, because they let us pass in a list of inputs with nice labels. We will very often type hash literals directly into the parentheses of method arguments, something like:
+In particular, `Hash`es are very often used as the arguments to methods, because they let us pass in a list of inputs with nice labels. When we get to Ruby on Rails, especially, we will very often type hash literals directly into the parentheses of method arguments, things like:
 
 ```ruby
 Movie.where({ :title => "The Shawshank Redemption" })
