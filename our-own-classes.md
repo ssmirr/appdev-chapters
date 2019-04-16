@@ -49,19 +49,12 @@ end
 
 And now the `Person` class is a first-class citizen in the language, just like `Array` and `Hash`:
 
-```ruby
-c = Person.new
-c.first_name = "Raghu"
-c.last_name = "Betina"
-c.role = "Instructor"
 
-c.last_name # => "Betina"
-c.class # => Person
-```
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/our-own-classes?lite=true"></iframe>
 
 For each attribute that we declared, we get methods that we can call to assign and retrieve values.
 
-There are a few reasons I like using classes more than `Hash`es to model things, but here is the big one: in addition to just storing a list of attributes about a thing, we can also _define our own methods_ with the `def` keyword. For example,
+There are a few reasons I like using classes more than `Hash`es to model things, but here is the big one: in addition to just storing a list of attributes about a thing, we can also _define our own methods_ with the `def` keyword. For example, try adding the following `full_name` method to the class we defined in the REPL above:
 
 
 ```ruby
@@ -82,7 +75,7 @@ hs = Person.new
 hs.first_name = "Homer"
 hs.last_name = "Simpson"
 
-"Hello, #{hs.full_name}!" # => "Hello, Homer Simpson!"
+"Hello, " + hs.full_name + "!" # => "Hello, Homer Simpson!"
 ```
 
 Two new keywords to note:
@@ -94,6 +87,8 @@ Here's a slightly more involved example:
 
 ```ruby
 class Person
+  require "date" # We need to pull in the Date class, which is not loaded by default
+
   attr_accessor :birthdate
 
   def age
@@ -113,10 +108,14 @@ Now every `Person` that we create will have the ability to compute their age bas
 hs = Person.new
 hs.birthdate = "April 19, 1987"
 
-hs.age # => 29, as of this writing
+hs.age # => 32, as of this writing
 ```
 
 So, rather than using a `Hash` to model real world things, it's a good idea to create classes, and then empower them with *behavior* (methods) in addition to information.
+
+## Test your skills
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3108918/e76a68e1f22d348686d6bc6459a1d0fe"></iframe>
 
 ## Inheritance
 
@@ -183,55 +182,6 @@ person4.full_name # => "Tom Besio"
 person4.grade # => "Incomplete"
 ```
 
-What would happen if I tried doing `person4.role`? How about `person1.grade`? Why? What would the error message be?
+What would happen if I tried doing `person4.role`? How about `person1.grade`? Why? What would the error message be? Try defining all of the above and give it a shot in a REPL:
 
-## Using our own classes
-
-We usually store classes that we write in the `app/models` folder. For example, if you create a file in that folder called `person.rb` with the following:
-
-```ruby
-class Person
-  attr_accessor :first_name
-  attr_accessor :last_name
-  attr_accessor :birthdate
-
-  def full_name
-    return self.first_name + " " + self.last_name
-  end
-
-  def age
-    dob = Date.parse(self.birthdate)
-    now = Date.today
-    age_in_days = now - dob # Returns a Rational number
-    age_in_years = age_in_days / 365
-
-    return age_in_years.to_i
-  end
-end
-```
-
-You can now use the `Person` class from anywhere in the app: from within any controller, any view template, in the `rails console` -- or even from within another model.
-
-Ruby is called an Objected Oriented (OO) language because we always strive to organize our code into descriptive classes and methods, rather than just using Hashes and Arrays for everything.
-
-For example, Rubyists much prefer to define the `Person` class above and then
-
-```ruby
-hs = Person.new
-hs.first_name = "Homer"
-hs.last_name = "Simpson"
-
-"Hello, #{hs.full_name}!" # => "Hello, Homer Simpson!"
-```
-
-Rather than
-
-```ruby
-h = { :first_name => "Homer", :last_name => "Simpson" }
-
-"Hello, #{h.fetch(first_name)} #{h.fetch(:last_name)}!" # => "Hello, Homer Simpson!"
-```
-
-even though the two are functionally equivalent, and the second _could_ be considered more concise (in terms of number of lines of code).
-
-By encapsulating the logic of how to compute `full_name` in the class definition, I make it much easier to re-use elsewhere and share.
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/our-own-classes-inheritance?lite=true"></iframe>
