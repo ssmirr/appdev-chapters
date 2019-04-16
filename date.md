@@ -50,6 +50,17 @@ Date.parse("20010203") #=> #<Date: 2001-02-03 ...>
 Date.parse("3rd Feb 2001") #=> #<Date: 2001-02-03 ...>
 ```
 
+## Subtraction
+
+You can subtract two dates from one another, which will return the number of days between them. The return value class is a `Rational`, which can be converted to a regular `Integer` with `.to_i`:
+
+```ruby
+days = Date.today - Date.parse("July 4, 1776")
+ => (88674/1)
+2.6.1 :004 > days.to_i
+ => 88674
+```g 
+
 ## day
 
 Returns the day of the month (1-31).
