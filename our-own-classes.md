@@ -1,4 +1,4 @@
-# Ruby Classes
+# Our own classes
 
 ## Modeling real world things
 
