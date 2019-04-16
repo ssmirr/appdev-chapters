@@ -59,7 +59,7 @@ days = Date.today - Date.parse("July 4, 1776")
  => (88674/1)
 2.6.1 :004 > days.to_i
  => 88674
-```g 
+```
 
 ## day
 
