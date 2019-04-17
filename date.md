@@ -77,27 +77,27 @@ Returns `true` if the date is a Monday.
 
 ## tuesday?
 
-Returns `true` if the date is a Monday.
+Returns `true` if the date is a Tuesday.
 
 ## wednesday?
 
-Returns `true` if the date is a Monday.
+Returns `true` if the date is a Wednesday.
 
 ## thursday?
 
-Returns `true` if the date is a Monday.
+Returns `true` if the date is a Thursday.
 
 ## friday?
 
-Returns `true` if the date is a Monday.
+Returns `true` if the date is a Friday.
 
 ## saturday?
 
-Returns `true` if the date is a Monday.
+Returns `true` if the date is a Saturday.
 
 ## sunday?
 
-Returns `true` if the date is a Monday.
+Returns `true` if the date is a Sunday.
 
 ## wday?
 
