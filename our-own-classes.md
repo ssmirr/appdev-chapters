@@ -37,6 +37,8 @@ class Person
 end
 ```
 
+Remember, the only time we use capital letters in Ruby is when we're referring to classes — and this goes for when we're naming our own classes, too. So `class person` will not work. If you have a multi-word name, then `CamelCase` it — `class VeryImportantPerson`.
+
 And we can declare what attributes a person can have with the `attr_accessor` keyword:
 
 ```ruby
