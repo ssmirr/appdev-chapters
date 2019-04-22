@@ -369,7 +369,7 @@ You can also chain `.where`s one after the other:
 Contact.where({ :last_name => "Mouse" }).where({ :first_name => "Minnie" })
 ```
 
-##### where always returns a collection, not a single row
+#### where always returns a collection, not a single row
 
 **The return value from `.where` is always a collection, regardless of how many results there are.**
 
@@ -388,7 +388,7 @@ c = Contact.where({ :id => 2 }).first
 c.first_name
 ```
 
-#### UPDATE
+## UPDATE
 
 To update a row, first you need to locate it:
 
@@ -410,7 +410,7 @@ c.save
 
 That's it.
 
-#### Delete
+## DELETE
 
 To delete a row, first find it:
 
@@ -426,7 +426,7 @@ c.destroy
 
 Intense.
 
-### Fuzzy filtering
+## Fuzzy filtering
 
 `.where` can also be used to search for partial matches by passing a fragment of SQL in a string, rather than passing a hash:
 
