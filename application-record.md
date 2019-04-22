@@ -205,19 +205,19 @@ class Contact < ApplicationRecord
 end
 ```
 
-Amazingly, that's all we have to do. We don't have to declare attribute accessors or anything else. The `Contact` class will now connect to the database, find the table named "contacts", inspect it and see what columns are in it, and define methods that are able to create, read, update, and delete records, and a whole lot more.
+Amazingly, that's all we have to do. We don't have to declare attribute accessors or anything else. In inheriting from `ApplicationRecord`, the `Contact` class will automatically connect to the database, find the table named "contacts", inspect it and see what columns are in it, and define methods that are able to create, read, update, and delete rows, and a whole lot more.
 
-Let's see how it works.
+Let's see how it works. In a Terminal tab, let's fire up a `rails console` to experiment with our new model class. Then try the following:
 
-## Creating rows: .new
+## CREATE
 
-In a Terminal tab, let's fire up a `rails console` to experiment with our new model class. Then try the following:
+### new
 
 ```ruby
 Contact.count
 ```
 
-You'll see that, at present, we have `0` rows in the table.
+You'll see that, at present, we have `0` rows in the table. A crucial thing to remember: when you are talking to the **whole table**, you are referencing the _class_ `Contact`, so **use a capital letter**. If you did `contact.count`, what error message would you expect? Try it and see.
 
 Like any Ruby class, we instantiate a new object with `.new`:
 
@@ -225,12 +225,14 @@ Like any Ruby class, we instantiate a new object with `.new`:
 c = Contact.new
 ```
 
-We get attribute setter methods for every column in the table:
+As usual we store the new object in a variable so that we can continue to work with it; in this case, we named the variable `c`. This object has attribute setter methods for every column in the table:
 
 ```ruby
 c.first_name = "Raghu"
 c.last_name = "Betina"
 ```
+
+### save
 
 So far, this is just like a pure Ruby class with `attr_accessor`s. But, crucially, we have the `.save` method now:
 
@@ -240,54 +242,171 @@ c.save
 
 Now you can just type `c` and it should show you that `c` has been inserted into the database **and it has been assigned an ID number**.
 
-If you exit `rails console`, reboot the computer, and come back into `rails console`, and `Contact.count`, you will see `1` — the data will still be there (although the variable `c` will not).
+If you exit `rails console`, reboot the computer, and come back into `rails console`, and do `Contact.count`, you will see `1` — _the data will still be there_ (although the variable `c` will not). We have saved it _permanently_.
 
-#### Read
+Add a few more contacts:
 
-To retrieve all of the rows from a table, you just ask the Class:
+```ruby
+c = Contact.new
+c.first_name = "Minnie"
+c.last_name = "Mouse"
+c.date_of_birth = "November 18, 1928"
+c.save
+Contact.count # => 2
 
-    a = Instructor.all
+c = Contact.new
+c.first_name = "Mickey"
+c.last_name = "Mouse"
+c.date_of_birth = "May 15, 1928"
+c.save
+Contact.count # => 3
+```
 
-This will return to you an Array-like object, and you can do all the Array kinds of things with it; `.each`, `.count`, etc.
+Why does it work to re-use the variable `c` here? Well, when we `.save` on the prior one, we've entered the record in to the table and it is assigned an ID. Then throw away the contents of the _variable_ `c` and replace it with a brand new, blank row with `Contact.new` — but that's okay, because the old data is stored on disk and we can always look it up by its ID number if we need it.
 
-You can also scope it down a bit:
+## READ
 
-    f = Instructor.where({ :last_name => "Betina" })
+### all
 
-This will return a collection of all rows which match the criteria (no matter how many matches there are, you will get back an array; it might be empty, or have only one element, or have a thousand elements).
+To retrieve all of the rows from a table, you can call `.all` on the class:
 
-To retrieve a single row, you need to know what you are looking for. Do you want the row with first name "Raghu"? Then do:
+```ruby
+contact_list = Contact.all
+```
 
-    i = Instructor.find_by({ :first_name => "Raghu" })
+The return value of `.all` is an `Array`-like object (technically it's an `ActiveRecord::Relation`, but we can do all of our usual `Array` methods on it — `.each`, etc). From now on I'll refer to these `Array`-like objects as "**collections**".
 
-In general, the `YourModel.find_by()` method needs to know the `{ :column => "criteria" }` to lookup by.
+### count
 
-Do you want the row with ID number 1? Then do:
+We've already met `.count`, which tells you how many records are in a collection:
 
-    i = Instructor.find_by({ :id => 1 })
+```ruby
+contact_list.count
+```
 
-Or, since finding a row by ID is so common, and since every table has an ID column, we can use the shorthand:
+### first
 
-    i = Instructor.find(1)
+```ruby
+c = contact_list.first
+```
 
-Once you have found a row, you can ask it for its attributes, i.e., its cell values under particular columns:
+### last
 
-    i.first_name # => "Raghu"
-    i.last_name # => "Betina"
+```ruby
+c = contact_list.last
+```
 
-#### Update
+### Attribute getter methods
 
-To update a row, first you need to find it:
+However you got it, once you have an individual row stored in a variable, let's call it `c`, then you have a method for each column to retrieve the value for that cell:
 
-    i = Instructor.find(1)
+```ruby
+c.id
+c.first_name
+c.last_name
+c.date_of_birth
+c.created_at
+c.updated_at
+```
+
+What is the return value if you try calling a method for a column that doesn't exist?
+
+```ruby
+c.middle_name
+```
+
+**RTEM!** You're going to see it _a lot_.
+
+### order
+
+The `.order` method lets you sort your collections by one or more columns. The argument to `.order` is a `Hash`, where the _key_ is the _column_ you want to sort by, and the _value_ is either `:asc` (for ascending order) or `:desc` (for descending order):
+
+```ruby
+contact_list.order({ :last_name => :asc })
+```
+
+To break ties, you can provide multiple columns in the `Hash`:
+
+```ruby
+contact_list.order({ :last_name => :asc, :first_name => :asc, :date_of_birth => :desc })
+```
+
+This would first order by last name, then break ties using first name, then break ties using date of birth.
+
+Since collections are `Array`-like, you can use `.sort` or `.sort_by`; but `.order` is _much_ more performant. If at all possible, prefer using `.order` to `.sort` or `.sort_by` (but, at the end of the day, just get the job done one way or another).
+
+### reverse
+
+```ruby
+contact_list.reverse
+```
+
+### where
+
+Perhaps the most important READ method is `.where`. This is our bread-and-butter tool for _filtering_ a collection of rows down using various criteria.
+
+The argument to `.where` is a `Hash`, where the _key_ is the _column_ you want to filter by, and the _value_ is the criteria you want to filter by:
+
+```ruby
+contact_list.where({ :id => 2 })
+```
+
+To save us some typing, we can call `.where` directly on the class if we want to, rather than calling `.all` first:
+
+```ruby
+Contact.where({ :last_name => "Mouse" })
+```
+
+You can provide multiple columns to filter by in the `Hash`:
+
+```ruby
+Contact.where({ :last_name => "Mouse", :first_name => "Minnie" })
+```
+
+You can also chain `.where`s one after the other:
+
+```ruby
+Contact.where({ :last_name => "Mouse" }).where({ :first_name => "Minnie" })
+```
+
+##### where always returns a collection, not a single row
+
+**The return value from `.where` is always a collection, regardless of how many results there are.**
+
+Whether there are 0, 1, or a million results, you still have an array. What would you expect if you tried the following?
+
+```ruby
+Contact.where({ :id => 2 }).first_name
+```
+
+Try it. RTEM!
+
+ **So, use `.first`, `.last`, or `[]` to retrieve an object from the collection if you want to do something with an individual record:**
+
+```ruby
+c = Contact.where({ :id => 2 }).first
+c.first_name
+```
+
+#### UPDATE
+
+To update a row, first you need to locate it:
+
+```ruby
+c = Contact.where({ :id => 2 }).first
+```
 
 And then assign whatever new values you want to:
 
-    i.first_name = "Raghuveera"
+```ruby
+c.first_name = "Minerva"
+```
 
-And then save.
+And then don't forget to save the changes:
 
-    i.save
+```ruby
+c.save
+```
 
 That's it.
 
@@ -295,27 +414,19 @@ That's it.
 
 To delete a row, first find it:
 
-    i = Instructor.find(1)
+```ruby
+c = Contact.where({ :id => 2 }).first
+```
 
 And then,
 
-    i.destroy
+```ruby
+c.destroy
+```
 
-Pretty cold.
+Intense.
 
-### Querying
-
-For a simple lookup of a single record, we use the `.find_by` or `.find` methods as described above.
-
-Our primary tool to query our tables for richer information than simple lookups is `.where`. **The `.where` method will always return an ActiveRecord Collection of results, whether there are zero matches, one match, or a thousand matches.** It's up to you, then, to pull each row out of the collection and do whatever you need to with it; exactly as you do after `.all`.
-
-`.where` can be used to look stuff up just like `.find_by`, if we provide a list of columns and criteria that we want to match within a hash:
-
-    Instructor.where({ :last_name => "Betina" })
-
-You can be more specific and add multiple criteria to the hash (results will match all of them):
-
-    Instructor.where({ :last_name => "Betina", :title => "Lecturer" })
+### Fuzzy filtering
 
 `.where` can also be used to search for partial matches by passing a fragment of SQL in a string, rather than passing a hash:
 
