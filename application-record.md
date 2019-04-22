@@ -18,7 +18,7 @@ We call these database-related classes **models**, and we place them in the `app
 For the impatient, here's a shortcut. If we wanted to create a table called "contacts" with three columns, `first_name` (string), `last_name` (string), and `date_of_birth` (date); then at a Terminal prompt (**not** within `rails console`), we would run the following command:
 
 ```bash
-rails generate model contact first_name:string last_name:string date_of_birth:date
+rails generate draft:model contact first_name:string last_name:string date_of_birth:date
 ```
 
 You'll see some output in the Terminal that looks something like this:
