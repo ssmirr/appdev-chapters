@@ -98,33 +98,33 @@ In order to keep the order of the migrations straight, we begin the filenames wi
 rails generate migration [ChooseANameForTheMigrationClass]
 ```
 
-The name for the migration class can be anything. Let's start with a silly name, `Zebra`:
+The name for the migration class should be descriptive, so let's use `CreateContacts`:
 
 ```bash
-rails generate migration Zebra
+rails generate migration CreateContacts
 ```
 
 If you ran this command, the Terminal output would look something like this:
 
 ```bash
 invoke  active_record
-create    db/migrate/20190422123800_zebra.rb
+create    db/migrate/20190422123800_create_contacts.rb
 ```
 
 We are going to meet many `rails generate ...` commands. All any of the **Rails generators** do is save you some typing; they automate the creation of boilerplate files and code.
 
-In this case, you can see that it created a file for us in the `db/migrate` folder whose name starts with a timestamp and ends in `_zebra.rb`.
+In this case, you can see that it created a file for us in the `db/migrate` folder whose name starts with a timestamp and ends in `_create_contacts.rb`.
 
 If we head over to that file and take a look, we'll see something like this:
 
 ```ruby
-class Zebra < ActiveRecord::Migration[5.2]
+class CreateContacts < ActiveRecord::Migration[5.2]
   def change
   end
 end
 ```
 
-The generator saved us some typing by defining our migration class, `Zebra`, and inheriting from the base class `ActiveRecord::Migration` for us.
+The generator saved us some typing by defining our migration class, `CreateContacts`, and inheriting from the base class `ActiveRecord::Migration` for us.
 
 It also stubbed out the crucial `change` method; this method is what will actually be invoked when we're ready to execute this migration to evolve the database.
 
@@ -133,7 +133,7 @@ Within the `change` method, we can write any Ruby we want; but of course we have
 Fortunately, we inherit methods from `ActiveRecord::Migration` that makes this very easy. First, there's the `create_table` method, which takes a `Symbol` (the name of the table that you want to create) and a block as inputs:
 
 ```ruby
-class Zebra < ActiveRecord::Migration[5.2]
+class CreateContacts < ActiveRecord::Migration[5.2]
   def change
     create_table(:contacts) do |table|
 
@@ -145,7 +145,7 @@ end
 We could, as always, name the block variable anything. I name it `table` because that object represents the new table that's about to be created; and within the block, we can call methods on it like `.string` and `.date` to add columns of those datatypes:
 
 ```ruby
-class Zebra < ActiveRecord::Migration[5.2]
+class CreateContacts < ActiveRecord::Migration[5.2]
   def change
     create_table(:contacts) do |table|
       table.string(:first_name)
