@@ -371,8 +371,6 @@ Contact.all.order({ :last_name => :asc, :first_name => :asc, :date_of_birth => :
 
 This would first order by last name, then break ties using first name, then break ties using date of birth.
 
-Since collections are `Array`-like, you can use `.sort` or `.sort_by`; but `.order` is _much_ more performant. If at all possible, prefer using `.order` to `.sort` or `.sort_by` (but, at the end of the day, just get the job done one way or another).
-
 ### reverse
 
 ```ruby
