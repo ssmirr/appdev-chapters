@@ -588,7 +588,7 @@ Contact.where({ :last_name => "Mouse" }).offset(10).limit(10)
 
 ### maximum
 
-You can calculate the maximum value in a particular column within a collection with `.maximum`:
+You can calculate the largest/latest value in a particular column within a collection with `.maximum`:
 
 ```ruby
 Contact.where({ :last_name => "Mouse" }).maximum(:date_of_birth)
@@ -596,7 +596,7 @@ Contact.where({ :last_name => "Mouse" }).maximum(:date_of_birth)
 
 ### minimum
 
-You can calculate the maximum value in a particular column within a collection with `.maximum`:
+You can calculate the smallest/oldest value in a particular column within a collection with `.minimum`:
 
 ```ruby
 Contact.where({ :last_name => "Mouse" }).minimum(:date_of_birth)
