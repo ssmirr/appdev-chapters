@@ -42,16 +42,14 @@ You'd see some output in the Terminal that looks something like this:
 -- create_table(:contacts)
    -> 0.0037s
 == 20190422125330 CreateContacts: migrated (0.0037s) ==========================
-
-Annotated (1): app/models/contact.rb
 ```
 
 That's it. With these two commands, you now have a fully-formed database table _and_ a Ruby class that will help us easily interact with it (go check out the file that was created at `app/models/contact.rb`).
 
-We could just as easily add another table to our database — maybe a table called "companies" with columns "name" and "industry":
+We could just as easily add another table to our database — maybe a table called "companies" with columns "name", "industry", and a few others:
 
 ```
-rails g draft:model company name:string industry:string structure:string last_year_revenue:integer founded_on:date
+rails generate draft:model company name:string industry:string structure:string last_year_revenue:integer founded_on:date
 rails db:migrate
 ```
 
@@ -120,7 +118,7 @@ invoke  active_record
 create    db/migrate/20190422123800_create_contacts.rb
 ```
 
-We are going to meet many `rails generate ...` commands as wel continue to learn Rails. All any of the **Rails generators** do is save you some typing; they automate the creation of boilerplate files and code.
+We are going to meet many `rails generate ...` commands as we continue to learn Rails. All any of the **Rails generators** do is save you some typing; they automate the creation of boilerplate files and code.
 
 In this case, you can see that it created a file for us in the `db/migrate` folder whose name starts with a timestamp and ends in `_create_contacts.rb`.
 
@@ -145,24 +143,24 @@ Fortunately, we inherit methods from `ActiveRecord::Migration` that makes this v
 ```ruby
 class CreateContacts < ActiveRecord::Migration[5.2]
   def change
-    create_table(:contacts) do |table|
+    create_table(:contacts) do |t|
 
     end
   end
 end
 ```
 
-We could, as always, name the block variable anything. I name it `table` because that object represents the new table that's about to be created; and within the block, we can call methods on it like `.string` and `.date` to add columns of those datatypes:
+We could, as always, name the block variable anything. I name it `t` because that object represents the new table that's about to be created; and within the block, we can call methods on it like `.string` and `.date` to add columns of those datatypes:
 
 ```ruby
 class CreateContacts < ActiveRecord::Migration[5.2]
   def change
-    create_table(:contacts) do |table|
-      table.string(:first_name)
-      table.string(:last_name)
-      table.date(:date_of_birth)
+    create_table(:contacts) do |t|
+      t.string(:first_name)
+      t.string(:last_name)
+      t.date(:date_of_birth)
 
-      table.timestamps
+      t.timestamps
     end
   end
 end
@@ -171,21 +169,58 @@ end
 Other commonly used datatypes for columns:
 
 ```
-table.boolean    # true or false
-table.date       # Jan 27th
-table.datetime   # 7:23pm on Jan 27th
-table.decimal    # 42.42
-table.integer    # 42
-table.string     # Up to 255 characters
-table.text       # As many characters as you want
-table.time       # 7:23pm
+t.boolean    # true or false
+t.date       # Jan 27th
+t.datetime   # 7:23pm on Jan 27th
+t.decimal    # 42.42
+t.integer    # 42
+t.string     # Up to 255 characters
+t.text       # As many characters as you want
+t.time       # 7:23pm
 ```
 
 The `.timestamps` method will add two columns, `created_at` and `updated_at`, that will be automatically managed by the database. And, of course, every table will have an `id` primary key column that will also be automatically managed by the database; we don't have to say anything explicitly in the migration to get that.
 
+#### Why a block?
+
+Why does the `create_table` method need a block of code within `do`/`end`, rather than maybe just an array or hash of column names and datatypes? It's because migrations can, if you want, get quite sophisticated; you can set default values, build indexes, add database-level constraints, and a bunch of other things we haven't talked about yet. Using a block rather than just passing in data gives us flexibility, should we need it.
+
+#### Automatically generating the entire migration
+
+But for now, we don't need much flexibility; in fact, our migrations are 99% of time simple enough that the generator can write the entire migration automatically for us if we tell it the columns we want when we initially generate it. This commmand:
+
+```bash
+rails generate migration CreateContacts first_name:string last_name:string date_of_birth:date
+```
+
+when run, will write the entire migration automatically:
+
+```ruby
+class CreateContacts < ActiveRecord::Migration[5.2]
+  def change
+    create_table :contacts do |t|
+      t.string :first_name
+      t.string :last_name
+      t.date :date_of_birth
+
+      t.timestamps
+    end
+  end
+end
+```
+
+The generator infers:
+
+ - To use the `create_table` method because we started the name of the migration with `Create...`.
+ - To pass the `create_table` method the argument of `:contacts` because we made the second word in the class name `...Contacts`.
+ - All of the column methods to call from the datatypes we specified on the command line after the colons (`:`).
+ - All of the column names to pass into each datatype method before the colons (`:`).
+
+Voilà!
+
 ### rails db:migrate
 
-That's it! Our migration is ready to be run. Look it over one last time, and when you're confident, you can execute it with the following command at a Terminal prompt:
+That's it! Our migration is ready to be run. Look it over one last time, and when you're confident there are no typos, you can execute it with the following command at a Terminal prompt:
 
 ```bash
 rails db:migrate
@@ -194,6 +229,19 @@ rails db:migrate
 This command will look at all of the files in the `db/migrate` folder, examine the timestamps at the beginning of the filenames, look at the current version of the database, and intelligently run only any migrations that have not yet been run.
 
 That means you can re-run the command `rails db:migrate` as many times as you like and it won't harm anything; it won't, for example, try to add the same table twice. That's what the timestamps in the filenames are there to prevent.
+
+You'll see output something like this[^annotate]:
+
+```bash
+== 20190422125330 CreateContacts: migrating ===================================
+-- create_table(:contacts)
+   -> 0.0037s
+== 20190422125330 CreateContacts: migrated (0.0037s) ==========================
+
+Annotated (1): app/models/contact.rb
+```
+
+[^annotate]: The line that says `Annotated (1): app/models/contact.rb` is from a wonderful open-source library called [annotate]() that automatically adds helpful comments to our model files for us, reminding us what columns are in each table. Every time we run `rails db:migrate`, the annotate gem will automatically update these comments.
 
 Great! We now have a table called "contacts", with columns `first_name`, `last_name`, `date_of_birth`, `created_at`, `updated_at`, and `id`. But how do we actually enter records into this table?
 
@@ -217,19 +265,39 @@ end
 
 Amazingly, that's all we have to do. We don't have to declare attribute accessors or anything else. In inheriting from `ApplicationRecord`, the `Contact` class will automatically connect to the database, find the table named "contacts", inspect it and see what columns are in it, and define methods that are able to create, read, update, and delete rows, and a whole lot more.
 
-### The draft:model generator
+### The draft:model generator does everything
 
-As mentioned earlier, there's a shortcut for everything explained above. To generate the migration, columns, and model _all at once_ you can use the `draft:model` generator instead of the `migration` generator:
+As mentioned earlier, there's a shortcut for everything explained above. To generate the migration, columns, and model _all at once_ you can use the `draft:model` generator instead of the `migration` generator. For example, let's create another model and underlying table called `Company`:
 
 ```bash
-rails generate draft:model contact first_name:string last_name:string date_of_birth:date
+rails generate draft:model company name:string industry:string structure:string last_year_revenue:integer founded_on:date
 ```
 
- - After `rails generate` we specify which generator we want to use; in this case, `draft:model`.
+You'll see output something like:
+
+```bash
+Running via Spring preloader in process 89045
+      invoke  active_record
+      create    db/migrate/20190423211456_create_companies.rb
+      create    app/models/company.rb
+      create  app/admin/companies.rb
+      insert  app/admin/companies.rb
+```
+
+ - After `rails generate` we specify which generator we want to use; in this case, `draft:model`, instead of the plain old `migration` generator.
  - Then we have to say the name of the **model** that we want, which means make it **singular**, not plural.
  - Then we provide a list of the columns that we want. Each column name should be followed immediately by a colon (`:`) and then its datatype.
+ - When the command is run, you can see it creates both the migration file _and_ the model file. If you go look at the files, you'll see that the generator has already written all of the necessary code in both.
+ - These lines:
 
-Since most of the code for migrations and models is formulaic, the `draft:model` generator can handle writing all of it for us. Unless we want to make some tweaks like setting default values for columns, we can go ahead and
+    ```bash
+    create  app/admin/companies.rb
+    insert  app/admin/companies.rb
+    ```
+
+    are doing even more work that we haven't talked about yet; configuring the new model such that it will appear in an open-source admin dashboard that we've included in our project, ActiveAdmin, to get a quick visual overview of our database tables. We'll talk about that soon.
+
+Since most of the code for migrations and models is formulaic, the `draft:model` generator can handle writing all of it for us. Unless we want to make some tweaks to the migration, like setting default values for columns, we can go ahead and:
 
 ```
 rails db:migrate
@@ -251,7 +319,9 @@ Contact.count
 
 You'll see that, at present, we have `0` rows in the table. A crucial thing to remember: when you are talking to the **whole table**, you are referencing the _class_ `Contact`, so **use a capital letter**. If you did `contact.count`, what error message would you expect? Try it and see.
 
-Like any Ruby class, we instantiate a new object with `.new`:
+Like any Ruby class[^literal_shorthand] we instantiate a new, blank object with the `.new` method:
+
+[^literal_shorthand]: Remember [Array](), [Hash](), or even [String](), before we got to their literal shorthand syntaxes? We always started with `.new`, and then built up from scratch.
 
 ```ruby
 c = Contact.new
@@ -264,6 +334,8 @@ c.first_name = "Raghu"
 c.last_name = "Betina"
 ```
 
+We didn't have to declare the `attr_accessor`s like we did for pure Ruby classes — by inheriting from `ApplicationRecord`, our `Contact` class gains superpowers. It connects to the database, figures out what columns are in the "contacts" table, and automatically defines an attribute accessor for each column that exists.
+
 ### save
 
 So far, this is just like a pure Ruby class with `attr_accessor`s. But, crucially, we have the `.save` method now:
@@ -272,9 +344,11 @@ So far, this is just like a pure Ruby class with `attr_accessor`s. But, cruciall
 c.save
 ```
 
+Whoa! Some fancy new output. What you see is the actual SQL that is generated in order to transact with the database and save the data permanently to a row.
+
 Now you can just type `c` and it should show you that `c` has been inserted into the database **and it has been assigned an ID number**.
 
-If you exit `rails console`, reboot the computer, and come back into `rails console`, and do `Contact.count`, you will see `1` — _the data will still be there_ (although the variable `c` will not). We have saved it _permanently_.
+If you exit `rails console`, shut down the computer, and come back into `rails console` tomorrow, and do `Contact.count`, you will see `1` — _the data will still be there_ (although the variable `c` will not). We have saved it _permanently_.
 
 Add a few more contacts:
 
