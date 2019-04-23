@@ -363,6 +363,12 @@ The `.order` method lets you sort your collections by one or more columns. The a
 Contact.all.order({ :last_name => :asc })
 ```
 
+If you send `.order` a `Symbol` alone, outside of a `Hash`, then ascending order is assumed:
+
+```ruby
+Contact.all.order(:last_name)
+```
+
 To break ties, you can provide multiple columns in the `Hash`:
 
 ```ruby
@@ -373,8 +379,10 @@ This would first order by last name, then break ties using first name, then brea
 
 ### reverse
 
+`.reverse` reverses the ordering of a collection. Not particularly common, since you can use `:asc` and `:desc` to specify the direction you want explicitly, but there it is:
+
 ```ruby
-Contact.all.reverse
+Contact.order(:first_name).reverse
 ```
 
 ### where
