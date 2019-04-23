@@ -456,7 +456,7 @@ You can _negate_ a search with `.not`:
 Contact.where({ :last_name => "Mouse" }).where.not({ :first_name => "Mickey" })
 ```
 
-You chain `.not` directly after `.where` and it accepts all the same arguments as `.where`, but the result set is all of the records in the original collection _except_ the ones that match the criteria.
+You tack `where.not` on to a collection and it accepts all the same arguments as `.where`, but the result set is all of the records in the original collection _except_ the ones that match the criteria.
 
 ### Where is everything
 
