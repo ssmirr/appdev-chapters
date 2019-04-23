@@ -395,7 +395,7 @@ The argument to `.where` is a `Hash`, where the _key_ is the _column_ you want t
 Contact.all.where({ :id => 2 })
 ```
 
-To save us some typing, we can call `.where` directly on the class if we want to, rather than calling `.all` first:
+A bit of syntactic sugar — to save us some typing, we can call `.where` directly on the class if we want to, rather than calling `.all` first:
 
 ```ruby
 Contact.where({ :last_name => "Mouse" })
