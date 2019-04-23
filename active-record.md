@@ -97,7 +97,9 @@ However, we do first need to actually create the database table, name it, and sp
 
 Database migrations are responsible for evolving the structure of the database, one step at a time. Over the lifecycle of an application, we will make many changes to the database — adding tables here, renaming columns there — as we learn about our users and the problem domain.
 
-For each evolution of the database, we create a little Ruby class that will make the change, and make any modifications to the data already existing within the table (if necessary). This Ruby class will [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from a base Rails class known as `ActiveRecord::Migration`; which, as you might imagine, will give us a bunch of methods for free that make it very easy to create tables, add columns, etc.
+For each evolution of the database, we create a little Ruby class that will make the change, and make any modifications to the data already existing within the table (if necessary). This Ruby class will [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from a base Rails class known as `ActiveRecord::Migration`; which will give us a bunch of methods for free[^pattern] that make it very easy to create tables, add columns, etc.
+
+[^pattern]: You might be detecting a pattern. A lot of what we get out of Rails is powerful base classes that we inherit from when we make our own classes.
 
 In order to keep the order of the migrations straight, we begin the filenames with a timestamp. To make it easy on us, Rails will create the migration files for us and put the timestamp in the filename automatically if we run this command at a Terminal prompt (**not** inside `rails console`):
 
