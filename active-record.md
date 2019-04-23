@@ -55,7 +55,7 @@ rails generate draft:model company name:string industry:string
 rails db:migrate
 ```
 
-Incredible! Now we have two tables, and are ready to CRUD rows in them. If you want to, you can now skip ahead to the [CREATE](https://chapters.firstdraft.com/chapters/770#create) section to learn how to insert rows into our new tables. But, for the curious, here's what just happened, step-by-step:
+Incredible! Now we have two tables, and are ready to CRUD rows in them. If you want to, you can now skip ahead to the [Time to CRUD](https://chapters.firstdraft.com/chapters/770#time-to-crud) section to learn how to insert rows into our new tables. But, for the curious, here's what just happened, step-by-step:
 
 ## Pure Ruby Classes Review
 
