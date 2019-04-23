@@ -533,8 +533,9 @@ Intense.
 Contact.where("last_name LIKE ?", "%bet%")
 ```
 
- - The `?` in the first argument is a placeholder where the second argument, `"%bet%"`, gets inserted[^sql_injection].
- - The `%` characters are wildcards, which match anything in that position.
+The `?` in the first argument is a placeholder where the second argument, `"%bet%"`, gets inserted[^sql_injection].
+
+The `%` characters are wildcards, which match anything in that position.
 
 So that query would find all rows that have the fragment "bet" anywhere within the `last_name` column.
 
@@ -549,22 +550,23 @@ Contact.where("date_of_birth > ?", 30.years.ago)
 Contact.where("last_name >= ? AND last_name <= ?", "A", "C")
 ```
 
- - Notice that you can have multiple placeholders `?` in the SQL fragment, and the subsequent arguments will be plugged in in order.
- - That last query, for a value within a range, can also be written with a `Hash` and a `Range`:
+Notice that you can have multiple placeholders `?` in the SQL fragment, and the subsequent arguments will be plugged in in order.
 
-    ```ruby
-    Instructor.where({ :last_name => ("A".."C") })
-    ```
+That last query, for a value within a range, can also be written with a `Hash` and a `Range`:
 
-    This is particularly handy for searching for records within a particular range of times:
+```ruby
+Instructor.where({ :last_name => ("A".."C") })
+```
 
-    ```ruby
-    start_date = 7.days.ago
-    end_date = Date.today
-    Contact.where({ :created_at => (start_date..end_date) })
-    ```
+This is particularly handy for searching for records within a particular range of times:
 
-    With Ruby `Range`s, two dots means inclusive of the second value, and three dots means exclusive of the second value. E.g., `(1..4)` is 1, 2, 3, and 4; `(1...4)` is only 1, 2, and 3.
+```ruby
+start_date = 7.days.ago
+end_date = Date.today
+Contact.where({ :created_at => (start_date..end_date) })
+```
+
+With Ruby `Range`s, two dots means inclusive of the second value, and three dots means exclusive of the second value. E.g., `(1..4)` is 1, 2, 3, and 4; `(1...4)` is only 1, 2, and 3.
 
 ### limit
 
