@@ -612,4 +612,4 @@ Review.where({ :venue_id => 4 }).average(:rating)
 
 ## Conclusion
 
-Now you have the ability to Create, Update, and Delete records. And by creatively chaining `.where`, `.not`, and `.or`, you can write (with ActiveRecord's help) pretty much any SQL query you're ever going to need to Read, from a simple one-to-many lookup all the way through a complicated self-referential social network feed. It's just going to require a bit of practice.
+Now you have the ability to Create, Update, and Delete records. And by creatively chaining `.where`, `.not`, and `.or`, you can write (with ActiveRecord's help) pretty much any SQL query you're ever going to need to Read anything you want, from a simple one-to-many lookup all the way through a complicated self-referential social network feed. It's just going to require a bit of practice.
