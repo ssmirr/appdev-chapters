@@ -375,7 +375,7 @@ You can provide multiple columns to filter by in the `Hash`:
 Contact.where({ :last_name => "Mouse", :first_name => "Minnie" })
 ```
 
-#### where always returns a collection, not a single row
+### where always returns a collection, not a single row
 
 **The return value from `.where` is always a collection, regardless of how many results there are.**
 
@@ -394,7 +394,7 @@ c = Contact.where({ :id => 2 }).first
 c.first_name
 ```
 
-#### Using where with an array of criteria
+### Using where with an array of criteria
 
 You can even use an `Array` in the argument to `.where`; it will then bring back the rows that match ANY of the criteria for that column:
 
@@ -402,7 +402,7 @@ You can even use an `Array` in the argument to `.where`; it will then bring back
 Contact.where({ :last_name => ["Betina", "Woods"] })
 ```
 
-#### Chaining wheres
+### Chaining wheres
 
 Since `.where` returns another collection, you can chain `.where`s one after the other:
 
@@ -410,7 +410,29 @@ Since `.where` returns another collection, you can chain `.where`s one after the
 Contact.where({ :last_name => "Mouse" }).where({ :first_name => "Minnie" })
 ```
 
-#### Where is everything
+This _narrows_ the search.
+
+### where(this).or(that)
+
+You can _broaden_ the search with `.or`:
+
+```ruby
+Contact.where({ :first_name => "Mickey" }).or(Contact.where({ :last_name => "Betina" }))
+```
+
+This may look a little funny, but we chain `.or` onto the end of one collection; and pass it an _entire_ query as its argument, starting from the class. Then, it merges both result sets and returns them merged into one collection.
+
+### where.not(this)
+
+You can _negate_ a search with `.not`:
+
+```ruby
+Contact.where({ :last_name => "Mouse" }).where.not({ :first_name => "Mickey" })
+```
+
+You chain `.not` directly after `.where` and it accepts all the same arguments as `.where`, but the result set is all of the records in the original collection _except_ the ones that match the criteria.
+
+### Where is everything
 
 **Everything from looking up a movie's director to putting together a feed in a social network ultimately boils down to `.where`s and `.each`s.** I can't emphasize the importance of `.where` enough. Ask lots of questions.
 
@@ -553,3 +575,7 @@ You can calculate the average value in a particular column within a collection w
 ```ruby
 Review.where({ :venue_id => 4 }).average(:rating)
 ```
+
+## Conclusion
+
+Now you have the ability to Create, Update, and Delete records. And by creatively chaining `.where`, `.not`, and `.or`, you can write (with ActiveRecord's help) pretty much any SQL query you're ever going to need to Read, from a simple one-to-many lookup all the way through a complicated self-referential social network feed. It's just going to require a bit of practice.
