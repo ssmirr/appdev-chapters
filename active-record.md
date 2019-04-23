@@ -481,8 +481,8 @@ The `.pluck` method returns an `Array` of values. This can be handy in conjuncti
 ```ruby
 shawshank_id = 4
 shawshank_roles = Role.where({ :movie_id => shawshank_id })
-actor_ids = shawshank_roles.pluck(:actor_id) # => [12, 94, 34]
-shawshank_actors = Actor.where({ :id => actor_ids }) # => the collection of Shawshank's actors
+cast_ids = shawshank_roles.pluck(:actor_id) # => [12, 94, 34]
+shawshank_actors = Actor.where({ :id => cast_ids }) # => the collection of Shawshank's actors
 ```
 
 ## UPDATE
