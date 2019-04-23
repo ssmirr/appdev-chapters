@@ -456,7 +456,7 @@ This may look a little funny. We tack `.or` onto the end of one collection, and 
 
 ### where.not(this)
 
-You can _negate_ a search with `.not`:
+You can _negate_ a criteria with `.not`:
 
 ```ruby
 Contact.where({ :last_name => "Mouse" }).where.not({ :first_name => "Mickey" })
@@ -482,7 +482,7 @@ The `.pluck` method returns an `Array` of values. This can be handy in conjuncti
 shawshank_id = 4
 shawshank_roles = Role.where({ :movie_id => shawshank_id })
 actor_ids = shawshank_roles.pluck(:actor_id) # => [12, 94, 34]
-shawshank_actors = Actor.where({ :id => actor_ids })
+shawshank_actors = Actor.where({ :id => actor_ids }) # => the collection of Shawshank's actors
 ```
 
 ## UPDATE
@@ -499,7 +499,7 @@ And then assign whatever new values you want to:
 c.first_name = "Minerva"
 ```
 
-And then don't forget to save the changes:
+And then **don't forget to save the changes**:
 
 ```ruby
 c.save
