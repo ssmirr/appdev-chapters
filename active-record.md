@@ -101,7 +101,7 @@ For each evolution of the database, we create a little Ruby class that will make
 
 [^pattern]: You might be detecting a pattern. A lot of what we get out of Rails is powerful base classes that we inherit from when we make our own classes.
 
-In order to keep the order of the migrations straight, we begin the filenames with a timestamp. To make it easy on us, Rails will create the migration files for us and put the timestamp in the filename automatically if we run this command at a Terminal prompt (**not** inside `rails console`):
+Let's create our first migration, to add a table called "contacts". In order to keep the order of the migrations straight, we begin the filenames with a timestamp. To make it easy on us, Rails will create the migration files for us and put the timestamp in the filename automatically if we run this command at a Terminal prompt (**not** inside `rails console`):
 
 ```bash
 rails generate migration [ChooseANameForTheMigrationClass]
@@ -217,7 +217,29 @@ end
 
 Amazingly, that's all we have to do. We don't have to declare attribute accessors or anything else. In inheriting from `ApplicationRecord`, the `Contact` class will automatically connect to the database, find the table named "contacts", inspect it and see what columns are in it, and define methods that are able to create, read, update, and delete rows, and a whole lot more.
 
-Let's see how it works. In a Terminal tab, let's fire up a `rails console` to experiment with our new model class. Then try the following:
+### The draft:model generator
+
+As mentioned earlier, there's a shortcut for everything explained above. To generate the migration, columns, and model _all at once_ you can use the `draft:model` generator instead of the `migration` generator:
+
+```bash
+rails generate draft:model contact first_name:string last_name:string date_of_birth:date
+```
+
+ - After `rails generate` we specify which generator we want to use; in this case, `draft:model`.
+ - Then we have to say the name of the **model** that we want, which means make it **singular**, not plural.
+ - Then we provide a list of the columns that we want. Each column name should be followed immediately by a colon (`:`) and then its datatype.
+
+Since most of the code for migrations and models is formulaic, the `draft:model` generator can handle writing all of it for us. Unless we want to make some tweaks like setting default values for columns, we can go ahead and
+
+```
+rails db:migrate
+```
+
+without even looking at the generated code, although it's usually a good idea to at least glance at the migration file to make sure you didn't make any typos.
+
+## Time to CRUD
+
+Now that we've got our table created, _and_ we have a model to help us interact with the table, let's learn the methods we've inherited from `ActiveRecord` to make it easy. In a Terminal tab, let's fire up a `rails console` to experiment with our new model class. Then try the following:
 
 ## CREATE
 
