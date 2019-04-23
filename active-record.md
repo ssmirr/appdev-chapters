@@ -422,7 +422,7 @@ c.first_name
 
 ### Using where with an array of criteria
 
-You can even use an `Array` in the argument to `.where`; it will then bring back the rows that match ANY of the criteria for that column:
+You can even use an `Array` in the argument to `.where`; it will then bring back the rows that match _any_ of the criteria for that column:
 
 ```ruby
 Contact.where({ :last_name => ["Betina", "Woods"] })
@@ -446,7 +446,7 @@ You can _broaden_ the search with `.or`:
 Contact.where({ :first_name => "Mickey" }).or(Contact.where({ :last_name => "Betina" }))
 ```
 
-This may look a little funny, but we chain `.or` onto the end of one collection; and pass it an _entire_ query as its argument, starting from the class. Then, it merges both result sets and returns them merged into one collection.
+This may look a little funny. We tack `.or` onto the end of one collection, and the argument to `.or` is an _entire query_, starting from the class again. The return value is both collections merged together.
 
 ### where.not(this)
 
