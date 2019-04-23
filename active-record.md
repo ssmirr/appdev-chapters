@@ -51,7 +51,7 @@ That's it. With these two commands, you now have a fully-formed database table _
 We could just as easily add another table to our database — maybe a table called "companies" with columns "name" and "industry":
 
 ```
-rails generate draft:model company name:string industry:string
+rails g draft:model company name:string industry:string structure:string last_year_revenue:integer founded_on:date
 rails db:migrate
 ```
 
