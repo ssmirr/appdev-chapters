@@ -1,6 +1,6 @@
-# ApplicationRecord
+# ActiveRecord
 
-`ApplicationRecord` is part of Ruby on Rails, and is one of the primary reasons to choose Rails. If you define a class, e.g. `Contact`, and inherit from `ApplicationRecord`:
+`ActiveRecord` comprises a set of classes within Ruby on Rails that help us interact with our database, and is one of the most powerful reasons to choose Rails. For example, if we define a class, e.g. `Contact`, and [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from `ApplicationRecord`:
 
 ```ruby
 class Contact < ApplicationRecord
@@ -9,7 +9,7 @@ end
 
 Then _boom_ — our class `Contact` has now inherited[^activerecord] a _tremendous_ number of powerful methods, most of them related to **creating, reading, updating, and deleting records in a database table**.
 
-[^activerecord]: Actually, these methods mostly come from our grandparent class `ActiveRecord::Base` rather than our parent class `ApplicationRecord`. We'll go into this detail later.
+[^activerecord]: Actually, these methods mostly come from our grandparent class `ActiveRecord::Base` rather than our immediate parent class `ApplicationRecord`. We'll go into these details later.
 
 We call these database-related classes **models**, and we place them in the `app/models` folder. They talk to the database for us, contain most of our business logic, and are, in many ways, the heart of our applications.
 
@@ -46,9 +46,16 @@ You'd see some output in the Terminal that looks something like this:
 Annotated (1): app/models/contact.rb
 ```
 
-That's it. With these two commands, you now have a fully-formed database table _and_ a Ruby class to interact with it (go check out the file that was created at `app/models/contact.rb`).
+That's it. With these two commands, you now have a fully-formed database table _and_ a Ruby class that will help us easily interact with it (go check out the file that was created at `app/models/contact.rb`).
 
-Incredible! If you want to, you can now skip ahead to the section on [Creating rows](). But, for the curious, here's what just happened, step-by-step:
+We could just as easily add another table to our database — maybe a table called "companies" with columns "name" and "industry":
+
+```
+rails generate draft:model company name:string industry:string
+rails db:migrate
+```
+
+Incredible! Now we have two tables, and are ready to CRUD rows in them. If you want to, you can now skip ahead to the [CREATE](https://chapters.firstdraft.com/chapters/770#create) section to learn how to insert rows into our new tables. But, for the curious, here's what just happened, step-by-step:
 
 ## Pure Ruby Classes Review
 
@@ -80,7 +87,7 @@ If we want to store the information permanently, we need to save it to a file on
 
 **Databases** are programs that have been optimized since the 1970s to be super-efficient at storing and retrieving information on disk. In particular, **relational** databases have been dominant since the 1980s, and use a language called Structured Query Language (SQL) to store and retrieve records from two-dimensional tables. Relational databases power the vast majority of software in use today.
 
-Fortunately for us, we don't need to learn yet another language to use them. All we have to do is inherit from `ApplicationRecord` and our Ruby classes are empowered with methods, like `.save` and `.where`, that will _write all of the SQL for us_. Awesome!
+Fortunately for us, we don't need to learn yet another language to use them. All we have to do is [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from `ApplicationRecord` and our Ruby classes are empowered with methods, like `.save` and `.where`, that will _write all of the SQL for us_. We just have to write our usual `noun.verb`. Awesome!
 
 ## Creating the table
 
@@ -90,7 +97,7 @@ However, we do first need to actually create the database table, name it, and sp
 
 Database migrations are responsible for evolving the structure of the database, one step at a time. Over the lifecycle of an application, we will make many changes to the database — adding tables here, renaming columns there — as we learn about our users and the problem domain.
 
-For each evolution of the database, we create a little Ruby class that will make the change, and make any modifications to the data already existing within the table (if necessary). This Ruby class will inherit from a base Rails class known as `ActiveRecord::Migration`; which, as you might imagine, will give us a bunch of methods for free that make it very easy to create tables, add columns, etc.
+For each evolution of the database, we create a little Ruby class that will make the change, and make any modifications to the data already existing within the table (if necessary). This Ruby class will [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from a base Rails class known as `ActiveRecord::Migration`; which, as you might imagine, will give us a bunch of methods for free that make it very easy to create tables, add columns, etc.
 
 In order to keep the order of the migrations straight, we begin the filenames with a timestamp. To make it easy on us, Rails will create the migration files for us and put the timestamp in the filename automatically if we run this command at a Terminal prompt (**not** inside `rails console`):
 
@@ -98,7 +105,7 @@ In order to keep the order of the migrations straight, we begin the filenames wi
 rails generate migration [ChooseANameForTheMigrationClass]
 ```
 
-The name for the migration class should be descriptive, so let's use `CreateContacts`:
+The name of the migration class should be descriptive of our intention for it, so for this one let's use `CreateContacts`:
 
 ```bash
 rails generate migration CreateContacts
@@ -111,7 +118,7 @@ invoke  active_record
 create    db/migrate/20190422123800_create_contacts.rb
 ```
 
-We are going to meet many `rails generate ...` commands. All any of the **Rails generators** do is save you some typing; they automate the creation of boilerplate files and code.
+We are going to meet many `rails generate ...` commands as wel continue to learn Rails. All any of the **Rails generators** do is save you some typing; they automate the creation of boilerplate files and code.
 
 In this case, you can see that it created a file for us in the `db/migrate` folder whose name starts with a timestamp and ends in `_create_contacts.rb`.
 
@@ -120,6 +127,7 @@ If we head over to that file and take a look, we'll see something like this:
 ```ruby
 class CreateContacts < ActiveRecord::Migration[5.2]
   def change
+    # ...
   end
 end
 ```
@@ -130,7 +138,7 @@ It also stubbed out the crucial `change` method; this method is what will actual
 
 Within the `change` method, we can write any Ruby we want; but of course we have a specific mission, to create a table called "contacts" with three columns, `first_name`, `last_name`, and `date_of_birth`.
 
-Fortunately, we inherit methods from `ActiveRecord::Migration` that makes this very easy. First, there's the `create_table` method, which takes a `Symbol` (the name of the table that you want to create) and a block as inputs:
+Fortunately, we inherit methods from `ActiveRecord::Migration` that makes this very easy. First, there's the `create_table` method, which takes a `Symbol` (the name of the table that you want to create) and a block as inputs. The generator probably already stubbed out most of this for you too (the Rails generators are pretty smart, and try to write as much code on your behalf as possible based on what you named the migration class):
 
 ```ruby
 class CreateContacts < ActiveRecord::Migration[5.2]
@@ -175,13 +183,13 @@ The `.timestamps` method will add two columns, `created_at` and `updated_at`, th
 
 ### rails db:migrate
 
-That's it! Our migration file is ready to be run. Look it over one last time, and when you're confident, you can execute it with the following command at a Terminal prompt:
+That's it! Our migration is ready to be run. Look it over one last time, and when you're confident, you can execute it with the following command at a Terminal prompt:
 
 ```bash
 rails db:migrate
 ```
 
-This command will look at all of the files in the `db/migrate` folder, examine the timestamps at the beginning of the filenames, look at the current version of the database, and intelligently run only any migrations that have so far not been run.
+This command will look at all of the files in the `db/migrate` folder, examine the timestamps at the beginning of the filenames, look at the current version of the database, and intelligently run only any migrations that have not yet been run.
 
 That means you can re-run the command `rails db:migrate` as many times as you like and it won't harm anything; it won't, for example, try to add the same table twice. That's what the timestamps in the filenames are there to prevent.
 
@@ -189,7 +197,7 @@ Great! We now have a table called "contacts", with columns `first_name`, `last_n
 
 ## Models: our translators to the database
 
-Well, one option is to learn Structured Query Language. But let's instead stick with Ruby.
+The migration is something we run once to create our table, and then we're done with it forever. But now we want _another_ class that we're going to use a million times a day to actually create, read, update, and delete rows in our table. We refer to these classes as _models_.
 
 Create a file in the `app/models` folder called `contact.rb` and within it define a class called `Contact`:
 
@@ -286,11 +294,15 @@ contact_list.count
 
 ### first
 
+Returns the first record in a collection.
+
 ```ruby
 c = contact_list.first
 ```
 
 ### last
+
+Returns the last record in a collection.
 
 ```ruby
 c = contact_list.last
@@ -363,12 +375,6 @@ You can provide multiple columns to filter by in the `Hash`:
 Contact.where({ :last_name => "Mouse", :first_name => "Minnie" })
 ```
 
-You can also chain `.where`s one after the other:
-
-```ruby
-Contact.where({ :last_name => "Mouse" }).where({ :first_name => "Minnie" })
-```
-
 #### where always returns a collection, not a single row
 
 **The return value from `.where` is always a collection, regardless of how many results there are.**
@@ -386,6 +392,43 @@ Try it. RTEM!
 ```ruby
 c = Contact.where({ :id => 2 }).first
 c.first_name
+```
+
+#### Using where with an array of criteria
+
+You can even use an `Array` in the argument to `.where`; it will then bring back the rows that match ANY of the criteria for that column:
+
+```ruby
+Contact.where({ :last_name => ["Betina", "Woods"] })
+```
+
+#### Chaining wheres
+
+Since `.where` returns another collection, you can chain `.where`s one after the other:
+
+```ruby
+Contact.where({ :last_name => "Mouse" }).where({ :first_name => "Minnie" })
+```
+
+#### Where is everything
+
+**Everything from looking up a movie's director to putting together a feed in a social network ultimately boils down to `.where`s and `.each`s.** I can't emphasize the importance of `.where` enough. Ask lots of questions.
+
+### pluck
+
+Once you've retrieved the right subset of records, you can peel off the values in just one column with `.pluck`:
+
+```ruby
+Contact.where({ :last_name => "Mouse" }).pluck(:first_name) # => ["Minnie", "Mickey"]
+```
+
+The `.pluck` method returns an `Array` of values. This can be handy in conjunction with the ability to pass `.where` an `Array` of criteria to filter by, e.g.:
+
+```ruby
+shawshank_id = 4
+shawshank_roles = Role.where({ :movie_id => shawshank_id })
+actor_ids = shawshank_roles.pluck(:actor_id) # => [12, 94, 34]
+shawshank_actors = Actor.where({ :id => actor_ids })
 ```
 
 ## UPDATE
@@ -426,47 +469,87 @@ c.destroy
 
 Intense.
 
-## Fuzzy filtering
+## Less commonly used queries
 
-`.where` can also be used to search for partial matches by passing a fragment of SQL in a string, rather than passing a hash:
+### Fuzzy criteria
 
-    Instructor.where("last_name LIKE '%bet%'")
+`.where` can also be used to search for partial matches by passing a fragment of SQL in a `String`, rather than passing a `Hash`:
 
-The `%` are wildcard characters, which match anything in that position.
+```ruby
+Contact.where("last_name LIKE ?", "%bet%")
+```
+
+ - The `?` in the first argument is a placeholder where the second argument, `"%bet%"`, gets inserted[^sql_injection].
+ - The `%` characters are wildcards, which match anything in that position.
+
+So that query would find all rows that have the fragment "bet" anywhere within the `last_name` column.
+
+[^sql_injection]: This is an advanced safety feature of Rails that prevents [SQL injection attacks](https://en.wikipedia.org/wiki/SQL_injection){:target="_blank"}.
+
+### Less than or greater than
 
 You can search for rows less than or greater than certain criteria:
 
-    Instructor.where("age > 30")
-    Instructor.where("last_name >= 'A' AND last_name <= 'C'")
+```ruby
+Contact.where("date_of_birth > ?", 30.years.ago)
+Contact.where("last_name >= ? AND last_name <= ?", "A", "C")
+```
 
-That last query, for a value within a range, can be more easily written as
+ - Notice that you can have multiple placeholders `?` in the SQL fragment, and the subsequent arguments will be plugged in in order.
+ - That last query, for a value within a range, can also be written with a `Hash` and a `Range`:
 
-    Instructor.where(:last_name => ('A'..'C'))
+    ```ruby
+    Instructor.where({ :last_name => ("A".."C") })
+    ```
 
-This is particularly nice for searching for records within a particular range of times:
+    This is particularly handy for searching for records within a particular range of times:
 
+    ```ruby
     start_date = 7.days.ago
     end_date = Date.today
-    Instructor.where(:created_at => (start_date..end_date))
+    Contact.where({ :created_at => (start_date..end_date) })
+    ```
 
-Remember, with Ruby Ranges, two dots means inclusive of the second value, and three dots means exclusive of the second value. E.g., `(1..4)` is 1, 2, 3, and 4; `(1...4)` is only 1, 2, and 3.
+    With Ruby `Range`s, two dots means inclusive of the second value, and three dots means exclusive of the second value. E.g., `(1..4)` is 1, 2, 3, and 4; `(1...4)` is only 1, 2, and 3.
 
-You can even use an Array in the argument to `.where`; it will then bring back the rows that match ANY of the criteria for that column:
+### limit
 
-    Instructor.where({ :last_name => ["Betina", "Venkataswamy"] })
+You can limit the number of records in a collection with `.limit`:
 
-Once you've retrieved the right subset of records, you can peel off the values in just one column with `.pluck`:
+```ruby
+Contact.where({ :last_name => "Mouse" }).limit(10)
+```
 
-    Instructor.where(:created_at => (start_date..end_date)).pluck(:first_name)
-      # => ["Raghu", "Arjun"]
+This will return no more than 10 records.
 
-Other useful query methods are [.order][1], [.limit and .offset][2], and [calculations like .minimum, .maximum, and .average][3].
+### offset
 
-Much more information about querying can be found at the official Rails Guide:
+You can skip some rows in the result set with `.offset`. This is useful for e.g. retrieving the second page of records, or choosing a random record:
 
-http://guides.rubyonrails.org/active_record_querying.html
+```ruby
+Contact.where({ :last_name => "Mouse" }).offset(10).limit(10)
+```
 
+### maximum
 
-  [1]: http://guides.rubyonrails.org/active_record_querying.html#ordering
-  [2]: http://guides.rubyonrails.org/active_record_querying.html#limit-and-offset
-  [3]: http://guides.rubyonrails.org/active_record_querying.html#calculations
+You can calculate the maximum value in a particular column within a collection with `.maximum`:
+
+```ruby
+Contact.where({ :last_name => "Mouse" }).maximum(:date_of_birth)
+```
+
+### minimum
+
+You can calculate the maximum value in a particular column within a collection with `.maximum`:
+
+```ruby
+Contact.where({ :last_name => "Mouse" }).minimum(:date_of_birth)
+```
+
+### average
+
+You can calculate the average value in a particular column within a collection with `.average`:
+
+```ruby
+Review.where({ :venue_id => 4 }).average(:rating)
+```
