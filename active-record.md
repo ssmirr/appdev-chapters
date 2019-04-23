@@ -313,7 +313,7 @@ The return value of `.all` is an `Array`-like object (technically it's an `Activ
 We've already met `.count`, which tells you how many records are in a collection:
 
 ```ruby
-contact_list.count
+Contact.all.count
 ```
 
 ### first
@@ -321,7 +321,7 @@ contact_list.count
 Returns the first record in a collection.
 
 ```ruby
-c = contact_list.first
+c = Contact.all.first
 ```
 
 ### last
@@ -329,7 +329,7 @@ c = contact_list.first
 Returns the last record in a collection.
 
 ```ruby
-c = contact_list.last
+c = Contact.all.last
 ```
 
 ### Attribute getter methods
@@ -337,6 +337,8 @@ c = contact_list.last
 However you got it, once you have an individual row stored in a variable, let's call it `c`, then you have a method for each column to retrieve the value for that cell:
 
 ```ruby
+c = Contact.all.last
+
 c.id
 c.first_name
 c.last_name
@@ -358,13 +360,13 @@ c.middle_name
 The `.order` method lets you sort your collections by one or more columns. The argument to `.order` is a `Hash`, where the _key_ is the _column_ you want to sort by, and the _value_ is either `:asc` (for ascending order) or `:desc` (for descending order):
 
 ```ruby
-contact_list.order({ :last_name => :asc })
+Contact.all.order({ :last_name => :asc })
 ```
 
 To break ties, you can provide multiple columns in the `Hash`:
 
 ```ruby
-contact_list.order({ :last_name => :asc, :first_name => :asc, :date_of_birth => :desc })
+Contact.all.order({ :last_name => :asc, :first_name => :asc, :date_of_birth => :desc })
 ```
 
 This would first order by last name, then break ties using first name, then break ties using date of birth.
@@ -374,7 +376,7 @@ Since collections are `Array`-like, you can use `.sort` or `.sort_by`; but `.ord
 ### reverse
 
 ```ruby
-contact_list.reverse
+Contact.all.reverse
 ```
 
 ### where
@@ -384,7 +386,7 @@ Perhaps the most important READ method is `.where`. This is our bread-and-butter
 The argument to `.where` is a `Hash`, where the _key_ is the _column_ you want to filter by, and the _value_ is the criteria you want to filter by:
 
 ```ruby
-contact_list.where({ :id => 2 })
+Contact.all.where({ :id => 2 })
 ```
 
 To save us some typing, we can call `.where` directly on the class if we want to, rather than calling `.all` first:
