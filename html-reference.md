@@ -44,7 +44,27 @@ Produces:
 
 ### img — images
 
+Examples:
+
+```html
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Evolution_of_a_Tornado.jpg/1024px-Evolution_of_a_Tornado.jpg">
+```
+
+Produces:
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Evolution_of_a_Tornado.jpg/1024px-Evolution_of_a_Tornado.jpg">
+
 ### a — a link
+
+Examples:
+
+```html
+Click <a href="https://www.google.com/">here</a> to search.
+```
+
+Produces:
+
+Click <a href="https://www.google.com/">here</a> to search.
 
 ## Lists
 
@@ -61,6 +81,86 @@ Produces:
 #### dl, dt — each element in the list
 
 ## Tables
+
+In HTML, the `<table>` element is used to represent two-dimensional, tabular data. A simple table looks like this:
+
+```html
+<table>
+  <tr>
+    <td>First</td>
+    <td>Last</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+  <tr>
+    <td>Jane</td>
+    <td>Doe</td>
+  </tr>
+</table>
+```
+
+which would produce this:
+
+<table>
+  <tr>
+    <td>First</td>
+    <td>Last</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+  <tr>
+    <td>Jane</td>
+    <td>Doe</td>
+  </tr>
+</table>
+
+The things to keep in mind about tables are:
+
+ - Every piece of data must reside within a cell, a `<td>` (table data) element.
+ - Every `<td>` element must reside within a row, a `<tr>` element.
+ - Every `<tr>` must have the same number of cells, or things get out of whack.
+
+Despite this last rule, you can, however, "merge" cells using the `colspan` attribute:
+
+```html
+<table>
+  <tr>
+    <td colspan="2">People</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+  <tr>
+    <td>Jane</td>
+    <td>Doe</td>
+  </tr>
+</table>
+```
+
+produces:
+
+<table>
+  <tr>
+    <td colspan="2">People</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+  <tr>
+    <td>Jane</td>
+    <td>Doe</td>
+  </tr>
+</table>
+
+You can see that we've merged two cells in the first row together; the `colspan="2"` on the first cell ensures that we don't violate the "every `<tr>` must have the same number of cells" rule.
+
+There's also a similar `rowspan` attribute to merge vertically, although we use it much more rarely.
 
 ## Generic elements
 
