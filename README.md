@@ -14,3 +14,4 @@
  1. [Hash](https://chapters.firstdraft.com/chapters/767)
  1. [Our own classes](https://chapters.firstdraft.com/chapters/769)
  1. [ActiveRecord](https://chapters.firstdraft.com/chapters/770)
+ 1. [HTML Reference](https://chapters.firstdraft.com/chapters/771)
