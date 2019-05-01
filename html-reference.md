@@ -85,7 +85,7 @@ Click <a href="https://www.google.com/">here</a> to search.
 In HTML, the `<table>` element is used to represent two-dimensional, tabular data. A simple table looks like this:
 
 ```html
-<table>
+<table border="1">
   <tr>
     <td>First</td>
     <td>Last</td>
@@ -101,9 +101,11 @@ In HTML, the `<table>` element is used to represent two-dimensional, tabular dat
 </table>
 ```
 
-which would produce this:
+which would produce this[^border1]:
 
-<table>
+[^border1]: The `border="1"` attribute is rarely used. It throws a quick and dirty border around all cells; I include it here to make it easy to see what's going on in these examples. In reality, we would use CSS if we want borders.
+
+<table border="1">
   <tr>
     <td>First</td>
     <td>Last</td>
@@ -127,7 +129,7 @@ The things to keep in mind about tables are:
 Despite this last rule, you can, however, "merge" cells using the `colspan` attribute:
 
 ```html
-<table>
+<table border="1">
   <tr>
     <td colspan="2">People</td>
   </tr>
@@ -144,7 +146,7 @@ Despite this last rule, you can, however, "merge" cells using the `colspan` attr
 
 produces:
 
-<table>
+<table border="1">
   <tr>
     <td colspan="2">People</td>
   </tr>
