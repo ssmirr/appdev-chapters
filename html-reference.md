@@ -24,7 +24,7 @@ Produces:
 
 HTML offers six levels of headings — `h1` through `h6`. Choose one based on the correct semantic level of hierarchy — is it the top-level heading of the page? the secondary heading? tertiary?
 
-Don't choose based on the default style that the browser assigns — we're going to override those awful default styles anyway.
+Don't choose based on the default style (size, weight) that the browser assigns — we're going to override those awful default styles anyway.
 
 Examples:
 
@@ -66,19 +66,97 @@ Produces:
 
 Click <a href="https://www.google.com/">here</a> to search.
 
+If you want the link to open in a new tab, add the `target="_blank"` attribute:
+
+Examples:
+
+```html
+Click <a href="https://www.google.com/" target="_blank">here</a> to search but not leave us.
+```
+
+Produces:
+
+Click <a href="https://www.google.com/" target="_blank">here</a> to search but not leave us.
+
 ## Lists
 
 ### Unordered and ordered lists
 
-#### ul, ol — the list itself
+For simple lists, you have two choices: `ul` (unordered) or `ol` (ordered) lists.
 
-#### li — each element in the list
+Use `ul` if the items have no particular order. Use `ol` if the items are ordered.
+
+By default, the browser will use bullets before each item in a `ul` and will automatically number each item in an `ol` (starting with 1). We can and will overwrite these default styles; most of the time we don't want bullets at all. So choose `ul` or `ol` based on the _semantics_ of the list, not on bullets.
+
+#### li — each item in the list
+
+Nested within the `ul` or `ol` should come one or more `li` elements that contain the actual items in the list.
+
+Examples:
+
+```html
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Orange</li>
+</ul>
+```
+
+Produces:
+
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Orange</li>
+</ul>
+
+```html
+<ol>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Orange</li>
+</ol>
+```
+
+Produces:
+
+<ol>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Orange</li>
+</ol>
 
 ### Definition lists
 
-#### dl — the list itself
+When you have a list of things along with a _label_ for each thing, a `dl` (definition list) might fit the bill. Each label goes in a `dt` (definition term), and each piece of data goes in a `dd` tag (definition description).
 
-#### dl, dt — each element in the list
+Examples:
+
+```html
+<dl>
+  <dt>First name</dt>
+  <dd>Raghu</dd>
+
+  <dt>Last Name</dt>
+  <dd>Betina</dd>
+
+  <dt>Role</dt>
+  <dd>Instructor</dd>
+</dl>
+```
+
+Produces:
+
+<dl>
+  <dt>First name</dt>
+  <dd>Raghu</dd>
+
+  <dt>Last Name</dt>
+  <dd>Betina</dd>
+
+  <dt>Role</dt>
+  <dd>Instructor</dd>
+</dl>
 
 ## Tables
 
