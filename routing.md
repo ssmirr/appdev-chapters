@@ -2,7 +2,7 @@
 
 Our users place **requests** by visiting URLs in our app. In order to respond to requests _dynamically_ (as opposed to sending back _static_, unchanging pages of HTML), we need to **route** each request to a Ruby method that can do the desired work (reading from an API, picking a random number, CRUDing from the database, etc) and then send back the output (formatted in HTML[^jsonapi]).
 
-[^jsonapi]: The format of the response could also be JSON, PDF, CSV, XML, or others — and we can offer multiple formats at once. If we wanted to add an iPhone or Android app, for example, we would add a second format — JSON — and then let the native app read that API endpoint.
+[^jsonapi]: The format of the response could also be JSON, PDF, CSV, XML, or others — and we can offer multiple formats at once. If we wanted to add an iPhone or Android app, for example, we would add a second format — JSON — and then let the native app read our API.
 
 Our apps are essentially defined by the list of URLs that we allow users to visit, and for which we provide responses. We keep this list of URLs in one _very_ important file: `config/routes.rb`.
 
@@ -38,7 +38,7 @@ end
 
 ## Controller
 
-Suppose we defined a route in `config/routes.rb` that looks like this:
+Suppose we wrote a route in `config/routes.rb` that looks like this:
 
 ```ruby
 match("/rock", { :controller => "game", :action => "play_rock", :via => "get" })
@@ -46,9 +46,11 @@ match("/rock", { :controller => "game", :action => "play_rock", :via => "get" })
 
 Now when a user visits `/rock`, instead of seeing a "No route matches" error, they will instead see an error `uninitialized constant GameController`. Progress!
 
-As we know, when Ruby says "uninitialized constant" it means "I can't find that class". So, what's going on here? When we said `:controller => "game"` in the route, _we told_ Rails to look for a class called `GameController`.
+As we know, when Ruby says "uninitialized constant" it means "I can't find that class".
 
- - All of the controller class names will end in `...Controller`, and they will begin with whatever value we provided to the key `:controller` in the route.
+So, what's going on here? When we said `:controller => "game"` in the route, we _told_ Rails to look for a class called `GameController` when someone visits `/rock`.
+
+ - All of the controller class names will end in `...Controller`, and they will begin with whatever value we provided for the key `:controller` in the route.
  - Like all Ruby classes, the name must be `CamelCase` (not `snake_case` or `Some_Hybrid`). So in this case, it will be `GameController`.
  - The class must be defined in a Ruby file that is the `snake_cased` version of its name. Rails will itself use the `.underscore` method to figure out the name; we can try it ourselves in `rails console`:
 
@@ -106,7 +108,7 @@ class GameController < ApplicationController
 end
 ```
 
-As you can see, the argument to `redirect_to` is a string which contains some absolute URL that you want the user to simply be forwarded to. This will come in handy later when, for example, we want to send the user back to an index page of photos after they've created a photo.
+As you can see, the argument to `redirect_to` is a string which contains some absolute URL that you want the user to simply be forwarded to. This will come in handy later when, for example, we want to send the user back to an index page of photos after they've deleted a photo.
 
 ### render
 
@@ -134,7 +136,7 @@ Missing template game_templates/user_plays_rock.html.erb with {:locale=>[:en], :
   * "/home/ubuntu/workspace/app/views"
 ```
 
-We're almost done! We just have to create this file. Notice from the error message that Rails searched within the folder `app/views/`. This is where we'll store all of our view templates. Let's create the folder and file we decided upon, `app/views/game_templates/user_plays_rock.html.erb`.
+We're almost there! We just have to create this file. Notice from the error message that Rails searched within the folder `app/views/`. This is where we'll store all of our view templates. Let's create the folder and file we decided upon, `app/views/game_templates/user_plays_rock.html.erb`.
 
 Within that file, you know what to do:
 
