@@ -26,7 +26,7 @@ end
     - The first argument to `match` is a `String`: the _path_ that we want users to be able to visit (the path is the portion of the URL that comes after the domain name).
     - The second argument to `match` is a `Hash`: this is where we tell Rails which method to call when a user visits the path in the first argument. (We'll have to actually write this method in the next step, after we write the route.)
 
-    The `Hash` must have three key/value pairs:
+        The `Hash` must have three key/value pairs:
 
         - `:controller`: The value for this key is what we're going to name the _class_ that contains the method we want Rails to call when the user visits the path.
         - `:action`: The value for this key is the what we're going to name the method itself. "Action" is the term used to refer to Ruby methods that are triggered by users visiting URLs.
