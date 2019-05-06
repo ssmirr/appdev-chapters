@@ -32,9 +32,9 @@ end
         - `:action`: The value for this key is the what we're going to name the method itself. "Action" is the term used to refer to Ruby methods that are triggered by users visiting URLs.
         - `:via`: The value for this key must be either `"post"`, `"get"`, `"patch"`, or `"delete"`.
 
-        In HTTP (the protocol for exchanging resources over the internet), these are the names for CREATE, READ, UPDATE, and DELETE, respectively; and are known as "HTTP verbs".
+            In HTTP (the protocol for exchanging resources over the internet), these are the names for CREATE, READ, UPDATE, and DELETE, respectively; and are known as "HTTP verbs".
 
-        We use the `:via` key to specify which CRUD operation best describes the work we're going to perform in the method. It turns out that _most_ requests involve _reading_ info, rather than creating/updating/deleting it; so we'll use `"get"` most often. If you can't think of exactly which one to use, just default to `"get"`.
+            We use the `:via` key to specify which CRUD operation best describes the work we're going to perform in the method. It turns out that _most_ requests involve _reading_ info, rather than creating/updating/deleting it; so we'll use `"get"` most often. If you can't think of exactly which one to use, just default to `"get"`.
 
 ## Controller
 
