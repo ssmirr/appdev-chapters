@@ -156,7 +156,7 @@ The point of all of this work, as opposed to just creating a file called `public
 <p>The computer played <%= ["rock", "paper", "scissors"].sample %>!</p>
 ```
 
-At last! Our game finally doesn't suck. The `<%=  %>` (embedded ruby tags, or ERB tags) allow us to write _any Ruby expression we want_ and it will be evaluated, converted into a string, and injected into the source code of the HTML document before the HTML is sent to the browser. The browser will never know that Ruby was involved (you can verify this by Viewing Source of the final page in your live application preview).
+At last — our game is finally dynamic! The `<%=  %>` (embedded ruby tags, or ERB tags) allow us to write _any Ruby expression we want_ and it will be evaluated, converted into a string, and injected into the source code of the HTML document before the HTML is sent to the browser. The browser will never know that Ruby was involved (you can verify this by Viewing Source of the final page in your live application preview).
 
 There's also another version of the ERB tag, `<%  %>` (without the equal sign) that does _not_ inject the value into the source of the HTML; this is useful for doing some computation or control flow with conditionals:
 
