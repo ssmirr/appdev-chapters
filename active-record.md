@@ -684,6 +684,56 @@ You can calculate the average value in a particular column within a collection w
 Review.where({ :venue_id => 4 }).average(:rating)
 ```
 
+## Adding or removing columns from your table
+
+We have a few tools to make changes to our database once we have already run our migrations.
+
+First and foremost, we can generate new migrations to add new tables and modify existing tables. To modify existing tables, the most common tools we use are `add_column` and `remove_column`.
+
+Generate a new **migration** (not a whole **model** like above) at a Terminal prompt with, for example:
+
+```bash
+rails g migration AddTitleToInstructors
+```
+
+or
+
+```bash
+rails g migration RemoveLastNameFromInstructors
+```
+
+Try to pick a name for the migration that's descriptive of the change that you want make, like I did above.
+
+Then, go into the new migration file and add instructions to make the change you want within the `change` method (or the `up` method, if that's what you find inside instead of `change`):
+
+```bash
+def change
+  add_column :instructors, :title, :string
+end
+```
+
+or
+
+```bash
+def change
+  remove_column :instructors, :last_name
+end
+```
+
+Then execute the migration with `rails db:migrate` at a Terminal prompt.
+
+If your database gets into a weird state (usually caused by deleting old migration files), your ultimate last resort is
+
+```bash
+rails db:drop
+```
+
+This will destroy your entire database and all the data within it. Then, you can fix your migrations and re-run all from scratch with `rails db:migrate`.
+
+Much more information about migrations can be found at the official Rails Guide:
+
+> http://guides.rubyonrails.org/migrations.html
+
 ## Conclusion
 
 Now you have the ability to **Create**, **Update**, and **Delete** records. And by creatively chaining `.where`, `.not`, and `.or`, you can (with ActiveRecord's help) write pretty much any SQL query you're ever going to need in order to **Read** anything you want; from a simple one-to-many lookup all the way through a complicated self-referential social network feed. It's just going to require a bit of practice.
