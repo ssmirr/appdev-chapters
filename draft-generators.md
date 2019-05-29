@@ -104,7 +104,9 @@ This will remove all the files that `rails generate draft:resource photo ...` ha
 
 To generate an application layout file that includes links to Bootstrap, Font Awesome, and some boilerplate markup for a nav bar and alert messages, run the command
 
+```bash
 rails g draft:layout <THEME>
+```
 
 `<THEME>` can either be blank, or the name of any [Bootswatch](http://bootswatch.com) (downcase), e.g., `cerulean`.
 
@@ -116,4 +118,4 @@ That's it! You now have a solid starting point to work from.
 
 If you decide, however, to add a new column, then you'll have to go in and edit all of the relevant files by hand.
 
-There's no magic to this generator; all it did was automate the tedium of building The Golden Seven boilerplate by hand. From here on out, it's up to you.
+There's no magic to this generator; all it did was automate the tedium of building The Golden Seven boilerplate by hand. From here on out, it's up to you to add RCAVs and make the interface match your specifications.
