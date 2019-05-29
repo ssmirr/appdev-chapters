@@ -1,4 +1,4 @@
-# `draft_generators`
+# draft_generators
 
 ## Installation
 
@@ -80,7 +80,7 @@ Whew! What a time saver. However, it only saves time if you are comfortable with
 
 ### What if I made a mistake when I generated a resource?
 
-#### If you've already `rails db:migrate`d
+#### If you've already run rails db:migrate
 
 If you made a mistake when generating your `draft:resource` AND you've _already_ run `rails db:migrate`, then first you have to run the command:
 
