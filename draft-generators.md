@@ -116,6 +116,6 @@ It will warn you that it is going to overwrite your existing `app/views/layouts/
 
 That's it! You now have a solid starting point to work from.
 
-If you decide, however, to add a new column, then you'll have to go in and edit all of the relevant files by hand.
+If you decide, however, to [add a new column](https://chapters.firstdraft.com/chapters/770#adding-or-removing-columns-from-your-table), then you'll have to go in and edit all of the relevant files (forms, processing actions) by hand.
 
 There's no magic to this generator; all it did was automate the tedium of building The Golden Seven boilerplate by hand. From here on out, it's up to you to add RCAVs and make the interface match your specifications.
