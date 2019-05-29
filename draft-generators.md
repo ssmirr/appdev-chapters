@@ -70,13 +70,13 @@ insert  config/routes.rb
  - Registering the table with the ActiveAdmin dashboard.
  - Some routes related to the table.
 
-If you look at the routes, controller, and views, you'll see that it has essentially added in all of the standard Golden Seven boilerplate for us — automatically!
+If you look at the routes, controller, and views, you'll see that it has essentially added in all of the standard Golden Seven boilerplate for us — automatically! Try navigating to `/photos`, or whatever your table is called, and you'll see that you have a fully-functional interface to CRUD records. Awesome!
 
 This makes sense because, as you might have noticed by now, the Golden Seven RCAVs relating to letting users Create, Read, Update, and Delete records through their browser are basically the same for every table; only the form inputs vary, really, based on the different columns in the tables.
 
 And since we're going to need most of the Golden Seven for most of our tables, why not automate the boilerplate? Then we can just delete the stuff that we don't want, and modify what's left to match our needs.
 
-Whew! What a time saver. However, it only saves time if you are comfortable with all of the code that it is writing for you — otherwise the code is intimdating and you are scared to change it. Then, rather than saving you time, the generators slow you down; relative to you writing code by hand that you understand 💯. So choose your approach wisely. When in doubt, just connect the RCAV dots yourself.
+Whew! What a time saver. However, it only saves time if you are comfortable with all of the code that it is writing for you — otherwise the code is intimidating and you are scared to change it. Then, rather than saving you time, the generators slow you down; relative to you writing code by hand that you understand 💯. So choose your approach wisely. When in doubt, just connect the RCAV dots yourself.
 
 ### What if I made a mistake when I generated a resource?
 
