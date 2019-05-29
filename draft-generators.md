@@ -76,7 +76,7 @@ This makes sense because, as you might have noticed by now, the Golden Seven RCA
 
 And since we're going to need most of the Golden Seven for most of our tables, why not automate the boilerplate? Then we can just delete the stuff that we don't want, and modify what's left to match our needs.
 
-Whew! What a time saver. However, it only saves time if you are comfortable with all of the code that it is writing for you — otherwise the code is intimidating and you are scared to change it. Then, rather than saving you time, the generators slow you down; relative to you writing code by hand that you understand 💯. So choose your approach wisely. When in doubt, just connect the RCAV dots yourself.
+Whew! What a time saver. However, it only saves time if you are comfortable with all of the code that it is writing for you — otherwise the code is intimidating and you are scared to change it. Then, rather than saving you time, the generators slow you down; relative to you writing code by hand that you understand 💯. So choose your approach wisely. When in doubt, pick a URL that you want the user to be able to visit, connect the RCAV dots yourself, and make it happen.
 
 ### What if I made a mistake when I generated a resource?
 
