@@ -25,7 +25,19 @@ thing.where(arg1)
 ```
  - Returns an `ActiveRecord_Relation` **regardless of how many results there are**. In particular, even if there is only one result, _the return value will still be another `ActiveRecord_Relation`_.
 
-    - Do not attempt to treat **an array with 1 record in it** like **1 record**. _Those are not the same thing._
+    - Do not attempt to treat
+    
+        ```
+        an array with 1 record in it
+        ```
+        
+        like
+        
+        ```
+        1 record
+        ```
+    
+        _Those are not the same thing._
     
         If you want the record itself, then retrieve the first element out of the array with `.at(0)` or its alias `.first`.
     - If you attempt to retrieve the first element of an empty array, you will get `nil`.
