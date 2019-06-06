@@ -45,7 +45,7 @@ thing.where(arg1)
         If you then proceed to call a method on `nil` that doesn't make sense, you will receive an error like `undefined method "caption" for nil`.
     
         The issue is _not_ that the method caption is undefined for nil; the issue is that you previously got 0 results. _Figure out what was wrong with your criteria._
- - `arg1` is usually a `Hash`:
+ - The argument to `.where` is usually a `Hash`:
     - Filtering by an exact match within a column:
 
         ```ruby
@@ -85,7 +85,7 @@ thing.where(arg1)
         Contact.where({ :last_name => ("A".."C") })
         ```
 
- - `arg1` can also, rarely, be an  `Array`:
+ - The argument to `.where` can also, rarely, be an  `Array`:
     - Filtering by fuzzy matches within a column:
 
         ```ruby
