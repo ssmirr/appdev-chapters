@@ -2,9 +2,9 @@
 
 # This document is a draft and is under active development.
 
-## `ActiveRecord_Relation` (array of records)
+## ActiveRecord_Relation (array of records)
 
-### All `Array` methods
+### All Array methods
 
 `ActiveRecord_Relation`s inherit from `Array`, so all `Array` methods work:
 
@@ -16,7 +16,7 @@
  - `.shuffle`
  - etc
 
-### `.where`
+### .where
 
 Call `.where` on an `ActiveRecord_Relation` to filter the array of records based on some criteria:
 
