@@ -374,6 +374,8 @@ Why does it work to re-use the variable `c` here? Well, when we `.save` on the p
 
 ### all
 
+**Returns:** an array of records
+
 To retrieve all of the rows from a table, you can call `.all` on the class:
 
 ```ruby
@@ -384,6 +386,8 @@ The return value of `.all` is an `Array`-like object (technically it's an `Activ
 
 ### count
 
+**Returns:** an `Integer`
+
 We've already met `.count`, which tells you how many records are in a collection:
 
 ```ruby
@@ -392,13 +396,15 @@ Contact.all.count
 
 ### first
 
-Returns the first record in a collection.
+**Returns:** a single record
 
 ```ruby
 c = Contact.all.first
 ```
 
 ### last
+
+**Returns:** a single record
 
 Returns the last record in a collection.
 
@@ -453,6 +459,8 @@ This would first order by last name, then break ties using first name, then brea
 
 ### reverse
 
+**Returns:** an array of records
+
 `.reverse` reverses the ordering of a collection. Not particularly common, since you can use `:asc` and `:desc` to specify the direction you want explicitly, but there it is:
 
 ```ruby
@@ -460,6 +468,8 @@ Contact.order(:first_name).reverse
 ```
 
 ### where
+
+**Returns:** an array of records
 
 Perhaps the most important READ method is `.where`. This is our bread-and-butter tool for _filtering_ a collection of rows down using various criteria.
 
@@ -502,6 +512,8 @@ c.first_name
 
 ### Using where with an array of criteria
 
+**Returns:** an array of records
+
 You can even use an `Array` in the argument to `.where`; it will then bring back the rows that match _any_ of the criteria for that column:
 
 ```ruby
@@ -509,6 +521,8 @@ Contact.where({ :last_name => ["Betina", "Woods"] })
 ```
 
 ### Chaining wheres
+
+**Returns:** an array of records
 
 Since `.where` returns another collection, you can chain `.where`s one after the other:
 
@@ -520,6 +534,8 @@ This _narrows_ the search.
 
 ### where(this).or(that)
 
+**Returns:** an array of records
+
 You can _broaden_ the search with `.or`:
 
 ```ruby
@@ -529,6 +545,8 @@ Contact.where({ :first_name => "Mickey" }).or(Contact.where({ :last_name => "Bet
 This may look a little funny. We tack `.or` onto the end of one collection, and the argument to `.or` is an _entire query_, starting from the class again. The return value is both collections merged together.
 
 ### where.not(this)
+
+**Returns:** an array of records
 
 You can _negate_ a criteria with `.not`:
 
@@ -543,6 +561,8 @@ You tack `where.not` on to a collection and it accepts all the same arguments as
 **Everything from looking up a movie's director to putting together a feed in a social network ultimately boils down to `.where`s and `.each`s.** I can't emphasize the importance of `.where` enough. Ask lots of questions.
 
 ### pluck
+
+**Returns:** an plain Ruby array 
 
 Once you've retrieved the right subset of records, you can peel off the values in just one column with `.pluck`:
 
@@ -644,6 +664,8 @@ With Ruby `Range`s, two dots means inclusive of the second value, and three dots
 
 ### limit
 
+**Returns:** an array of records
+
 You can limit the number of records in a collection with `.limit`:
 
 ```ruby
@@ -654,6 +676,8 @@ This will return no more than 10 records.
 
 ### offset
 
+**Returns:** an array of records
+
 You can skip some rows in the result set with `.offset`. This is useful for e.g. retrieving the second page of records, or choosing a random record:
 
 ```ruby
@@ -661,6 +685,8 @@ Contact.where({ :last_name => "Mouse" }).offset(10).limit(10)
 ```
 
 ### maximum
+
+**Returns:** a single value (of whatever datatype the column is)
 
 You can calculate the largest/latest value in a particular column within a collection with `.maximum`:
 
@@ -670,6 +696,8 @@ Contact.where({ :last_name => "Mouse" }).maximum(:date_of_birth)
 
 ### minimum
 
+**Returns:** a single value (of whatever datatype the column is)
+
 You can calculate the smallest/oldest value in a particular column within a collection with `.minimum`:
 
 ```ruby
@@ -677,6 +705,8 @@ Contact.where({ :last_name => "Mouse" }).minimum(:date_of_birth)
 ```
 
 ### average
+
+**Returns:** a single value (`Integer` or `Float`)
 
 You can calculate the average value in a particular column within a collection with `.average`:
 
