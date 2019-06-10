@@ -437,6 +437,8 @@ c.middle_name
 
 ### order
 
+**Returns:** an array of records
+
 The `.order` method lets you sort your collections by one or more columns. The argument to `.order` is a `Hash`, where the _key_ is the _column_ you want to sort by, and the _value_ is either `:asc` (for ascending order) or `:desc` (for descending order):
 
 ```ruby
@@ -562,7 +564,7 @@ You tack `where.not` on to a collection and it accepts all the same arguments as
 
 ### pluck
 
-**Returns:** an plain Ruby array 
+**Returns:** a plain Ruby array 
 
 Once you've retrieved the right subset of records, you can peel off the values in just one column with `.pluck`:
 
