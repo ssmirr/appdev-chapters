@@ -505,7 +505,7 @@ Contact.where({ :id => 2 }).first_name
 
 Try it. RTEM!
 
- **So, use `.first`, `.last`, or `[]` to retrieve an object from the collection if you want to do something with an individual record:**
+ **So, use `.at(0)` (a.k.a `.first`)  or `.at(-1)` (a.k.a. `.last`) or some other method to retrieve an element from the array if you want to do something with an individual record:**
 
 ```ruby
 c = Contact.where({ :id => 2 }).first
