@@ -128,7 +128,7 @@ In fact, not only should you be typing the things I ask you to type, but you sho
 
 _Experiment!_
 
-### Read the error message (RTEM)
+### Read. The. Error. Message. (RTEM)
 
 Aha! If you were typing out every expression and running it, then
 
