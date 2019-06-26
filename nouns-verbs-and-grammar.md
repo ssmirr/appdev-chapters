@@ -329,7 +329,9 @@ s = s.capitalize
 s
 ```
 
-That may look strange — how can we use `s` on the left side _and_ the right side of the `=`? But it's because this is not the equals sign from math class; this is the _variable assignment operator_, and the right side is evaluated first until a single return value is left; and then that object is assigned into the box on the left (replacing whatever was there before).
+That may look strange — how can we use `s` on the left side _and_ the right side of the `=`?
+
+But it's because this is not the equals sign from math class; this is the _variable assignment operator_, and the right side is evaluated first until only a single value is left; and _then_ that object is assigned into the box on the left (replacing whatever was there before).
 
 So you will very often see something like this:
 
