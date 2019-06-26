@@ -122,7 +122,11 @@ What do you expect will happen if we ask `"Mississippi"` if it is `even?`? Try i
 
 ### _Do_ or do not. There is no _read_.
 
-If you weren't typing out every expression, then you're doing this wrong. If you're just _reading_, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. _Practice is crucial._ In fact, not only should you be typing the things I ask you to type, but you should also be trying out random other things that occur to you. (E.g., "What if I tried `"Mississippi".length.even?`)
+If you weren't typing out every expression, then you're doing this wrong. If you're just _reading_, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. _Practice is crucial._ 
+
+In fact, not only should you be typing the things I ask you to type, but you should also be trying out random other things that occur to you. (E.g., "What if I tried `"Mississippi".length.even?`)
+
+_Experiment!_
 
 ### Read the error message (RTEM)
 
