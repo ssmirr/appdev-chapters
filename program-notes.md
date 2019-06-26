@@ -107,7 +107,7 @@ My advice to you is: you can drop the parentheses when you are `p`rinting, but o
 
 I like to use `p` _a lot_ while I am programming. As I said, one of my fundamental programming principles is **make the invisible visible** — don't try to _guess_ what's going on, find a way to _see_ what's going on. `p` is an excellent tool for that, so I use `p` like crazy, sometimes before almost every line while I am debugging.
 
-It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `p` at the beginning of a line. So in this one case, I give you permission to omit the parentheses around arguments to a method. Enjoy!
+It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `p` at the beginning of a line. So in this _one_ case, I give you permission to omit the parentheses around arguments to a method. Enjoy!
 
 ### Passing tests
 
