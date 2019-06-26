@@ -52,7 +52,7 @@ First of all, Ruby can work with many more kinds of data than just numbers. That
 - Times
 - True/false
 - Lists containing multiple pieces of data
-- A lot more
+- And a lot more
 
 Each kind, or **class**, of data has its own set of **methods** that it can perform. For example:
 
@@ -98,7 +98,7 @@ The computer then evaluates that expression and **returns** a new piece of data 
 
 In this case, we asked `"hello world!"`, which is a string (Ruby's name for a piece of text[^string_name]), to `upcase` itself, which it (very) happily does, and we're left with `"HELLO WORLD!"` at the end of the day.
 
-[^string_name]: The name "string" is used in pretty much every programming language for the datatype that holds a piece of text, and refers to a string of _characters_; a holdover from back when we used to have to worry about memory and had a separate datatype for an individual character. Now we usually don't have to think about individual characters anymore, but the name "string" stuck with us.
+[^string_name]: The name "string" is used in pretty much every programming language for the datatype that holds a piece of text, and refers to a string of _characters_; a holdover from back when we used to have to worry about conserving the computer's physical storage space and had a separate datatype for an individual character. Now we usually don't have to worry about storage space anymore, but the name "string" stuck with us.
 
 ## Every class has different methods
 
@@ -107,16 +107,17 @@ Different **classes** can perform different **methods**. Here are a few expressi
 ```ruby
 7.odd?
 7.even?
+"Mississippi".length
 "Raghu Betina".reverse
 "Your Name".swapcase
 ```
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/different-classes-have-different-methods?lite=true"></iframe>
 
-What do you expect will happen if we ask 7 to swapcase itself? Try it:
+What do you expect will happen if we ask `"Mississippi"` if it is `even?`? Try it:
 
 ```ruby
-7.swapcase
+"Mississippi".even?
 ```
 
 ### Read the error message (RTEM)
@@ -124,24 +125,24 @@ What do you expect will happen if we ask 7 to swapcase itself? Try it:
 Aha! If you were typing out every expression and running it, then
 
 ```ruby
-7.swapcase
+"Mississippi".even?
 ```
 
 should have produced your very first error message! 🎉
 
-(If you weren't typing out every expression, then you're doing this wrong. If you're just reading, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. _Practice is crucial._ In fact, not only should you be typing the things I ask you to type, but you should also be trying out random other things that occur to you.)
+If you weren't typing out every expression, then you're doing this wrong. If you're just _reading_, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. _Practice is crucial._ In fact, not only should you be typing the things I ask you to type, but you should also be trying out random other things that occur to you. (E.g., "What if I tried `"Mississippi".length.even?`)
 
-Error messages can look scary, but one of **the most important skills you have to develop** when learning to program is to **not panic** when you see them. Slow down, **read the error message**, and see if you can make any sense of it at all. Over time, you will find that they are _very_ helpful (and you will miss them if something goes wrong silently).
+Error messages can look scary, but **one of the most important skills you have to develop** when learning to program **is to not panic** when you see them. Slow down, **read the error message**, and see if you can make any sense of it at all. Over time, you will find that they are _very_ helpful (and you will miss them if something goes wrong silently).
 
 So, what do you think
 
 ```bash
-undefined method `swapcase' for 7:Integer
+undefined method `even?' for "Mississippi":String
 ```
 
 might mean?
 
-In this case, it is saying: "Hey, friend — there's no method called 'swapcase' for 7, which is an integer. Sorry." Fair enough, that makes sense.
+In this case, it is saying: "Hey, friend — there's no method called 'even?' for "Mississippi", which is a `String`. Sorry." Fair enough, that makes sense.
 
 #### The bottom line
 
