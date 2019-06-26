@@ -148,7 +148,7 @@ undefined method `even?' for "Mississippi":String
 
 might mean?
 
-In this case, it is saying: "Hey, friend — there's no method called 'even?' for "Mississippi", which is a `String`. Sorry." Fair enough, that makes sense.
+In this case, it is saying: "Hey, friend — there's no method called `even?` for `"Mississippi"`, which is a `String`. Sorry." Fair enough, that makes sense.
 
 #### The bottom line
 
@@ -240,9 +240,11 @@ Another nice trick is: when experimenting with some code and it's not working, j
 
 Now that you've seen arguments, you know all there is to know about crafting _expressions_ in Ruby. No kidding: `object.method(arguments)` is the *vast* majority of what we'll be doing. That's it.
 
-However, so far we haven't been doing much with the **return value** of each expression. We've just been reading it off the screen, and then dropping it on the ground.
+However, so far we haven't been doing much with the **return value** of each expression. We've just been reading it off the screen, and then dropping it on the ground. For example, try the following:
 
-Programs get interesting only when we start to take the return value of one expression and feed it into the _next_ method. That's how we craft our own novel, useful applications from the basic building blocks of Ruby.
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/variables-drop-on-the-ground?lite=true"></iframe>
+
+We're not really able to make any forward progress when we only perform one operation at a time. Programs get interesting only when we start to take the return value of one expression and feed it into the _next_ method. That's how we craft our own novel, useful applications from the basic building blocks of Ruby.
 
 So: let's start to store our return values for future reference, instead of dropping them on the ground. We do this using **variables**, or as I like to think of them, _boxes_. Let's get our feet wet:
 
@@ -267,7 +269,7 @@ s.reverse
 
 and click "run" again.
 
-Great! Now we're making progress (towards what, though, who knows?).
+Great! Now we're making progress.
 
 What would you expect to happen if you add a third line so that your program reads:
 
