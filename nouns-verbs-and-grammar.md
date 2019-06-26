@@ -248,7 +248,7 @@ We're not really able to make any forward progress when we only perform one oper
 
 So: let's start to store our return values for future reference, instead of dropping them on the ground. We do this using **variables**, or as I like to think of them, _boxes_. Let's get our feet wet:
 
-Type the following and click "run":
+Type the following and click "run ▶":
 
 ```ruby
 s = "hello world!".upcase
@@ -256,9 +256,25 @@ s = "hello world!".upcase
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/variables-are-boxes?lite=true"></iframe>
 
-This creates a box, labels it s, and stores the string `"HELLO WORLD!"` in it.
+This creates a box, labels it s, and stores the string `"HELLO WORLD!"` in it. 
 
-The single equals sign, `=`, is called the "variable assignment operator". When I read that line of code out loud, I say "the variable s is assigned the string hello world dot upcase".
+### Interactive Read-Evaluate-Print-Loops (REPLs)
+
+This might be a good time to mention that the black area at the bottom of the window is not just output from the programs that you write above — it is also an interactive playground where you can try out Ruby expressions immediately without having to click "run ▶". Try typing `"bye".upcase` at the `›`, or any other Ruby expression, and press <kbd>return</kbd>. You'll instantly see the return value (or error message).
+
+If you've written code in the file above and "run ▶" it, it's as if you've typed each line into the REPL and hit <kbd>return</kbd>. If you now type `s` into the REPLs, you'll see that it returns `"HELLO WORLD"`. We've _assigned_ that value to the variable `s` using the `=` operator.
+
+### The variable assignment operator
+
+The single equals sign, `=`, is called the "variable assignment operator". 
+
+When I read
+
+```ruby
+s = "hello world!".upcase
+```
+
+out loud, I say "the variable s is assigned the string hello world dot upcase".
 
 Now add another line,
 
@@ -267,9 +283,11 @@ s = "hello world!".upcase
 s.reverse
 ```
 
-and click "run" again.
+and click "run ▶" again.
 
 Great! Now we're making progress.
+
+### Storing the next return value
 
 What would you expect to happen if you add a third line so that your program reads:
 
@@ -279,7 +297,7 @@ s.reverse
 s.gsub("L", "Z")
 ```
 
-Before you click "run", take a guess in your head. Then click "run". Did it match your expectation?
+Before you click "run ▶", take a guess in your head. Then click "run ▶". Did it match your expectation?
 
 Most Ruby methods don't modify the object that they are called upon; they just return a modified copy. The original variable is untouched, so if we want to hold on to the new value then we better store that too. Type this:
 
