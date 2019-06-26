@@ -311,7 +311,9 @@ Fortunately, we can create as many variables as we want.
 
 ### Updating variables
 
-If you want to re-use an existing variable rather than creating new variables, that's no problem. It can get old coming up with new variable names. You can just throw away what you have in the box and put in something entirely different with the same assignment operator, `=`. Type this:
+If you want to re-use an existing variable rather than creating new variables, that's no problem. It can get old coming up with different variable names for every step of the program.
+
+Instead, you can just throw away what you have in the box and put in something entirely different with the same assignment operator, `=`. Type this:
 
 ```ruby
 s = "hi"
