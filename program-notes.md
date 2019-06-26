@@ -71,21 +71,49 @@ To go from _complete beginner_ to _deploying a fully functional application_ is 
 
 ### Cloud editors
 
-As you've already seen, we're going to start by writing Ruby right here in the middle of these readings by using a service called repl.it. This is the lowest-friction way to get started, and will allow us to focus on learning Ruby without having to waste mental energy on things like learning how to navigate the command-line (non-graphical) interface of our computers.
+As you've already seen, we're going to start by writing Ruby right here in your browser. This is the lowest-friction way to get started, and will allow us to focus on learning Ruby without having to waste mental energy on installing tools.
 
-Later, when we're ready to write full-fledged Rails applications, we're going to switch to a different cloud-based programming environment called Cloud9. This will save us the trouble of installing Rails on our own laptops, and we'll get some nice collaboration features from it.
+Later, if you decide to continue with software development for the long-term, you may want to install Ruby on your own computer and switch to a more powerful code editor. We'll provide guidance on how to do that.
 
-### Feedback
+### Make the invisible visible
 
-For now though, I want to talk a little bit more about how the REPLs work. So far, we've been clicking "run ▶" and seeing the return value of the expression of the _last line_ of our programs in the black window (known as the "terminal") at the bottom; but what if we wanted to see more than just the return value of the last line?
+One of our foundational principles while programming, learning, and almost anything else, is to find a way to **make the invisible visible** — that is, find a way to give yourself concrete feedback on what you're doing. Don't _guess_ what's happening at each step of the program — find a way to _see_ what's happening, if at all possible. **Feedback** is crucial.
 
-It turns out there's a special method in Ruby called `p` (short for "print inspect") that will display values in the terminal. Try running the following:
+#### Printing values
+
+Let's talk a little bit more about how the REPLs work. So far, we've been clicking "run ▶" and seeing the return value of the expression of the _last line_ of our programs in the black window (known as the "terminal") at the bottom; but what if we wanted to see more than just the return value of the last line?
+
+It turns out there's a special method in Ruby called `Kernel.p` (`p` is short for "print inspect") that will display its argument in the terminal. Try running the following:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/first-real-output?lite=true"></iframe>
 
-From now on, we'll use `p` to display values that we want to see, not just rely on the return value of last line being display.
+Printing values to the terminal is something we're going to want to do _a lot_, and so Ruby makes it easy for us; rather than having to type `Kernel.p`, we can just type the shorthand of `p`. Change `Kernel.p` to `p` above and give it a try.
 
-I'm also going to start including challenges in some of the REPLs that you have to pass. You will have to submit your solutions to these challenges, so you'll have to sign in now using a repl.it account[^replit]::
+### Optional parentheses around arguments
+
+To make it even easier to _make the invisible visible_, here's another shortcut:
+
+When we discussed [Arguments](https://chapters.firstdraft.com/chapters/754#arguments-are-inputs){:target="_blank"}, we said that they always come within parentheses. That's not quite true. Ruby allows you to, optionally, leave out the parentheses; so the following will also work:
+
+```ruby
+p "HELLO WORLD!"
+```
+
+And when you are roaming the internet, you will see this style often, especially with `p`.
+
+My advice to you is: you can drop the parentheses when you are `p`rinting, but other than that, always include them. They help to keep things clear, and they prevent order-of-operations errors.
+
+### Use p a lot
+
+I like to use `p` _a lot_ while I am programming. As I said, of my fundamental programming principles is **make the invisible visible** — don't try to _guess_ what's going on, find a way to _see_ what's going on. `p` is an excellent tool for that, so I use `p` like crazy, before almost every line sometimes while I am debugging.
+
+It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `p` at the beginning of a line. So in this one case, I give you permission to omit the parentheses around arguments to a method. Enjoy!
+
+### Passing tests
+
+I'm also going to start including challenges in some of the REPLs that you have to pass. This should give you confidence that the code that you've written does the correct thing.
+
+You will have to submit your solutions to these challenges, so you'll have to sign in now using a repl.it account[^replit]:
 
 [^replit]:
     The interactive Ruby playgrounds that are embedded in these readings are hosted on a service called repl.it. If you see a message below asking you to sign up or sign in, then click the <i class="fab fa-github fa-fw"></i> icon to sign in using your GitHub account.
@@ -99,35 +127,6 @@ Once you completed the challenge, got the tests to pass, and submitted your solu
 ![](/assets/solution-submitted.png)
 
 After you've submitted a solution, you'll be able to click "See Model Solution" to see one that I've written. Remember that there's no single "correct" solution — if yours worked, then it's just as good as mine!
-
-### Make the invisible visible
-
-The challenge above could be solved with the following:
-
-```ruby
-p("HELLO WORLD!")
-```
-
-I wanted to point out a couple of things the code above.
-
-First, you may have noticed that we aren't using the primary syntax of `noun.verb`; it's just `verb` all by itself. Without going into too much detail, the reason for this is known as "syntactic sugar" — Ruby includes some niceties that allow us to type less. In reality, under the hood, it is always `noun.verb` going on[^p_implicit_receiver].
-
-[^p_implicit_receiver]:
-    Okay fine, if you _must_ know the fully written out form of it, it's `self.send("p", "HELLO WORLD!")`. Happy now? You can try it out in a REPL; and we'll leave at that, for now.
-
-Second, when we discussed [Arguments](https://chapters.firstdraft.com/chapters/754#arguments-are-inputs){:target="_blank"}, we said that they always come within parentheses. That's not quite true. Ruby allows you to, optionally, leave out the parentheses; so the following will also work:
-
-```ruby
-p "HELLO WORLD!"
-```
-
-And when you are roaming the internet, you will see this style often, especially with `p`.
-
-My advice to you is: you can drop the parentheses when you are `p`rinting, but other than that, always include them. They help to keep things clear, and they prevent order-of-operations errors.
-
-But yes, I like to use `p` _a lot_ while I am programming. One of my fundamental programming principles is **make the invisible visible** — don't try to _guess_ what's going on, find a way to _see_ what's going on. `p` is an excellent tool for that, so I use `p` like crazy, before almost every line sometimes while I am debugging.
-
-It can be tedious to wrap every line in parentheses, and it's convenient instead to just pop a `p` at the beginning of a line. So in this one case, I give you permission to omit the parentheses around arguments to a method. Enjoy!
 
 ### Roadmap
 
