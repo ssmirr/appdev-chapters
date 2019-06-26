@@ -120,6 +120,10 @@ What do you expect will happen if we ask `"Mississippi"` if it is `even?`? Try i
 "Mississippi".even?
 ```
 
+### _Do_ or do not. There is no _read_.
+
+If you weren't typing out every expression, then you're doing this wrong. If you're just _reading_, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. _Practice is crucial._ In fact, not only should you be typing the things I ask you to type, but you should also be trying out random other things that occur to you. (E.g., "What if I tried `"Mississippi".length.even?`)
+
 ### Read the error message (RTEM)
 
 Aha! If you were typing out every expression and running it, then
@@ -129,8 +133,6 @@ Aha! If you were typing out every expression and running it, then
 ```
 
 should have produced your very first error message! 🎉
-
-If you weren't typing out every expression, then you're doing this wrong. If you're just _reading_, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. _Practice is crucial._ In fact, not only should you be typing the things I ask you to type, but you should also be trying out random other things that occur to you. (E.g., "What if I tried `"Mississippi".length.even?`)
 
 Error messages can look scary, but **one of the most important skills you have to develop** when learning to program **is to not panic** when you see them. Slow down, **read the error message**, and see if you can make any sense of it at all. Over time, you will find that they are _very_ helpful (and you will miss them if something goes wrong silently).
 
