@@ -50,7 +50,7 @@ So, that's that. `Symbol`s are lightweight strings that we, the developers, use 
 ## Creating hashes
 
 Back to the problem of storing a list of attributes about a person effectively, without mixing them up.
-`Hash`es are like `Array`s, except each cell isn't automatically numbered — **we get to label it ourselves**. So instead of representing a person with an Array like `["Raghu", "Betina", "Instructor"]`, we instead can use a `Hash` like this:
+`Hash`es are like `Array`s, except each cell isn't automatically numbered — **we get to label each cell ourselves**. So instead of representing a person with an Array like `["Raghu", "Betina", "Instructor"]`, we instead can use a `Hash` like this:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hash-hash-new?lite=true"></iframe>
 
