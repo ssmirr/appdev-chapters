@@ -67,7 +67,7 @@ Or, rather than `while`, I could use `Integer`'s `.times` method, like this:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/loops-mississippis-with-times?lite=true"></iframe>
 
-Notice there's a new keyword here: `do`. This is because the `.times` method, in order to do its job of executing some code 10 times, needs an argument — _the code to execute_.
+Notice there's a new keyword here: `do`. This is because the `.times` method, in order to do its job of executing some code 10 times, needs a special argument — _the code to execute_.
 
 In order to pass a method _some lines of code_ as an argument, we need to wrap the lines of code within the `do` and `end` keywords, creating what's called a **block** of code.
 
