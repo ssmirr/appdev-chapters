@@ -71,7 +71,7 @@ Notice there's a new keyword here: `do`. This is because the `.times` method, in
 
 In order to pass a method _some lines of code_ as an argument, we need to wrap the lines of code within the `do` and `end` keywords, creating what's called a **block** of code.
 
-So, given a **block** of code, the `10.times` method will execute it for us exactly 10 times; this saves us the trouble of managing a counter and writing a condition for `while`.
+So, given a **block** of code, the `10.times` method will execute it for us exactly 10 times; this saves us the trouble of writing a condition for `while`.
 
 ### Block variables
 
