@@ -127,7 +127,7 @@ Were you able to find the difference between the two methods?
 
 `Hash`'s `.[]` method, when used with a key that is not present in the hash, _returns `nil` rather than throwing an error_.
 
-I personally prefer getting the descriptive error message if the key is not present in the hash, because it means that I probably made a typo or some other mistake, and I prefer being alerted to that fact rather the program proceeding quietly only to fail elsewhere. In the rare case that it should be possible for a key to be optionally present in a hash, then I can use a fallback second argument to `.fetch`, as described above.
+I personally prefer getting the descriptive error message if the key is not present in the hash, because it means that I probably made a typo or some other mistake, and I prefer being alerted to that fact rather the program proceeding quietly only to fail elsewhere. In the rare case that it should be possible for a key to be optionally present in a hash, then I can use a fallback second argument to `.fetch`, as [described above](#fetch-fallback).
 
 That said, out on the internet, using `.[]` is the most prevalent style of accessing hashes, so you should be familiar with it. But in this text, I will stick with `.fetch`.
 
