@@ -254,11 +254,11 @@ s = "hello world!".upcase
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/variables-are-boxes?lite=true"></iframe>
 
-This creates a box, labels it s, and stores the string `"HELLO WORLD!"` in it. 
+This creates a box, labels it `s`, and stores the string `"HELLO WORLD!"` in it. 
 
 ### Interactive Read-Evaluate-Print-Loops (REPLs)
 
-This might be a good time to mention that the black area at the bottom of the window is not just output from the programs that you write above — it is also an interactive playground where you can try out Ruby expressions immediately without having to click "run ▶". Try typing `"bye".upcase` at the `›`, or any other Ruby expression, and press <kbd>return</kbd>. You'll instantly see the return value (or error message).
+This might be a good time to mention that the black area at the bottom of the window is not just for output from the programs that you write above — it is also an interactive playground where you can try out Ruby expressions immediately without having to click "run ▶". Try typing `"bye".upcase` at the `›`, or any other Ruby expression, and press <kbd>return</kbd>. You'll instantly see the return value (or error message).
 
 If you've written code in the file above and "run ▶" it, it's as if you've typed each line into the REPL and hit <kbd>return</kbd>. If you now type `s` into the REPLs, you'll see that it returns `"HELLO WORLD"`. We've _assigned_ that value to the variable `s` using the `=` operator.
 
@@ -272,7 +272,7 @@ When I read
 s = "hello world!".upcase
 ```
 
-out loud, I say "the variable s is assigned the string hello world dot upcase".
+out loud, I say "the string hello world dot upcase _is assigned_ to the variable s". I read the right side first, because that's how Ruby reads it too; it first evaluates the expression on the right side of the `=`, and then it stores the resulting value in the variable on the left.
 
 Now add another line,
 
@@ -309,9 +309,7 @@ Fortunately, we can create as many variables as we want.
 
 ### Updating variables
 
-If you want to re-use an existing variable rather than creating new variables, that's no problem. It can get old coming up with different variable names for every step of the program.
-
-Instead, you can just throw away what you have in the box and put in something entirely different with the same assignment operator, `=`. Type this:
+It can get old coming up with different variable names for every step of the program. Instead, we usually want to re-use existing variables. We can throw away what we have in the box and put in something entirely different with the same assignment operator, `=`. Type this:
 
 ```ruby
 s = "hi"
@@ -322,8 +320,9 @@ s
 We can even replace the value in the box with an updated version of the _old_ value, because _the expression on the right side of the assignment operator is evaluated before the assignment takes place_. Type this:
 
 ```ruby
-s = "hi"
+s = "hello, world!"
 s = s.capitalize
+s = s.reverse
 s
 ```
 
