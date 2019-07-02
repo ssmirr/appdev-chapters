@@ -35,7 +35,7 @@ My advice: type the `end` _immediately_ after typing the `if` so that you don't 
 
 ## truthiness and falsiness
 
-Why did I say "truthy" and "falsy" instead of just `true` and `false`? Because many — most — Ruby expressions return values other than `true` or `false`. _Any_ object can appear next to an `if`, and some will cause the code inside the `if` statement to execute (these values are known as "truthy") and some will not (these are "falsy").
+Why did I say "truthy" and "falsy" instead of just `true` and `false`? Because many — most — Ruby expressions return values other than `true` or `false`. _Any_ expression can appear next to an `if`, and some will cause the code inside the `if` statement to execute (these values are known as "truthy") and some will not (these are "falsy").
 
 In the REPL below, try replacing `lucky_number.odd?` with each of the following. Before clicking "run" for each one, ask yourself, do you expect to see the output `"The condition is truthy."` or not?
 
