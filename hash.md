@@ -43,7 +43,7 @@ Otherwise, they are just like strings, and we can use them to hold text data:
 
 `Symbol`s are created by starting them off with a colon. You don't need a closing colon, since they cannot contain spaces; Ruby can figure out where they end.
 
-`Symbol`s are mostly used by we, the developers, when we need to label something internally in our code. That's why they can't contain spaces, etc; we're not going to use them to hold user input. Accordingly, `Symbol`s don't have as many methods for transforming their contents, like `.reverse`.
+Whereas `String`s are usually used to contain copy for the user or input from the user, `Symbol`s are mostly used by we, the developers, when we need to label something internally in our code. That's why they can't contain spaces, etc; we're not going to use them to hold user input. Accordingly, `Symbol`s don't have as many methods for transforming their contents, like `.reverse`.
 
 So, that's that. `Symbol`s are lightweight strings that we, the developers, use when we need to label things. Let's continue.
 
