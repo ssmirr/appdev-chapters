@@ -108,6 +108,6 @@ Test your skills with [the classic programmer's interview question, FizzBuzz](ht
 
 [^the_internet]: The answers that you find on the internet will, at this stage, more than likely just confuse you. They will reference advanced techniques, or sometimes will be outdated or just flat-out wrong; and it's hard for beginners to tell the difference.
 
-However, you should as always ask lots of questions on Piazza! Our rule is: **You're only allowed to get stuck for 15 minutes before you post a question**; and then, while you're waiting for an answer, comment out your old approach and try to come up with something completely different.
+However, you should as always ask lots of questions on Piazza! Our rule is: **you're only allowed to get stuck for 15 minutes before you post a question**; and then, while you're waiting for an answer, comment out your old approach and try to come up with something completely different.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3083364/0d77446ddf0c7f77340d0617b042a371"></iframe>
