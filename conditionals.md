@@ -85,7 +85,8 @@ We can also have **multibranch** `if` statements, where we specify fallback cond
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/multibranch-if?lite=true"></iframe>
 
- - Note that **there is no space** in the `elsif` keyword.
+ - Note that there is **no space** in the `elsif` keyword.
+ - Note that there is **no `e` in the middle** of the `elsif` keyword.
  - The conditions are checked in top-down priority, so even if more than one is true, whichever one is first has its branch executed; the rest are ignored.
  - If none are true, the final `else` fallback branch is executed; but you don't have to have one if you don't want one.
 
