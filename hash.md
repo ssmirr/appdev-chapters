@@ -139,4 +139,4 @@ The keys in a `Hash` can be any class — `String`, `Integer`, whatever — but 
 
 `Array`s are very useful for storing a list of things that are all basically the same, and for lists that are of unknown length, and so it's nice for Ruby to automatically number them for you.
 
-But when you are storing a list of things that are categorically different and you'd rather label them yourself, then `Hash`es are a better choice. That's about it!
+But when you are storing a list of things that are categorically different from one another and you'd rather label them yourself, then `Hash`es are a better choice. That's about it!
