@@ -211,6 +211,14 @@ my_string.gsub(/[^0-9]/, "")
 
 will match and remove everything _except_ numeric digits.
 
+
+```ruby
+my_string.gsub(/[^a-z]/i, "")
+```
+
+will match and remove everything _except_ letters.
+
+
 ```ruby
 my_string.gsub(/[^a-z0-9\s]/i, "")
 ```
