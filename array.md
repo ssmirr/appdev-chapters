@@ -131,11 +131,9 @@ Before we proceed with more `Array` methods, I want to go back for a minute and 
 "alice bob carol".split # => ["alice", "bob", "carol"]
 ```
 
-When no arguments are given to `.split`, it will split the string on whitespace; but you can also provide an argument to split on something else:
+If you provide no argument, the string is split upon whitespace, which is handy for e.g. turning a sentence into a list of words:
 
-```ruby
-"alice@example.com".split("@") # => ["alice", "example.com"]
-```
+If you do provide an argument to `.split`, then the string will be chopped up wherever that argument occurs instead of whitespace — for example, use `"4,8,15,16,23,42".split(",")` to split on commas.
 
 You can also `split` with the empty string, `""`, as an argument in order to turn a string into an `Array` of its individual characters:
 

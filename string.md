@@ -247,9 +247,13 @@ capitalize returns a `String` with the first character converted to uppercase an
 
 ### split
 
-This transforms the `String` into an `Array`, which we'll [read more about later](https://chapters.firstdraft.com/chapters/758). By default, the string is split upon whitespace, but you can also provide an argument (e.g. `","` to split on commas).
+This transforms the `String` into an `Array` (a list), which we'll [read more about later](https://chapters.firstdraft.com/chapters/758).
+
+If you provide no argument, the string is split upon whitespace, which is handy for e.g. turning a sentence into a list of words:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/split?lite=true"></iframe>
+
+If you do provide an argument to `.split`, then the string will be chopped up wherever that argument occurs instead of whitespace — for example, use `"4,8,15,16,23,42".split(",")` to split on commas.
 
 You can also `split` with the empty string, `""`, as an argument in order to turn a string into an `Array` of its individual characters:
 
