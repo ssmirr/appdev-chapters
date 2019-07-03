@@ -49,8 +49,7 @@ class Person
 end
 ```
 
-And now the `Person` class is a first-class citizen in the language, just like `Array` and `Hash`:
-
+And now the `Person` class is a first-class citizen in the language, just like `Array` and `Hash`. Compare the code below to the code above for creating `Array`s and `Hash`s to store information:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/our-own-classes?lite=true"></iframe>
 
