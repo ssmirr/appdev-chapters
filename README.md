@@ -13,6 +13,7 @@
  1. [Each](https://chapters.firstdraft.com/chapters/765)
  1. [Hash](https://chapters.firstdraft.com/chapters/767)
  1. [Our own classes](https://chapters.firstdraft.com/chapters/769)
+ 1. [Ruby Practice](https://chapters.firstdraft.com/chapters/775)
  1. [ActiveRecord](https://chapters.firstdraft.com/chapters/770)
  1. [HTML Reference](https://chapters.firstdraft.com/chapters/771)
  1. [Routing](https://chapters.firstdraft.com/chapters/772)
