@@ -251,6 +251,14 @@ This transforms the `String` into an `Array`, which we'll read more about later.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/split?lite=true"></iframe>
 
+You can also `split` with the empty string, `""`, as an argument in order to turn a string into an `Array` of its individual characters:
+
+```ruby
+a = "Hello!".split("") # => ["H", "e", "l", "l", "o", "!"]
+a.at(0) # => "H"
+a.at(-1) # => "!"
+```
+
 ## More on adding strings together
 
 We spend a lot of time composing strings of output for our users, so let's see a few more examples. Try this:

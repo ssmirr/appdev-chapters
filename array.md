@@ -137,6 +137,14 @@ When no arguments are given to `.split`, it will split the string on whitespace;
 "alice@example.com".split("@") # => ["alice", "example.com"]
 ```
 
+You can also `split` with the empty string, `""`, as an argument in order to turn a string into an `Array` of its individual characters:
+
+```ruby
+a = "Hello!".split("") # => ["H", "e", "l", "l", "o", "!"]
+a.at(0) # => "H"
+a.at(-1) # => "!"
+```
+
 This is particularly handy for us because it allows us to get a `String` of input from users with `gets` and then transform it into an `Array` for processing:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/gets-with-split?lite=true"></iframe>
