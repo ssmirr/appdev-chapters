@@ -247,7 +247,7 @@ capitalize returns a `String` with the first character converted to uppercase an
 
 ### split
 
-This transforms the `String` into an `Array`, which we'll read more about later. By default, the string is split upon whitespace, but you can also provide an argument (e.g. `","` to split on commas).
+This transforms the `String` into an `Array`, which we'll [read more about later](https://chapters.firstdraft.com/chapters/758). By default, the string is split upon whitespace, but you can also provide an argument (e.g. `","` to split on commas).
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/split?lite=true"></iframe>
 
