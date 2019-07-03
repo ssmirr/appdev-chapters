@@ -26,8 +26,6 @@ Here are the challenges[^exercism]. Good luck! Ask lots of questions on Piazza!
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3476824/259a1423d73ac418e7ba9fa1308525c3"></iframe>
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3476828/99756c76914cf34608ee1e292fb19a44"></iframe>
-
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3476909/4505abdc9b98c61db8903b821251903f"></iframe>
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3476825/4616db1d5136783f0177552301cf8ae0"></iframe>
