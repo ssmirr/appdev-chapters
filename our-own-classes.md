@@ -56,8 +56,9 @@ And now the `Person` class is a first-class citizen in the language, just like `
 
 For each attribute that we declared, we get methods that we can call to assign and retrieve values.
 
-There are a few reasons I like using classes more than `Hash`es to model things, but here is the big one: in addition to just storing a list of attributes about a thing, we can also _define our own methods_ with the `def` keyword. For example, try adding the following `full_name` method to the class we defined in the REPL above:
+### Defining instance methods
 
+There are a few reasons I like using classes more than `Hash`es to model things, but here is the big one: in addition to just storing a list of attributes about a thing, we can also _define our own methods_ with the `def` keyword. For example, try adding the following `full_name` method to the class we defined in the REPL above:
 
 ```ruby
 class Person
@@ -114,6 +115,33 @@ hs.age # => 32, as of this writing
 ```
 
 So, rather than using a `Hash` to model real world things, it's a good idea to create classes, and then empower them with *behavior* (methods) in addition to information.
+
+### Defining class methods
+
+The methods `full_name` and `age` above are known as _instance methods_, because we call them on individual **instances** of the `Person` class (Homer, Mickey, Minnie, etc).
+
+We can also define **class**-level methods, that we call directly on `Person` itself. This can be handy if we want to define re-usable utility methods that don't really belong to any one individual person. A somewhat contrived example is if we wanted to be able to quickly produce first name with last initial from a full name:
+
+```ruby
+class Person
+  def self.abbreviate(full)
+    first_and_last = full.split
+    first_name = first_and_last.at(0)
+    last_name = first_and_last.at(1)
+    last_name_characters = last_name.split("")
+    last_name_initial = last_name_characters.at(0)
+    
+    return first_name + " " + last_name_initial + "."
+  end
+end
+
+Person.abbreviate("Raghu Betina")
+```
+
+The new things to note in the code above:
+
+ - We use the `self` keyword _when defining the method_ to make it a class method rather than an instance method. That way, we call the method directly on capital-`P` `Person`.
+ - We give the method the ability to accept an argument by adding parentheses and choosing a name for the argument when defining the method (sort of like we choose a name for a block variable within the pipes). Then we can use that argument within the method definition, sort of like a block variable.
 
 ## Test your skills
 

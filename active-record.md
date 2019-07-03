@@ -77,7 +77,7 @@ c.last_name = gets.chomp
 c.last_name # => "Betina"
 ```
 
-However, once the program was finished running, whatever data we had stored would be lost. We weren't storing it _permanently_, on the hard drive of the computer; we were only storing it _temporarily_, in the working memory (RAM) of the computer.
+However, once the program was finished running, whatever data we had stored would be lost. We weren't storing it _permanently_, in the long-term memory (hard disk) of the computer; we were only storing it _temporarily_, in the working memory (RAM) of the computer.
 
 ## Storing information permanently in databases
 
@@ -183,7 +183,7 @@ The `.timestamps` method will add two columns, `created_at` and `updated_at`, th
 
 #### Why a block?
 
-Why does the `create_table` method need a block of code within `do`/`end`, rather than maybe just an array or hash of column names and datatypes? It's because migrations can, if you want, get quite sophisticated; you can set default values, build indexes, add database-level constraints, and a bunch of other things we haven't talked about yet. Using a block rather than just passing in data gives us flexibility, should we need it.
+Why does the `create_table` method need a block of code within `do`/`end`, rather than maybe just an array or hash of column names and datatypes? It's because migrations can, if you want, get quite sophisticated; you can set default values, copy values over from an old table, build indexes, add database-level constraints, and a bunch of other things we haven't talked about yet. Using a block rather than just passing in data gives us flexibility, should we need it.
 
 #### Automatically generating the entire migration
 
@@ -243,7 +243,17 @@ Annotated (1): app/models/contact.rb
 
 [^annotate]: The line that says `Annotated (1): app/models/contact.rb` is from a wonderful open-source library called [annotate]() that automatically adds helpful comments to our model files for us, reminding us what columns are in each table. Every time we run `rails db:migrate`, the annotate gem will automatically update these comments.
 
-Great! We now have a table called "contacts", with columns `first_name`, `last_name`, `date_of_birth`, `created_at`, `updated_at`, and `id`. But how do we actually enter records into this table?
+### One-liner for adding tables
+
+With that, the table has been created in the database! In the end, without all of the explanation around it, all we ended up doing was:
+
+```bash
+rails generate migration CreateContacts first_name:string last_name:string date_of_birth:date
+```
+
+It's that easy in Rails to add a table. You could generate the complete migration for another table with another one-liner, once you know what you want to name it and what columns you want in it. And, of course, `rails db:migrate` to run any pending migrations.
+
+But, now that we have tables, how do we actually enter _records_?
 
 ## Models: our translators to the database
 
@@ -265,7 +275,7 @@ end
 
 Amazingly, that's all we have to do. We don't have to declare attribute accessors or anything else. In inheriting from `ApplicationRecord`, the `Contact` class will automatically connect to the database, find the table named "contacts", inspect it and see what columns are in it, and define methods that are able to create, read, update, and delete rows, and a whole lot more.
 
-### The draft:model generator does everything
+### The draft:model generator does it all at once
 
 As mentioned earlier, there's a shortcut for everything explained above. To generate the migration, columns, and model _all at once_ you can use the `draft:model` generator instead of the `migration` generator. For example, let's create another model and underlying table called `Company`:
 
@@ -303,7 +313,7 @@ Since most of the code for migrations and models is formulaic, the `draft:model`
 rails db:migrate
 ```
 
-without even looking at the generated code, although it's usually a good idea to at least glance at the migration file to make sure you didn't make any typos.
+without even looking at the generated code, although it's usually a good idea to at least glance at the migration file to make sure you didn't make any typos in column names.
 
 ## Time to CRUD
 

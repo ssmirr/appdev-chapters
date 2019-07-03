@@ -206,10 +206,16 @@ my_string.gsub(/\s+/, "")
 will match and remove all whitespace from `my_string.`
 
 ```ruby
+my_string.gsub(/[^0-9]/, "")
+```
+
+will match and remove everything _except_ numeric digits.
+
+```ruby
 my_string.gsub(/[^a-z0-9\s]/i, "")
 ```
 
-will match and remove everything except alphanumerics and whitespace.
+will match and remove everything _except_ alphanumerics and whitespace.
 
 ### to_i
 
