@@ -9,7 +9,7 @@ However, the more Ruby fluency we have before we get to Rails, the better. So, h
     The hard part about programming is not writing the code; it's learning how to think very precisely about solving problems, and breaking your solution down into steps that are so simple that you can tell the computer how to do them.
  - Work in tiny steps. Just try to make something show up, click "run", and prove that the code you wrote did what you think. If you write 50 lines before you click "run", it'll be much harder to debug what went wrong.
  - Make the invisible visible. Use `p` to _see_ what's going on, don't guess.
- - Read. The. Error. Message.
+ - **Read. The. Error. Message.** And then _use_ it to debug. `undefined method`? Why? Did you make a typo in the method name? More likely, the object you have is of a class that you are not expecting. Follow it back to where it came from and figure out why.
  - Ask tons of questions on Piazza. Remember that the point of homeworks is to get you to _ask questions_, i.e. gaps in your mind for knowledge to live.
  - Try to use the information contained in the previous Chapters to [MacGuyver](https://www.bbc.com/news/magazine-34075407) a solution to the problem. Try _not_ to Google for a solution; the things you find on Stack Overflow will likely confuse you more than help you.
 
