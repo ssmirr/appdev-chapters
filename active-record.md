@@ -1,25 +1,41 @@
 # ActiveRecord
 
-`ActiveRecord` comprises a set of classes within Ruby on Rails that help us interact with our database, and is one of the most powerful reasons to choose Rails. For example, if we define a class, e.g. `Contact`, and [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from `ApplicationRecord`:
+`ActiveRecord` comprises a set of classes within Ruby on Rails that help us interact with our database tables, and is one of the most powerful reasons to choose Rails. For example, if we define a class, e.g. `Contact`, and [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from `ApplicationRecord`:
 
 ```ruby
 class Contact < ApplicationRecord
 end
 ```
 
-Then _boom_ — our class `Contact` has now inherited[^activerecord] a _tremendous_ number of powerful methods, most of them related to **creating, reading, updating, and deleting records in a database table**.
+Then _boom_ — our class `Contact` has now inherited[^activerecord] a _tremendous_ number of powerful methods to interact with the `contacts` table, most of them related to **C**reating, **R**eading, **U**pdating, and **D**eleting records.
 
 [^activerecord]: Actually, these methods mostly come from our grandparent class `ActiveRecord::Base` rather than our immediate parent class `ApplicationRecord`. We'll go into these details later.
 
-We call these database-related classes **models**, and we place them in the `app/models` folder. They talk to the database for us, contain most of our business logic, and are, in many ways, the heart of our applications.
+We refer to these database-related classes as **models**, and we place them in the `app/models` folder within our Rails app. These classes talk to the database for us, contain most of our business logic, and are, in many ways, the heart of our applications.
 
-## The shortcut
+## Getting started
 
-For the impatient, here's a shortcut. If we wanted to create a table called "contacts" with three columns, `first_name` (string), `last_name` (string), and `date_of_birth` (date); then at a Terminal prompt (**not** within `rails console`), we would run the following command:
+Head into your Codio project called "Introduction to Models". In this workspace, I've already generated a new Rails application with the `rails new` command, but there's nothing in it yet other than the boilerplate scaffolding.
+
+In the top menu bar, find the item with the rocket (🚀) icon, click the down arrow next to it (▼), and select the "Initial project setup" option. This will run the `bin/setup` command at a Terminal prompt for you (you could have, equivalently, typed that command at a Terminal prompt yourself).
+
+`bin/setup` is a program that we write that automates the process of getting your computer ready for you to work on a codebase. Usually, that involves installing any third-party libraries that the application depends upon on to your laptop, configuring the database, filling the database with some dummy data, etc. In the real world, good teams follow the practice of including a script like this in their projects so that it's drop-dead simple for a new teammate to start contributing to a codebase. Just download the code, `bin/setup`, and you're ready to go.
+
+Next, we can start the web server with the `rails server -b 0.0.0.0` command; or, in the same 🚀 menu, find the "Start the web server" option. To verify that everything worked, in the ▶ menu, find the "Visit live app" option. This will open the URL of your application in a new tab, and you should see the default "You're on Rails!" page that shows that the server started up successfully.
+
+Soon, we'll learn how to replace this default page with our own homepage, but for now we're going to focus on the back-end — our database.
+
+## The quick way to create a table
+
+Suppose we wanted to build an app called Rolodex that helps us keep track of our contacts. For this app, we need a table (let's call it "contacts") with three columns: first name, last name, and date of birth.
+
+In Rails, anything that can be automated, _is_ automated. Much like we used the `rails new` command to generated dozens of folders and hundreds of files of boilerplate code, we can use another command to generate the boilerplate code that goes into creating a database table. Here is what the command looks like:
 
 ```bash
 rails generate draft:model contact first_name:string last_name:string date_of_birth:date
 ```
+
+We need to run this command at a command prompt. Open a Terminal window (Tools > Terminal, or click the monitor icon in the left sidebar) and at the `~/workspace$` prompt that appears, enter the command above and press return.
 
 You'll see some output in the Terminal that looks something like this:
 
@@ -29,7 +45,7 @@ create    db/migrate/20190422125330_create_contacts.rb
 create    app/models/contact.rb
 ```
 
-Then, you would run this command:
+Next, run this command:
 
 ```bash
 rails db:migrate
@@ -44,7 +60,7 @@ You'd see some output in the Terminal that looks something like this:
 == 20190422125330 CreateContacts: migrated (0.0037s) ==========================
 ```
 
-That's it. With these two commands, you now have a fully-formed database table _and_ a Ruby class that will help us easily interact with it (go check out the file that was created at `app/models/contact.rb`).
+That's it — with these two commands, you now have a fully-formed database table _and_ a Ruby class that will help us easily interact with it.
 
 We could just as easily add another table to our database — maybe a table called "companies" with columns "name", "industry", and a few others:
 
@@ -53,7 +69,9 @@ rails generate draft:model company name:string industry:string structure:string 
 rails db:migrate
 ```
 
-Incredible! Now we have two tables, and are ready to CRUD rows in them. If you want to, you can now skip ahead to the [Time to CRUD](https://chapters.firstdraft.com/chapters/770#time-to-crud) section to learn how to insert rows into our new tables. But, for the curious, here's what just happened, step-by-step:
+Voilá — now we have two tables, and are ready to CRUD rows in them. If you want to, you can now skip ahead to the [Time to CRUD](https://chapters.firstdraft.com/chapters/770#time-to-crud) section to learn how to insert rows into our new tables.
+
+But, for the curious, read on for a step-by-step explanation of what just happened:
 
 ## Pure Ruby Classes Review
 
@@ -138,7 +156,7 @@ It also stubbed out the crucial `change` method; this method is what will actual
 
 Within the `change` method, we can write any Ruby we want; but of course we have a specific mission, to create a table called "contacts" with three columns, `first_name`, `last_name`, and `date_of_birth`.
 
-Fortunately, we inherit methods from `ActiveRecord::Migration` that makes this very easy. First, there's the `create_table` method, which takes a `Symbol` (the name of the table that you want to create) and a block as inputs. The generator probably already stubbed out most of this for you too (the Rails generators are pretty smart, and try to write as much code on your behalf as possible based on what you named the migration class):
+Fortunately, we inherit methods from `ActiveRecord::Migration` that makes this very easy. First, we inherit a `create_table` method, which takes a `Symbol` (the name of the table that you want to create) and a block as inputs. The generator probably already stubbed out most of this for you too (the Rails generators are pretty smart, and try to write as much code on your behalf as possible based on what you named the migration class):
 
 ```ruby
 class CreateContacts < ActiveRecord::Migration[5.2]
@@ -183,7 +201,25 @@ The `.timestamps` method will add two columns, `created_at` and `updated_at`, th
 
 #### Why a block?
 
-Why does the `create_table` method need a block of code within `do`/`end`, rather than maybe just an array or hash of column names and datatypes? It's because migrations can, if you want, get quite sophisticated; you can set default values, copy values over from an old table, build indexes, add database-level constraints, and a bunch of other things we haven't talked about yet. Using a block rather than just passing in data gives us flexibility, should we need it.
+Why does the `create_table` method need a block of code within `do`/`end`, rather than maybe just an array or hash of column names and datatypes? It's because migrations can, if you want, get quite sophisticated; for (a contrived) example, we could do something like this:
+
+```ruby
+class CreateContacts < ActiveRecord::Migration[5.2]
+  def change
+    create_table(:contacts) do |t|
+      t.string(:first_name)
+      t.string(:last_name, { :default => "Doe" })
+      t.date(:date_of_birth)
+
+      t.timestamps
+    end
+  end
+end
+```
+
+Now, any new record in the table would have a default last name of `Doe`. You can also copy values over from an old table, build indexes for more performant lookups, add database-level constraints, and a bunch of other things we haven't talked about yet.
+
+Using a block rather than just passing in data gives us flexibility, should we need it.
 
 #### Automatically generating the entire migration
 
@@ -317,15 +353,39 @@ without even looking at the generated code, although it's usually a good idea to
 
 ## Time to CRUD
 
-Now that we've got our table created, _and_ we have a model to help us interact with the table, let's learn the methods we've inherited from `ActiveRecord` to make it easy. In a Terminal tab, let's fire up a `rails console` to experiment with our new model class. Then try the following:
+Okay, so now that we've stepped through the long explanation, it's time to actually _use_ our model. It only takes five seconds to create a table if we're using the shortcut; but now how do add rows to it?
+
+### Command prompt vs rails console
+
+Let's learn the methods we've inherited from `ActiveRecord` to make it easy. To do so, open a new Terminal and run the command `rails console`. This will change the prompt from
+
+```
+~/workspace$
+```
+
+to
+
+```
+[1] pry(main)>
+```
+
+The former is the **command prompt** and the latter is the **rails console**. It's important to always know which one you are in.
+
+`rails console` is an interactive way to try out Ruby with immediate feedback. It's quicker than writing into a file and then running it. You can only do Ruby here — you _cannot_ do command prompt things like `cd` or `ls` or `rails generate migration...`.
+
+If you want to get out of rails console and back to the command prompt, which is like quitting an app to get back to the desktop of your computer, then type `exit`.
 
 ## CREATE
 
 ### new
 
+In rails console, try the following:
+
 ```ruby
-Contact.count
+Contact.all
 ```
+
+You'll see that we get back an empty array.
 
 You'll see that, at present, we have `0` rows in the table. A crucial thing to remember: when you are talking to the **whole table**, you are referencing the _class_ `Contact`, so **use a capital letter**. If you did `contact.count`, what error message would you expect? Try it and see.
 
