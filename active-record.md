@@ -637,7 +637,7 @@ You tack `where.not` on to a collection and it accepts all the same arguments as
 
 ### pluck
 
-**Returns:** a plain Ruby array 
+**Returns:** a plain Ruby array of scalar values
 
 Once you've retrieved the right subset of records, you can peel off the values in just one column with `.pluck`:
 
