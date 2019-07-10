@@ -202,12 +202,12 @@ Contact.all.pluck(:last_name) # => ["Betina", "Mouse", "Woods"]
 
     ```ruby
     # for an array of records
-    people.last_name # bad
-    people.pluck(:last_name) # good
+    people.last_name # undefined method for array; bad
+    people.pluck(:last_name) # => ["Betina", "Woods"]; good
 
     # for an individual record
-    person.last_name # good
-    person.pluck(:last_name) # bad
+    person.last_name # => "Woods"; good
+    person.pluck(:last_name) # undefined method for Person; bad
     ```
 
 ### .maximum

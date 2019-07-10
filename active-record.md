@@ -654,6 +654,22 @@ cast_ids = shawshank_roles.pluck(:actor_id) # => [12, 94, 34]
 shawshank_actors = Actor.where({ :id => cast_ids }) # => the collection of Shawshank's actors
 ```
 
+ - Returns an `Array` of values in the column.
+    - _Not_ a single value, even if there was only one record in the `ActiveRecord_Relation`.
+    - _Not_ an `ActiveRecord_Relation`, so you can no longer use methods like `.where`, `.order`, etc. You can use `Array` methods like `.each`, `.at`, etc.
+ - The argument to `.pluck` must be a `Symbol` that matches the name of a column in the table.
+ - You cannot call `.pluck` on an individual ActiveRecord row. If you want the value in a column for an individual row, simply call the accessor method directly:
+
+    ```ruby
+    # for an array of records
+    people.last_name # undefined method for array; bad
+    people.pluck(:last_name) # => ["Betina", "Woods"]; good
+
+    # for an individual record
+    person.last_name # => "Woods"; good
+    person.pluck(:last_name) # undefined method for Person; bad
+    ```
+    
 ## UPDATE
 
 To update a row, first you need to locate it:
