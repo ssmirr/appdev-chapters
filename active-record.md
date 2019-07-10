@@ -394,7 +394,7 @@ A crucial thing to remember: when you are talking to the **whole table**, you ar
 
 Like any Ruby class[^literal_shorthand] we instantiate a new, blank object with the `.new` method:
 
-[^literal_shorthand]: Remember [Array](), [Hash](), or even [String](), before we got to their literal shorthand syntaxes? We always started with `.new`, and then built up from scratch.
+[^literal_shorthand]: Remember Array, Hash, or even String, before we got to their [literal](https://chapters.firstdraft.com/chapters/758#array-literals) [shorthand](https://chapters.firstdraft.com/chapters/767#hash-literals) [syntaxes](https://chapters.firstdraft.com/chapters/757#string-literals)? We always started with `.new`, and then built up from scratch.
 
 ```ruby
 c = Contact.new
