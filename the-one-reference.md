@@ -194,9 +194,9 @@ Call `.pluck` on an `ActiveRecord_Relation` to retrieve the values stored in _ju
 Contact.all.pluck(:last_name) # => ["Betina", "Mouse", "Woods"]
 ```
 
- - Returns an `Array` of values in the column.
+ - `.pluck` returns a regular Ruby `Array` of scalar values in the column.
     - _Not_ a single value, even if there was only one record in the `ActiveRecord_Relation`.
-    - _Not_ an `ActiveRecord_Relation`, so you can no longer use methods like `.where`, `.order`, etc. You can use `Array` methods like `.each`, `.at`, etc.
+    - _Not_ an `ActiveRecord_Relation`, so you can no longer use methods like `.where`, `.order`, etc. You can use `Array` methods like `.sort`, `.sample`, etc.
  - The argument to `.pluck` must be a `Symbol` that matches the name of a column in the table.
  - You cannot call `.pluck` on an individual ActiveRecord row. If you want the value in a column for an individual row, simply call the accessor method directly:
 
