@@ -407,11 +407,11 @@ c.first_name = "Raghu"
 c.last_name = "Betina"
 ```
 
-We didn't have to declare the `attr_accessor`s like we did for pure Ruby classes — by inheriting from `ApplicationRecord`, our `Contact` class gains superpowers. It connects to the database, figures out what columns are in the "contacts" table, and automatically defines an attribute accessor for each column that exists.
+We didn't have to declare the `attr_accessor`s like we did for pure Ruby classes — by inheriting from `ApplicationRecord`, our `Contact` class gains superpowers. It connects to the database, figures out what columns are in the "contacts" table, and automatically defines methods to access each column that exists.
 
 ### save
 
-So far, this is just like a pure Ruby class with `attr_accessor`s. But, crucially, we have the `.save` method now:
+So far, this is just like a pure Ruby class with `attr_accessor`s. But, crucially, we have the `.save` method now. Try it:
 
 ```ruby
 c.save
@@ -421,7 +421,7 @@ Whoa! Some fancy new output. What you see is the actual SQL that is generated in
 
 Now you can just type `c` and it should show you that `c` has been inserted into the database **and it has been assigned an ID number**.
 
-If you exit `rails console`, shut down the computer, and come back into `rails console` tomorrow, and do `Contact.count`, you will see `1` — _the data will still be there_ (although the variable `c` will not). We have saved it _permanently_.
+If you exit `rails console`, shut down the computer, and come back into `rails console` tomorrow, and do `Contact.count`, you will see `1` — _the data will still be there_ (although the variable `c` will not — try it). We have saved it _permanently_. Try `Contact.all`, and you will see that the array of rows is no longer empty!
 
 Add a few more contacts:
 
