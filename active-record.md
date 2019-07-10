@@ -21,7 +21,9 @@ In the top menu bar, find the item with the rocket (🚀) icon, click the down a
 
 `bin/setup` is a program that we write that automates the process of getting your computer ready for you to work on a codebase. Usually, that involves installing any third-party libraries that the application depends upon on to your laptop, configuring the database, filling the database with some dummy data, etc. In the real world, good teams follow the practice of including a script like this in their projects so that it's drop-dead simple for a new teammate to start contributing to a codebase. Just download the code, `bin/setup`, and you're ready to go.
 
-Next, we can start the web server with the `rails server -b 0.0.0.0` command; or, in the same 🚀 menu, find the "Start the web server" option. To verify that everything worked, in the ▶ menu, find the "Visit live app" option. This will open the URL of your application in a new tab, and you should see the default "You're on Rails!" page that shows that the server started up successfully.
+Next, we can start the web server with the `rails server -b 0.0.0.0` command; or, in the same 🚀 menu, select the "Start the web server" option. This will launch the application, and start listening for visitors.
+
+To verify that everything worked, in the ▶ menu, find the "Visit live app" option. This will open the URL of your application in a new tab, and you should see the default "Yay! You're on Rails!" page that shows that the server started up successfully.
 
 Soon, we'll learn how to replace this default page with our own homepage, but for now we're going to focus on the back-end — our database.
 
@@ -35,7 +37,7 @@ In Rails, anything that can be automated, _is_ automated. Much like we used the 
 rails generate draft:model contact first_name:string last_name:string date_of_birth:date
 ```
 
-We need to run this command at a command prompt. Open a Terminal window (Tools > Terminal, or click the monitor icon in the left sidebar) and at the `~/workspace$` prompt that appears, enter the command above and press return.
+We need to run this command at a command prompt. The Terminal window that is running the web server is stuck in an infinite loop of listening for web requests, so we can't run any commands in there. Open another Terminal window (Tools > Terminal, or click the monitor icon in the left sidebar) and at the `~/workspace$` prompt that appears, paste in the command above, and press return.
 
 You'll see some output in the Terminal that looks something like this:
 
@@ -62,10 +64,11 @@ You'd see some output in the Terminal that looks something like this:
 
 That's it — with these two commands, you now have a fully-formed database table _and_ a Ruby class that will help us easily interact with it.
 
-We could just as easily add another table to our database — maybe a table called "companies" with columns "name", "industry", and a few others:
+We could just as easily add another table to our database — maybe a table called "companies" with columns "name", "industry", and a few others. Run these two commands:
 
 ```
 rails generate draft:model company name:string industry:string structure:string last_year_revenue:integer founded_on:date
+
 rails db:migrate
 ```
 
@@ -357,7 +360,7 @@ Okay, so now that we've stepped through the long explanation, it's time to actua
 
 ### Command prompt vs rails console
 
-Let's learn the methods we've inherited from `ActiveRecord` to make it easy. To do so, open a new Terminal and run the command `rails console`. This will change the prompt from
+Let's learn the methods we've inherited from `ActiveRecord` to make it easy. To do so, open a new Terminal and run the command `rails console` (or `rails c` for short). This will change the prompt from
 
 ```
 ~/workspace$
@@ -369,11 +372,11 @@ to
 [1] pry(main)>
 ```
 
-The former is the **command prompt** and the latter is the **rails console**. It's important to always know which one you are in.
+The former is the **command prompt** and the latter is the **rails console**. _It's important to always know which one you are in._
 
-`rails console` is an interactive way to try out Ruby with immediate feedback. It's quicker than writing into a file and then running it. You can only do Ruby here — you _cannot_ do command prompt things like `cd` or `ls` or `rails generate migration...`.
+`rails console` is an interactive way to try out Ruby with immediate feedback. It's quicker than writing into a file and then running it. You can only do Ruby in here (like `"hello".capitalize`). You _cannot_ do command prompt things (like `cd` or `ls` or `rails generate migration...`).
 
-If you want to get out of rails console and back to the command prompt, which is like quitting an app to get back to the desktop of your computer, then type `exit`.
+If you want to get out of rails console and back to the command prompt, which is like quitting an app to get back to the desktop of your computer, then type `exit` — or just open a new Terminal window.
 
 ## CREATE
 
@@ -385,9 +388,9 @@ In rails console, try the following:
 Contact.all
 ```
 
-You'll see that we get back an empty array.
+You'll see that we get back an empty array. Right now, we have no rows in our table. We can confirm this with `Contact.all.count`. We do `Contact.all.count` so often that Rails lets us take a shortcut — we can just do `Contact.count` directly.
 
-You'll see that, at present, we have `0` rows in the table. A crucial thing to remember: when you are talking to the **whole table**, you are referencing the _class_ `Contact`, so **use a capital letter**. If you did `contact.count`, what error message would you expect? Try it and see.
+A crucial thing to remember: when you are talking to the **whole table**, you are referencing the _class_ `Contact`, so **use a capital letter**. If you did `contact.count`, what error message would you expect? Try it and see.
 
 Like any Ruby class[^literal_shorthand] we instantiate a new, blank object with the `.new` method:
 
