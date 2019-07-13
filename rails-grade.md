@@ -36,11 +36,11 @@ Scroll down to the assignment you want to start and click the link that says 'Lo
 
 ![](/assets/load-assignment.png)
 
-Authorize the firstdraft Grades application to access your account. **Make sure to click the 'Grant' button next to the organization that you created earlier.**
+Authorize the firstdraft Grades application to access your account. **_Before_ you click "Authorize", make sure to click the "Grant" button next to the organization that you created earlier.**
 
-**Make sure to click the 'Grant' button next to the organization that you created earlier.**
+**_Before_ you click "Authorize", make sure to click the "Grant" button next to the organization that you created earlier.**
 
-**Make sure to click the 'Grant' button next to the organization that you created earlier.**
+**_Before_ you click "Authorize", make sure to click the "Grant" button next to the organization that you created earlier.**
 
 ![](/assets/authorize-first-draft.png)
 
