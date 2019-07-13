@@ -36,7 +36,11 @@ Scroll down to the assignment you want to start and click the link that says 'Lo
 
 ![](/assets/load-assignment.png)
 
-Authorize the firstdraft Grades application to access your account. **Make sure to click the 'Grant' button next to the organization that you created when setting up Cloud9.**
+Authorize the firstdraft Grades application to access your account. **Make sure to click the 'Grant' button next to the organization that you created earlier.**
+
+**Make sure to click the 'Grant' button next to the organization that you created earlier.**
+
+**Make sure to click the 'Grant' button next to the organization that you created earlier.**
 
 ![](/assets/authorize-first-draft.png)
 
@@ -88,4 +92,4 @@ You can click the "Examine Test" button to read the actual Ruby of the automated
 
 You can run `rails grade` in your Terminal as many times as you want, and you will get a new updated build report each time. It will only report your highest score back to Canvas, but be sure to make git commits often from `/git` so that you can experiment freely on new tasks without worry about breaking existing functionality.
 
-### Remember that your first job is always to make your app work as described and test it manually yourself. You should not rely exclusively on the automated tests; they are a terrible way to debug.
+**Remember that your first job is always to make your app work as described and test it manually yourself. You should not rely exclusively on the automated tests; they are a terrible way to debug.**
