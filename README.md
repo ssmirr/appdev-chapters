@@ -19,3 +19,4 @@
  1. [Routing](https://chapters.firstdraft.com/chapters/772)
  1. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
  1. [The One Reference](https://chapters.firstdraft.com/chapters/774) **(DRAFT)**
+ 1. [rails-grade](https://chapters.firstdraft.com/chapters/777)
