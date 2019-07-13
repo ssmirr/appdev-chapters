@@ -1,4 +1,4 @@
-# Getting automated feedback
+# Getting automated feedback with rails grade
 
 ## Join GitHub
 
