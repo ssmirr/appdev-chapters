@@ -13,7 +13,7 @@ And, since we make these particular queries (the ones to find associated rows fr
 
 ## The domain model
 
-Here's the what our domain model looks like in this appliction in [Entity Relationship Diagram](https://www.lucidchart.com/pages/er-diagrams#discovery__top){:target="_blank"} notation:
+Here's the what our domain model looks like in this application in [Entity Relationship Diagram](https://www.lucidchart.com/pages/er-diagrams#discovery__top){:target="_blank"} notation:
 
 ![](/assets/photogram-queries-erd.png)
 
