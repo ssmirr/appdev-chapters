@@ -7,7 +7,7 @@ And, since we make these particular queries (the ones to find associated rows fr
 ## Setup
 
  1. In Codio, find the `photogram-queries` workspace.
- 1. 🚀 Initial project setup
+ 1. I have already done the 🚀 Initial project setup; no need to do it.
  1. 🚀 Start web server
  1. ▶️ Live app — You should see "Yay! You're on Rails" if all went well.
 
@@ -41,7 +41,7 @@ rails generate draft:model like fan_id:integer photo_id:integer
 rails generate draft:model comment photo_id:integer body:text author_id:integer
 ```
 
-The `bin/setup` script includes `rails db:migrate`, so the tables are already set up.
+I've already run `rails db:migrate` to execute these instructions, and also `rails dev:prime` to pre-populate them with some dummy data.
 
 ## Play around in rails console
 
@@ -54,14 +54,6 @@ FollowRequest.count
 Like.count
 Comment.count
 ```
-
-As usual, we could create some data manually with `.new`, `.save`, etc; but, to save time, I've included a script for you that will add some dummy data to play around with. At a Terminal prompt, run:
-
-```bash
-rails dev:prime
-```
-
-or, equivalently, click "🚀 Hydrate with dummy data" in the menu. This will take a few minutes and create 40 users, some photos for each user, some followers, likes, comments, etc.
 
 In your live app, you can visit the URL `http://[YOUR DOMAIN]/admin` (or click "▶️ ActiveAdmin" in the menu) and check out the data being created via our quick-and-dirty dashboard (provided by the [ActiveAdmin gem](https://github.com/activeadmin/activeadmin){:target="_blank"}).
 
@@ -84,6 +76,8 @@ and then re-populate them:
 ```bash
 rails dev:prime
 ```
+
+However, that last step might take a while.
 
 ## reloading the console
 
