@@ -41,7 +41,7 @@ rails generate draft:model like fan_id:integer photo_id:integer
 rails generate draft:model comment photo_id:integer body:text author_id:integer
 ```
 
-The `bin/setup` script includes a line that `rails db:migrate`s, so the tables should be all set up.
+The `bin/setup` script includes `rails db:migrate`, so the tables are already set up.
 
 ## Play around in rails console
 
@@ -73,13 +73,13 @@ If for some reason later you want to reset the database to square one, you need 
 rails db:drop
 ```
 
-and then re-create it:
+and then re-create all of the tables:
 
 ```bash
 rails db:migrate
 ```
 
-and then re-populate it:
+and then re-populate them:
 
 ```bash
 rails dev:prime
@@ -87,13 +87,15 @@ rails dev:prime
 
 ## Queries to write
 
-Your goal, ultimately, is to define the following methods. While you're trying to figure out how to do so, it will probably be helpful to bounce between the `rails console` (to experiment) and your model files (to write multi-step queries).
+Your goal, ultimately, will be to define instance methods that perform frequently-used queries. While you're trying to figure out how to do so, it will probably be helpful to bounce between the `rails console` (to experiment) and your model files (to write multi-step queries).
 
-**Note:** In the Ruby community, a shorthand for saying "an instance method called `zebra` on `Photo`" is `Photo#zebra`. (I know, unfortunately this is yet _another_ thing that the octothorpe symbol is used for.) A shorthand for saying "a **class** method on `Photo` called `zebra`" is `Photo.zebra`.
+**Note:** In the Ruby community, a shorthand for saying "an instance method[^class method shorthand] called `zebra` on `Photo`" is `Photo#zebra`. (Unfortunately this is yet _another_ thing that the octothorpe symbol is (over)used for.)
+
+[^class method shorthand]: The analogous shorthand for class methods uses a `.` instead of the `#`: "a **class** method on `Photo` called `zebra`" is `Photo.zebra`.
 
 ### Appetizier queries
 
-Here are some `rails console` appetizers to try. For the user `"Trina"`,
+Here are some `rails console` appetizer queries to try. For the user `"Trina"`,
 
   - How many photos has the user posted?
   - How many photos has the user liked?
@@ -136,4 +138,3 @@ Ultimately, define the following instance methods to encapsulate the logic you d
  - `User#discover` should return the photos that are liked by the people the user is following.
 
 [Run `rails grade`](https://chapters.firstdraft.com/chapters/777) when you're ready to see how you're doing.
-
