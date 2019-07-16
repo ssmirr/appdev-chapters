@@ -89,9 +89,9 @@ rails dev:prime
 
 Your goal, ultimately, will be to define instance methods that perform frequently-used queries. While you're trying to figure out how to do so, it will probably be helpful to bounce between the `rails console` (to experiment) and your model files (to write multi-step queries).
 
-**Note:** In the Ruby community, a shorthand for saying "an instance method[^class method shorthand] called `zebra` on `Photo`" is `Photo#zebra`. (Unfortunately this is yet _another_ thing that the octothorpe symbol is (over)used for.)
+**Note:** In the Ruby community, a shorthand for saying "an instance method[^class_method_shorthand] called `zebra` on `Photo`" is `Photo#zebra`. (Unfortunately this is yet _another_ thing that the octothorpe symbol is (over)used for.)
 
-[^class method shorthand]: The analogous shorthand for class methods uses a `.` instead of the `#`: "a **class** method on `Photo` called `zebra`" is `Photo.zebra`.
+[^class_method_shorthand]: The analogous shorthand for class methods uses a `.` instead of the `#`: "a **class** method on `Photo` called `zebra`" is `Photo.zebra`.
 
 ### Appetizier queries
 
