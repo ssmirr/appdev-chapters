@@ -91,10 +91,6 @@ Your goal, ultimately, will be to define instance methods that perform frequentl
 
 ## Queries to write
 
-**Note:** In the Ruby community, a shorthand for saying "an instance method[^class_method_shorthand] called `zebra` on `Photo`" is "`Photo#zebra`". (Unfortunately this is yet _another_ thing that the octothorpe symbol is (over)used for.)
-
-[^class_method_shorthand]: The analogous shorthand for class methods uses a `.` instead of the `#`: "a **class** method on `Photo` called `zebra`" is abbreviated "`Photo.zebra`".
-
 ### Appetizers
 
 Here are some `rails console` appetizer queries to try. For the user `"Trina"`,
@@ -114,6 +110,10 @@ Here are some `rails console` appetizer queries to try. For the user `"Trina"`,
 ### Your tasks
 
 Ultimately, define the following instance methods to encapsulate the logic you discovered in the appetizer queries:
+
+**Note:** In the Ruby community, a shorthand for saying "an instance method[^class_method_shorthand] called `zebra` on `Photo`" is "`Photo#zebra`". (Unfortunately this is yet _another_ thing that the octothorpe symbol is (over)used for.)
+
+[^class_method_shorthand]: The analogous shorthand for class methods uses a `.` instead of the `#`: "a **class** method on `Photo` called `zebra`" is abbreviated "`Photo.zebra`".
 
  - `Photo#poster` should return the user who posted the photo.
  - `Photo#comments` should return the comments made on the photo.
