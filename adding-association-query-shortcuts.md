@@ -15,7 +15,7 @@ And, since we make these particular queries (the ones to find associated rows fr
 
 Here's the what our domain model looks like in this appliction in [Entity Relationship Diagram](https://www.lucidchart.com/pages/er-diagrams#discovery__top){:target="_blank"} notation:
 
-![Domain Model](/assets/photogram-queries-erd.png)
+![](/assets/photogram-queries-erd.png)
 
 It's similar to the paper database we printed out on Day 1; if you have it, pull it out, because it will be very helpful to look at it while you are planning out how to write your queries.
 
