@@ -85,15 +85,17 @@ and then re-populate them:
 rails dev:prime
 ```
 
-## Queries to write
+## reloading the console
 
-Your goal, ultimately, will be to define instance methods that perform frequently-used queries. While you're trying to figure out how to do so, it will probably be helpful to bounce between the `rails console` (to experiment) and your model files (to write multi-step queries).
+Your goal, ultimately, will be to define instance methods that perform frequently-used queries. While you're trying to figure out how to do so, it will probably be helpful to bounce between the `rails console` (to experiment) and your model files (to define instance methods, which could potentially require many lines to ultimately `return` the correct thing). Remember that if you make any changes to a model file, you must `reload!` in the `rails console` _and_ recreate any variables you were using before the new logic will be available.
+
+## Queries to write
 
 **Note:** In the Ruby community, a shorthand for saying "an instance method[^class_method_shorthand] called `zebra` on `Photo`" is "`Photo#zebra`". (Unfortunately this is yet _another_ thing that the octothorpe symbol is (over)used for.)
 
 [^class_method_shorthand]: The analogous shorthand for class methods uses a `.` instead of the `#`: "a **class** method on `Photo` called `zebra`" is abbreviated "`Photo.zebra`".
 
-### Appetizier queries
+### Appetizers
 
 Here are some `rails console` appetizer queries to try. For the user `"Trina"`,
 
