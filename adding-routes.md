@@ -161,6 +161,71 @@ Then, implement the homepage by defining the route for just plain `/`.
 
 Once you've implemented all four of the **specs** above, then your job is done!
 
+### Addendum: Rendering JSON
+
+Imagine that we wanted to build a native iPhone app that asked our server for some information; in this simple example, for a random computer move and an outcome, but in the real-world things like the local weather given a latitude and a longitude.
+
+Rather than rendering plain text, it's usually more helpful to the iPhone developer to render the data in JSON format, so that they can parse it and easily fetch whichever values they need. Here is some JSON that would be nice for an external application to parse:
+
+```json
+{
+  "player_move":"rock",
+  "computer_move":"paper",
+  "outcome":"lost"
+}
+```
+
+Fortunately, just as it was easy for us to convert a `String` containing JSON into Ruby `Array`s/`Hash`es using the `JSON.parse` method, it is also easy for us to go in the other direction: both `Array` and `Hash` have methods `.to_json`. Let's create a Ruby `Hash` that resembles the JSON above:
+
+```ruby
+response_hash = { :player_move => "rock", :computer_move => "paper", :outcome => "lost" }
+```
+
+We can then convert this into a `String` in JSON format with `.to_json`:
+
+```ruby
+response_hash.to_json
+# => "{\"player_move\":\"rock\",\"computer_move\":\"paper\",\"outcome\":\"lost\"}"
+```
+
+(The `\"` represents double-quotes; we need the backslash, known as an "escape", because we're already within a double-quoted string and don't want to terminate it.)
+
+Great! That means we can update our action if we want to send back JSON instead:
+
+```ruby
+class ApplicationController < ActionController::Base
+  def play_rock
+    moves = ["rock", "paper", "scissors"]
+
+    computer_move = moves.sample
+    
+    if computer_move == "rock"
+      outcome = "tied"
+    elsif computer_move == "paper"
+      outcome = "lost"
+    elsif computer_move == "scissors"
+      outcome = "won"
+    end
+
+    response_hash = { :player_move => "rock", :computer_move => "paper", :outcome => "lost" }
+
+    render({ :plain =>  response_hash.to_json })
+  end
+end
+```
+
+Or, even better, we can use the `:json` option rather than the `:plain` option:
+
+```ruby
+render({ :json =>  response_hash })
+```
+
+This allows us to omit the call to `.to_json`; Rails will do that for us if the value is not already a `String`.
+
+More importantly, using `:json` will set some extra meta data on the response that indicates the format correctly — take a look at your server log in the tab in which you did `rails server -b 0.0.0.0` and compare the output between a `:plain` response and a `:json` response. What do you observe?
+
+Congratulations — you just built your first API endpoint! 🙌🏾
+
 ### Addendum: Custom Controller Files
 
 We don't have to put all of our actions within the default `ApplicationController` file that comes included with any Rails app; we can add our own controllers, if we want to organize things a bit more. With an app of any non-trivial size, you'll end up with hundreds of actions, and it can get unwieldy to put them all in one gigantic `application_controller.rb`.
