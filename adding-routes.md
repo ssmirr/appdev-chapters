@@ -78,7 +78,7 @@ If we add the first route above to our `routes.rb` and then type in `http://[OUR
 The action 'play_rock' could not be found for ApplicationController
 ```
 
-This is good! That means we defined the route correctly. If you still see a "No route matches" error, then double-check that and get that error to go away before you proceed further.
+This is good! That means we defined the route correctly. If you still see a "No route matches" error, then double-check your route syntax and get that error to go away before you proceed further.
 
 Now we have to define a method called `play_rock` within a class called `ApplicationController`, since that's what we specified as the value for the `:action` key back in our route. You can find the class in the `app/controllers/` folder, and add the method within:
 
