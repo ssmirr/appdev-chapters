@@ -1,37 +1,39 @@
 # Adding Routes
 
-We're now able to set up database tables, write quite complicated queries, and encapsulate them within handy shortcut methods. Great! However, if we (the developers) the only ones that can _use_ these queries (through the `rails console`), then they aren't much use. It's time to start adding an **interface** on top of our database so that external users can interact with and benefit from our carefully designed domain models.
+We're now able to set up database tables, write quite complicated queries, and encapsulate them within handy shortcut methods. Great! However, if we (the developers) are the only ones that can _use_ these queries (through the `rails console`), then they aren't much use.
+
+It's time to start adding an **interface** on top of our database so that external users can interact with and benefit from our carefully designed domain models.
 
 ## Specs
 
-For an application that transmits information across the internet (a.k.a. a web app), the **interface** consists of a set of URLs that a user can visit. Each URL will either
+For an application that runs on a server and transmits information across the internet, the **interface** consists of a set of URLs that a user can visit. Each URL will either
 
- - display a page with some information (Read, or in HTTP terminology, "get")
- - trigger the storing of some information (Create, or in HTTP terminology, "post")
- - trigger the deleting of some information (Delete, or in HTTP terminology, "delete")
- - trigger the updating of some information (Update, or in HTTP terminology, "update")
+ - display a page with some information ("get" in HTTP terminology)
+ - trigger the storing of some information ("post" in HTTP terminology)
+ - trigger the deleting of some information ("delete" in HTTP terminology)
+ - trigger the updating of some information ("update" in HTTP terminology)
  - forward to another URL
  - or some combination of the above
 
-Most obviously, the user might be visiting the URLs in their browser by typing into the address bar or clicking on links. Or, more and more commonly, users might be visiting from native iPhone or Android apps without even knowing that they are visiting URLs behind the scenes.
+Most obviously, the user might be visiting the URLs in their browser by typing into the address bar or clicking on links. Or, more and more commonly, users might be visiting from native iPhone or Android apps without even knowing that, behind the scenes, they are visiting URLs to store and retrieve the information they need.
 
 But make no mistake: if there is information being stored in a central database, then there's a web server running somewhere and URLs are being visited with each **action** a user takes.
 
 You can fully _specify_ a web application by listing out the URLs that users can visit, and what happens when each URL is visited. For example, let's say we wanted to build an interactive game of Rock, Paper, Scissors. The complete specifications (or **specs**, for short) for this app might look like this:
 
- - `http://[OUR APP DOMAIN]/rock` — Should display "You played rock!", a random move by the computer, and the outcome
- - `http://[OUR APP DOMAIN]/paper` — Should display "You played paper!", a random move by the computer, and the outcome
- - `http://[OUR APP DOMAIN]/scissors` — Should display "You played scissors!", a random move by the computer, and the outcome 
+ - `http://[OUR APP DOMAIN]/rock` — Should display "You played rock.", a random move by the computer, and the outcome
+ - `http://[OUR APP DOMAIN]/paper` — Should display "You played paper.", a random move by the computer, and the outcome
+ - `http://[OUR APP DOMAIN]/scissors` — Should display "You played scissors.", a random move by the computer, and the outcome 
  - `http://[OUR APP DOMAIN]/` — A welcome page that displays
     - "Happy Monday!" (or whatever day it is)
     - The rules of the game.
     - For example,
         
-        ```
-        Happy Tuesday!
-        Rock beats Scissors, Paper beats Rock, Scissors beats Paper.
-        Point your browser at /rock, /paper, or /scissors to play the game.
-        ```
+       ```
+       Happy Tuesday!
+       Rock beats Scissors, Paper beats Rock, Scissors beats Paper.
+       Point your browser at /rock, /paper, or /scissors to play the game.
+       ```
 
 Now — how do we get our web server to perform the above tasks when users visit the above URLs? Right now, if we try typing any of these URLs into our browsers, we'll see a "No route matches error." Let's fix that.
 
@@ -46,8 +48,11 @@ Here's an example `routes.rb`:
 
 Rails.application.routes.draw do
   match("/rock", { :controller => "application", :action => "play_rock", :via => "get" })
+
   match("/paper", { :controller => "application", :action => "play_paper", :via => "get" })
+
   match("/scissors", { :controller => "application", :action => "play_scissors", :via => "get" })
+
   match("/", { :controller => "application", :action => "homepage", :via => "get" })
 end
 ```
@@ -55,9 +60,9 @@ end
 ### Route
 
  - All of our routes must be contained within the block following `Rails.application.routes.draw`. A new Rails app will already come with this code pre-written in `routes.rb`.
- - Each route is comprised of the `match` method and its two arguments:
-    - The first argument to `match` is a `String`: the _path_ that we want users to be able to visit (the path is the portion of the URL that comes after the domain name).
-    - The second argument to `match` is a `Hash`: this is where we tell Rails which method to call when a user visits the path in the first argument. (We'll have to actually write this method in the next step, after we write the route.)
+ - Each route is comprised of the `match` method and its **two arguments**:
+    - **The first argument to `match` is a `String`**: the _path_ that we want users to be able to visit (the path is the portion of the URL that comes after the domain name).
+    - **The second argument to `match` is a `Hash`**: this is where we tell Rails which method to call when a user visits the path in the first argument. (We'll have to actually write this method in the next step, after we write the route.)
 
         The `Hash` must have three key/value pairs:
 
@@ -165,15 +170,15 @@ Once you've implemented all four of the **specs** above, then your job is done!
 
 Imagine that we wanted to build a native iPhone app that asked our server for some information; in this simple example, for a random computer move and an outcome, but in the real-world things like the local weather given a latitude and a longitude.
 
-Rather than rendering plain text, it's usually more helpful to the iPhone developer to render the data in JSON format, so that they can parse it and easily fetch whichever values they need. Here is some JSON that would be nice for an external application to parse:
+Rather than rendering a pre-defined message in plain text, it's usually more helpful to the iPhone developer to render the data in JSON format, so that they can parse it, easily fetch whichever values they need, and assemble their own interface.
+
+Here is some JSON that would be nice for an external application to parse:
 
 ```json
-{
-  "player_move":"rock",
-  "computer_move":"paper",
-  "outcome":"lost"
-}
+{ "player_move":"rock", "computer_move":"paper", "outcome":"lost" }
 ```
+
+Notice that JSON uses strings as keys — this is because JavaScript doesn't have the equivalent of Ruby's `Symbol` class. Also, there are no hash rockets; JSON just uses colons to separate keys and values.
 
 Fortunately, just as it was easy for us to convert a `String` containing JSON into Ruby `Array`s/`Hash`es using the `JSON.parse` method, it is also easy for us to go in the other direction: both `Array` and `Hash` have methods `.to_json`. Let's create a Ruby `Hash` that resembles the JSON above:
 
@@ -188,7 +193,13 @@ response_hash.to_json
 # => "{\"player_move\":\"rock\",\"computer_move\":\"paper\",\"outcome\":\"lost\"}"
 ```
 
-(The `\"` represents double-quotes; we need the backslash, known as an "escape", because we're already within a double-quoted string and don't want to terminate it.)
+The `\"` represents double-quotes; we need the backslash, known as an "escape", because we're already within a double-quoted string and don't want to terminate it. You can `puts` the string to see it formatted:
+
+```ruby
+puts response_hash.to_json
+# {"player_move":"rock","computer_move":"paper","outcome":"lost"}
+# => nil
+```
 
 Great! That means we can update our action if we want to send back JSON instead:
 
@@ -222,7 +233,7 @@ render({ :json =>  response_hash })
 
 This allows us to omit the call to `.to_json`; Rails will do that for us if the value is not already a `String`.
 
-More importantly, using `:json` will set some extra meta data on the response that indicates the format correctly — take a look at your server log in the tab in which you did `rails server -b 0.0.0.0` and compare the output between a `:plain` response and a `:json` response. What do you observe?
+More importantly, using `:json` will set some extra meta data on the response that indicates the format correctly. Visit `/rock` and watch your server log while doing so (the server log is the output in the Terminal tab in which you started the web server with `rails server -b 0.0.0.0`). Compare the output between a `:plain` response and a `:json` response. What do you observe?
 
 Congratulations — you just built your first API endpoint! 🙌🏾
 
