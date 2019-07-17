@@ -281,3 +281,4 @@ So, what's going on here? When we said `:controller => "game"` in the route, we 
     - You put the file in the wrong folder. It has to be within `app/controllers/`. Not within, for example, `app/` or `app/controllers/concerns/`.
     - You forgot the `.rb` file extension.
     - If you can't find which of the above it is, try deleting what you did and paving over your work again from scratch. Sometimes you just can't spot your own typos, and paving over is the best approach.
+
