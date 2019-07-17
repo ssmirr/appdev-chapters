@@ -6,10 +6,10 @@ We're now able to set up database tables, write quite complicated queries, and e
 
 For an application that transmits information across the internet (a.k.a. a web app), the **interface** consists of a set of URLs that a user can visit. Each URL will either
 
- - display a page with some information
- - trigger the storing of some information
- - trigger the updating of some information
- - trigger the deleting of some information
+ - display a page with some information (Read, or in HTTP terminology, "get")
+ - trigger the storing of some information (Create, or in HTTP terminology, "post")
+ - trigger the deleting of some information (Delete, or in HTTP terminology, "delete")
+ - trigger the updating of some information (Update, or in HTTP terminology, "update")
  - forward to another URL
  - or some combination of the above
 
@@ -163,7 +163,9 @@ Once you've implemented all four of the **specs** above, then your job is done!
 
 ### Addendum: Custom Controller Files
 
-We don't have to put all of our actions within the default `ApplicationController` file that comes included with any Rails app; we can add our own controllers, if we want to organize things a bit more. Suppose changed our route for `/rock` to this:
+We don't have to put all of our actions within the default `ApplicationController` file that comes included with any Rails app; we can add our own controllers, if we want to organize things a bit more. With an app of any non-trivial size, you'll end up with hundreds of actions, and it can get unwieldy to put them all in one gigantic `application_controller.rb`.
+
+Instead, we can change our route for `/rock` to this:
 
 ```ruby
 match("/rock", { :controller => "game", :action => "play_rock", :via => "get" })
