@@ -16,8 +16,8 @@
  1. [Ruby Practice](https://chapters.firstdraft.com/chapters/776)
  1. [ActiveRecord](https://chapters.firstdraft.com/chapters/770)
  1. [Adding Association Query Shortcuts](https://chapters.firstdraft.com/chapters/778)
+ 1. [Adding Routes](https://chapters.firstdraft.com/chapters/779)
  1. [HTML Reference](https://chapters.firstdraft.com/chapters/771)
- 1. [Routing](https://chapters.firstdraft.com/chapters/772)
  1. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
  1. [The One Reference](https://chapters.firstdraft.com/chapters/774) **(DRAFT)**
  1. [Getting automated feedback with rails grade](https://chapters.firstdraft.com/chapters/777)
