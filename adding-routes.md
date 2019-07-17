@@ -8,10 +8,10 @@ It's time to start adding an **interface** on top of our database so that extern
 
 For an application that runs on a server and transmits information across the internet, the **interface** consists of a set of URLs that a user can visit. Each URL will either
 
- - display a page with some information ("get" in HTTP terminology)
- - trigger the storing of some information ("post" in HTTP terminology)
- - trigger the deleting of some information ("delete" in HTTP terminology)
- - trigger the updating of some information ("update" in HTTP terminology)
+ - _display_ a page with some information ("get" in HTTP terminology)
+ - trigger the _storing_ of some information ("post" in HTTP terminology)
+ - trigger the _deleting_ of some information ("delete" in HTTP terminology)
+ - trigger the _updating_ of some information ("update" in HTTP terminology)
  - forward to another URL
  - or some combination of the above
 
