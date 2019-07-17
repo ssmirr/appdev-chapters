@@ -41,17 +41,13 @@ Now — how do we get our web server to perform the above tasks when users visi
 
 The key is: we need to connect _a visit to a URL_ by a user to _a Ruby method_ that will perform the desired work and send back a response. We do this by defining **routes** in a very special file, `config/routes.rb`, which is included in every Rails app.
 
-Here's an example `routes.rb`:
+Here's an example `routes.rb` with two routes defined in it:
 
 ```ruby
 # /config/routes.rb
 
 Rails.application.routes.draw do
   match("/rock", { :controller => "application", :action => "play_rock", :via => "get" })
-
-  match("/paper", { :controller => "application", :action => "play_paper", :via => "get" })
-
-  match("/scissors", { :controller => "application", :action => "play_scissors", :via => "get" })
 
   match("/", { :controller => "application", :action => "homepage", :via => "get" })
 end
@@ -76,7 +72,7 @@ end
 
 ### Action
 
-If we now type in `http://[OUR APP DOMAIN]/rock` into the browser, the error we'll see is:
+If we add the first route above to our `routes.rb` and then type in `http://[OUR APP DOMAIN]/rock` into the browser, the error we'll see is:
 
 ```ruby
 The action 'play_rock' could not be found for ApplicationController
