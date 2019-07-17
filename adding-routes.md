@@ -157,7 +157,7 @@ Now, every time you visit `/rock` (or refresh the page), you should see a dynami
 
 Get some practice at wiring up routes by implementing `/paper` and `/scissors`, similarly.
 
-Then, implement the homepage by defining the route for just plain `/`. Once you've implemented all four routes in the **specs** above, then your job as the back-end developer is done!
+Then, implement the homepage by defining the route for just plain `/`. Once you've implemented all four routes in the **specs** above, then your job is done!
 
 ### Addendum: Custom Controller Files
 
