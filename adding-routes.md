@@ -264,11 +264,12 @@ So, what's going on here? When we said `:controller => "game"` in the route, we 
     class GameController < ApplicationController
     end
     ```
- - We inherit from a Rails base class called `ApplicationController`, which in turn inherits from `ActionController::Base`; much like our models inherited from `ActiveRecord::Base` via `ApplicationRecord`.
+ - We inherit from `ApplicationController`, which in turn inherits from `ActionController::Base`; much like our models inherited from `ActiveRecord::Base` via `ApplicationRecord`.
  
     Our models inherited `.save`, `.where`, and a bunch of other awesome database-related methods from `ActiveRecord::Base`; whereas our controllers are going to inherit a bunch of methods like `render`, `redirect_to`, and a bunch of other awesome interface-related methods from `ActionController::Base`.
  - Don't forget the `end` that goes with the `class`; type it before you forget it.
- - Now, when a user visits the path `/rock`, the "uninitialized constant" error should go away. Progress!
+ - Move your `play_rock` action over from `application_controller.rb` into this new class.
+ - Now, when a user visits the path `/rock`, the "uninitialized constant" error should go away and you should see a response as before.
 
     If you still see the "unitialized constant" error, then:
 
