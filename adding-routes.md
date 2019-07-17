@@ -35,7 +35,7 @@ You can fully _specify_ a web application by listing out the URLs that users can
        Point your browser at /rock, /paper, or /scissors to play the game.
        ```
 
-Now — how do we get our web server to perform the above tasks when users visit the above URLs? Try pointing your browser at `http://[YOUR APP DOMAIN]/rock`. Right now, you should see a "No route matches error." Let's fix that.
+Now — how do we get our web server to perform the above tasks when users visit the above URLs? Ensure that your `rails server` is running and then try pointing your browser at `http://[YOUR APP DOMAIN]/rock`. Right now, you should see a "No route matches error." Let's fix that.
 
 ## Routing
 
