@@ -161,13 +161,13 @@ Then, implement the homepage by defining the route for just plain `/`. Once you'
 
 ### Addendum: Custom Controller Files
 
-We don't have to put all of our actions within the default `ApplicationController` file that comes included with any Rails app; we can add our own, if we want to organize things a bit more. Suppose we wrote a route in `config/routes.rb` that looks like this:
+We don't have to put all of our actions within the default `ApplicationController` file that comes included with any Rails app; we can add our own controllers, if we want to organize things a bit more. Suppose changed our route for `/rock` to this:
 
 ```ruby
 match("/rock", { :controller => "game", :action => "play_rock", :via => "get" })
 ```
 
-Now when a user visits `/rock`, instead of seeing a "No route matches" error, they will instead see an error `uninitialized constant GameController`.
+Now when a user visits `/rock`, they will see an error `uninitialized constant GameController`.
 
 As we know, when Ruby says "uninitialized constant" it means "I can't find that class".
 
