@@ -128,7 +128,7 @@ end
 
 The argument to `render` is a `Hash` that specifies how we want to send the data back. We have a lot of options to choose from, corresponding to how many different formats there are in use for transmitting data. `:plain` is just going to send back plain text, which is enough for us for now.
 
-Try visiting `/rock` in your browser and you should now see a response rather than an error message. Congratulations! You've wired up your very first route; prepare to do it a million more times, because all developers do is pick a **spec** from the Next Up list, wire up the route for the URL so that a user can visit it, and then implement the logic to send back the correct information.
+Try visiting `/rock` in your browser and you should now see a response rather than an error message. Congratulations! You've wired up your very first route; prepare to do it a million more times, because all developers do all day is pick the next **spec** , wire up the route for the URL so that a user can visit it, and then implement the logic to send back the correct information.
 
 Let's go ahead and implement the logic for `/rock`. You can write as much Ruby as you need to in the method prior to the `render`:
 
@@ -158,7 +158,7 @@ Now, every time you visit `/rock` (or refresh the page), you should see a dynami
 
 Get some practice at wiring up routes by implementing `/paper` and `/scissors`, similarly.
 
-Then, implement the homepage by defining the route for just plain `/`.
+Then, implement the homepage connecting the dots for the route for the path of just plain `/` (with nothing after the slash).
 
 Once you've implemented all four of the **specs** above, then your job is done!
 
