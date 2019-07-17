@@ -229,7 +229,7 @@ render({ :json =>  response_hash })
 
 This allows us to omit the call to `.to_json`; Rails will do that for us if the value is not already a `String`.
 
-More importantly, using `:json` will set some extra meta data on the response that indicates the format correctly. Visit `/rock` and watch your server log while doing so (the server log is the output in the Terminal tab in which you started the web server with `rails server -b 0.0.0.0`). Compare the output between a `:plain` response and a `:json` response. What do you observe?
+More importantly, using `:json` will set some extra meta data on the response that indicates the format correctly. Visit `/rock` and watch your server log while doing so (the server log is the output in the Terminal tab in which your `rails server` is running. Compare the output between a `:plain` response and a `:json` response. What do you observe?
 
 Congratulations — you just built your first API endpoint! 🙌🏾
 
