@@ -106,7 +106,7 @@ For example:
 
 should show a list of the photo's fans.
 
-## /insert_like_record?input_photo_id=[ANY EXISTING PHOTO ID]&input_user_id=[ANY EXISTING USER ID]
+## /insert_like_record
 
 For example,
 
@@ -115,6 +115,8 @@ For example,
 ```
 
 should add a record to the likes table.
+
+Be sure to name the keys in the query string **exactly** `input_photo_id` and `input_user_id`.
 
 ## /delete_like/[ANY EXISTING LIKE ID]
 
@@ -136,7 +138,7 @@ For example:
 
 should show a list of the photo's comments.
 
-## /insert_comment_record?input_photo_id=[ANY EXISTING PHOTO ID]&input_user_id=[ANY EXISTING USER ID]&input_body=[THE COMMENT BODY]
+## /insert_comment_record
 
 For example,
 
@@ -146,7 +148,9 @@ For example,
 
 should add a record to the comments table.
 
-## /update_comment_record/[ANY EXISTING COMMENT ID]?input_body=[THE UPDATED COMMENT BODY]
+Be sure to name the keys in the query string **exactly** `input_photo_id`, `input_user_id`, and `input_body`.
+
+## /update_comment_record/[ANY EXISTING COMMENT ID]
 
 For example:
 
@@ -155,3 +159,5 @@ For example:
 ```
 
 should update the comment.
+
+Be sure to name the key in the query string **exactly** `input_body`.
