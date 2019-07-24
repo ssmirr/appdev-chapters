@@ -1,7 +1,20 @@
+# Photogram API
+
+In this project, you will build routes that allow external users to Create, Read, Update, and Delete records in your database.
+
+## Your target
+
+You can see [a working example of how your application should function here](http://photogram-api.herokuapp.com/users).
+
+## Review the available query methods
+
+First, head to the `app/models` folder and look over the instance methods that are defined in each of the models. Compare them to the ones you defined in the `photogram-queries` project. How similar or different was your implementation to mine? Ask questions on Piazza.
+
+Don't modify the methods; the automated tests rely on them being present and functional.
 
 ## Your tasks
 
-Build the following endpoints:
+Build the following endpoints in the same way that we did in the `msm-api` project. For each endpoint, simply render the result of one of the existing instance methods, converted to json using `.to_json`.
 
 ## /users
 
