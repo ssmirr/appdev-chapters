@@ -17,6 +17,7 @@
  1. [ActiveRecord](https://chapters.firstdraft.com/chapters/770)
  1. [Adding Association Query Shortcuts](https://chapters.firstdraft.com/chapters/778)
  1. [Adding Routes](https://chapters.firstdraft.com/chapters/779)
+ 1. [Photogram API](https://chapters.firstdraft.com/chapters/780)
  1. [HTML Reference](https://chapters.firstdraft.com/chapters/771)
  1. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
  1. [The One Reference](https://chapters.firstdraft.com/chapters/774) **(DRAFT)**
