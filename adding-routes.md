@@ -11,7 +11,7 @@ For an application that runs on a server and transmits information across the in
  - _display_ a page with some information ("get" in HTTP terminology)
  - trigger the _storing_ of some information ("post" in HTTP terminology)
  - trigger the _deleting_ of some information ("delete" in HTTP terminology)
- - trigger the _updating_ of some information ("update" in HTTP terminology)
+ - trigger the _updating_ of some information ("patch" in HTTP terminology)
  - forward to another URL
  - or some combination of the above
 
@@ -21,11 +21,11 @@ But make no mistake: if there is information being stored in a central database,
 
 You can fully _specify_ a web application by listing out the URLs that users can visit, and what happens when each URL is visited. For example, let's say we wanted to build an interactive game of Rock, Paper, Scissors. The complete specifications (or **specs**, for short) for this app might look like this:
 
- - `http://[OUR APP DOMAIN]/rock` — Should display "You played rock.", a random move by the computer, and the outcome
- - `http://[OUR APP DOMAIN]/paper` — Should display "You played paper.", a random move by the computer, and the outcome
- - `http://[OUR APP DOMAIN]/scissors` — Should display "You played scissors.", a random move by the computer, and the outcome 
+ - `http://[OUR APP DOMAIN]/rock` — Should display "You played rock.", a random move by the computer, and the outcome.
+ - `http://[OUR APP DOMAIN]/paper` — Should display "You played paper.", a random move by the computer, and the outcome.
+ - `http://[OUR APP DOMAIN]/scissors` — Should display "You played scissors.", a random move by the computer, and the outcome .
  - `http://[OUR APP DOMAIN]/` — A welcome page that displays
-    - "Happy Monday!" (or whatever day it is)
+    - "Happy Monday!" (or whatever day it is).
     - The rules of the game.
     - For example,
         
@@ -168,7 +168,7 @@ Imagine that we wanted to build a native iPhone app that asked our server for so
 
 Rather than rendering a pre-defined message in plain text, it's usually more helpful to the iPhone developer to render the data in JSON format, so that they can parse it, easily fetch whichever values they need, and assemble their own interface.
 
-Here is some JSON that would be nice for an external application to parse:
+Here is some JSON that would be convenient for an external application to parse:
 
 ```json
 { "player_move":"rock", "computer_move":"paper", "outcome":"lost" }
@@ -176,7 +176,7 @@ Here is some JSON that would be nice for an external application to parse:
 
 Notice that JSON uses strings as keys — this is because JavaScript doesn't have the equivalent of Ruby's `Symbol` class. Also, there are no hash rockets; JSON just uses colons to separate keys and values.
 
-Fortunately, just as it was easy for us to convert a `String` containing JSON into Ruby `Array`s/`Hash`es using the `JSON.parse` method, it is also easy for us to go in the other direction: both `Array` and `Hash` have methods `.to_json`. Let's create a Ruby `Hash` that resembles the JSON above:
+Fortunately, just as it was easy for us to convert a `String` containing JSON into Ruby `Array`s/`Hash`es using the `JSON.parse` method, it is also easy for us to go in the other direction: both `Array` and `Hash` have methods called `.to_json`. Let's create a Ruby `Hash` that resembles the JSON above:
 
 ```ruby
 response_hash = { :player_move => "rock", :computer_move => "paper", :outcome => "lost" }
@@ -186,15 +186,24 @@ We can then convert this into a `String` in JSON format with `.to_json`:
 
 ```ruby
 response_hash.to_json
-# => "{\"player_move\":\"rock\",\"computer_move\":\"paper\",\"outcome\":\"lost\"}"
+```
+
+returns:
+
+```ruby
+"{\"player_move\":\"rock\",\"computer_move\":\"paper\",\"outcome\":\"lost\"}"
 ```
 
 The `\"` represents double-quotes; we need the backslash, known as an "escape", because we're already within a double-quoted string and don't want to terminate it. You can `puts` the string to see it formatted:
 
 ```ruby
 puts response_hash.to_json
-# {"player_move":"rock","computer_move":"paper","outcome":"lost"}
-# => nil
+```
+
+displays:
+
+```
+{"player_move":"rock","computer_move":"paper","outcome":"lost"}
 ```
 
 Great! That means we can update our action if we want to send back JSON instead:
@@ -220,16 +229,6 @@ class ApplicationController < ActionController::Base
   end
 end
 ```
-
-Or, even better, we can use the `:json` option rather than the `:plain` option:
-
-```ruby
-render({ :json =>  response_hash })
-```
-
-This allows us to omit the call to `.to_json`; Rails will do that for us if the value is not already a `String`.
-
-More importantly, using `:json` will set some extra meta data on the response that indicates the format correctly. Visit `/rock` and watch your server log while doing so (the server log is the output in the Terminal tab in which your `rails server` is running. Compare the output between a `:plain` response and a `:json` response. What do you observe?
 
 Congratulations — you just built your first API endpoint! 🙌🏾
 
