@@ -675,10 +675,14 @@ shawshank_actors = Actor.where({ :id => cast_ids }) # => the collection of Shaws
 It is sometimes possible to retrieve a collection of records that contains duplicates, which we may not want (because it will e.g. throw off our count). To remove duplicates, you can use the `.distinct` method:
 
 ```ruby
-eddies_roles = Role.where({ :actor_id => eddies_id })
-eddies_movie_ids = eddies_roles.pluck(:movie_id) # What if Eddie played multiple roles in the same film?
+# Imagine Eddie's ID is 42 in the actors table:
+eddies_roles = Role.where({ :actor_id => 42 })
+# But what if Eddie played multiple roles in the same film?
+eddies_movie_ids = eddies_roles.pluck(:movie_id)
 # => [1, 3, 3, 12, 19] This array now has duplicate IDs in it.
-bad_eddies_movies = Movie.where({ :id => eddies_movie_ids }) # This collection now has duplicate rows in it.
+# If we use it to do a lookup of movies, we'll get duplicate rows:
+bad_eddies_movies = Movie.where({ :id => eddies_movie_ids }) 
+# We can use .distinct to solve the problem:
 good_eddies_movies = Movie.where({ :id => eddies_movie_ids }).distinct
 ```
 
