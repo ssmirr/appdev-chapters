@@ -1,10 +1,18 @@
 # Very Best API
 
+## Your target
+
+You can see [a functional version of the application you should build here](https://very-best-api.herokuapp.com/users).
+
+## The domain model
+
+Here's an [Entity Relationship Diagram](https://www.lucidchart.com/pages/er-diagrams#discovery__top){:target="_blank"} of the database, for reference. Also remember to refer to the comments at the top of the model files:
+
 ![](/assets/very-best-api-erd.png)
 
-## API endpoints to build
+## API endpoints you need to build
 
-Unless otherwise noted, **if multiple rows are being displayed, they should be ordered by `created_at` (ascending).**
+Unless otherwise noted, **if multiple rows are being displayed, they should be ordered by the `created_at` column (ascending).**
 
 ### /cuisines
 
@@ -21,22 +29,6 @@ should show a list all cuisines.
 ```
 
 should show a list all dishes.
-
-### /dishes?cuisine_id=[ANY EXISTING CUISINE ID]
-
-If a query string is present on the end of `/dishes` with a cuisine ID, use it to filter the list of dishes.
-
-For example, if I know that "Breakfast" has the ID of 2 in the cuisines table, then:
-
-```
-/dishes?cuisine_id=2
-```
-
-should show only Breakfast dishes.
-
-Be careful not to break plain old `/dishes` (without a query string on the end)! Requests both with and without a query string should be handled gracefully.
-
-There are [many](https://chapters.firstdraft.com/chapters/763) [different](https://chapters.firstdraft.com/chapters/767#use-keys-to-explore) [tools](https://chapters.firstdraft.com/chapters/758#include) [that](https://chapters.firstdraft.com/chapters/770#chaining-wheres) you can use to achieve this.
 
 ### /dishes/[ANY EXISTING DISH ID]
 
@@ -63,18 +55,6 @@ should show a list of all neighborhoods.
 ```
 
 should show a list of all venues.
-
-### /venues?neighborhood_id=[ANY EXISTING NEIGHBORHOOD ID]
-
-If a query string is present on the end of `/venues` with a neighborhood ID, use it to filter the list of venues.
-
-For example, if I know that "Hyde Park" has the ID of 10 in the neighborhoods table, then:
-
-```
-/venues?neighborhood_id=10
-```
-
-should show only the venues in Hyde Park.
 
 ### /venues/[ANY EXISTING VENUE ID]
 
@@ -196,9 +176,45 @@ For example:
 
 should show a list of the users that have bookmarked any dish at the venue.
 
-### Note: .distinct
+### /dishes?cuisine_id=[ANY EXISTING CUISINE ID]
 
-Remember that you can [use `.distinct` on a collection](https://chapters.firstdraft.com/chapters/770#distinct) to remove duplicate records.
+If a query string is present on the end of `/dishes` with a cuisine ID, use it to filter the list of dishes.
+
+For example, if I know that "Breakfast" has the ID of 2 in the cuisines table, then:
+
+```
+/dishes?cuisine_id=2
+```
+
+should show only Breakfast dishes.
+
+Be careful not to break plain old `/dishes` (without a query string on the end)! Requests both with and without a query string should be handled gracefully.
+
+There are [many](https://chapters.firstdraft.com/chapters/763) [different](https://chapters.firstdraft.com/chapters/767#use-keys-to-explore) [tools](https://chapters.firstdraft.com/chapters/758#include) [that](https://chapters.firstdraft.com/chapters/770#chaining-wheres) you can use to achieve this.
+
+### /venues?neighborhood_id=[ANY EXISTING NEIGHBORHOOD ID]
+
+If a query string is present on the end of `/venues` with a neighborhood ID, use it to filter the list of venues.
+
+For example, if I know that "Hyde Park" has the ID of 10 in the neighborhoods table, then:
+
+```
+/venues?neighborhood_id=10
+```
+
+should show only the venues in Hyde Park.
+
+### /users/[ANY EXISTING USER ID]/bookmarks?dish_id=[ANY EXISTING DISH ID]
+
+If a query string is present on the end of `/users/[ANY EXISTING USER ID]/bookmarks` with a dish ID, use it to filter the list of bookmarks.
+
+For example, if I know that "Biscuits and Gravy" has the ID of 26 in the dishes table, then:
+
+```
+/users/4/bookmarks?dish_id=26
+```
+
+should show only the bookmarks that belong to the user with ID 4 that are for Biscuits and Gravy.
 
 ## Query helper methods that you might find helpful
 
@@ -224,3 +240,7 @@ I found it helpful to define the following [association query shortcuts](https:/
  - `Bookmark#user`
 
 For me, it's worth the up-front investment to write these instance methods and have them at my fingertips for the rest of the time I spend working on the application, because most association-related queries are re-used many times.
+
+### Note: .distinct
+
+Remember that you can [use `.distinct` on a collection](https://chapters.firstdraft.com/chapters/770#distinct) to remove duplicate records.
