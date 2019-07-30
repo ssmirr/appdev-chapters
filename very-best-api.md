@@ -4,6 +4,8 @@
 
 ## API endpoints to build
 
+Unless otherwise noted, **if multiple rows are being displayed, they should be ordered by `created_at` (ascending).**
+
 ### /cuisines
 
 ```
@@ -60,7 +62,7 @@ should show a list of all neighborhoods.
 /venues
 ```
 
-should show a list of all neighborhoods.
+should show a list of all venues.
 
 ### /venues?neighborhood_id=[ANY EXISTING NEIGHBORHOOD ID]
 
@@ -164,26 +166,6 @@ For example:
 
 should show a list of the user's bookmarked dishes.
 
-### /users/[ANY EXISTING USER ID]/bookmarked_dishes?cuisine_id=2
-
-For example:
-
-```
-/users/4/bookmarked_dishes
-```
-
-should show a list of the user's bookmarked dishes, filtered by cuisine ID.
-
-### /users/[ANY EXISTING USER ID]/bookmarked_venues?neighborhood=Humboldt Park
-
-For example:
-
-```
-/users/4/bookmarked_venues
-```
-
-should show a list of the user's bookmarked venues.
-
 ### /dishes/[ANY EXISTING DISH ID]/experts
 
 For example:
@@ -193,16 +175,6 @@ For example:
 ```
 
 should show a list of the venues that have been bookmarked for the dish.
-
-### /dishes/[ANY EXISTING DISH ID]/experts?neighborhood_id=4
-
-For example:
-
-```
-/dishes/5/experts?neighborhood_id=4
-```
-
-should show a list of the venues that have been bookmarked for the dish, filtered by neighborhood ID.
 
 ### /venues/[ANY EXISTING VENUE ID]/specialties
 
@@ -223,6 +195,10 @@ For example:
 ```
 
 should show a list of the users that have bookmarked any dish at the venue.
+
+### Note: .distinct
+
+Remember that you can use `.distinct` on a 
 
 ## Query helper methods that you might find helpful
 
@@ -247,4 +223,4 @@ I found it helpful to define the following [association query shortcuts](https:/
  - `Bookmark#venue`
  - `Bookmark#user`
 
-For me, it's worth the up-front investment to write these instance methods and have them at my fingertips for the rest of the time I spend working on the application, because most association queries are re-used many times.
+For me, it's worth the up-front investment to write these instance methods and have them at my fingertips for the rest of the time I spend working on the application, because most association-related queries are re-used many times.

@@ -669,7 +669,19 @@ shawshank_actors = Actor.where({ :id => cast_ids }) # => the collection of Shaws
     person.last_name # => "Woods"; good
     person.pluck(:last_name) # undefined method for Person; bad
     ```
-    
+
+### distinct
+
+It is sometimes possible to retrieve a collection of records that contains duplicates, which we may not want (because it will e.g. throw off our count). To remove duplicates, you can use the `.distinct` method:
+
+```ruby
+eddies_roles = Role.where({ :actor_id => eddies_id })
+eddies_movie_ids = eddies_roles.pluck(:movie_id) # What if Eddie played multiple roles in the same film?
+# => [1, 3, 3, 12, 19] This array now has duplicate IDs in it.
+bad_eddies_movies = Movie.where({ :id => eddies_movie_ids }) # This collection now has duplicate rows in it.
+good_eddies_movies = Movie.where({ :id => eddies_movie_ids }).distinct
+```
+
 ## UPDATE
 
 To update a row, first you need to locate it:
