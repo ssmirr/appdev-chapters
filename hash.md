@@ -131,6 +131,17 @@ I personally prefer getting the descriptive error message if the key is not pres
 
 That said, out on the internet, using `.[]` is the most prevalent style of accessing hashes, so you should be familiar with it. But in this text, I will stick with `.fetch`.
 
+## Use .keys to explore
+
+A very important method to use when you're dealing with `Hash`es that you didn't create yourself is `.keys`:
+
+```ruby
+h = { "a" => 100, "b" => 200, "c" => 300, "d" => 400 }
+h.keys   #=> ["a", "b", "c", "d"]
+```
+
+The `.keys` method returns an `Array` showing all of the keys that are present in the `Hash`. This helps tremendously when dealing with a data structure that we didn't create ourselves, especially when it's deeply nested (a hash containing arrays which might contain other hashes, etc).
+
 ## keys can be anything
 
 The keys in a `Hash` can be any class — `String`, `Integer`, whatever — but we almost always use `Symbol`s as keys to our `Hash`es. (I like using symbols as the keys simply because since the values are usually strings, syntax highlighting makes keys stand out from values in our code.)

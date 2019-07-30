@@ -54,7 +54,7 @@ List all dishes.
 
 If a query string is present with a cuisine ID, use it to filter the list of dishes.
 
-Be careful not to break the URL you built previously, plain old `/dishes` (without a query string on the end)! Requests both with and without a query string should be handled gracefully. There are [many](https://chapters.firstdraft.com/chapters/763) different ways you can achieve this.
+Be careful not to break the URL you built previously, plain old `/dishes` (without a query string on the end)! Requests both with and without a query string should be handled gracefully. There are [many](https://chapters.firstdraft.com/chapters/763) [different]() [tools](https://chapters.firstdraft.com/chapters/758#include) that you can use to achieve this.
 
 ### /dishes/[ANY EXISTING DISH ID]
 
