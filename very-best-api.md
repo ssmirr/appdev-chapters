@@ -226,40 +226,23 @@ should show a list of the users that have bookmarked any dish at the venue.
 
 ## Query helper methods that you might find helpful
 
-I found it helpful to define these query helper methods for myself in my models before I started to build out my API; but it's up to you.
+I found it helpful to define the following [association query shortcuts](https://chapters.firstdraft.com/chapters/778) for myself in my models before I started to build out my API; but you are not required to.
 
-### User#bookmarks
-
-### User#bookmarked_dishes
-
-### User#bookmarked_venues
-
-### User#bookmarked_neighborhoods
-
-### Venue#neighborhood
-
-### Venue#bookmarks
-
-### Venue#specialties
-
-### Venue#fans
-
-### Neighborhood#venues
-
-### Dish#bookmarks
-
-### Dish#cuisine
-
-### Dish#experts
-
-### Dish#fans
-
-### Cuisine#dishes
-
-### Cuisine#experts
-
-### Bookmark#dish
-
-### Bookmark#venue
-
-### Bookmark#user
+ - `User#bookmarks`
+ - `User#bookmarked_dishes`
+ - `User#bookmarked_venues`
+ - `User#bookmarked_neighborhoods`
+ - `Venue#neighborhood`
+ - `Venue#bookmarks`
+ - `Venue#specialties`
+ - `Venue#fans`
+ - `Neighborhood#venues`
+ - `Dish#bookmarks`
+ - `Dish#cuisine`
+ - `Dish#experts`
+ - `Dish#fans`
+ - `Cuisine#dishes`
+ - `Cuisine#experts`
+ - `Bookmark#dish`
+ - `Bookmark#venue`
+ - `Bookmark#user`
