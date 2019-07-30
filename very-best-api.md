@@ -2,75 +2,231 @@
 
 ![](/assets/very-best-api-erd.png)
 
-
-## API Endpoints to build
+## API endpoints to build
 
 ### /cuisines
 
-List all cuisines.
+```
+/cuisines
+```
+
+should show a list all cuisines.
 
 ### /dishes
 
-List all dishes.
+```
+/dishes
+```
+
+should show a list all dishes.
 
 ### /dishes?cuisine_id=[ANY EXISTING CUISINE ID]
 
-If a query string is present with a cuisine ID, use it to filter the list of dishes.
+If a query string is present on the end of `/dishes` with a cuisine ID, use it to filter the list of dishes.
 
-Be careful not to break the URL you built previously, plain old `/dishes` (without a query string on the end)! Requests both with and without a query string should be handled gracefully. There are [many](https://chapters.firstdraft.com/chapters/763) [different]() [tools](https://chapters.firstdraft.com/chapters/758#include) that you can use to achieve this.
+For example, if I know that "Breakfast" has the ID of 2 in the cuisines table, then:
+
+```
+/dishes?cuisine_id=2
+```
+
+should show only Breakfast dishes.
+
+Be careful not to break plain old `/dishes` (without a query string on the end)! Requests both with and without a query string should be handled gracefully.
+
+There are [many](https://chapters.firstdraft.com/chapters/763) [different](https://chapters.firstdraft.com/chapters/767#use-keys-to-explore) [tools](https://chapters.firstdraft.com/chapters/758#include) [that](https://chapters.firstdraft.com/chapters/770#chaining-wheres) you can use to achieve this.
 
 ### /dishes/[ANY EXISTING DISH ID]
 
-Show the details of one dish.
+For example:
+
+```
+/dishes/26
+```
+
+should show the details of one dish.
 
 ### /neighborhoods
 
-List all neighborhoods.
+```
+/neighborhoods
+```
+
+should show a list of all neighborhoods.
 
 ### /venues
 
-List all venues.
+```
+/venues
+```
 
-### /venues?neighborhood_id=1
+should show a list of all neighborhoods.
 
-If a query string is present with a neighborhood ID, use it to filter the list of venues.
+### /venues?neighborhood_id=[ANY EXISTING NEIGHBORHOOD ID]
+
+If a query string is present on the end of `/venues` with a neighborhood ID, use it to filter the list of venues.
+
+For example, if I know that "Hyde Park" has the ID of 10 in the neighborhoods table, then:
+
+```
+/venues?neighborhood_id=10
+```
+
+should show only the venues in Hyde Park.
 
 ### /venues/[ANY EXISTING VENUE ID]
 
-Show the details of one venue.
+For example:
 
+```
+/venues/27
+```
+
+should show the details of one venue.
+
+### /users
+
+```
 /users
+```
 
-/users/[ANY EXISTING USER ID]
+should show a list all users.
 
-/users/[ANY EXISTING USERNAME]
+### /users/[ANY EXISTING USER ID]
 
-/add_bookmark?user_id=1&dish_id=2&venue_id=3
+For example:
 
-/users/[ANY EXISTING USER ID]/bookmarks
+```
+/users/4
+```
 
-/dishes/[ANY EXISTING DISH ID]/bookmarks
+should show the details of one user.
 
-/venues/[ANY EXISTING VENUE ID]/bookmarks
+### /add_bookmark?input_user_id=1&input_dish_id=2&input_venue_id=3
 
-/remove_bookmark/[ANY EXISTING BOOKMARK ID]
+For example:
 
-/users/[ANY EXISTING USER ID]/bookmarked_dishes
+```
+/add_bookmark?input_user_id=1&input_dish_id=2&input_venue_id=3
+```
 
-/users/[ANY EXISTING USER ID]/bookmarked_dishes?cuisine=Breakfast
+should add a record to the bookmarks table.
 
-/users/[ANY EXISTING USER ID]/bookmarked_venues?neighborhood=Humboldt Park
+Be sure to name the keys in the query string **exactly** `input_user_id`, `input_dish_id`, and `input_venue_id`.
 
-/dishes/[ANY EXISTING DISH ID]/specialists
+### /users/[ANY EXISTING USER ID]/bookmarks
 
-/dishes/[ANY EXISTING DISH ID]/specialists?neighborhood=Humboldt Park
+For example:
 
-/venues/[ANY EXISTING VENUE ID]/specialties
+```
+/users/4/bookmarks
+```
 
-/venues/[ANY EXISTING VENUE ID]/fans
+should show a list of the bookmarks that belong to the user with ID 4.
 
+### /dishes/[ANY EXISTING DISH ID]/bookmarks
 
-## Query helper methods to define
+For example:
+
+```
+/dishes/5/bookmarks
+```
+
+should show a list of the bookmarks that belong to the dish with ID 5.
+
+### /venues/[ANY EXISTING VENUE ID]/bookmarks
+
+For example:
+
+```
+/venues/6/bookmarks
+```
+
+should show a list of the bookmarks that belong to the venue with ID 6.
+
+### /remove_bookmark/[ANY EXISTING BOOKMARK ID]
+
+For example:
+
+```
+/remove_bookmark/32
+```
+
+should delete a record from the bookmarks table.
+
+### /users/[ANY EXISTING USER ID]/bookmarked_dishes
+
+For example:
+
+```
+/users/4/bookmarked_dishes
+```
+
+should show a list of the user's bookmarked dishes.
+
+### /users/[ANY EXISTING USER ID]/bookmarked_dishes?cuisine_id=2
+
+For example:
+
+```
+/users/4/bookmarked_dishes
+```
+
+should show a list of the user's bookmarked dishes, filtered by cuisine ID.
+
+### /users/[ANY EXISTING USER ID]/bookmarked_venues?neighborhood=Humboldt Park
+
+For example:
+
+```
+/users/4/bookmarked_venues
+```
+
+should show a list of the user's bookmarked venues.
+
+### /dishes/[ANY EXISTING DISH ID]/experts
+
+For example:
+
+```
+/dishes/5/experts
+```
+
+should show a list of the venues that have been bookmarked for the dish.
+
+### /dishes/[ANY EXISTING DISH ID]/experts?neighborhood_id=4
+
+For example:
+
+```
+/dishes/5/experts?neighborhood_id=4
+```
+
+should show a list of the venues that have been bookmarked for the dish, filtered by neighborhood ID.
+
+### /venues/[ANY EXISTING VENUE ID]/specialties
+
+For example:
+
+```
+/venues/6/specialties
+```
+
+should show a list of the dishes that have been bookmarked at a venue.
+
+### /venues/[ANY EXISTING VENUE ID]/fans
+
+For example:
+
+```
+/venues/6/fans
+```
+
+should show a list of the users that have bookmarked any dish at the venue.
+
+## Query helper methods that you might find helpful
+
+I found it helpful to define these query helper methods for myself in my models before I started to build out my API; but it's up to you.
 
 ### User#bookmarks
 
@@ -94,13 +250,13 @@ Show the details of one venue.
 
 ### Dish#cuisine
 
-### Dish#specialists
+### Dish#experts
 
 ### Dish#fans
 
 ### Cuisine#dishes
 
-### Cuisine#specialists
+### Cuisine#experts
 
 ### Bookmark#dish
 
