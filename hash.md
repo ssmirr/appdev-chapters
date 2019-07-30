@@ -140,7 +140,9 @@ h = { "a" => 100, "b" => 200, "c" => 300, "d" => 400 }
 h.keys   #=> ["a", "b", "c", "d"]
 ```
 
-The `.keys` method returns an `Array` showing all of the keys that are present in the `Hash`. This helps tremendously when dealing with a data structure that we didn't create ourselves, especially when it's deeply nested (a hash containing arrays which might contain other hashes, etc).
+The `.keys` method returns an `Array` showing all of the keys that are present in the `Hash`, so that we know what we can `.fetch`.
+
+This helps tremendously when dealing with a data structure that we didn't create ourselves, especially when it's deeply nested (a hash containing arrays which might contain other hashes, etc).
 
 ## keys can be anything
 
