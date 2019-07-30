@@ -198,7 +198,7 @@ should show a list of the users that have bookmarked any dish at the venue.
 
 ### Note: .distinct
 
-Remember that you can use `.distinct` on a 
+Remember that you can [use `.distinct` on a collection](https://chapters.firstdraft.com/chapters/770#distinct) to remove duplicate records.
 
 ## Query helper methods that you might find helpful
 
