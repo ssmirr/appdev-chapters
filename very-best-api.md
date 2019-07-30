@@ -246,3 +246,5 @@ I found it helpful to define the following [association query shortcuts](https:/
  - `Bookmark#dish`
  - `Bookmark#venue`
  - `Bookmark#user`
+
+For me, it's worth the up-front investment to write these instance methods and have them at my fingertips for the rest of the time I spend working on the application, because most association queries are re-used many times.
