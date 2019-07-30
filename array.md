@@ -159,6 +159,16 @@ We'll be using this technique for the remainder of our test REPLs, to make thing
 
  <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055583/c12a04f9499595923047a48b7780f4ba"></iframe>
  
+### include?
+
+A thin convenience layer on top of `.count`, `.include?` will quickly tell you whether a value is present within an `Array`:
+
+```ruby
+a = [ "a", "b", "c" ]
+a.include?("b")   #=> true
+a.include?("z")   #=> false
+```
+
 ### reverse
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-reverse?lite=true"></iframe>
@@ -168,7 +178,6 @@ We'll be using this technique for the remainder of our test REPLs, to make thing
 ### sort
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/sort?lite=true"></iframe>
-
 
 ### shuffle
 
