@@ -22,3 +22,5 @@
  1. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
  1. [The One Reference](https://chapters.firstdraft.com/chapters/774) **(DRAFT)**
  1. [Getting automated feedback with rails grade](https://chapters.firstdraft.com/chapters/777)
+ 1. [Planning your idea](https://chapters.firstdraft.com/chapters/783)
+ 1. [Diagramming your domain model](https://chapters.firstdraft.com/chapters/782)
