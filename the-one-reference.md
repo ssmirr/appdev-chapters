@@ -1,6 +1,6 @@
 # The One Reference
 
-# This document is a draft and is under active development.
+This document should be used as a quick reference; read the full explanations for more depth.
 
 ## ActiveRecord_Relation (array of records)
 
