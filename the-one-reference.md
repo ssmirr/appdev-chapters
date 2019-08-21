@@ -17,7 +17,7 @@ This document should be used as a quick reference; read the full explanations fo
 
 ### .where
 
-`ActiveRecord_Relation.where(Hash)`
+`ActiveRecord_Relation#where(Hash) ⇒ ActiveRecord_Relation`
 
 Call `.where` on an `ActiveRecord_Relation` to filter the array of records based on some criteria.
 
@@ -73,7 +73,7 @@ Related Methods: `.where.not`, `.or`, `.limit`, `.order`
 
 ### where.not
 
-`ActiveRecord_Relation.where.not(Hash)`
+`ActiveRecord_Relation#where.not(Hash) ⇒ ActiveRecord_Relation`
 
 Call `.where.not` on an `ActiveRecord_Relation` to filter the array of records to _exclude_ records based on the given `Hash`. `.where.not` will return an `ActiveRecord_Relation`.
 
@@ -90,7 +90,7 @@ Related methods: `.where`, `.order`, `.limit`
 
 ### .or
 
-`ActiveRecord_Relation.or(ActiveRecord_Relation)`
+`ActiveRecord_Relation#or(ActiveRecord_Relation) ⇒ ActiveRecord_Relation`
 
 Call `.or` on an `ActiveRecord_Relation` to _combine_ the array of records with another array of records:
 
@@ -106,7 +106,11 @@ Contact.where({ :first_name => "Mickey" }).or(Contact.where({ :last_name => "Bet
 
 ### .order
 
-`ActiveRecord_Relation.order(Hash)` or `order(Symbol)`
+`ActiveRecord_Relation#order(Hash) ⇒ ActiveRecord_Relation`
+
+or
+
+`ActiveRecord_Relation.order(Symbol) ⇒ ActiveRecord_Relation`
 
 Call `.order` on an `ActiveRecord_Relation` to sort the array based on one or more columns. This method returns an `ActiveRecord_Relation`.
 
@@ -133,7 +137,7 @@ In that case, `:asc` order is assumed.
 
 ### .limit
 
-`ActiveRecord_Relation.limit(Integer)`
+`ActiveRecord_Relation#limit(Integer) ⇒ ActiveRecord_Relation`
 
 Call `.limit` on an `ActiveRecord_Relation` to cap the number of records in the array.
 
@@ -148,7 +152,7 @@ Contact.where({ :last_name => "Mouse" }).limit(10)
 
 ### .offset
 
-`ActiveRecord_Relation.offset(Integer)`
+`ActiveRecord_Relation#offset(Integer) ⇒ ActiveRecord_Relation`
 
 Call `.offset` on an `ActiveRecord_Relation` to discard the first few records in the array:
 
@@ -163,7 +167,7 @@ Contact.where({ :last_name => "Mouse" }).offset(10).limit(10)
 
 ### .pluck
 
-`ActiveRecord_Relation.pluck(Symbol)`
+`ActiveRecord_Relation#pluck(Symbol) ⇒ Array`
 
 Call `.pluck` on an `ActiveRecord_Relation` to retrieve the values stored in _just one column_ of the records, and discard all other data.
 
@@ -190,7 +194,7 @@ people.pluck(:last_name) # => ["Betina", "Woods"]; good
 
 ### .maximum
 
-`ActiveRecord_Relation.maximum(Symbol)`
+`ActiveRecord_Relation#maximum(Symbol) ⇒ Object`
 
 Call `.maximum` on an `ActiveRecord_Relation` to grab and return the biggest value of a particular column.
 
@@ -205,7 +209,7 @@ User.all.maximun(:age)
 
 ### .minimum
 
-`ActiveRecord_Relation.minimum(Symbol)`
+`ActiveRecord_Relation#minimum(Symbol) ⇒ Object`
 
 Call `.minimum` on an `ActiveRecord_Relation` to grab and return the smallest value of a particular column.
 
@@ -220,7 +224,7 @@ Photo.all.minimum(:caption)
 
 ### .sum
 
-`ActiveRecord_Relation.sum(Symbol)`
+`ActiveRecord_Relation#sum(Symbol) ⇒ Integer` or `⇒ Float` or `⇒ String`
 
 Call `.sum` on an `ActiveRecord_Relation` to find the sum of the values in a single column:
 
@@ -235,7 +239,7 @@ Call `.sum` on an `ActiveRecord_Relation` to find the sum of the values in a sin
 
 ### .average
 
-`ActiveRecord_Relation.average(Symbol)`
+`ActiveRecord_Relation#average(Symbol) ⇒ Integer` or `⇒ Float`
 
 Call `.average` on an `ActiveRecord_Relation` to find the mean of the values in a single column:
 
@@ -277,6 +281,8 @@ You would then be able to call `.full_name` anywhere in the application that you
 ## Association Helper Methods
 
 ### belongs_to
+
+`belongs_to(Symbol, Hash) ⇒ ActiveRecord`
 
 Let's say I have a movie in a variable `m`. It is annoying and error prone to, whenever I want the director associated with a movie, have to type
 
@@ -341,6 +347,8 @@ belongs_to(:director)
 
 ### has_many
 
+`has_many(Symbol, Hash) ⇒ ActiveRecord_Relation`
+
 Let's say I have a director in a variable `d`. It is annoying and error prone to, whenever I want the films associated with the director, have to type
 
 ```ruby
@@ -404,6 +412,8 @@ has_many(:movies)
 
 ### has_many/through
 
+`has_many(Symbol, Hash) ⇒ ActiveRecord_Relation`
+
 After you have established all of your one-to-many association helper methods, you can also add many-to-many helper methods with the `:through` option on `has_many`:
 
 ```ruby
@@ -427,7 +437,11 @@ end
 
 ### .concat (.+)
 
-`String#concat(Integer)` or `String#concat(String)`
+`String#concat(Integer) ⇒ String`
+
+or 
+
+`String#concat(String) ⇒ String`
 
 Appends the given arguments to a string. when given an integer as an argument, it converts the integer into ASCII code.  
 
@@ -439,7 +453,7 @@ Appends the given arguments to a string. when given an integer as an argument, i
 "Rub".concat(121)  # => "Ruby"
 ```
 
-When given a string literal as an argument, it adds that string to the original string. `.+` or `+` is shorthand for `.concat` method. Each line of code below will give the same output.  
+When given a string literal as an argument, it adds that string to the original string. `.+` or `+` is _similar_ to the `.concat` method. `+` will return a new combined `String` instead of modifying the original `String`. Each line of code below will give the same output.  
 
 `"hi".concat(" there")`  
 `"hi".+(" there")`  
@@ -470,7 +484,7 @@ Returns `""`
 
 ### .upcase
 
-`String#upcase`
+`String#upcase ⇒ String`
 
 Converts all lowercase letters to their uppercase counterparts in the given string and returns the new modified [`String`](#string).  
 
@@ -486,7 +500,7 @@ Returns
 
 ### .downcase
 
-`String#downcase`
+`String#downcase ⇒ String`
 
 Converts all the uppercase letters to their lowercase counterparts from the given `String`. Returns the new modified [`String`](#string). 
 
@@ -502,7 +516,7 @@ Returns
 
 ### .swapcase
 
-`String#swapcase`
+`String#swapcase ⇒ String`
 
 Converts all the uppercase letters to their lowercase counterparts and lowercase letters to their uppercase counterparts from the given string. Returns the new modified [`String`](#string).  
 
@@ -528,7 +542,7 @@ Returns
 
 ### .reverse (String)
 
-`String#reverse`
+`String#reverse ⇒ String`
 
 Returns a new [`String`](#string) with the characters from the original String in reverse order.  
 
@@ -544,7 +558,7 @@ Returns
 
 ### .length
 
-`String#length`
+`String#length ⇒ Integer`
 
 Returns the [`Integer`](#integer) number of charactersin the `String`.  
 
@@ -560,7 +574,11 @@ Returns
 
 ### .chomp
 
-`String#chomp` or `String#chomp(String)`
+`String#chomp ⇒ String`
+
+or
+
+ `String#chomp(String) ⇒ String`
 
 When not given any argument, removes the `"\n"` (newline) character from the end of the string. When given an argument of a charcter or a string, it remove that argument from the _end_ of the orginal string. 
 
@@ -612,7 +630,7 @@ p "Hi" + name
 
 ### .gsub
 
-`String#gsub(String, String)`
+`String#gsub(String, String) ⇒ String`
 
 Substitutes the all occurances of the first argument with the second argument in original string and returns a new [`String`](#string) with the substitutes made.  
 
@@ -646,7 +664,7 @@ Returns
 
 ### .to_i (String)
 
-`String#to_i`
+`String#to_i  ⇒ Integer`
 
 Converts a string literal that contains a number to an integer. The [`Integer`](#integer) is returned.  
 
@@ -685,7 +703,7 @@ Returns
 
 ### .strip
 
-`String#strip`
+`String#strip  ⇒ String`
 
 Removes all leading and trailing whitespace in the string.  
 
@@ -703,7 +721,7 @@ Returns
 
 ### .capitalize
 
-`String#capitalize`
+`String#capitalize ⇒ String`
 
 Capitalizes the first character of a string.
 
@@ -721,7 +739,11 @@ Returns
 
 ### .split
 
-`String#split` or `String#split(String)`
+`String#split ⇒ Array`
+
+or
+
+`String#split(String) ⇒ Array`
 
 Splits a string into an substrings and creates an Array of these substrings. when not given argument, `.split` uses whitespace to divide the string. when given an argument, `.split` divides the string on that argument.
 
@@ -761,7 +783,7 @@ The `/` operator for integers only returns a whole number and omits the remainde
 
 ### `%` (modulus) operator
 
-`Integer % Integer`
+`Integer % Integer ⇒ Integer`
 
 Returns the [`Integer`](#integer) remainder from a divisions.  
 
@@ -775,7 +797,7 @@ Returns
 
 ### `**` operator Integer
 
-`Integer ** Integer`
+`Integer ** Integer ⇒ Integer`
 
 Raises a number to a power.  
 
@@ -788,15 +810,22 @@ Returns an [`Integer`](#integer)
 
 ### .odd? and .even? method
 
-`Integer#odd?` or `Integer#even?`
+`Integer#odd? ⇒ Boolean`
 
-Returns a [_boolean_](#conditionals) based on whether the integer is odd or even.  
+or
+
+`Integer#even? ⇒ Boolean`
+
+Returns a [_boolean_](#conditionals)(`true` or `false`) based on whether the integer is odd or even.
+
 `7.odd?`
+
 Returns
 
 `true`
 
 `8.odd?`
+
 Returns
 
 `false`
@@ -808,6 +837,7 @@ Returns
 `true`
 
 `7.even?`
+
 Returns
 
 `false`
@@ -816,10 +846,18 @@ Returns
 
 ### rand
 
-`Integer#rand`
+`Integer#rand ⇒ Float`
+
+or
+
+`Integer#rand(Integer) ⇒ Integer`
+
+or
+
+`Integer#rand(Range) ⇒ Integer`
 
 -   Creates a random [`Float`](#float) between 0 to 1
--   Can be given an optional integer argument that will generate and return an [`Integer`](#integer) between 0 and the argument.
+-   Can be given an optional `Integer` argument that will generate and return an [`Integer`](#integer) between 0 and the argument.
 -   Can be given an optional argument of a `Range` that will generate a random [`Integer`](#integer) that between the `Range`.
 
 ```ruby
@@ -832,7 +870,7 @@ rand((10..20)) # returns => 19
 
 ### .to_s
 
-`Integer#to_s`
+`Integer#to_s ⇒ String`
 
 Converts an integer to a string literal.
 
@@ -868,7 +906,7 @@ p "My lucky number is " + lucky_number.to_s + "!"
 
 ### .to_f
 
-`Integer#to_f`
+`Integer#to_f ⇒ Float`
 
 converts an integer to a [`Float`](#float)(decimal).  
 `7.to_f`
@@ -902,7 +940,7 @@ Standard operations are similar to those for the Integer class. The only excepti
 
 ### `**` Float operator
 
-`Float ** Float`
+`Float ** Float ⇒ Float`
 
 The `**`operator for Floats can additionally be used to calculate roots. 
 
@@ -915,7 +953,11 @@ The `**`operator for Floats can additionally be used to calculate roots.
 
 ### .round
 
-`Float#round` or `Float#round(Integer)`
+`Float#round ⇒ Integer`
+
+or
+
+`Float#round(Integer) ⇒ Float`
 
 -   Returns the whole part ([`Integer`](#integer)) of a decimal when not given any argument.  
 -   When given an argument, returns a [`Float`](#float) rounded to the number of decimal places specified by the argument.  
@@ -928,7 +970,7 @@ The `**`operator for Floats can additionally be used to calculate roots.
 
 ### .to_i (Float)
 
-`Float#to_i`
+`Float#to_i  ⇒ Integer`
 
 Converts a float to an integer by rounding the float down to closest whole number.
 
@@ -962,7 +1004,7 @@ Only _Ruby_ programs need to have a `require` statement for the Date class. _Rai
 
 ### Date.new
 
-`Date.new`
+`Date.new ⇒ Date`
 
 Use the `.new` method to create a new instance of a Date object. The `.new` method can be used with or without argument. When given no arguments, the default date is set to _Jan 1st, -4712 BCE_.
 
@@ -977,7 +1019,7 @@ Date.new(2001,2,-1)       # => #<Date: 2001-02-28 ...>
 
 ### Date.today
 
-`Date.today`
+`Date.today ⇒ Date`
 
 Initializes a Date object to the current date.
 
@@ -989,7 +1031,7 @@ Returns a [`Date`](#date)
 
 ### Date.parse()
 
-`Date.parse(String)`
+`Date.parse(String) ⇒ Date`
 
 Returns a [`Date`](#date) object initialized to a date, interpreted from the given String argument.
 
@@ -1015,7 +1057,7 @@ number_of_days.to_i # => 88674
 
 ### Date.mday
 
-`Date.mday`
+`Date.mday ⇒ Integer`
 
 Returns the day of the month (1-31).
 
@@ -1028,7 +1070,7 @@ held_on.mday # => 3
 
 ### Date.wday
 
-`Date.wday`
+`Date.wday ⇒ Integer`
 
 Returns the day of the week as an [`Integer`](#integer) (0-6, Sunday is 0).
 
@@ -1041,7 +1083,7 @@ held_on.wday # => 6
 
 ### Days of the Week
 
-`Date#moday?`
+`Date#moday? ⇒ Boolean`
 
 ```ruby
 date = Date.new
@@ -1064,14 +1106,17 @@ list of objects represented with square brackets, \[].
 
 ### Creating an Array
 
-`.new` initializes a new empty Array.  
+`Array.new ⇒ Array`
+
+initializes a new empty Array.  
+
 `cities = Array.new # => cities = []`  
 or  
 `cities = [] # => cities = []` 
 
 ### .push
 
-`Array#push(Object)`
+`Array#push(Object) ⇒ Array`
 
 Adds elements to the end of an Array. Returns the modified [`Array`](#array).
 
@@ -1090,7 +1135,7 @@ cities = ["Chicago", "Los Angeles", "New York City"]
 
 ### .at()
 
-`Array#.at(Integer)`
+`Array#.at(Integer) ⇒ Object`
 
 Takes an Integer argument and return the element in that position of an Array. The following lines of code show the various forms of the `.at` method and return the same output.
 
@@ -1119,7 +1164,7 @@ cities[2]
 
 ### .first and .last
 
-`Array#first` or `Array#last`
+`Array#first ⇒ Object` or `Array#last ⇒ Object`
 
 Retrieves and returns the first or the last element of an array.
 
@@ -1130,14 +1175,14 @@ Returns an `Object`
 
 ### .index
 
-`Array#index(Object)`
+`Array#index(Object) ⇒ Integer`
 
 Returns an [`Integer`](#integer) that is the index of an element.  
 `cities.index("Los Angeles") # => 1`
 
 ### .count
 
-`Array#count` or `Array#count(Object)`
+`Array#count ⇒ Integer` or `Array#count(Object) ⇒ Integer`
 
 Returns the number of elements in a list, when give no arguments. If given an argument, returns the number of times that arguments occurs in the array. In both instances, this method returns an [`Integer`](#integer)
 
@@ -1152,7 +1197,7 @@ nums.count(2) # => 0
 
 ### .reverse (Array)
 
-`Array#reverse`
+`Array#reverse ⇒ Array`
 
 Returns a new [`Array`](#array)Array with the elements of the original Array but in the reversed order.  
 `nums.reverse # => [3, 23, 19, 1, 3, 8]`
@@ -1161,7 +1206,7 @@ Returns a new [`Array`](#array)Array with the elements of the original Array but
 
 ### .sort
 
-`Array#.sort`
+`Array#.sort ⇒ Array`
 
 Returns a new [`Array`](#array) with the elements of the original Array but in the sorted in increasing order.  
 `nums.sort # => [1, 3, 3, 8, 19, 23]`
@@ -1175,7 +1220,7 @@ nums.sort.reverse # => [23, 19, 8, 3, 3, 1], first sorts then reverses the Array
 ```
 ### .shuffle
 
-`Array#shuffle`
+`Array#shuffle ⇒ Array`
 
 Returns a new [`Array`](#array) with the elements of the original Array but with the order shuffled randomly.  
 `nums.shuffle # => [3, 23, 8, 19, 1, 3]`  
@@ -1185,7 +1230,7 @@ Returns a new [`Array`](#array) with the elements of the original Array but with
 
 ### .sample
 
-`Array#sample`
+`Array#sample ⇒ Array`
 
 Returns a random element from the array.  
 `nums.sample # => 23`  
@@ -1195,7 +1240,7 @@ Returns a random element from the array.
 
 ### .min and .max
 
-`Array#min` or `Array#max`
+`Array#min ⇒ Object` or `Array#max ⇒ Object`
 
 Retrieve the elements of minimum and the maximum values in the array.  
 `nums.min # => 1`  
@@ -1227,13 +1272,15 @@ Symbols are a sequence of characters and are used to to label something internal
 
 ### Creating a Hash
 
+`Hash.new ⇒ Hash`
+
 `person1 = Hash.new`  
 or  
 `person2 = {}`
 
 ### .store
 
-`Hash#store(Object, Object)`
+`Hash#store(Object, Object) ⇒ Object`
 
 Adds elements to a Hash by taking two arguments, a label (or _key_) and a piece of data (or _value_).
 
@@ -1259,7 +1306,11 @@ or we can fill up a hash by typing in the hash literal
 
 ### .fetch
 
-`Hash#fetch(Object)` or `Hash#fetch(Object, Object)`
+`Hash#fetch(Object) ⇒ Object`
+
+or
+
+`Hash#fetch(Object, Object) ⇒ Object`
 
 Both `.fetch` and `.[]` can be used to retrieves the data held by a key.
 `person1.fetch(:last_name)# => "Betina"`  
@@ -1309,11 +1360,12 @@ end
 **while statements:**  
 
 ```ruby
-while boolean do
-#  ruby code here
+while boolean
+  # ruby code here
 end
-```
 
+⇒ nil
+```
 `while` is similar to `if`. The difference is everytime the execution of the program reaches the `end` it jumps back and evaluates the _truthiness_ of the condtion next to the `while` statement and decides whether or not to execute the code within the `while` loop.
 
 ```ruby
@@ -1348,13 +1400,25 @@ If the condition next to the `while` always evaluates to be "truthy," then the p
 
 ### .times
 
-```
+```shell
 Integer#times do
-# ruby code here
+  # ruby code here
 end
+
+⇒ Integer
 ```
 
-The `.times` method will execute the code within a block the number of times specified by the integer. A block of code is the code written in between the keywords `do` and `end`. This looping method returns an [`Integer`](#integer) of the number of times the loop ran.
+or
+
+```shell
+Integer#times do |Integer|
+  # ruby code here
+end
+
+⇒ Integer
+```
+
+The `.times` method takes a [`Block`](https://chapters.firstdraft.com/chapters/764#blocks) as an argument and will execute the code within that block the number of times specified by the integer. A [`Block`](https://chapters.firstdraft.com/chapters/764#blocks) of code is the code written in between the keywords `do` and `end`. This looping method returns an [`Integer`](#integer) of the number of times the loop ran.
 
 ```ruby
 10.times do
@@ -1364,7 +1428,7 @@ end
 
 The above block of code will print "Hi" 10 times all on newlines. 
 
-To keep a track of the iteration number, `.times` can create a block variable that starts of counting the iteration number starting at _zero_. After each execution of the code within the block, the block variable is incremented by 1.  
+To keep a track of the iteration number, `.times` can create a [block variable](https://chapters.firstdraft.com/chapters/764#block-variables) that starts of counting the iteration number starting at _zero_. After each execution of the code within the block, the block variable is incremented by 1.  
 
 ```ruby
 10.times do |counter|
@@ -1380,10 +1444,12 @@ The above block of code will print the numbers 0 to 9 all on newlines.
 
 ### .upto
 
-```
-Integer#upto(Integer) do |block_variable|
-#  ruby code here
+```shell
+Integer#upto do |Integer|
+  # ruby code here
 end
+
+⇒ Integer
 ```
 The `upto` method takes the first `Integer` the method is called on and uses it to initialize the value of
 the block variable. The second `Integer` becomes the stopping condition to the loop as the block variable'
@@ -1399,12 +1465,13 @@ The above block of code starts the block variable `counter` at 5 and executes th
 
 ### .downto
 
-```
-Integer#down_to(Integer).each do |block_variable|
-  # do something
+```shell
+Integer#downto do |Integer|
+  # ruby code here
 end
-```
 
+⇒ Integer
+```
 The `downto` method takes the first `Integer` the method is called on and uses it to initialize the value of
 the block variable. The second `Integer` becomes the stopping condition to the loop as the block variable'
 decreases by one after each iteration. The method returns an [`Integer`](#integer); the initial value of the block variable.
@@ -1419,12 +1486,13 @@ The above block of code starts the block variable `counter` at 10 and executes t
 
 ### .step
 
-```
-Integer#step(Integer, Integer) do |block_variable|
-  # do something
+```shell
+Integer#step(Integer, Integer) do |Integer|
+  # ruby code here
 end
-```
 
+⇒ Integer
+```
 The `step` method initializes the block variable to be the value of the `Integer` that called the method. The first `Integer` argument is the the value the block variable is when the loop will stop. The last `Integer`argument is what value to modify the block variable  after each iteration. This method returns the [`Integer`](#integer) that called the method. 
 
 ```ruby
@@ -1454,10 +1522,12 @@ end
 
 ### .each
 
-```
-Array#each do |block_variable|
-
+```shell
+Array#each do |Object|
+  # ruby code here
 end
+
+⇒ Array
 ```
 
 Given an array, the `.each` method will loop through each element of the array starting with the very first one.
@@ -1483,10 +1553,12 @@ The block variable `city` holds the value of the elements in the array `cities`.
 
 ### .each_with_index
 
-```ruby
-Array#each_with_index do |current_object, iteration_number|
-
+```shell
+Array#each_with_index do |Object, Integer|
+  # ruby code here
 end
+
+⇒ Array
 ```
 
 To keep a track of the iteration number while looping through an array, `.each_with_index` creates an additional block variable that starts of counting the iteration number starting at _zero_. After each execution of the code within the block, the block variable is incremented by 1.  
