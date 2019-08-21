@@ -8,7 +8,7 @@ the root folder of your app:
 ```ruby
 # /Gemfile
 
-gem "draft_generators", :git => "https://github.com/firstdraft/draft_generators", :branch => "spring-2019"
+gem "draft_generators", :git => "https://github.com/firstdraft/draft_generators", :branch => "summer-2019"
 ```
 
 Then, at a Terminal prompt:

@@ -16,4 +16,30 @@ For example:
 rails generate draft:model user email:string password_digest:string username:string
 ```
 
-## 
+## Build the sign-up endpoint
+
+Users are ultimately just records in a table, like directors or movies. So we need a route which will trigger the insertion of a row, as usual.
+
+```ruby
+# config/routes.rb
+
+match("/insert_user", { :controller => "users", :action => "create", :via => "post" })
+```
+
+Let's add the controller:
+
+```ruby
+class UsersController < ApplicationController
+end
+```
+
+And in the action, we'll assume that there will be keys called `"email"`, `"password"`, `"first_name"`, etc, in the `params` hash.
+
+```
+def create
+  
+end
+```
+
+
+## Build the sign-in endpoint
