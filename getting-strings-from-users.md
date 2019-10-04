@@ -44,4 +44,3 @@ Test your skills:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3075907/f9998ca0e45feb87972cfb616aa698a5"></iframe>
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3075914/13838173da964e3be6370c9195064b13"></iframe>
