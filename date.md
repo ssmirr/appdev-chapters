@@ -57,7 +57,7 @@ You can subtract two dates from one another, which will return the number of day
 ```ruby
 number_of_days = Date.today - Date.parse("July 4, 1776")
  => (88674/1)
-2.6.1 :004 > days.to_i
+days.to_i
  => 88674
 ```
 
