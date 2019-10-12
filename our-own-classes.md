@@ -89,7 +89,7 @@ Here's a slightly more involved example:
 
 ```ruby
 class Person
-  require "date" # We need to pull in the Date class, which is not loaded by default
+  require("date") # We need to pull in the Date class, which is not loaded by default
 
   attr_accessor :birthdate
 
@@ -113,33 +113,51 @@ hs.birthdate = "April 19, 1987"
 hs.age # => 32, as of this writing
 ```
 
+Note that we had to `require("date")`[^require] in order to load the `Date` class into the program; Ruby doesn't load this class into every program by default, like it does with the core classes (`String`, `Integer`, etc).
+
+[^require]: The parentheses are almost always dropped after `require`.
+
 So, rather than using a `Hash` to model real world things, it's a good idea to create classes, and then empower them with *behavior* (methods) in addition to information.
 
 ### Defining class methods
 
 The methods `full_name` and `age` above are known as _instance methods_, because we call them on individual **instances** of the `Person` class (Homer, Mickey, Minnie, etc).
 
-We can also define **class**-level methods, that we call directly on `Person` itself. This can be handy if we want to define re-usable utility methods that don't really belong to any one individual person. A somewhat contrived example is if we wanted to be able to quickly produce first name with last initial from a full name:
+We can also define **class**-level methods, that we call directly on `Person` itself. This can be handy if we want to define re-usable utility methods that don't really belong to any one individual person.
+
+Here's an example similar to `Date.parse` — what if we wanted users of the `Person` class to quickly be able to create new instances of the class like this:
+
+```ruby
+Person.parse("Betina, Raghu")
+
+# => should return a new person with first
+#    and last name attributes already populated
+```
+
+Then, we can define the **class-level** method `parse`, called directly on `Person`, like this:
 
 ```ruby
 class Person
-  def self.abbreviate(full)
-    first_and_last = full.split
-    first_name = first_and_last.at(0)
-    last_name = first_and_last.at(1)
-    last_name_characters = last_name.split("")
-    last_name_initial = last_name_characters.at(0)
+  attr_accessor :first_name
+  attr_accessor :last_name
+
+  def Person.parse(last_and_first)
+    last_then_first = last_and_first.split(",")
+    the_last_name = last_then_first.at(0).strip
+    the_first_name = last_then_first.at(1).strip
     
-    return first_name + " " + last_name_initial + "."
+    a_new_person = Person.new
+    a_new_person.first_name = the_first_name
+    a_new_person.last_name = the_last_name
+    
+    return a_new_person
   end
 end
-
-Person.abbreviate("Raghu Betina")
 ```
 
 The new things to note in the code above:
 
- - We use the `self` keyword _when defining the method_ to make it a class method rather than an instance method. That way, we call the method directly on capital-`P` `Person`.
+ - When defining the method, we do `def Person.parse` rather than just `def parse` to make it a **class method** rather than an **instance method**. That way, we call the method directly on capital-`P` `Person`.
  - We give the method the ability to accept an argument by adding parentheses and choosing a name for the argument when defining the method. Then we can use the input within the method definition, sort of like how we use a block variable.
 
 ## Test your skills
