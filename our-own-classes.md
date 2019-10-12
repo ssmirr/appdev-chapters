@@ -142,9 +142,9 @@ class Person
   attr_accessor :last_name
 
   def Person.parse(last_and_first)
-    last_then_first = last_and_first.split(",")
-    the_last_name = last_then_first.at(0).strip
-    the_first_name = last_then_first.at(1).strip
+    last_first_array = last_and_first.split(",")
+    the_last_name = last_first_array.at(0).strip
+    the_first_name = last_first_array.at(1).strip
     
     a_new_person = Person.new
     a_new_person.first_name = the_first_name
