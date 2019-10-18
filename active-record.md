@@ -142,7 +142,7 @@ Generating a blank migration file:
 rails generate migration SomeRandomNameForTheMigrationClass
 ```
 
-The name of the migration class should be descriptive of our intention for it, so for this one let's use `CreateContacts`:
+But, it would be better if the name of the migration class was descriptive of our intention for it, so for this one let's use `CreateContacts`:
 
 ```bash
 rails generate migration CreateContacts
