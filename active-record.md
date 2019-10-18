@@ -15,17 +15,23 @@ We refer to these database-related classes as **models**, and we place them in t
 
 ## Getting started
 
-Head into your Codio project called "Introduction to Models". In this workspace, I've already generated a new Rails application with the `rails new` command, but there's nothing in it yet other than the boilerplate scaffolding.
+Fork the `rolodex` repository and [create a Gitpod workspace](https://chapters.firstdraft.com/chapters/785) based on it. (If you clicked on the "Load assignment in a new window" button in Canvas, you should already have your own fork of `rolodex`; see [Getting automated feedback](https://chapters.firstdraft.com/chapters/777).)
 
-In the top menu bar, find the item with the rocket (🚀) icon, click the down arrow next to it (▼), and select the "Initial project setup" option. This will run the `bin/setup` command at a Terminal prompt for you (you could have, equivalently, typed that command at a Terminal prompt yourself).
+In this repository, I've already generated a new Rails application with the `rails new` command, but there's nothing in it other than the out-of-the-box code that the generator spits out to get you started. It's a blank slate.
 
-`bin/setup` is a program that we write that automates the process of getting your computer ready for you to work on a codebase. Usually, that involves installing any third-party libraries that the application depends upon on to your laptop, configuring the database, filling the database with some dummy data, etc. In the real world, good teams follow the practice of including a script like this in their projects so that it's drop-dead simple for a new teammate to start contributing to a codebase. Just download the code, `bin/setup`, and you're ready to go.
+It will take a few minutes for Gitpod to obtain a new computer, download the code from GitHub onto it, install the Ruby gems that the project depends upon, and any other required setup[^setup]. Once it's done, you should see some feedback in the Terminal that says "Initial setup complete" and have your `$` prompt ready to receive commands.
 
-Next, we can start the web server with the `rails server -b 0.0.0.0` command; or, in the same 🚀 menu, select the "Start the web server" option. This will launch the application, and start listening for visitors.
+[^setup]: `bin/setup` is a program that we write that automates the process of getting your computer ready for you to work on a codebase. Usually, that involves installing any third-party libraries that the application depends upon on to your laptop, configuring the database, filling the database with some dummy data, etc. In the real world, good teams follow the practice of including a script like this in their projects so that it's drop-dead simple for a new teammate to start contributing to a codebase. Just download the code, `bin/setup`, and they're ready to go.
 
-To verify that everything worked, in the ▶ menu, find the "Visit live app" option. This will open the URL of your application in a new tab, and you should see the default "Yay! You're on Rails!" page that shows that the server started up successfully.
+    Since it's a good practice to write `bin/setup` scripts, Rails encourages it by including one in new projects by default. Gitpod will run it automatically when you first create each workspace. That initial run should be enough, but if for some reason you ever want to run it yourself, you can do so at any time from the command prompt by typing `bin/setup` and pressing <kbd>return</kbd>. 
 
-Soon, we'll learn how to replace this default page with our own homepage, but for now we're going to focus on the back-end — our database.
+Next, we can start the Ruby program that listens for visitors to our web site and shows them pages with the `bin/server` command. This program is known as the "web server", not to be confused with the physical computer that the program is running on, which is also often called the same thing. Rails includes a popular web server called Puma by default, but we could substitute another if we wanted to, or write our own if we were feeling ambitious.  We can stop Puma just like any other Ruby program stuck in a loop by pressing `Ctrl-C`.
+
+Gitpod should have noticed that you started a server, and it will display a pop-up asking if you want to visit your application in a separate browser tab. If so, click yes. If you don't see that pop-up, then press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows) to bring up the Command Palette. Start typing "open port" and click the "Toggle Open Ports View" command once it appears. You will then see a pane with a button to visit your application.
+
+Congratulations! You've got a real, live, running, industrial-grade web application. Rails makes it that easy to get up and running, unlike other frameworks where you have to spend hours, days, or weeks just setting things up to get to "Hello world". We can get right down to adding our own unique value rather than re-inventing the wheel.
+
+Now that we've proven that we can visit a functional front-end web page, we're going to close it and focus on the back-end for the rest of this project.
 
 ## The quick way to create a table
 
