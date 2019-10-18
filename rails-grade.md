@@ -60,7 +60,7 @@ Now head back to the assignment in Canvas and click "Load assignment in a new ta
 
 Ok, now we can get the project loaded up and try out the feedback feature. `bin/setup` as usual, if you haven't already:
 
-![](/assets/bin-setup.png)
+![](/assets/gitpod-bin-setup.png)
 
 Start working on the project to do whatever the instructions tell you. **When you're ready for feedback**, try a new command at a new Terminal prompt:
 
@@ -70,15 +70,15 @@ rails grade
 
 You'll be asked for your access token; **copy-paste it carefully from the grades.firstdraft.com page that you loaded from Canvas**.
 
-![](/assets/rails-grade.png)
+![](/assets/gitpod-enter-token.png)
 
 You should see output that looks like:
 
-![](/assets/rails-grade-feedback.png)
+![](/assets/gitpod-rails-grade.png)
 
 Copy-paste the Results URL into a new tab, or click on it (but make sure it isn't truncated).
 
-![](/assets/rails-grade-click-url.png)
+![](/assets/gitpod-rails-grade-open.png)
 
 ![](/assets/rails-grade-results.png)
 
