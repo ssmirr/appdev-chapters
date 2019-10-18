@@ -136,6 +136,8 @@ For example, in order to add a table called "contacts", we would create a migrat
 
 (**Note that you don't actually need to run any of the following commands, or write any of the following code, if you already used [The Quick Way](https://chapters.firstdraft.com/chapters/770#the-quick-way-to-create-a-table) of creating the contacts table above.** Until you reach [Time to CRUD](https://chapters.firstdraft.com/chapters/770#time-to-crud), just read along.)
 
+Generating a blank migration file:
+
 ```bash
 rails generate migration SomeRandomNameForTheMigrationClass
 ```
