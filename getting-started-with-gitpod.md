@@ -21,11 +21,11 @@ Gitpod is a fascinating new service that provides instantaneous, full-fledged cl
 
     For example, here is a repository:
 
-    [https://github.com/raghubetina/umbrella](https://github.com/raghubetina/umbrella)
+    [https://github.com/appdev-projects/hello.rb](https://github.com/appdev-projects/hello.rb)
 
  1. To create a Gitpod workspace based on a repo, in the address bar of your browser enter `https://gitpod.io/#` and then the URL of the repo. For example,
 
-    [https://gitpod.io/#https://github.com/raghubetina/umbrella](https://gitpod.io/#https://github.com/raghubetina/umbrella)
+    [https://gitpod.io/#https://github.com/appdev-projects/hello.rb](https://gitpod.io/#https://github.com/appdev-projects/hello.rb)
 
  1. To make that process easier, [Gitpod has a browser extension](https://www.gitpod.io/docs/20_browser_extension/) that you can install if you want to.
  
