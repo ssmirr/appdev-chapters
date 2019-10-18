@@ -43,7 +43,13 @@ In Rails, anything that can be automated, _is_ automated. Much like we used the 
 rails generate draft:model contact first_name:string last_name:string date_of_birth:date
 ```
 
-We need to run this command at a command prompt. The Terminal window that is running the web server is stuck in an infinite loop of listening for web requests, so we can't run any commands in there. Open another Terminal window (Tools > Terminal, or click the monitor icon in the left sidebar) and at the `~/workspace$` prompt that appears, paste in the command above, and press return.
+ - All of the generators, of which there are many, are invoked by starting with `rails generate`.
+ - We select which generator we want with the third part: in this case, `draft:model`. "Model"
+  is the word we use to refer to the Ruby classes that represent our database tables, because we use those tables to _model_ the entities in our problem domains.
+ - The fourth part is the name we want for the class/table; singular (the Ruby class name will be singular, as we've seen with e.g. `Person`, even though we usually think about table names as plural).
+ - After that, we provide a list of the columns we want in the table, along with each column's datatype.
+
+We need to run this command at a command prompt. The Terminal window that is running the web server is stuck in an infinite loop of listening for web requests, so we can't run any commands in there. Open another Terminal window (from the Terminal menu, select New), paste in the command above at the `$` prompt, and press <kbd>return</kbd>.
 
 You'll see some output in the Terminal that looks something like this:
 
@@ -126,10 +132,10 @@ For each evolution of the database, we create a little Ruby class that will make
 
 [^pattern]: You might be detecting a pattern. A lot of what we get out of Rails is powerful base classes that we inherit from when we make our own classes.
 
-Let's create our first migration, to add a table called "contacts". In order to keep the order of the migrations straight, we begin the filenames with a timestamp. To make it easy on us, Rails will create the migration files for us and put the timestamp in the filename automatically if we run this command at a Terminal prompt (**not** inside `rails console`):
+For example, in order to add a table called "contacts", we would create a migration class. In order to keep the order of the migrations straight, we begin the filenames with a timestamp. To make it easy on us, Rails will create the migration files for us and put the timestamp in the filename automatically if we run this command at a Terminal prompt. **Note that you don't actually need to run any of the following commands, or write any of the following code, if you already used the Quick Way of creating the contacts table above.**
 
 ```bash
-rails generate migration [ChooseANameForTheMigrationClass]
+rails generate migration SomeRandomNameForTheMigrationClass
 ```
 
 The name of the migration class should be descriptive of our intention for it, so for this one let's use `CreateContacts`:
@@ -152,7 +158,7 @@ In this case, you can see that it created a file for us in the `db/migrate` fold
 If we head over to that file and take a look, we'll see something like this:
 
 ```ruby
-class CreateContacts < ActiveRecord::Migration[5.2]
+class CreateContacts < ActiveRecord::Migration[6.0]
   def change
     # ...
   end
@@ -168,7 +174,7 @@ Within the `change` method, we can write any Ruby we want; but of course we have
 Fortunately, we inherit methods from `ActiveRecord::Migration` that makes this very easy. First, we inherit a `create_table` method, which takes a `Symbol` (the name of the table that you want to create) and a block as inputs. The generator probably already stubbed out most of this for you too (the Rails generators are pretty smart, and try to write as much code on your behalf as possible based on what you named the migration class):
 
 ```ruby
-class CreateContacts < ActiveRecord::Migration[5.2]
+class CreateContacts < ActiveRecord::Migration[6.0]
   def change
     create_table(:contacts) do |t|
 
@@ -180,7 +186,7 @@ end
 We could, as always, name the block variable anything. I name it `t` because that object represents the new table that's about to be created; and within the block, we can call methods on it like `.string` and `.date` to add columns of those datatypes:
 
 ```ruby
-class CreateContacts < ActiveRecord::Migration[5.2]
+class CreateContacts < ActiveRecord::Migration[6.0]
   def change
     create_table(:contacts) do |t|
       t.string(:first_name)
@@ -213,7 +219,7 @@ The `.timestamps` method will add two columns, `created_at` and `updated_at`, th
 Why does the `create_table` method need a block of code within `do`/`end`, rather than maybe just an array or hash of column names and datatypes? It's because migrations can, if you want, get quite sophisticated; for (a contrived) example, we could do something like this:
 
 ```ruby
-class CreateContacts < ActiveRecord::Migration[5.2]
+class CreateContacts < ActiveRecord::Migration[6.0]
   def change
     create_table(:contacts) do |t|
       t.string(:first_name)
@@ -241,7 +247,7 @@ rails generate migration CreateContacts first_name:string last_name:string date_
 when run, will write the entire migration automatically:
 
 ```ruby
-class CreateContacts < ActiveRecord::Migration[5.2]
+class CreateContacts < ActiveRecord::Migration[6.0]
   def change
     create_table :contacts do |t|
       t.string :first_name
@@ -369,7 +375,7 @@ Okay, so now that we've stepped through the long explanation, it's time to actua
 Let's learn the methods we've inherited from `ActiveRecord` to make it easy. To do so, open a new Terminal and run the command `rails console` (or `rails c` for short). This will change the prompt from
 
 ```
-~/workspace$
+$
 ```
 
 to
