@@ -132,7 +132,9 @@ For each evolution of the database, we create a little Ruby class that will make
 
 [^pattern]: You might be detecting a pattern. A lot of what we get out of Rails is powerful base classes that we inherit from when we make our own classes.
 
-For example, in order to add a table called "contacts", we would create a migration class. In order to keep the order of the migrations straight, we begin the filenames with a timestamp. To make it easy on us, Rails will create the migration files for us and put the timestamp in the filename automatically if we run this command at a Terminal prompt. **Note that you don't actually need to run any of the following commands, or write any of the following code, if you already used the Quick Way of creating the contacts table above.**
+For example, in order to add a table called "contacts", we would create a migration class. In order to keep the order of the migrations straight, we begin the filenames with a timestamp. To make it easy on us, Rails will create the migration files for us and put the timestamp in the filename automatically if we run this command at a Terminal prompt.
+
+(**Note that you don't actually need to run any of the following commands, or write any of the following code, if you already used [The Quick Way](https://chapters.firstdraft.com/chapters/770#the-quick-way-to-create-a-table) of creating the contacts table above.** Until you reach [Time to CRUD](https://chapters.firstdraft.com/chapters/770#time-to-crud), just read along.)
 
 ```bash
 rails generate migration SomeRandomNameForTheMigrationClass
