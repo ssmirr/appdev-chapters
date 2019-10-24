@@ -80,7 +80,7 @@ bin/server
 
 Once the server starts (this may take a few seconds), Gitpod should open a pane with our live application running inside it[^open_ports]. Since our IDE (Integrated Development Environment) is already so crowded (with our file explorer, text editor, and terminal), I like to click on the little icon on the right side of the address bar to pop the application open in its own tab.
 
-[^open_ports] If Gitpod didn't automatically open the app for you, then press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+P (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+P (Windows) to bring up your Command Palette and search for "Toggle Open Ports View". You should then see a pane that shows port `3000` open (if your server started successfully) and buttons next to it to "Open Preview" and "Open Browser".
+[^open_ports]: If Gitpod didn't automatically open the app for you, then press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+P (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+P (Windows) to bring up your Command Palette and search for "Toggle Open Ports View". You should then see a pane that shows port `3000` open (if your server started successfully) and buttons next to it to "Open Preview" and "Open Browser".
 
 We should now see the "Yay! You're on Rails!" default homepage that Rails displays to let us know that everything is working and ready to go. Once we add our own homepage, this will go away. However, since we've added the ActiveAdmin gem, there's another page that already works — `/admin`. Add that on to the end of your URL and press <kbd>return</kbd> — it should look something like:
 
