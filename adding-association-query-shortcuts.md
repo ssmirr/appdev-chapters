@@ -95,7 +95,7 @@ You should see a page asking for an email and password. The default credentials 
 
 Finally, you're in. In the navbar along the top, you'll see links that map to each table. Explore the interface and play around. Phew! This is a much easier way to explore our data than `rails console`! We can even export CSVs from here, if we want to.
 
-Okay, now that we know we have ActiveAdmin as a resource to look at, it's time to get back to practicing our Ruby.
+Okay, now that we know we have ActiveAdmin as a resource to look at, it's time to get back to practicing querying with Ruby.
 
 ## Aside: Resetting the database
 
