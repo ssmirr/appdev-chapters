@@ -93,7 +93,7 @@ At the end of the day, the job of an _action_ is to send back a response to the 
 
  - **Rendering** some data, in any one of many formats:
   - Plain text.
-  - JSON for a native app to consume — we've seen JSON before (in APIs), and consumed it ourselves with our Ruby scripts.
+  - JSON for an application to consume — we've seen JSON before (in APIs), and consumed it ourselves with our Ruby scripts.
   - HTML for their browser to draw — we'll learn this soon.
   - Less commonly, any other format: CSV, PDF, XML, etc.
  - Or, the action can forward the user to _another_ URL. This is known as **redirecting**.
