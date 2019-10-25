@@ -2,7 +2,7 @@
 
 At present, this is a brand new, blank Rails application. The **specifications** (_specs_, for short) for the application — in other words, the URLs that we need to build — are below. The URLs will look like `/flexible/square_root/42`, and the page will display the square root of the number at the end.
 
-The difference between these URLs and the ones we've seen before is that they are _flexible_, not literal. So rather than always going to URLs that we, the developers, make up in advance, users can visit URLs that they make up — as long as those URLs fit patterns that we allow. Then, we will be able to examine what the users typed in the URL and use that as we craft our response.
+The difference between these URLs and [the ones we've seen before](https://chapters.firstdraft.com/chapters/779) is that they are _flexible_, not literal. So rather than always going to URLs that we, the developers, make up in advance, users can visit URLs that they make up — as long as those URLs fit patterns that we allow. Then, we will be able to examine what the users typed in the URL and use that as we craft our response.
 
 In other words, dynamic URLs allow for **user input**. Let's make them work, one at a time.
 
