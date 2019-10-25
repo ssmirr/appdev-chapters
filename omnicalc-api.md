@@ -154,7 +154,7 @@ http://[YOUR APP DOMAIN]/square_root/results?input_number=8.3
 ```json
 {
   number: 42.42,
-  square: 2.8809720581775866
+  square_root: 2.8809720581775866
 }
 ```
 
