@@ -16,7 +16,7 @@
  1. [Our own classes](https://chapters.firstdraft.com/chapters/769)
  1. [Ruby Practice](https://chapters.firstdraft.com/chapters/776)
  1. [Getting started with Gitpod](https://chapters.firstdraft.com/chapters/785)
- 1. [ActiveRecord](https://chapters.firstdraft.com/chapters/770)
+ 1. [ActiveRecord — our translator to the database](https://chapters.firstdraft.com/chapters/770)
  1. [Adding Association Query Shortcuts](https://chapters.firstdraft.com/chapters/778)
  1. [Adding Routes](https://chapters.firstdraft.com/chapters/779)
  1. [Omnicalc API](https://chapters.firstdraft.com/chapters/786)
