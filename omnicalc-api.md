@@ -1,6 +1,10 @@
 # Omnicalc API
 
-Let's make the following URLs work:
+At present, this is a brand new, blank Rails application. The **specifications** (_specs_, for short) for the application — in other words, the URLs that we need to build — are below. The URLs will look like `/flexible/square_root/42`, and the page will display the square root of the number at the end.
+
+The difference between these URLs and the ones we've seen before is that they are _flexible_, not literal. So rather than always going to URLs that we, the developers, make up in advance, users can visit URLs that they make up — as long as those URLs fit patterns that we allow. Then, we will be able to examine what the users typed in the URL and use that as we craft our response.
+
+In other words, dynamic URLs allow for **user input**. Let's make them work, one at a time.
 
 ## Part I: Flexible Path Segments
 
@@ -37,15 +41,17 @@ To make a path segment **flexible**, start it off with a colon in your route:
 match("/flexible/square/:the_number", { :controller => "application", :action => "flex_square", :via => "get" })
 ```
 
-Then, whatever value the user types in that segment of the path will be placed into a special hash that Rails creates and names `params`. The value will be stored under the key `:the_number`, since that's what we labeled that segment in the route.
+Then, whatever value the user types in that segment of the path will be placed into a special `Hash` that Rails creates and names `params`. The value will be stored under the key `:the_number`, since that's what we labeled that segment in the route.
 
 In other words, if you now visit http://[YOUR APP DOMAIN]/flexible/square/42, then you will be routed into the `flex_square` action and along with a `Hash` called `params` that looks like this:
 
 ```ruby
-{ :the_number => 42 }
+{ "the_number" => 42 }
 ```
 
 After adding such a route and action, try visiting that URL and watch your server log as you do it.
+
+Now, in our action (in this case, we named the method `flex_square`) we can `.fetch` the key `"the_number"` from the special `Hash` named `params` that Rails creates for us containing all user input. Usually we'll throw the value into a variable, do whatever processing we need on it, and then finally display some output to the user as usual using the `render()` method.
 
 ### Square Root with flexible path segment
 
