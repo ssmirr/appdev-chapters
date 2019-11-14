@@ -14,6 +14,7 @@
  1. [Each](https://chapters.firstdraft.com/chapters/765)
  1. [Hash](https://chapters.firstdraft.com/chapters/767)
  1. [Our own classes](https://chapters.firstdraft.com/chapters/769)
+ 1. [Optional syntaxes in Ruby](https://chapters.firstdraft.com/chapters/787)
  1. [Ruby Practice](https://chapters.firstdraft.com/chapters/776)
  1. [Getting started with Gitpod](https://chapters.firstdraft.com/chapters/785)
  1. [ActiveRecord — our translator to the database](https://chapters.firstdraft.com/chapters/770)
