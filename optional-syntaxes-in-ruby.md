@@ -111,25 +111,25 @@ No! This new hash syntax is **only useable when the keys are symbols** — not 
 Consider one of our routes:
 
 ```ruby
-get("/photos", { :controller => "photos", :action => "index" })
+match("/photos", { :controller => "photos", :action => "index", :via => "get" })
 ```
 
 Since the keys are symbols, we can use the new hash syntax:
 
 ```ruby
-get("/photos", { controller: "photos", action: "index" })
+match("/photos", { controller: "photos", action: "index", via: "get" })
 ```
 
-Since the Hash is the final argument to the `get()` method, we can drop the curly brackets:
+Since the Hash is the final argument to the `match()` method, we can drop the curly brackets:
 
 ```ruby
-get("/photos", controller: "photos", action: "index" )
+match("/photos", controller: "photos", action: "index", via: "get" )
 ```
 
 And since there are no order-of-operations concerns, we can drop the parentheses around the arguments:
 
 ```ruby
-get "/photos", controller: "photos", action: "index"
+match "/photos", controller: "photos", action: "index", via: "get"
 ```
 
 Much more concise! Again, I personally prioritize readability far above brevity, so I like making things explicit rather than concise. However, when you are reading Ruby code out in the wild (on Stack Overflow or GitHub), you will most often encounter code using all of these shortcuts, so you have to know how to read it.
