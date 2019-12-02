@@ -35,7 +35,7 @@ In rough order of how often I use them.
  - [Premium Bootstrap themes](https://themes.getbootstrap.com/)
  - [Bootstrap.build](https://bootstrap.build/app) (you can practice by making a UChicago branded theme; see pages 38-41 of our [Identity Guidelines](https://news.uchicago.edu/sites/default/files/attachments/_uchicago.identity.guidelines.pdf))
 
-### Assets
+### Quick links to assets
 
  - These folks helpfully host `bootstrap.css` (and Bootswatches) on their own server: [BootstrapCDN](https://www.bootstrapcdn.com/)
  - Bootstrap's Javascript components (like modals, hamburger menu, carousel, etc) depend on another open-source library called jQuery; you can grab it from this CDN: [jQuery CDN](https://code.jquery.com/).
@@ -59,4 +59,4 @@ In rough order of how often I use them.
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-You can use a Bootswatch instead as the `href`, if you like.
+You can use a Bootswatch or your own customized `bootstrap.css` instead as the `href`, if you like.
