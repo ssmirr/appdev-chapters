@@ -23,6 +23,7 @@
  1. [Omnicalc API](https://chapters.firstdraft.com/chapters/786)
  1. [Photogram API](https://chapters.firstdraft.com/chapters/780)
  1. [HTML Reference](https://chapters.firstdraft.com/chapters/771)
+ 1. [Design resources](https://chapters.firstdraft.com/chapters/788)
  1. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
  1. [Getting automated feedback with rails grade](https://chapters.firstdraft.com/chapters/777)
  1. [Planning your idea](https://chapters.firstdraft.com/chapters/783)
