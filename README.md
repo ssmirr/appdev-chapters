@@ -28,3 +28,4 @@
  1. [Getting automated feedback with rails grade](https://chapters.firstdraft.com/chapters/777)
  1. [Planning your idea](https://chapters.firstdraft.com/chapters/783)
  1. [Diagramming your domain model](https://chapters.firstdraft.com/chapters/782)
+ 1. [A few management readings](https://chapters.firstdraft.com/chapters/789)
