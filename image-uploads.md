@@ -119,9 +119,9 @@ Most importantly, make sure you remove the line that says:
 
 Next, you'll need to sign up for a Cloudinary account and get your API info. You can find your cloud name, by going to Settings and clicking the Account tab. You can find your API key and secret by going to Settings and clicking the Security tab.
 
-### Add Cloudinary API info in an `.env` file
+### Add Cloudinary API info in Environment Variables
 
-For security, it's best to store your keys in environment variables. In short, you can create a file called `.env` in the root folder of your app. Then add the following content to the `.env` file, replacing your information as needed:
+For security, it's best to store your keys in environment variables. Read more on the how and why this is important in the guide on [storing your credientials sercurely](storing-credentials-securely.md). In short, you can create a file called `.env` in the root folder of your app. Then add the following content to the `.env` file, replacing your information as needed:
 
 ```bash
 CLOUDINARY_CLOUD_NAME="replace me with your cloud name"
