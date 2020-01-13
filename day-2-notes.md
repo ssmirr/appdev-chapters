@@ -1,6 +1,6 @@
 # Day 2 Notes
 
-Here are some notes to help you follow along during Day 2.
+Here are some notes that should help you follow along during Day 2.
 
  - Sign up for a free GitHub account at [github.com/join](https://github.com/join){:target="_blank"}
     
