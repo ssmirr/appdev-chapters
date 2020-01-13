@@ -6,11 +6,11 @@ In this project, we'll create our very first HTML page; a profile of ourselves.
 
 First, make a page that looks like this (with your own content):
 
-http://classbook.matchthetarget.com/first_target.html
+[http://classbook.matchthetarget.com/first_target.html](http://classbook.matchthetarget.com/first_target.html)
 
 Then, add CSS to your HTML to make something that looks like this:
 
-http://classbook.matchthetarget.com/second_target.html
+[http://classbook.matchthetarget.com/second_target.html](http://classbook.matchthetarget.com/second_target.html)
 
 ## Structure with HTML
 
