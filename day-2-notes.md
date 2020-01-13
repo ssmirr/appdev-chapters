@@ -101,3 +101,5 @@ Here are some notes that should help you follow along during Day 2.
     [http://classbook.matchthetarget.com/second_target.html](http://classbook.matchthetarget.com/first_target.html){:target="_blank"}
     
     Try not to use the DevTools until you're almost done.
+
+**Ask lots of questions as you work!**
