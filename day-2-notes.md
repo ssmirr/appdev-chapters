@@ -1,5 +1,7 @@
 # Day 2 Notes
 
+Here are some notes to help you follow along during Day 2.
+
  - Sign up for a free GitHub account at [github.com/join](https://github.com/join){:target="_blank"}
     
     I recommend using your `.edu` email address, as that will qualify you for some discounts and coupons that you might want to use later. Remember to verify your email address after signing up.
