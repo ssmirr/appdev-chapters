@@ -34,3 +34,4 @@
  1. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
  1. [Storing credentials securly on Gitpod](https://chapters.firstdraft.com/chapters/792)
  1. [Day 2 Notes](https://chapters.firstdraft.com/chapters/793)
+ 1. [Classbook exercise notes](https://chapters.firstdraft.com/chapters/794)
