@@ -89,3 +89,15 @@ Here are some notes that should help you follow along during Day 2.
     ![](/assets/22-gitpod-site.png)
 
     Okay! We now have a full-fledged, industrial-grade development environment to continue building our site.
+ 
+ - Use what you've learned about HTML to add a page called `profile.html` that looks like this:
+
+    [http://classbook.matchthetarget.com/first_target.html](http://classbook.matchthetarget.com/first_target.html){:target="_blank"}
+
+    Try not to peek at the source code until you're almost done.
+
+ - Use what you've learned about about CSS to make your profile look sort of like this:
+ 
+    [http://classbook.matchthetarget.com/second_target.html](http://classbook.matchthetarget.com/first_target.html){:target="_blank"}
+    
+    Try not to use the DevTools until you're almost done.
