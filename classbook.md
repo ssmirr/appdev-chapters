@@ -110,7 +110,7 @@ The things to keep in mind about tables are:
 Despite this last rule, you can, however, "merge" cells using the `colspan` attribute:
 
 ```html
-<table>
+<table border="1">
   <tr>
     <td colspan="2">People</td>
   </tr>
@@ -127,7 +127,7 @@ Despite this last rule, you can, however, "merge" cells using the `colspan` attr
 
 produces:
 
-<table>
+<table border="1">
   <tr>
     <td colspan="2">People</td>
   </tr>
