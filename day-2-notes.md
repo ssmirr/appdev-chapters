@@ -98,7 +98,7 @@ Here are some notes that should help you follow along during Day 2.
 
  - Use what you've learned about about CSS to make your profile look sort of like this:
  
-    [http://classbook.matchthetarget.com/second_target.html](http://classbook.matchthetarget.com/first_target.html){:target="_blank"}
+    [http://classbook.matchthetarget.com/second_target.html](http://classbook.matchthetarget.com/second_target.html){:target="_blank"}
     
     Try not to use the DevTools until you're almost done.
 
