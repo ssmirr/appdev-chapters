@@ -32,3 +32,5 @@
  1. [Deploying to Heroku]( https://chapters.firstdraft.com/chapters/775)
  1. [Image Uploads](https://chapters.firstdraft.com/chapters/790)
  1. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
+ 1. [Storing credentials securly on Gitpod](https://chapters.firstdraft.com/chapters/792)
+ 1. [Day 2 Notes](https://chapters.firstdraft.com/chapters/793)
