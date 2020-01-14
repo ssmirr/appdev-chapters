@@ -68,7 +68,7 @@ Or, if it's located somewhere out on the internet rather than in our own code:
 Let's put your experience data into a table. In HTML, the `<table>` element is used to represent two dimensional data. A simple table looks like this:
 
 ```html
-<table>
+<table border="1">
   <tr>
     <td>First</td>
     <td>Last</td>
@@ -86,7 +86,7 @@ Let's put your experience data into a table. In HTML, the `<table>` element is u
 
 which would produce this:
 
-<table>
+<table border="1">
   <tr>
     <td>First</td>
     <td>Last</td>
