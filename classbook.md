@@ -39,7 +39,7 @@ Next, let's tag our content to let the browser know what each thing is. Useful H
 
 Let's add some images to the page:
 
- - A profile photo (you can grab a fake one from [UIFaces](http://uifaces.com/authorized))
+ - A profile photo (you can grab a fake one from [UIFaces](http://uifaces.com))
  - A cover photo (you can grab a stock one from [Stock Up](http://www.sitebuilderreport.com/stock-up))
  - A few of your photos (you can grab fakes ones from [Stock Up](http://www.sitebuilderreport.com/stock-up))
 
