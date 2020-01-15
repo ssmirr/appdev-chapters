@@ -47,7 +47,7 @@ In the REPL below, try replacing `lucky_number.odd?` with each of the following.
  - `""`
  - `false`
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@_jelaniwoods/truthiness?lite=true"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/truthiness?lite=true"></iframe>
 
 For how many of the above did you correctly predict the output? What did you learn about what objects count as truthy and what objects count as falsy in Ruby?
 
