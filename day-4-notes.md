@@ -30,13 +30,11 @@
 
 ## Exploring APIs
 
-### JSONView
+Let's get into one of my favorite things about programming: leveraging the power of APIs.
 
-JSONView is a Chrome Extension that formats JSON nicely in the browser window, making it easier for us to fold/unfold and explore nested data structures.
+Create a file called `umbrella.rb`, and let's get to it.
 
-[You can install it here](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en){:target="_blank"} if you want to.
-
-### http.rb gem
+### The http gem
 
 We're going to be using an open-source library[^libraries] to fetch pages. To install the gem, run the following command at a terminal prompt:
 
@@ -60,6 +58,15 @@ p my_page
 
 Hopefully, if a company wants you to CRUD into/out of their database, they will instead expose the data in a machine-friendlier format: JSON. This parallel version of an application is known as an API.
 
+### Dark Sky API
+
+ - Example URL:
+
+    ```
+    https://api.darksky.net/forecast/SECRET-API-KEY-CAN-BE-FOUND-ON-CANVAS/37.8267,-122.4233
+    ```
+ - [Full documentation](https://darksky.net/dev/docs){:target="_blank"}
+  
 ### Google Geocoding API
 
  - Example URL:
@@ -70,14 +77,11 @@ Hopefully, if a company wants you to CRUD into/out of their database, they will 
 
  - [Full documentation](https://developers.google.com/maps/documentation/geocoding/start){:target="_blank"}
 
-### Dark Sky API
+### JSONView
 
- - Example URL:
+JSONView is a Chrome Extension that formats JSON nicely in the browser window, making it easier for us to fold/unfold and explore nested data structures.
 
-    ```
-    https://api.darksky.net/forecast/SECRET-API-KEY-CAN-BE-FOUND-ON-CANVAS/37.8267,-122.4233
-    ```
- - [Full documentation](https://darksky.net/dev/docs){:target="_blank"}
+[You can install it here](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en){:target="_blank"} if you want to.
 
 ### Parsing JSON
 
@@ -92,6 +96,7 @@ raw_data = HTTP.get("https://someapi.com/mydata.json") # => Put your own API URL
 p raw_data.class # => Ewwww, a String
 p raw_data.length # => And it's huge
 
+# Let's make that data more tractable by parsing it:
 parsed_data = JSON.parse(raw_data)
 
 p parsed_data.class # => Much better!
@@ -105,14 +110,14 @@ Now it's just [hashes](https://chapters.firstdraft.com/chapters/767) and [arrays
 
 **Goal:** Transform a street address into a latitude and longitude.
 
- - Get a street address from the user (with `gets`).
  - Put together the URL within the Google Geocoding API that contains the longitude and latitude of that street address.
     - Assume that the street address is a real one, for now — we can handle invalid user input later.
  - Use `http.get()` to read the data at the URL you put together.
  - Use `JSON.parse()` to transform the raw `String` response into hashes and arrays.
- - Use the `.class`, `.keys` (if you're dealing with a `Hash`), `.length` or `.at(0)` (if you're dealing with an `Array`), to drill down into the data until you find the latitude and longitude. 
+ - Use the `.class`, `.keys` or `.fetch` (if you're dealing with a `Hash`), `.length` or `.at(0)` (if you're dealing with an `Array`), to drill down into the data until you find the latitude and longitude. 
     - Exploring the data at the API URL using the [JSONView extension](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en) might help.
  - Print the street address that the user entered along with its latitude and longitude.
+ - Make the street address dynamic with `gets`.
   
 #### Part 2
 
@@ -129,6 +134,17 @@ Now it's just [hashes](https://chapters.firstdraft.com/chapters/767) and [arrays
 
 Can you figure out how to print a message "You better take an umbrella with you!" _if_ there is at least a 50% chance probability of precipitation at that location within the next 12 hours?
 
+Potentially useful things:
+
+ - You can use the `Array` `.[]` method with a `Range` argument to slice out a section of an array:
+
+    ```ruby
+    a = ["alice", "bob", "carol", "doug", "ellen", "frank"]
+    a[1..3] # => ["bob", "carol", "doug"]
+    ```
+ - You can use the `Time.at()` method to parse an `Integer` ([Unix epoch time](https://en.wikipedia.org/wiki/Unix_time){:target="_blank"} format) into a `Time`.
+ - You can use `Time.now` to get the current time.
+ - Times are, by default, shown in the `UTC` (Universal Coodinated Time, a.k.a. Greenwich Mean Time) timezone. Chicago is either five or six hours behind that (depending on daylight savings).
 
 ### Twilio
 
@@ -151,6 +167,14 @@ The URL to POST to in order to create a new message looks like:
 ```
 https://api.twilio.com/2010-04-01/Accounts/YOUR-ACCOUNT-SID/Messages.json
 ```
+
+So, ultimately, we need to do:
+
+```ruby
+http.post(messages_url, data_to_post)
+```
+
+Assuming that we've set up `messages_url` and `data_to_post` correctly, and authenticated.
 
 Here's an example putting it all together:
 
