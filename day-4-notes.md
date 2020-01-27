@@ -36,7 +36,7 @@ Create a file called `umbrella.rb`, and let's get to it.
 
 ### The http gem
 
-We're going to be using an open-source library[^libraries] to fetch pages. To install the gem, run the following command at a terminal prompt:
+We're going to be using an open-source library[^libraries] called `http` (which has [a nice wiki](https://github.com/httprb/http/wiki){:target="_blank"}, by the way) to fetch pages. To install the gem, run the following command at a terminal prompt:
 
 [^libraries]: In Ruby-land, libraries are called "gems". In Python, "packages". Etc.
 
@@ -106,7 +106,7 @@ parsed_data = JSON.parse(raw_data)
 p parsed_data.class # => Much better!
 ```
 
-Now it's just [hashes](https://chapters.firstdraft.com/chapters/767) and [arrays](https://chapters.firstdraft.com/chapters/758). You can use `.fetch`, `.at`, and [.each](https://chapters.firstdraft.com/chapters/765) if you need to! You're off to the races.
+Now it's just [hashes](https://chapters.firstdraft.com/chapters/767) and [arrays](https://chapters.firstdraft.com/chapters/758) all the way down. You can use `.fetch`, `.at`, and [.each](https://chapters.firstdraft.com/chapters/765) if you need to! You're off to the races.
 
 ### Challenge
 
@@ -115,13 +115,17 @@ Now it's just [hashes](https://chapters.firstdraft.com/chapters/767) and [arrays
 **Goal:** Transform a street address into a latitude and longitude.
 
  - Put together the URL within the Google Geocoding API that contains the longitude and latitude of that street address.
-    - Assume that the street address is a real one, for now — we can handle invalid user input later.
  - Use `http.get()` to read the data at the URL you put together.
+ - If you're getting an error having to do with an invalid request, there are most likely characters in your street address that are illegal to have inside URLs. You can substitute them with `gsub`, or the handy `URI.encode` method:
+
+    ```ruby
+    URI.encode("5807 S Woodlawn Ave") # => => "5807%20S%20Woodlawn%20Ave"
+    ```
+ - If you get stuck, use the `p` method to print A LOT. Like, every line if you need to. **Make the invisible visible.** It's helpful to label each piece of data before you display it (with another call to `p`rint) that you're printing so you know what you're looking at.
  - Use `JSON.parse()` to transform the raw `String` response into hashes and arrays.
  - Use the `.class`, `.keys` or `.fetch` (if you're dealing with a `Hash`), `.length` or `.at(0)` (if you're dealing with an `Array`), to drill down into the data until you find the latitude and longitude. 
     - Exploring the data at the API URL using the [JSONView extension](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en) might help.
- - Print the street address that the user entered along with its latitude and longitude.
- - Make the street address dynamic with `gets`.
+ - Print the street address entered along with its latitude and longitude.
   
 #### Part 2
 
@@ -134,12 +138,18 @@ Now it's just [hashes](https://chapters.firstdraft.com/chapters/767) and [arrays
     - Exploring the data at the API URL using the [JSONView extension](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en) might help.
  - Print the current temperature at the location.
 
+#### Make it actually dynamic
+
+ - Make the street address dynamic with `gets`.
+ - If you get it to work, and want to continue on to the stretch goal, you should comment out the `gets` and go back to hardcoding the address (e.g. "5807 S Woodlawn Ave"). This is so that you don't have to keep typing the address over and over as you run the program to test it. You can switch it back to being dynamic once you're done.
+
 ##### Stretch goal
 
 Can you figure out how to print a message "You better take an umbrella with you!" _if_ there is at least a 50% chance probability of precipitation at that location within the next 12 hours?
 
 Potentially useful things:
 
+ - Find a location that has some precipitation in the next 12 hours to test with.
  - You can use the `Array` `.[]` method with a `Range` argument to slice out a section of an array:
 
     ```ruby
@@ -161,8 +171,11 @@ I've already signed up for an account; you can use my API credentials (Account S
 A slight wrinkle is that Twilio uses a different authentication method than just plopping the API token right inside the URL. So, first, you have to do something like this:
 
 ```
-http = HTTP.basic_auth({ :user => "YOUR-ACCOUNT_SID", :pass => "YOUR-TOKEN" }) 
+browser = HTTP.basic_auth({ :user => "YOUR-ACCOUNT_SID", :pass => "YOUR-TOKEN" }) 
+# We've stored the authenticated "browser" in this variable, and we can use it from now on.
 ```
+
+This is the equivalent of signing in with our username and password (which Twilio wants to be our account SID and token).
 
 A second wrinkle is that, rather than using `HTTP.get()`, we'll use `HTTP.post()`. The POST HTTP verb is used for creating a new, while GET is for reading a resource. Therefore, the `.post` method needs more info: what the attributes are of the record that you want to create (in this case, the message we want sent, and who the recipient should be). Imagine you're filling out a form on Twilio's website to create a new record in their Orders table and clicking submit.
 
@@ -175,7 +188,7 @@ https://api.twilio.com/2010-04-01/Accounts/YOUR-ACCOUNT-SID/Messages.json
 So, ultimately, we need to do:
 
 ```ruby
-http.post(messages_url, data_to_post)
+browser.post(messages_url, data_to_post)
 ```
 
 Assuming that we've set up `messages_url` and `data_to_post` correctly, and authenticated.
@@ -194,7 +207,7 @@ sender_number = "SENDING-PHONE-NUMBER-CAN-BE-FOUND-ON-CANVAS"
 messages_url = "https://api.twilio.com/2010-04-01/Accounts/" + account_sid + "/Messages.json"
 
 # This is the extra authentication step, as opposed to before.
-http = HTTP.basic_auth({ :user => account_sid, :pass => token }) 
+browser = HTTP.basic_auth({ :user => account_sid, :pass => token }) 
 
 # Here we assemble the data that we want to insert. Twilio wants it as a nested hash:
 data_to_post = {
@@ -206,7 +219,7 @@ data_to_post = {
 }
 
 # Finally, we call the .post method:
-http.post(messages_url, data_to_post)
+browser.post(messages_url, data_to_post)
 ```
 
 Voilà! You should have received a text message (unless I've invalidated my API token, which I usually do a day or so after class is over). You can now use this code where you previously just `p`rinted "You should take an umbrella!"
