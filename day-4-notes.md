@@ -56,7 +56,7 @@ p my_page
 
 `my_page` now contains a gigantic `String` which has the HTML source code of [imdb.com/movies-in-theaters](https://www.imdb.com/movies-in-theaters/){:target="_blank"} within it. We would have to then figure out a way to get the data that we want out of it — this is called "web scraping", and can be tricky.
 
-Hopefully, if a company wants you to CRUD into/out of their database, they will instead expose the data in a machine-friendlier format: JSON. This parallel, machine-friendly version of an application is known as an API.
+Hopefully, if a company wants you to CRUD into/out of their database, they will instead expose the data in a machine-friendlier format: JSON. This parallel, machine-friendly version of an application is known as an API — Application Programming Interface.
 
 ### Dark Sky API
 
