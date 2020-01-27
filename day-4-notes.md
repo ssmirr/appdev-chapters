@@ -4,7 +4,7 @@
 
  - Read about Gitpod and create a workspace based on the `appdev-projects/hello.rb` repository as described within:
 
-    https://chapters.firstdraft.com/chapters/785
+    [https://chapters.firstdraft.com/chapters/785](https://chapters.firstdraft.com/chapters/785){:target="_blank"}
 
  - In your new workspace, create a file called `rock.rb` and write some Ruby in it; for example,
     
@@ -38,7 +38,9 @@ JSONView is a Chrome Extension that formats JSON nicely in the browser window, m
 
 ### http.rb gem
 
-We're going to be using the open-source http.rb library, or "gem" in Ruby-land, to fetch pages. To install the gem, run the following command at a terminal prompt:
+We're going to be using an open-source library[^libraries] to fetch pages. To install the gem, run the following command at a terminal prompt:
+
+[^libraries]: In Ruby-land, libraries are called "gems". In Python, "packages". Etc.
 
 ```bash
 gem install http
@@ -47,7 +49,7 @@ gem install http
 To read pages on the internet, we can now leverage the `HTTP` class:
 
 ```ruby
-require "http"
+require("http")
 
 my_page = HTTP.get("https://www.imdb.com/movies-in-theaters/")
 
@@ -82,8 +84,8 @@ Hopefully, if a company wants you to CRUD into/out of their database, they will 
 To turn a `String` containing data formatted as JSON into _actual_ Ruby `Hash`es, `Array`s, `Integer`s, etc:
 
 ```
-require "http"
-require "json"
+require("http")
+require("json")
 
 raw_data = HTTP.get("https://someapi.com/mydata.json") # => Put your own API URL here.
 
@@ -134,25 +136,94 @@ We can do more than just READ records from APIs; we can CREATE records too.
 
 A company called Twilio specializes in delivering text messages and other telephony, so that you don't have to build all that infrastructure. You just have to place an order to send a text message by creating a record in their database. They will then deliver it and charge you.
 
-I've already signed up for an account; you can use my API credentials, which you'll find on Canvas. A slight wrinkle is that Twilio uses a different authentication method than just plopping the API token right inside the URL. Here's how it goes:
+I've already signed up for an account; you can use my API credentials (Account SID, Secret Token, and Sender Phone Number), which you'll find on Canvas.
+
+A slight wrinkle is that Twilio uses a different authentication method than just plopping the API token right inside the URL. So, first, you have to do something like this:
+
+```
+http = HTTP.basic_auth({ :user => "YOUR-ACCOUNT_SID", :pass => "YOUR-TOKEN" }) 
+```
+
+A second wrinkle is that, rather than using `HTTP.get()`, we'll use `HTTP.post()`. The POST HTTP verb is used for creating a new, while GET is for reading a resource. Therefore, the `.post` method needs more info: what the attributes are of the record that you want to create (in this case, the message we want sent, and who the recipient should be). Imagine you're filling out a form on Twilio's website to create a new record in their Orders table and clicking submit.
+
+The URL to POST to in order to create a new message looks like:
+
+```
+https://api.twilio.com/2010-04-01/Accounts/YOUR-ACCOUNT-SID/Messages.json
+```
+
+Here's an example putting it all together:
 
 ```ruby
-require "http"
+require("http")
 
-account_id = "TWILIO-ACCOUNT-ID-CAN-BE-FOUND-ON-CANVAS"
+# Creating some helper variables containing credentials to keep later lines short.
+account_sid = "TWILIO-ACCOUNT-ID-CAN-BE-FOUND-ON-CANVAS"
 token = "SECRET-API-KEY-CAN-BE-FOUND-ON-CANVAS"
-sender = "SENDING-PHONE-NUMBER-CAN-BE-FOUND-ON-CANVAS"
+sender_number = "SENDING-PHONE-NUMBER-CAN-BE-FOUND-ON-CANVAS"
 
-url = "https://api.twilio.com/2010-04-01/Accounts/#{account_sid}/Messages.json"
+# Putting together my API URL, as usual.
+messages_url = "https://api.twilio.com/2010-04-01/Accounts/" + account_sid + "/Messages.json"
 
-http = HTTP.basic_auth({ :user => account_sid, :pass => token })
-options = {
+# This is the extra authentication step, as opposed to before.
+http = HTTP.basic_auth({ :user => account_sid, :pass => token }) 
+
+# Here we assemble the data that we want to insert. Twilio wants it as a nested hash:
+data_to_post = {
   :form => {
-    "Body" => "hi there httprb",
-    "From" => sender,
-    "To" => "+19876543210" # Put your own phone number here
+    "Body" => "You'd better take an umbrella!",
+    "From" => sender_number,
+    "To" => "+19876543210" # Put your own phone number here. Eventually you would put your users' phone numbers here, if you're sending notifications.
   }
 }
 
-http.post(url, options)
+# Finally, we call the .post method:
+http.post(messages_url, data_to_post)
 ```
+
+Voilà! You should have received a text message (unless I've invalidated my API token, which I usually do a day or so after class is over). You can now use this code where you previously just `p`rinted "You should take an umbrella!"
+
+### Scraping the web
+
+Sometimes, the data that we want isn't offered through an API, and we have no choice but to pull it out of HTML. This is not great, and I wouldn't build a business by relying on the structure of any page's HTML, as it is quite brittle. But, it is often handy for e.g. assembling datasets. So here goes:
+
+Let's say we want to find out what movies are in theaters next week so we can organize an outing (a real student project from the past).
+
+ - Here's a page with that info: [https://www.imdb.com/movies-in-theaters/](https://www.imdb.com/movies-in-theaters/){:target="_blank"}
+ - The problem is that the data isn't nice, neat JSON. It's a crazy pile of HTML. But, don't despair: we can still parse it, using the Nokogiri gem.
+ - Set up your scraping program just like you did before — read the page with `HTTP.get()`. However, rather than `JSON.parse()`, use `Nokogiri::HTML.parse()`. In order to do so, you will need to:
+    - At a terminal prompt, `gem install nokogiri`
+    - In your program, `require("nokogiri")`
+  - Nokogiri reads the source code and interprets it, the same way Chrome does, into a Document Object Model (DOM). It has the structure that you see when you right-click and Inspect an element in Chrome.
+  - To dig elements out of the DOM, we are going to query it the way that we've learned before: CSS selectors! Pretend that you had to write a CSS rule to put a red border around the bits of data that you want. Your challenge is to come up with a selector that targets the data that you want, and only the data that you want, given that you have no control over the HTML. Then use the `.css` method.
+  
+     For example, if we want to target the h4s on the page:
+
+    ```ruby
+    matches = parsed_data.css("h4")
+    ```
+
+ - `matches` is now an Array-like object containing all of the matching elements - it can be accessed using `.at()`, or looped over using `.each`.
+ - You can also use the `.text` element to just get all of the text within that element (including children).
+ - You can also use `.css()` again on it to query further.
+ - Basically, web scraping consists of:
+    - **Coming up with the correct CSS selector** that matches the set of elements that has the info that you want, and only those elements.
+    - Looping through the matches with `.each`.
+    - Querying further if you need to pinpoint particular pieces of data in child elements with `.css()`.
+    - Using `.text` (and usually `.strip`) to get the data out of the element.
+    - Saving it into a database, producing a CSV, emailing it, or whatever.
+  - Here are two things that you should do if you plan to scrape the web:
+    - Get really good at CSS selectors by playing this game, which should take you around an hour: [CSS Diner](https://flukeout.github.io/){:target="_blank"}
+    - Check out this browser extension: [Selector Gadget](https://selectorgadget.com/){:target="_blank"}
+
+#### Filling out forms
+
+If you actually need to fill out forms and things, then here's an excellent gem with a slightly different interface than Nokogiri: [Ferrum](https://github.com/route/ferrum){:target="_blank"}.
+
+#### Don't be a jerk
+
+But be careful: many sites will block you if they notice you are scraping too much and putting too much stress on their servers.
+
+The most basic thing to do is add a delay between scrapes, if you're running inside a loop. You can use the `sleep()` method to pause your code (the argument is seconds).
+
+Here's [an article with more tips on avoiding being blocked](https://www.scrapingbee.com/blog/web-scraping-without-getting-blocked/){:target="_blank"}.
