@@ -60,7 +60,11 @@ Hopefully, if a company wants you to CRUD into/out of their database, they will 
 
 ### Dark Sky API
 
- - Example URL:
+[Dark Sky](https://darksky.net/forecast/40.7127,-74.0059/us12/en){:target="_blank"} is a company that aggregates extremely fine-grained weather data. I use their iPhone app heavily, although I never open it, because it sends me a push notification whenever it's about to rain where I am (so that I can leave early).
+
+Their iPhone app is mainly just an advertisement to their real product, which is their API. They sell access to their data to other developers.
+
+ - Here's an example page in the Dark Sky API. Try it in a browser tab (it won't work until you replace the API key with my real key from Canvas):
 
     ```
     https://api.darksky.net/forecast/SECRET-API-KEY-CAN-BE-FOUND-ON-CANVAS/37.8267,-122.4233
