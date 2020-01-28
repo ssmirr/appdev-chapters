@@ -1,8 +1,8 @@
 # Adding Routes
 
-We're now able to set up database tables, write quite complicated queries, and encapsulate them within handy shortcut methods. Great! However, if we (the developers) are the only ones that can _use_ these queries (through the `rails console`), then they aren't much use.
+We're now pretty proficient in writing Ruby programs, especially with the aid of gems and APIs. Great! However, if we (the developers) are the only ones that can _run_ these programs (from the command line through the `ruby` interpreter), then they aren't much use.
 
-It's time to start adding an **interface** on top of our database so that external users can interact with and benefit from our carefully designed domain models.
+It's time to start adding a **web interface** on top of our Ruby programs so that external users can interact with and benefit from them.
 
 ## Specs
 
@@ -47,28 +47,25 @@ Here's an example `routes.rb` with two routes defined in it:
 # /config/routes.rb
 
 Rails.application.routes.draw do
-  match("/rock", { :controller => "application", :action => "play_rock", :via => "get" })
+  get("/rock", { :controller => "application", :action => "play_rock" })
 
-  match("/", { :controller => "application", :action => "homepage", :via => "get" })
+  get("/", { :controller => "application", :action => "homepage" })
 end
 ```
 
 ### Route
 
  - All of our routes must be contained within the block following `Rails.application.routes.draw`. A new Rails app will already come with this code pre-written in `routes.rb`.
- - Each route is comprised of the `match` method and its **two arguments**:
-    - **The first argument to `match` is a `String`**: the _path_ that we want users to be able to visit (the path is the portion of the URL that comes after the domain name).
-    - **The second argument to `match` is a `Hash`**: this is where we tell Rails which method to call when a user visits the path in the first argument. (We'll have to actually write this method in the next step, after we write the route.)
+ - Each route is comprised of the `get` method[^other_verbs] and its **two arguments**:
+    - **The first argument to `get` is a `String`**: the _path_ that we want users to be able to visit (the path is the portion of the URL that comes after the domain name).
+    - **The second argument to `get` is a `Hash`**: this is where we tell Rails which method to call when a user visits the path in the first argument. (We'll have to actually write this method in the next step, after we write the route.)
 
-        The `Hash` must have three key/value pairs:
+        The `Hash` must have two key/value pairs:
 
-        - `:controller`: The value for this key is what we're going to name the _class_ that contains the method we want Rails to call when the user visits the path.
+        - `:controller`: The value for this key is what we're going to name the _class_ that contains the method we want Rails to call when the user visits the path. For now we're going to default this value to `"application"` — you'll see why in a minute.
         - `:action`: The value for this key is the what we're going to name the method itself. "Action" is the term used to refer to Ruby methods that are triggered by users visiting URLs.
-        - `:via`: The value for this key must be either `"post"`, `"get"`, `"patch"`, or `"delete"`.
 
-            In HTTP (the protocol for exchanging resources over the internet), these are the names for CREATE, READ, UPDATE, and DELETE, respectively; and are known as "HTTP verbs".
-
-            We use the `:via` key to specify which CRUD operation best describes the work we're going to perform in the method. It turns out that _most_ requests involve _reading_ info, rather than creating/updating/deleting it; so we'll use `"get"` most often. When in doubt, just default to `"get"`.
+[^other_verbs]: Later we'll use other methods, `post()`, etc, if we want to support requests using the other HTTP verbs.
 
 ### Action
 
@@ -112,7 +109,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-As you can see, the argument to `redirect_to` is a `String` which contains some URL that you want the user to simply be forwarded to. This will come in handy later when, for example, we want to send the user directly back to a list of all photos after they've deleted a photo.
+Now visit `/rock` in your browser and see what happens. As you can see, the argument to `redirect_to` is a `String` which contains some URL that you want the user to simply be forwarded to. This will come in handy later when, for example, we want to send the user directly back to a list of all photos after they've deleted a photo.
 
 #### render
 
@@ -239,7 +236,7 @@ We don't have to put all of our actions within the default `ApplicationControlle
 Instead, we can change our route for `/rock` to this:
 
 ```ruby
-match("/rock", { :controller => "game", :action => "play_rock", :via => "get" })
+get("/rock", { :controller => "game", :action => "play_rock" })
 ```
 
 Now when a user visits `/rock`, they will see an error `uninitialized constant GameController`.
