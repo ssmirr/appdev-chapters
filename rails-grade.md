@@ -32,15 +32,11 @@ Open up the Assignments tab and make sure they're sorted by type.
 
 ![](/assets/login-canvas.png)
 
-Scroll down to the assignment you want to start and click the link that says 'Load [your assignment name] in a new window'.
+Scroll down to the assignment you want to start and click the link that says 'Load [your assignment name] in a new window' (the name of the project will vary).
 
 ![](/assets/load-assignment.png)
 
-Authorize the firstdraft Grades application to access your account. **_Before_ you click "Authorize", make sure to click the "Grant" button next to the organization that you created earlier.**
-
-**_Before_ you click "Authorize", make sure to click the "Grant" button next to the organization that you created earlier.**
-
-**_Before_ you click "Authorize", make sure to click the "Grant" button next to the organization that you created earlier.**
+**_Before_ you click "Authorize", make sure to click the "Grant" button next to the organization that you created earlier.** Only then, click authorize to allow the firstdraft Grades application to access your account. 
 
 ![](/assets/authorize-first-draft.png)
 
@@ -54,15 +50,15 @@ Once you've joined, you should see feedback that you're now a member of appdev-p
 
 ![](/assets/github-joined-org-feedback.png)
 
-Now head back to the assignment in Canvas and click "Load assignment in a new tab" again. You should see something like the following:
+## Daily workflow
+
+The stuff above about setting up your organization and permissions was just a one-time thing. From now on, you'll just head to Canvas and click "Load assignment in a new tab". You should see something like the following (the name of the project will vary):
 
 ![](/assets/grade-setup-instructions.png)
 
-Ok, now we can get the project loaded up and try out the feedback feature. `bin/setup` as usual, if you haven't already:
+We will automatically make a copy (a "fork", in GitHub parlance) of the repository under your new GitHub organization. Then, you can choose to either "Create new workspace in Gitpod" or head to your "Gitpod Dashboard" to view existing workspaces.
 
-![](/assets/gitpod-bin-setup.png)
-
-Start working on the project to do whatever the instructions tell you. **When you're ready for feedback**, try a new command at a new Terminal prompt:
+Either way, once you're in the workspace, we can get the project loaded up and try out the feedback feature. After the `bin/setup` script is done running, start working on the project to do whatever the instructions tell you. **When you're ready for feedback**, try a new command at a new Terminal prompt:
 
 ```
 rails grade
@@ -75,6 +71,8 @@ You'll be asked for your access token; **copy-paste it carefully from the grades
 You should see output that looks like:
 
 ![](/assets/gitpod-rails-grade.png)
+
+**(Some projects aren't graded; in that case there may only be one dummy test listed.)**
 
 Copy-paste the Results URL into a new tab, or click on it (but make sure it isn't truncated).
 
