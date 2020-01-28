@@ -276,3 +276,11 @@ So, what's going on here? When we said `:controller => "game"` in the route, we 
     - If you can't find which of the above it is, try deleting what you did and paving over your work again from scratch. Sometimes you just can't spot your own typos, and paving over is the best approach.
 
 You can make as many controllers as you like; in general, a rule of thumb is to have one controller per database table.
+
+### For fun
+
+Some day (after you've finished all other parts of this week's homework), make your game pretty:
+
+[http://rps-mockup.matchthetarget.com/](http://rps-mockup.matchthetarget.com/)
+
+This is entirely styled using the Bootstrap external stylesheet.
