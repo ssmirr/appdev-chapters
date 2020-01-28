@@ -38,7 +38,7 @@ Depending on what browser you're using or whether you're using something like [t
 To make a path segment **flexible**, start it off with a colon in your route:
 
 ```ruby
-match("/flexible/square/:the_number", { :controller => "application", :action => "flex_square", :via => "get" })
+get("/flexible/square/:the_number", { :controller => "application", :action => "flex_square" })
 ```
 
 Then, whatever value the user types in that segment of the path will be placed into a special `Hash` that Rails creates and names `params`. The value will be stored under the key `:the_number`, since that's what we labeled that segment in the route.
