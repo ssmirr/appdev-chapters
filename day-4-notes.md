@@ -224,6 +224,8 @@ browser.post(messages_url, data_to_post)
 
 Voilà! You should have received a text message (unless I've invalidated my API token, which I usually do a day or so after class is over). You can now use this code where you previously just `p`rinted "You should take an umbrella!"
 
+Once I invalidate my token (usually a day or so after class), you'll have to sign up for your own account and get your own Twilio credentials. If you use [this referral link](www.twilio.com/referral/86ykDX){:target="_blank"} to sign up then you'll get $10 in credits after your first purchase (and so will our class experimentation pool of funds — thanks!).
+
 ### Scraping the web
 
 Sometimes, the data that we want isn't offered through an API, and we have no choice but to pull it out of HTML. This is not great, and I wouldn't build a business by relying on the structure of any page's HTML, as it is quite brittle. But, it is often handy for e.g. assembling datasets. So here goes:
