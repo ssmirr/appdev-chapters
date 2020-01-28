@@ -185,7 +185,6 @@ http://[YOUR APP DOMAIN]/payment/results?input_apr=5.42&input_years=30&input_pv=
 ```json
 {
   purchase_price: 235000,
-  percent_down: 3.5,
   apr: 4.35,
   years: 30,
   monthly_payment: 1128.91
