@@ -72,13 +72,13 @@ You should see output that looks like:
 
 ![](/assets/gitpod-rails-grade.png)
 
-**(Some projects aren't graded; in that case there may only be one dummy test listed.)**
-
 Copy-paste the Results URL into a new tab, or click on it (but make sure it isn't truncated).
 
 ![](/assets/gitpod-rails-grade-open.png)
 
 ![](/assets/rails-grade-results.png)
+
+**(Some projects aren't graded; in that case there may only be one dummy test listed.)**
 
 You can click on one of the tests to get more feedback on what might have gone wrong:
 
