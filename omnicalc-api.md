@@ -177,7 +177,7 @@ http://[YOUR APP DOMAIN]/random/results?input_min=3.14&input_max=9.99
 ### Monthly Payment
 
 ```
-http://[YOUR APP DOMAIN]/payment/results?input_apr=5.42&input_years=30&input_pv=151250
+http://[YOUR APP DOMAIN]/payment/results?input_apr=4.35&input_years=30&input_pv=235000
 ```
 
 #### Example output
@@ -187,7 +187,7 @@ http://[YOUR APP DOMAIN]/payment/results?input_apr=5.42&input_years=30&input_pv=
   purchase_price: 235000,
   apr: 4.35,
   years: 30,
-  monthly_payment: 1128.91
+  monthly_payment: 1169.86
 }
 ```
 
