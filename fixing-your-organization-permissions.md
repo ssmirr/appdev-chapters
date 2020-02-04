@@ -1,8 +1,8 @@
 # Fixing your organization permissions
 
-Once upon a time, we all [created our own GitHub organizations](https://guides.firstdraft.com/setting-up-your-cloud9-workspace.html#create-github-organization) to keep our classwork separate from our personal projects.
+Once upon a time, we all [created our own GitHub organizations](https://chapters.firstdraft.com/chapters/777#create-github-organization) to keep our classwork separate from our personal projects.
 
-Since then, whenever we gave permission to a third-party (like Cloud9 or grades.firstdraft.com) to access our GitHub accounts, we were supposed to remember to grant access to our organization too. **If you forgot to click "Grant" next to the organization that you created before you clicked "Authorize", you're going to run into problems.** Let's fix it.
+Since then, whenever we gave permission to a third-party (like Gitpod or grades.firstdraft.com) to access our GitHub accounts, we were supposed to remember to grant access to our organization too. **If you forgot to click "Grant" next to the organization that you created before you clicked "Authorize", you're going to run into problems.** Let's fix it.
 
 Go to GitHub and sign in. In this example, I am signed in as the user `demolearner1`. Click on the user icon in the top-right and find "Settings":
 
