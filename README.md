@@ -38,3 +38,4 @@ Works in progress, and not in order.
  34. [Day 2 Notes](https://chapters.firstdraft.com/chapters/793)
  35. [Classbook exercise notes](https://chapters.firstdraft.com/chapters/794)
  36. [Day 4 Notes](https://chapters.firstdraft.com/chapters/795)
+ 37. [Sharing your Gitpod workspace](https://chapters.firstdraft.com/chapters/797)
