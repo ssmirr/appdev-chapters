@@ -169,6 +169,16 @@ a.include?("b")   #=> true
 a.include?("z")   #=> false
 ```
 
+### exclude?
+
+Similar to `.include?`, but the opposite:
+
+```ruby
+a = [ "a", "b", "c" ]
+a.exclude?("b")   #=> false
+a.exclude?("z")   #=> true
+```
+
 ### reverse
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-reverse?lite=true"></iframe>
