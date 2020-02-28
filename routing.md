@@ -12,36 +12,36 @@ Here's an example `routes.rb`:
 # /config/routes.rb
 
 Rails.application.routes.draw do
-  match("/rock", { :controller => "game", :action => "play_rock", :via => "get" })
-  match("/paper", { :controller => "game", :action => "play_paper", :via => "get" })
-  match("/scissors", { :controller => "game", :action => "play_scissors", :via => "get" })
-  match("/", { :controller => "game", :action => "homepage", :via => "get" })
+  get("/rock", { :controller => "game", :action => "play_rock" })
+  get("/paper", { :controller => "game", :action => "play_paper" })
+  get("/scissors", { :controller => "game", :action => "play_scissors" })
+  get("/", { :controller => "game", :action => "homepage" })
 end
 ```
 
 ## Route
 
  - All of our routes must be contained within the block following `Rails.application.routes.draw`. A new Rails app will already come with this code pre-written in `routes.rb`.
- - Each route is comprised of the `match` method and its two arguments:
-    - The first argument to `match` is a `String`: the _path_ that we want users to be able to visit (the path is the portion of the URL that comes after the domain name).
-    - The second argument to `match` is a `Hash`: this is where we tell Rails which method to call when a user visits the path in the first argument. (We'll have to actually write this method in the next step, after we write the route.)
+ - Each route starts with either the `get`, `post`, `patch`, or `delete` method.
+    In HTTP (the protocol for exchanging resources over the internet), these are the names for CREATE, READ, UPDATE, and DELETE, respectively; and are known as "HTTP verbs".
 
-        The `Hash` must have three key/value pairs:
+    When we define a route the method we choose should also specify which CRUD operation best describes the work we're going to perform. It turns out that _most_ requests involve _reading_ info, rather than creating/updating/deleting it; so we'll use `get` most often. If you can't think of exactly which one to use, just default to `get`.
+
+    Each of the HTTP Verb methods require two agruments:
+    - The first argument to `get` is a `String`: the _path_ that we want users to be able to visit (the path is the portion of the URL that comes after the domain name).
+    - The second argument to `get` is a `Hash`: this is where we tell Rails which method to call when a user visits the path in the first argument. (We'll have to actually write this method in the next step, after we write the route.)
+
+        The `Hash` must have two key/value pairs:
 
         - `:controller`: The value for this key is what we're going to name the _class_ that contains the method we want Rails to call when the user visits the path.
         - `:action`: The value for this key is the what we're going to name the method itself. "Action" is the term used to refer to Ruby methods that are triggered by users visiting URLs.
-        - `:via`: The value for this key must be either `"post"`, `"get"`, `"patch"`, or `"delete"`.
-
-            In HTTP (the protocol for exchanging resources over the internet), these are the names for CREATE, READ, UPDATE, and DELETE, respectively; and are known as "HTTP verbs".
-
-            We use the `:via` key to specify which CRUD operation best describes the work we're going to perform in the method. It turns out that _most_ requests involve _reading_ info, rather than creating/updating/deleting it; so we'll use `"get"` most often. If you can't think of exactly which one to use, just default to `"get"`.
 
 ## Controller
 
 Suppose we wrote a route in `config/routes.rb` that looks like this:
 
 ```ruby
-match("/rock", { :controller => "game", :action => "play_rock", :via => "get" })
+get("/rock", { :controller => "game", :action => "play_rock" })
 ```
 
 Now when a user visits `/rock`, instead of seeing a "No route matches" error, they will instead see an error `uninitialized constant GameController`. Progress!
