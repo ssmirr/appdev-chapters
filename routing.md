@@ -2,7 +2,7 @@
 
 Our users place **requests** by visiting URLs in our app. In order to respond to requests _dynamically_ (as opposed to sending back _static_, unchanging pages of HTML), we need to **route** each request to a Ruby method that can do the desired work (reading from an API, picking a random number, CRUDing from the database, etc) and then send back the output (formatted in HTML[^jsonapi]).
 
-[^jsonapi]: The format of the response could also be JSON, PDF, CSV, XML, or others — and we can offer multiple formats at once. If we wanted to add an iPhone or Android app, for example, we would add a second format — JSON — and then let the native app read our API.
+[^jsonapi]&#x3A; The format of the response could also be JSON, PDF, CSV, XML, or others — and we can offer multiple formats at once. If we wanted to add an iPhone or Android app, for example, we would add a second format — JSON — and then let the native app read our API.
 
 Our apps are essentially defined by the list of URLs that we allow users to visit, and for which we provide responses. We keep this list of URLs in one _very_ important file: `config/routes.rb`.
 
@@ -21,20 +21,21 @@ end
 
 ## Route
 
- - All of our routes must be contained within the block following `Rails.application.routes.draw`. A new Rails app will already come with this code pre-written in `routes.rb`.
- - Each route starts with either the `get`, `post`, `patch`, or `delete` method.
-    In HTTP (the protocol for exchanging resources over the internet), these are the names for CREATE, READ, UPDATE, and DELETE, respectively; and are known as "HTTP verbs".
+-   All of our routes must be contained within the block following `Rails.application.routes.draw`. A new Rails app will already come with this code pre-written in `routes.rb`.
+-   Each route starts with either the `get`, `post`, `patch`, or `delete` method.
+      In HTTP (the protocol for exchanging resources over the internet), these are the names for CREATE, READ, UPDATE, and DELETE, respectively; and are known as "HTTP verbs".
 
-    When we define a route the method we choose should also specify which CRUD operation best describes the work we're going to perform. It turns out that _most_ requests involve _reading_ info, rather than creating/updating/deleting it; so we'll use `get` most often. If you can't think of exactly which one to use, just default to `get`.
+      When we define a route the method we choose should also specify which CRUD operation best describes the work we're going to perform. It turns out that _most_ requests involve _reading_ info, rather than creating/updating/deleting it; so we'll use `get` most often. If you can't think of exactly which one to use, just default to `get`.
 
-    Each of the HTTP Verb methods require two agruments:
-    - The first argument to `get` is a `String`: the _path_ that we want users to be able to visit (the path is the portion of the URL that comes after the domain name).
-    - The second argument to `get` is a `Hash`: this is where we tell Rails which method to call when a user visits the path in the first argument. (We'll have to actually write this method in the next step, after we write the route.)
+      Each of the HTTP Verb methods require two agruments:
 
-        The `Hash` must have two key/value pairs:
+    -   The first argument to `get` is a `String`: the _path_ that we want users to be able to visit (the path is the portion of the URL that comes after the domain name).
+    -   The second argument to `get` is a `Hash`: this is where we tell Rails which method to call when a user visits the path in the first argument. (We'll have to actually write this method in the next step, after we write the route.)
 
-        - `:controller`: The value for this key is what we're going to name the _class_ that contains the method we want Rails to call when the user visits the path.
-        - `:action`: The value for this key is the what we're going to name the method itself. "Action" is the term used to refer to Ruby methods that are triggered by users visiting URLs.
+The `Hash` must have two key/value pairs:
+
+-   `:controller`: The value for this key is what we're going to name the _class_ that contains the method we want Rails to call when the user visits the path.
+-   `:action`: The value for this key is the what we're going to name the method itself. "Action" is the term used to refer to Ruby methods that are triggered by users visiting URLs.
 
 ## Controller
 
@@ -50,32 +51,39 @@ As we know, when Ruby says "uninitialized constant" it means "I can't find that 
 
 So, what's going on here? When we said `:controller => "game"` in the route, we _told_ Rails to look for a class called `GameController` when someone visits `/rock`.
 
- - All of the controller class names will end in `...Controller`, and they will begin with whatever value we provided for the key `:controller` in the route.
- - Like all Ruby classes, the name must be `CamelCase` (not `snake_case` or `Some_Hybrid`). So in this case, it will be `GameController`.
- - The class must be defined in a Ruby file that is the `snake_cased` version of its name. Rails will itself use the `.underscore` method to figure out the name; we can try it ourselves in `rails console`:
+-   All of the controller class names will end in `...Controller`, and they will begin with whatever value we provided for the key `:controller` in the route.
+
+-   Like all Ruby classes, the name must be `CamelCase` (not `snake_case` or `Some_Hybrid`). So in this case, it will be `GameController`.
+
+-   The class must be defined in a Ruby file that is the `snake_cased` version of its name. Rails will itself use the `.underscore` method to figure out the name; we can try it ourselves in `rails console`:
 
     ```ruby
     [2] pry(main)> "GameController".underscore
     => "game_controller"
     ```
- - The Ruby file must be placed within the `app/controllers/` folder. So, in this case, we create a file called `app/controllers/game_controller.rb` (don't forget the `.rb` file extension).
- - Finally, within this file, we define the class:
+
+-   The Ruby file must be placed within the `app/controllers/` folder. So, in this case, we create a file called `app/controllers/game_controller.rb` (don't forget the `.rb` file extension).
+
+-   Finally, within this file, we define the class:
 
     ```ruby
     class GameController < ApplicationController
     end
     ```
- - We inherit from a Rails base class called `ApplicationController`, much like our models inherited from `ApplicationRecord`. Our models inherited `.save`, `.where`, and a bunch of other awesome database-related methods from `ApplicationRecord`; whereas our controllers are going to inherit a bunch of methods like `render`, `redirect_to`, and a bunch of other awesome request/response-related methods from `ApplicationController`.
- - Don't forget the `end` that goes with the `class`; type it before you forget it.
- - Now, when a user visits the path `/rock`, the "uninitialized constant" error should go away. Progress!
 
-    If you still see the "unitialized constant" error, then:
+-   We inherit from a Rails base class called `ApplicationController`, much like our models inherited from `ApplicationRecord`. Our models inherited `.save`, `.where`, and a bunch of other awesome database-related methods from `ApplicationRecord`; whereas our controllers are going to inherit a bunch of methods like `render`, `redirect_to`, and a bunch of other awesome request/response-related methods from `ApplicationController`.
 
-    - You named your class wrong; it must exactly match the value in `routes.rb`, followed by `Controller` (singular), and `CamelCase`.
-    - You named the file wrong. Try doing `.underscore` on a string containing the class name in `rails console` to figure out the correct filename.
-    - You put the file in the wrong folder. It has to be within `app/controllers/`. Not within, for example, `app/` or `app/controllers/concerns/`.
-    - You forgot the `.rb` file extension.
-    - If you can't find which of the above it is, try deleting what you did and paving over your work again from scratch. Sometimes you just can't spot your own typos, and paving over is the best approach.
+-   Don't forget the `end` that goes with the `class`; type it before you forget it.
+
+-   Now, when a user visits the path `/rock`, the "uninitialized constant" error should go away. Progress!
+
+      If you still see the "unitialized constant" error, then:
+
+    -   You named your class wrong; it must exactly match the value in `routes.rb`, followed by `Controller` (singular), and `CamelCase`.
+    -   You named the file wrong. Try doing `.underscore` on a string containing the class name in `rails console` to figure out the correct filename.
+    -   You put the file in the wrong folder. It has to be within `app/controllers/`. Not within, for example, `app/` or `app/controllers/concerns/`.
+    -   You forgot the `.rb` file extension.
+    -   If you can't find which of the above it is, try deleting what you did and paving over your work again from scratch. Sometimes you just can't spot your own typos, and paving over is the best approach.
 
 ## Action
 
@@ -124,14 +132,14 @@ end
 
 The argument to `render` is a string that contains the name of a folder and a file that we're going to place some HTML in, which we want to be sent to the user's browser when they visit `/rock`.
 
- - We can choose any folder and file name that we want — I just made up the folder name of `game_templates` and the file name of `user_plays_rock`. These files are known as our **view templates**.
- - The extension of the file should be `.html.erb`. The `.erb` stands for **embedded Ruby**, and this is what is going to allow us to make our HTML dynamic and awesome instead of static and boring.
+-   We can choose any folder and file name that we want — I just made up the folder name of `game_templates` and the file name of `user_plays_rock`. These files are known as our **view templates**.
+-   The extension of the file should be `.html.erb`. The `.erb` stands for **embedded Ruby**, and this is what is going to allow us to make our HTML dynamic and awesome instead of static and boring.
 
 ## View
 
 If we've defined our action correctly, the next error a user sees when they try to visit `/rock` is:
 
-```
+```shell
 Missing template game_templates/user_plays_rock.html.erb with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :arb, :coffee, :jbuilder]}. Searched in:
   * "/home/ubuntu/workspace/app/views"
 ```
