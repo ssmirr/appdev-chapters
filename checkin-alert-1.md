@@ -6,7 +6,7 @@ I fly on Southwest Airlines frequently. Southwest Airlines does not have assigne
 
 Usually people with a low number (those in groups "A" and "B") grab the aisle and window seats, and those at the end (C group) are stuck in the middle seats and also have to fight over the remaining overhead bin space. So A and B groups are highly sought after.
 
-You can, of course, pay extra to get a high boarding priority. But after that, boarding order is determined by who checks in first. The online check-in period begins 24 hours before departure time, so it's optimal to check in _exactly_ 24 hours before your departure time to get the best possible boarding priority.
+You can, of course, pay extra to get a low number. But after that, boarding order is determined by who checks in first. The online check-in period begins 24 hours before departure time, so it's optimal to check in _exactly_ 24 hours before your departure time to get the best possible boarding number.
 
 Unfortunately, I always forget to do this and always end up in the C group. The Southwest iPhone app sends a push notification to check in online, but that comes about 10 minutes too late, after everyone else has already checked in.
 
