@@ -28,37 +28,46 @@
         
         would produce something like "Fri Nov 2019". The time formatting codes are a pain to remember, so there are many handy tools to help compose them. I like this one: http://strftime.net/
     - Change "Show Details" link to a delete link.
-    - Display "Alert set" if `message_sent` is `true` before the copy, otherwise display "Alert not yet sent".
+    - Display "Alert sent" if `message_sent` is `true` before the copy, otherwise display "Alert not yet sent".
     - Break up the list into two lists: Upcoming flights and Past flights.
- - After getting the interface for users to add and delete flights into reasonable shape, create a file in `lib/tasks/` called `send_reminders.rake`. Within it, add this code:
+
+### Custom rake tasks
+
+After getting the interface for users to add and delete flights into reasonable shape, create a file in `lib/tasks/` called `send_reminders.rake`. Within it, add this code:
  
-    ```ruby
-    task({ :send_sms => :environment }) do
-      p "Howdy!"
-    end
-    ```
+```ruby
+task({ :send_sms => :environment }) do
+p "Howdy!"
+end
+```
+
+Then, at a command prompt, run the command `rails send_sms`. You should see `Howdy!"
+
+This is known as a **custom rake task**. These are nothing more than arbitrary Ruby programs that you can write and run whenever you want, but they are better than plain old `.rb` files because they are aware of your entire Rails application — most importantly, you have access to your models and gems. (Whenever you've been running `rails dev:prime` in the past, you've been running a rake task that I've written for you that pre-populates your tables.)
+
+Write some Ruby within the task that:
+
+ - Finds flights where messages have not yet been sent. Print how many there are. Remember your advanced `.where` techniques:
+
+    [https://chapters.firstdraft.com/chapters/770#less-than-or-greater-than](https://chapters.firstdraft.com/chapters/770#less-than-or-greater-than){:target="_blank"}
+
+ - Finds flights that depart within the next 24 hours and 15 minutes. Print how many there are.
+ - Finds flights where messages have not yet been sent AND depart within the next 24 hours and 15 minutes. Print how many there are.
+ - Loop through all of the previous set of flights and print their description and departure time.
+ - Finally, as you are looping and printing, also update their `sent_message` to `true`.
+
+### Dealing with timezones
+
+You might have noticed that the times look off; this is because times are, by default, saved in Coordinated Universal Time (UTC), or Greenwich Mean Time. I.e., 6 hours ahead of Chicago time.
     
-    Then, at a command prompt, run the command `rails send_sms`. You should see `Howdy!"
-    
-    This is known as a **custom rake task**. These are nothing more than arbitrary Ruby programs that you can write and run whenever you want, but they are better than plain old `.rb` files because they are aware of your entire Rails application — most importantly, you have access to your models and gems. (Whenever you've been running `rails dev:prime` in the past, you've been running a rake task that I've written for you that pre-populates your tables.)
-    
-    Write some Ruby within the task that:
-    
-    - Finds flights where messages have not yet been sent. Print how many there are.
-    - Finds flights that depart within the next 24 hours and 15 minutes. Print how many there are.
-    - Finds flights where messages have not yet been sent AND depart within the next 24 hours and 15 minutes. Print how many there are.
-    - Loop through all of the previous set of flights and print their description and departure time.
-    - Finally, update their `sent_message` to `true`.
-    - You might have noticed that the times look off; this is because times are, by default, saved in Coordinated Universal Time (UTC), or Greenwich Mean Time. I.e., 6 hours ahead of Chicago time.
-    
-        Properly dealing with timezones is tricky, although Rails does make it as painless as possible. For now, I recommend just assuming all of your users are in Chicago, if that's feasible for your app idea. If so, you can do the following. In `config/application.rb`, add the following lines somewhere:
-    
-        ```ruby
-        config.time_zone = 'Central Time (US & Canada)'
-        config.active_record.default_timezone = :local
-        ```
-    
-        This is not a great idea in real-world apps, because you should always store times in UTC in the database, and then transform them in the views to whatever timezone and format the user wants to see. But for our proof-of-concept, this hack will do.
+Properly dealing with timezones is tricky, although Rails does make it as painless as possible. For now, I recommend just assuming all of your users are in Chicago, if that's feasible for your app idea. If so, you can do the following. In `config/application.rb`, add the following lines somewhere:
+
+```ruby
+config.time_zone = 'Central Time (US & Canada)'
+config.active_record.default_timezone = :local
+```
+
+This is not a great idea in real-world apps, because you should always store times in UTC in the database, and then transform them in the views to whatever timezone and format the user wants to see. But for our proof-of-concept, this hack will do.
 
 ### Styling with Bootstrap
 
