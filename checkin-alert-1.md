@@ -2,7 +2,7 @@
 
 ## Pain point
 
-I fly on Southwest Airlines frequently. Southwest Airlines does not have assigned seats; instead, passengers are assigned a boarding priority and then can choose whatever seat is available.
+I fly on Southwest Airlines frequently. Southwest Airlines does not have assigned seats; instead, passengers are assigned a boarding priority order and then can choose whatever seat is available once they are on the plane.
 
 Usually people with a high boarding priority (A and B groups) grab the aisle and window seats, and those at the end (C group) are stuck in the middle seats and also have to fight over the remaining overhead bin space. So A and B groups are highly sought after.
 
