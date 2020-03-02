@@ -2,9 +2,9 @@
 
 ## Pain point
 
-I fly on Southwest Airlines frequently. Southwest Airlines does not have assigned seats; instead, passengers are assigned a boarding priority order, line up in that order, and then can choose whatever seat is available once they are on the plane.
+I fly on Southwest Airlines frequently. Southwest Airlines does not have assigned seats; instead, passengers are assigned a boarding number, line up in that order, and then can choose whatever seat is available once they are on the plane.
 
-Usually people with a high boarding priority (those in groups "A" and "B") grab the aisle and window seats, and those at the end (C group) are stuck in the middle seats and also have to fight over the remaining overhead bin space. So A and B groups are highly sought after.
+Usually people with a low number (those in groups "A" and "B") grab the aisle and window seats, and those at the end (C group) are stuck in the middle seats and also have to fight over the remaining overhead bin space. So A and B groups are highly sought after.
 
 You can, of course, pay extra to get a high boarding priority. But after that, boarding order is determined by who checks in first. The online check-in period begins 24 hours before departure time, so it's optimal to check in _exactly_ 24 hours before your departure time to get the best possible boarding priority.
 
