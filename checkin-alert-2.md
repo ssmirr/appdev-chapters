@@ -6,30 +6,49 @@
 
 ## Tasks
 
- - First, explore the target and ask questions about its features.
- - Then, domain model — figure out the entire database structure: all tables and all columns. What associations are there? What foreign key columns and/or join tables? For each column, what validation rules, if any?
+### Explore the target
+
+ - Sign up as a new user. You can make up a fictional email address and phone number.
+ - Our goal, ultimately, will be to write a program that will send a reminder to check in to **any flight that is departing 24 hours and 15 minutes from now, or sooner — unless we've already sent a reminder for that flight.**
+ - Add a few flights. Make some that are in the past and some that are in the future. Make sure that at least one is within the reminder window — say, 24 hours and 10 minutes from now. Make another one just outside the reminder window — say, 24 hours and 20 minutes from now.
+ - After everyone has created some dummy flights, I will demonstrate running the reminder program in the background.
+
+### Domain model / basic scaffolding
+
+ - Figure out the entire database structure: all tables and all columns. What associations are there? What foreign key columns and/or join tables? For each column, what validation rules, if any?
  - Make an entity relationship diagram in [firstdraft Ideas](https://ideas.firstdraft.com/).
  - Then, create a brand new Rails application. Click "Show Tutorial" at the bottom of your ERD for some help.
  - Create the standard CRUD infrastructure for flights, and the standard sign-up/sign-in/sign-out infrastructure for users.
  - The target has some Bootstrap styling. Later on, if you want to, feel free to add it; for now, I recommend just focusing on functionality. Maybe just use a `<table border="1">` to make things easier to see for now.
- - Nav:
-    - Sign in/Sign up when no one is signed in
-    - Edit profile/Sign out when someone is signed in
- - Add a new flight form:
-    - Get rid of user ID input; it should use the signed in user
- - List of flights:
-    - The signed in user should see only their own flights, not everyone's flights.
-    - Format the copy for each flight.
-    - Format the time using the `.strftime` method. The method is called on any `Time`, `Date`, or `DateTime` object and requires a `String` argument that determines how to format the time. For example,
-    
-        ```ruby
-        photo.created_at.strftime("%a %b %Y")
-        ```
-        
-        would produce something like "Fri Nov 2019". The time formatting codes are a pain to remember, so there are many handy tools to help compose them. I like this one: http://strftime.net/
-    - Change "Show Details" link to a delete link.
-    - Display "Alert sent" if `message_sent` is `true` before the copy, otherwise display "Alert not yet sent".
-    - Break up the list into two lists: Upcoming flights and Past flights.
+
+### Improve the interface
+
+#### Nav
+
+ - Sign in/Sign up when no one is signed in
+ - Edit profile/Sign out when someone is signed in
+
+#### Add a new flight form
+
+ - Get rid of user ID input; it should use the signed in user
+
+#### List of flights
+
+ - The signed in user should see only their own flights, not everyone's flights.
+ - Format the copy for each flight.
+ - Format the time using the `.strftime` method. The method is called on any `Time`, `Date`, or `DateTime` object and requires a `String` argument that determines how to format the time. For example,
+
+   ```ruby
+   photo.created_at.strftime("%a %b %Y")
+   ```
+   
+    would produce something like "Fri Nov 2019". The time formatting codes are a pain to remember, so there are many handy tools to help compose them. I like this one: [http://strftime.net/](http://strftime.net/){:target="_blank"}
+ - Change "Show Details" link to a delete link.
+ - Display "Alert sent" if `message_sent` is `true` before the copy, otherwise display "Alert not yet sent".
+ - Instead of showing all of the user's flights, show only upcoming flights. Review your advanced `.where` techniques:
+
+    [https://chapters.firstdraft.com/chapters/770#less-than-or-greater-than](https://chapters.firstdraft.com/chapters/770#less-than-or-greater-than){:target="_blank"}
+ - Add a past flights section.
 
 ### Custom rake tasks
 
@@ -37,7 +56,8 @@ After getting the interface for users to add and delete flights into reasonable 
  
 ```ruby
 task({ :send_sms => :environment }) do
-p "Howdy!"
+  p "Howdy"
+  p "World!"
 end
 ```
 
@@ -47,14 +67,20 @@ This is known as a **custom rake task**. These are nothing more than arbitrary R
 
 Write some Ruby within the task that:
 
- - Finds flights where messages have not yet been sent. Print how many there are. Remember your advanced `.where` techniques:
+ - Finds flights where messages have not yet been sent. Print how many there are.
+ - Finds flights that depart within the next 24 hours and 15 minutes. Print how many there are. Review your advanced `.where` techniques:
 
     [https://chapters.firstdraft.com/chapters/770#less-than-or-greater-than](https://chapters.firstdraft.com/chapters/770#less-than-or-greater-than){:target="_blank"}
+ - Finds flights where messages have not yet been sent AND depart within the next 24 hours and 15 minutes. Print how many there are. Review how to chain `.where`s together:
 
- - Finds flights that depart within the next 24 hours and 15 minutes. Print how many there are.
- - Finds flights where messages have not yet been sent AND depart within the next 24 hours and 15 minutes. Print how many there are.
- - Loop through all of the previous set of flights and print their description and departure time.
- - Finally, as you are looping and printing, also update their `sent_message` to `true`.
+    [https://chapters.firstdraft.com/chapters/770#chaining-wheres](https://chapters.firstdraft.com/chapters/770#chaining-wheres)
+
+Now that we have the correct set of flights, the ones that we need to send reminders for, 
+
+ - Loop through them and print each one's description and departure time.
+ - In addition, print each one's user's phone number.
+ - Finally, in addition, also update their `sent_message` to `true`.
+ - Visit the flights index page in the web interface and confirm that it worked. Add another couple of flights, run the task again, and confirm that it's working as intended.
 
 ### Dealing with timezones
 
