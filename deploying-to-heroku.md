@@ -58,7 +58,7 @@
  - At a terminal prompt,
 
     ```
-    git push heroku HEAD:master
+    git push heroku HEAD:master -f
     ```
  - That's it! Your app will be available, once deployed, at `https://my-awesome-app.herokuapp.com` (or whatever name you chose or were assigned).
  - Repeat the two steps above as many times as you like to deploy new changes.
