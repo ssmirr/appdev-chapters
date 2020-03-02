@@ -10,7 +10,7 @@ You can, of course, pay extra to get a low number. But after that, boarding orde
 
 Unfortunately, I always forget to do this and always end up in the C group. The Southwest iPhone app sends a push notification to check in online, but that comes about 10 minutes too late, after everyone else has already checked in.
 
-I wish that I could be reminded by a text message 5-10 minutes _before_ it's time to check in, so that I can beat everyone else!
+I wish that I could be reminded by a text message 5-10 minutes _before_ it's time to check in, so that I can be ready to beat everyone else!
 
 ## Sketches / domain model
 
