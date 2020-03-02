@@ -105,3 +105,20 @@ That will show us what's going over there in California:
 ![](/assets/heroku log.png)
 
 You'll notice that the production server log is not as helpful as the development log! What I do is clear the Terminal with <kbd>Cmd</kbd>+<kbd>K</kbd>, and then refresh the request that was causing the error. I then scroll to the top of the mess, and start to look through carefully for the error message.
+
+### Running rake tasks automatically
+
+You can run rake tasks on a schedule very easily on Heroku. First,
+
+```
+heroku addons:create scheduler:standard
+```
+
+Then,
+
+```
+heroku addons:open scheduler
+```
+
+It will give you a URL to open, at which you'll find a dashboard. You can then specify a task (e.g. `rails send_sms` or whatever you named your task) and a frequency that you want the task to be run. Your options are every day, every hour, and every 10 minutes. That's it!
+
