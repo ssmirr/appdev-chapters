@@ -261,7 +261,7 @@ Let's say we want to find out what movies are in theaters next week so we can or
 
 #### Filling out forms
 
-If you actually need to fill out forms and things, then here's an excellent gem with a slightly different interface than Nokogiri: [Ferrum](https://github.com/route/ferrum){:target="_blank"}.
+If you actually need to fill out forms and things, then there's another gem that's built on top of Nokogiri: [Mechanize](https://github.com/sparklemotion/mechanize){:target="_blank"}.
 
 #### Don't be a jerk
 
