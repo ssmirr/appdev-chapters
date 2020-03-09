@@ -34,7 +34,7 @@ Works in progress, and not in order.
  30. [Deploying to Heroku]( https://chapters.firstdraft.com/chapters/775)
  31. [Image Uploads](https://chapters.firstdraft.com/chapters/790)
  32. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
- 33. [Storing credentials securly on Gitpod](https://chapters.firstdraft.com/chapters/792)
+ 33. [Storing credentials securely on Gitpod](https://chapters.firstdraft.com/chapters/792)
  34. [Day 2 Notes](https://chapters.firstdraft.com/chapters/793)
  35. [Classbook exercise notes](https://chapters.firstdraft.com/chapters/794)
  36. [Day 4 Notes](https://chapters.firstdraft.com/chapters/795)
