@@ -21,6 +21,15 @@ I've placed them in rough order of my opinion of their value/length ratio.
  - [Premium Bootstrap themes](https://themes.getbootstrap.com/){:target="_blank"}
  - [Bootstrap.build](https://bootstrap.build/app){:target="_blank"} (you can practice by making a UChicago branded theme; see pages 38-41 of our [Identity Guidelines](https://news.uchicago.edu/sites/default/files/attachments/_uchicago.identity.guidelines.pdf){:target="_blank"}
 
+### Other design systems
+
+Bootstrap isn't the only design framework in town. Here are a few more, just to give you an idea:
+
+ - [Tailwind CSS](https://tailwindcss.com/components/cards){:target="_blank"} — Imagine if Bootstrap only had utility classes, like the ones for [spacing](https://getbootstrap.com/docs/4.4/utilities/spacing/) and [shadows](https://getbootstrap.com/docs/4.4/utilities/shadows/), but had a lot more than it does; and no components per se. That's Tailwind — you're expected to assemble your own cards, alerts, etc, out of the utility classes. Many people like it because it's "lighter" than Bootstrap — it gives you the tools to build up your own, custom framework; but you're still not starting from scratch.
+ - [GOV.UK Design System](https://design-system.service.gov.uk/){:target="_blank"} and [U.S. Web Design System](https://designsystem.digital.gov/){:target="_blank"} — Government design systems, with accessibility and consistency as paramount concerns.
+ - [Bulma](https://bulma.io/documentation/components/card/){:target="_blank"} and [Foundation](https://get.foundation/sites/docs/card.html){:target="_blank"} — More direct analogs to Bootstrap.
+
+
 ### Fonts
 
  - [Font Awesome](https://fontawesome.com/icons?d=gallery&m=free){:target="_blank"} - Free, CSS-customizable, perfectly scalable icons for almost everything.
