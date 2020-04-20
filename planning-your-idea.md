@@ -13,11 +13,11 @@ If you have some ideas already, you can skip to the next section, [Sketches](#sk
 You should think of a couple of pain points in your life that you would like to solve with a simple CRUD app. Remember,
 
 > The verb you want to be using with respect to startup ideas is not "think up" but "notice."
-> — [Paul Graham, "How to Get Startup Ideas"](http://paulgraham.com/startupideas.html)
+> — [Paul Graham, "How to Get Startup Ideas"](http://paulgraham.com/startupideas.html){:target="_blank"}
 
 Don't try to think up billion dollar startup ideas; our goal here is to discover a good first learning project, not to change the world just yet. Try to notice a real annoyance at work or at home or with friends that we can solve, even if for just one user — you.
 
-For example, [here is a project that a student made last quarter](https://www.youtube.com/watch?v=U5fdaaZWwaY&feature=youtu.be) — a simple app that lets you keep track of whether or not it's time to dry clean pieces of clothing. Another student made a nice app that suggests which of your credit cards to use in order to maximize rewards based on what kind of purchase you are about to make.
+For example, [here is a project that a student made last quarter](https://www.youtube.com/watch?v=U5fdaaZWwaY&feature=youtu.be){:target="_blank"} — a simple app that lets you keep track of whether or not it's time to dry clean pieces of clothing. Another student made a nice app that suggests which of your credit cards to use in order to maximize rewards based on what kind of purchase you are about to make.
 
 If you want to get fancier than a simple CRUD app and incorporate some APIs to pull in external data, you are more than welcome to, but try to do some research[^1] and make sure that an API exists for what you want (e.g., live sports scores).
 
@@ -29,23 +29,23 @@ Once I have an idea in mind, I immediately reach for pen and paper and start ske
 
 ### Crazy Eights
 
-I like to start with some [Crazy Eights](https://library.gv.com/the-product-design-sprint-diverge-day-2-c7a5df8e7cd0#43d8) to force myself to just get some thoughts down on paper.
+I like to start with some [Crazy Eights](https://library.gv.com/the-product-design-sprint-diverge-day-2-c7a5df8e7cd0#43d8){:target="_blank"} to force myself to just get some thoughts down on paper.
  
 I will usually do two or three rounds. One round, I'll use the 8 panels to progress through the different screens of a flow. Another round, I'll use the 8 panels to explore 8 different takes on the most important screen in the app.
    
-Remember, you are only supposed to spend around 40 seconds per panel! Actually set a timer and stick to it. Try [using a sharpie rather than a pen](https://signalvnoise.com/posts/1788-oldie-but-goodie-sketching-with-a-sharpie) to prevent yourself from getting into too much detail in this phase.
+Remember, you are only supposed to spend around 40 seconds per panel! Actually set a timer and stick to it. Try [using a sharpie rather than a pen](https://signalvnoise.com/posts/1788-oldie-but-goodie-sketching-with-a-sharpie){:target="_blank"} to prevent yourself from getting into too much detail in this phase.
 
 ### Wireframe
 
-Then, I select one flow that I like, and I  draw out each screen in a bit more detail. I like the [Prototyping On Paper](https://marvelapp.com/pop/) app to connect the sketches of each screen together, and eventually I try to "crawl" from every link and button in each screen to every other screen until I've drawn out the entire app (excluding obvious things like edit profile forms).
+Then, I select one flow that I like, and I  draw out each screen in a bit more detail. I like the [Prototyping On Paper](https://marvelapp.com/pop/){:target="_blank"} app to connect the sketches of each screen together, and eventually I try to "crawl" from every link and button in each screen to every other screen until I've drawn out the entire app (excluding obvious things like edit profile forms).
 
 ## User Stories
 
-Next, I create a [Trello board](https://trello.com/) to list out all of the features that I've identified in my wireframe.
+Next, I like to create a [Trello](https://trello.com/){:target="_blank"} or some other [kanban](https://thoughtbot.com/blog/how-we-use-trello-for-product-development){:target="_blank"} board to list out all of the features that I've identified in my wireframe.
  
 For the time being, I create two columns in the board: "Ideas" and "1st draft".
  
-In the Ideas column, add a card for every feature that you can see in your wireframe. When I'm writing down a feature, I usually phrase it as a [User Story](http://www.romanpichler.com/blog/10-tips-writing-good-user-stories/). User stories are just features, phrased in a particular manner:
+In the Ideas column, add a card for every feature that you can see in your wireframe. When I'm writing down a feature, I usually phrase it as a [User Story](http://www.romanpichler.com/blog/10-tips-writing-good-user-stories/){:target="_blank"}. User stories are just features, phrased in a particular manner:
 
 "As a **[role]**, I want to be able to **[capability]**," (and, optionally), "so that **[benefit]**."
 
@@ -62,4 +62,4 @@ Move **only the essential stories** to the 1st draft column.
 Now that we've planned out what we want to build, it's time to [diagram an Idea in firstdraft](https://chapters.firstdraft.com/chapters/782).
 
 
-[^1]: http://www.programmableweb.com/apis/directory
+[^1]: https://public-apis.io/
