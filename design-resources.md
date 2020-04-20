@@ -48,6 +48,7 @@ Bootstrap isn't the only design framework in town. Here are a few more, just to 
   
 ### HTML & CSS references
 
+ - [The CSS Cascade](https://wattenberger.com/blog/css-cascade){:target="_blank"} — Learn how CSS specificity rules actually determine which one of competing rules gets applied to an element.
  - [HTML5 Element List](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list){:target="_blank"} - An excellent, categorized list of HTML elements.
  - [CSS Properties Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference){:target="_blank"}
 
