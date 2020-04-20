@@ -40,4 +40,8 @@ Add your associations, and any required join models and foreign keys, to your [d
 
 ### Have fun!
 
-P.S. The domain modeling tool is under active development. You can test out experimental code generation functionality by clicking "Publish". Come back in a few minutes and refresh, and you should see buttons that lead to some code on GitHub and a prototype on Heroku. The hope is that by clicking through the prototype and entering some data, you will catch flaws in your domain model and can then go back and update your diagram. Please feel free to send us any and all feedback.
+P.S. The domain modeling tool is under active development. You can test out experimental code generation functionality by clicking "Publish".
+
+Come back in a few minutes and refresh, and you should see a button that says "Launch" and leads to an ugly but functional prototype on Heroku.
+
+The hope is that by clicking through the prototype and entering some data, you will catch flaws in your domain model and can then go back and update your diagram. Please feel free to send us any and all feedback.
