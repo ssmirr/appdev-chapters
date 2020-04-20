@@ -59,7 +59,7 @@ Then, crucially, ask yourself: **what is the absolute minimum featureset I can g
 
 Move **only the essential stories** to the 1st draft column.
 
-Now that we've planned out what we want to build, it's time to [diagram an Idea in firstdraft](creating-a-first-draft-idea.md).
+Now that we've planned out what we want to build, it's time to [diagram an Idea in firstdraft](https://chapters.firstdraft.com/chapters/782).
 
 
 [^1]: http://www.programmableweb.com/apis/directory
