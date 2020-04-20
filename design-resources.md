@@ -7,7 +7,7 @@ As you go about designing and coding your application's screens, here are a few 
 I've placed them in rough order of my opinion of their value/length ratio.
 
  - [Butterick's Typography In Ten Minutes](http://practicaltypography.com/typography-in-ten-minutes.html){:target="_blank"}
- - [7 Rules for Creating Gorgeous UI](https://medium.com/@erikdkennedy/7-rules-for-creating-gorgeous-ui-part-1-559d4e805cda){:target="_blank"} - and [part 2](https://medium.com/@erikdkennedy/7-rules-for-creating-gorgeous-ui-part-2-430de537ba96){:target="_blank"}
+ - [7 Rules for Creating Gorgeous UI](https://learnui.design/blog/7-rules-for-creating-gorgeous-ui-part-1.html){:target="_blank"} - and [part 2](https://learnui.design/blog/7-rules-for-creating-gorgeous-ui-part-2.html#rule-4-learn-the-methods-of-overlaying-text-on-images){:target="_blank"}
  - [Web Design in 4 minutes](http://jgthms.com/web-design-in-4-minutes/){:target="_blank"}
  
 ## Resources
