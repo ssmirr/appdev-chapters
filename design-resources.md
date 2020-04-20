@@ -37,8 +37,8 @@ Bootstrap isn't the only design framework in town. Here are a few more, just to 
  - Google Web Font pairing inspiration:
     - [Beautiful Web Type](http://hellohappy.org/beautiful-web-type/?1){:target="_blank"} 
     - [Typographic Project](http://femmebot.github.io/google-type/){:target="_blank"}
-    - [Ultimate Google Web Font Pairings](https://www.reliablepsd.com/ultimate-google-font-pairings/){:target="_blank"}
     - [FontPair](https://fontpair.co/){:target="_blank"}
+    - [Ultimate Google Web Font Pairings](https://www.reliablepsd.com/ultimate-google-font-pairings/){:target="_blank"}
 
 ### Stock images
 
