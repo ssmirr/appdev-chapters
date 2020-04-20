@@ -58,6 +58,7 @@ Bootstrap isn't the only design framework in town. Here are a few more, just to 
 
 ### Colors
 
+ - [Defining colors in CSS](http://web.simmons.edu/~grovesd/comm244/notes/week3/css-colors){:target="_blank"}
  - [Duo](https://duo.alexpate.uk/){:target="_blank"} — Curated color pairings
  - [Adobe Color](http://color.adobe.com){:target="_blank"} - Generate complementary colors.
 
