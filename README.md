@@ -39,3 +39,5 @@ Works in progress, and not in order.
  - [Classbook exercise notes](https://chapters.firstdraft.com/chapters/794)
  - [Day 4 Notes](https://chapters.firstdraft.com/chapters/795)
  - [Sharing your Gitpod workspace](https://chapters.firstdraft.com/chapters/797)
+
+Please let us know if you find any links to pages that are no longer live, or any other errata.
