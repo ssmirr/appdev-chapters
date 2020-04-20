@@ -42,6 +42,11 @@ Bootstrap isn't the only design framework in town. Here are a few more, just to 
     - [FontPair](https://fontpair.co/){:target="_blank"}
     - [Ultimate Google Web Font Pairings](https://www.reliablepsd.com/ultimate-google-font-pairings/){:target="_blank"}
 
+### Games to get good at CSS
+
+ - [CSS Diner](https://flukeout.github.io/){:target="_blank"} — Become a pro at CSS selectors. Useful if you plan to do a lot of web scraping.
+ - [Flexbox Froggy](https://flexboxfroggy.com/){:target="_blank"} — Get a better understanding of Flexbox, the reason that positioning things on the web is no longer a nightmare.
+
 ### Stock images
 
  - [Unsplash](https://unsplash.com/){:target="_blank"}
