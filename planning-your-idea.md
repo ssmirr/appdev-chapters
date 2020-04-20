@@ -62,4 +62,4 @@ Move **only the essential stories** to the 1st draft column.
 Now that we've planned out what we want to build, it's time to [diagram an Idea in firstdraft](https://chapters.firstdraft.com/chapters/782).
 
 
-[^1]: https://public-apis.io/
+[^1]: Here's a directory of [Public APIs](https://public-apis.io/){:target="_blank"}.
