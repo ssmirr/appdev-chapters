@@ -35,8 +35,8 @@ Bootstrap isn't the only design framework in town. Here are a few more, just to 
  - [Font Awesome](https://fontawesome.com/icons?d=gallery&m=free){:target="_blank"} - Free, CSS-customizable, perfectly scalable icons for almost everything.
  - [Google Web Fonts](https://www.google.com/fonts){:target="_blank"} - You'll want this after reading [Butterick's](http://practicaltypography.com/typography-in-ten-minutes.html){:target="_blank"}.
  - Google Web Font pairing inspiration:
-    - [Beautiful Web Type](http://hellohappy.org/beautiful-web-type/?1){:target="_blank"} 
     - [Typographic Project](http://femmebot.github.io/google-type/){:target="_blank"}
+    - [Beautiful Web Type](http://hellohappy.org/beautiful-web-type/?1){:target="_blank"} 
     - [FontPair](https://fontpair.co/){:target="_blank"}
     - [Ultimate Google Web Font Pairings](https://www.reliablepsd.com/ultimate-google-font-pairings/){:target="_blank"}
 
