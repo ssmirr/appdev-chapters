@@ -65,28 +65,30 @@ Bootstrap isn't the only design framework in town. Here are a few more, just to 
 
 ## Quick links to assets
 
- - These folks helpfully host `bootstrap.css` (and Bootswatches) on their own server: [BootstrapCDN](https://www.bootstrapcdn.com/){:target="_blank"}
- - Bootstrap's Javascript components (like modals, hamburger menu, carousel, etc) depend on another open-source library called jQuery; you can grab it from this CDN: [jQuery CDN](https://code.jquery.com/){:target="_blank"}.
- - Ultimately, a quick and easy way to get all of Bootstrap and Font Awesome is to include the following in the `<head>` of your document:
+[BootstrapCDN](https://www.bootstrapcdn.com/){:target="_blank"} helpfully host `bootstrap.css` (and Bootswatches) on their own server.
 
-    ```html
-   <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
-   <meta charset="utf-8">
+Bootstrap's Javascript components (like modals, hamburger menu, carousel, etc) depend on another open-source library called jQuery; you can grab it from this CDN: [jQuery CDN](https://code.jquery.com/){:target="_blank"}.
 
-   <!-- Connect Font Awesome CSS -->
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.2/css/all.css">
+Ultimately, a quick and easy way to get all of Bootstrap and Font Awesome is to include the following in the `<head>` of your document:
 
-   <!-- Connect Bootstrap CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+```html
+<!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
+<meta charset="utf-8">
 
-   <!-- Connect Bootstrap JavaScript and its dependencies -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<!-- Connect Font Awesome CSS -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.2/css/all.css">
 
-   <!-- Make it responsive to small screens -->
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    ```
+<!-- Connect Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-    You can use a [Bootswatch](http://bootswatch.com){:target="_blank"} or [your own customized `bootstrap.css` instead](https://bootstrap.build/app){:target="_blank"} as the `href`, if you like.
+<!-- Connect Bootstrap JavaScript and its dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+<!-- Make it responsive to small screens -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+```
+
+You can use a [Bootswatch](http://bootswatch.com){:target="_blank"} or [your own customized `bootstrap.css` instead](https://bootstrap.build/app){:target="_blank"} as the `href`, if you like.
 
 Have fun!
