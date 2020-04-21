@@ -14,7 +14,7 @@ Works in progress, and not in order.
  1. [Nouns, verbs, and grammar](https://chapters.firstdraft.com/chapters/754)
  1. [A few program notes](https://chapters.firstdraft.com/chapters/755)
  1. [String](https://chapters.firstdraft.com/chapters/757)
- 9.  [Getting strings from users](https://chapters.firstdraft.com/chapters/762)
+ 1.  [Getting strings from users](https://chapters.firstdraft.com/chapters/762)
  1. [Integer](https://chapters.firstdraft.com/chapters/760)
  1. [Float](https://chapters.firstdraft.com/chapters/759)
  1. [Date](https://chapters.firstdraft.com/chapters/768)
@@ -26,14 +26,12 @@ Works in progress, and not in order.
  1. [Our own classes](https://chapters.firstdraft.com/chapters/769)
  1. [Optional syntaxes in Ruby](https://chapters.firstdraft.com/chapters/787)
  1. [Ruby Practice](https://chapters.firstdraft.com/chapters/776)
-
  1. [ActiveRecord — our translator to the database](https://chapters.firstdraft.com/chapters/770)
  1. [Adding Association Query Shortcuts](https://chapters.firstdraft.com/chapters/778)
  1. [Adding Routes](https://chapters.firstdraft.com/chapters/779)
  1. [Omnicalc API](https://chapters.firstdraft.com/chapters/786)
  1. [Photogram API](https://chapters.firstdraft.com/chapters/780)
  1. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
-
  1. [A few management readings](https://chapters.firstdraft.com/chapters/789)
  1. [Image Uploads](https://chapters.firstdraft.com/chapters/790)
  1. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
