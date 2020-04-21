@@ -128,30 +128,6 @@ Once you completed the challenge, got the tests to pass, and submitted your solu
 
 After you've submitted a solution, you'll be able to click "See Model Solution" to see one that I've written. Remember that there's no single "correct" solution — if yours worked, then it's just as good as mine!
 
-### Roadmap
-
-Before we continue learning Ruby, I just want to give you sneak peek of where we're heading. Most of these words won't make sense right now, but they will soon!
-
-#### Part 1: Database
-
- - Ruby basics
- - Conditionals
- - Loops
- - Arrays
- - Hashes
- - Classes
- - Storing data permanently with models
- - Querying, querying, querying
-
-#### Part 2: Interface
-
- - Route, Controller, Action, View
- - Parameters
- - HTML
- - The Golden Seven
- - Partials
- - Sign-in/sign-out
-
 ## Onwards
 
 Okay! With that housekeeping out of the way, let's move on and learn more about the Fundamental Classes of Ruby, starting with [our friend `String`](https://chapters.firstdraft.com/chapters/757).
