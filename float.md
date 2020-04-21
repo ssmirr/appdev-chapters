@@ -60,7 +60,3 @@ Test your skills:
 The `rand` method that we met earlier can also be called with no arguments, in which case it returns a `Float` between 0 and 1. This is very handy for e.g. probabilities. Give it a try:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/float-rand?lite=true"></iframe>
-
-## Conclusion
-
-That's it for `Float`s! Next up, we'll look at how we can use these basic data types together with _conditionals_ to start building smart programs that can make decisions based on varying input.
