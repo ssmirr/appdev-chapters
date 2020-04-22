@@ -82,15 +82,15 @@ Ultimately, a quick and easy way to get all of Bootstrap and Font Awesome is to 
 <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
 <meta charset="utf-8">
 
-<!-- Connect Font Awesome CSS -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.2/css/all.css">
-
 <!-- Connect Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 <!-- Connect Bootstrap JavaScript and its dependencies -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+<!-- Connect Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 
 <!-- Make it responsive to small screens -->
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
