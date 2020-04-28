@@ -40,6 +40,32 @@ The `Date.today` method returns an object initialized to the current date.
 Date.today # => #<Date: 2019-04-16 ((2458590j,0s,0n),+0s,2299161j)>
 ```
 
+## year
+
+Call the `year` method on a `Date` object to return just the year of the date as an `Integer`.
+
+```ruby
+t = Date.today # => #<Date: 2019-04-16 ((2458590j,0s,0n),+0s,2299161j)>
+t.year # => 2019
+```
+## month
+
+Call the `month` method on a `Date` object to return just the month of the date as an `Integer`.
+
+```ruby
+t = Date.today # => #<Date: 2019-04-16 ((2458590j,0s,0n),+0s,2299161j)>
+t.month # => 4
+```
+
+## day
+
+Call the `day` method on a `Date` object to return just the day of the date as an `Integer`.
+
+```ruby
+t = Date.today # => #<Date: 2019-04-16 ((2458590j,0s,0n),+0s,2299161j)>
+t.day # => 16
+```
+
 ## Date.parse
 
 The `Date.parse()` method accepts a `String` argument and tries to interpret it as a date, initializing a `Date` object.
@@ -59,16 +85,6 @@ number_of_days = Date.today - Date.parse("July 4, 1776")
  => (88674/1)
 days.to_i
  => 88674
-```
-
-## day
-
-Returns the day of the month (1-31).
-
-```ruby
-held_on = Date.new(2001,2,3)
-
-held_on.mday #=> 3
 ```
 
 ## monday?
