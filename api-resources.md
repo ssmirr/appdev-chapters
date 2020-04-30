@@ -2,6 +2,7 @@
 
 Being able to leverage APIs is incredibly powering. Here is a list of links to peruse to get your wheels turning:
 
+ - [https://www.programmableweb.com/apis/directory](https://www.programmableweb.com/apis/directory)
  - [https://cloud.google.com/products/ai/building-blocks](https://cloud.google.com/products/ai/building-blocks){:target="_blank"}
  - [https://algorithmia.com/algorithms ](https://algorithmia.com/algorithms){:target="_blank"}
  - [https://rapidapi.com/](https://rapidapi.com/){:target="_blank"}
