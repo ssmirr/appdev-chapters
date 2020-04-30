@@ -9,3 +9,5 @@ Being able to leverage APIs is incredibly powering. Here is a list of links to p
  - https://public-apis.xyz/
  - https://github.com/public-apis/public-apis
  - https://iexcloud.io/docs/api/#stock-prices
+
+Have fun!
