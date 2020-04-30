@@ -108,7 +108,7 @@ No! This new hash syntax is **only useable when the keys are symbols** — not 
 
 ## Putting it all together
 
-Consider one of our routes:
+Consider a method that is designed like the following (very common in Rails); it has one or two arguments followed by a `Hash` in the last position:
 
 ```ruby
 get("/photos", { :controller => "photos", :action => "index" })
@@ -132,7 +132,7 @@ And since there are no order-of-operations concerns, we can drop the parentheses
 get "/photos", controller: "photos", action: "index"
 ```
 
-Much more concise! Again, I personally prioritize readability far above brevity, so I like making things explicit rather than concise. However, when you are reading Ruby code out in the wild (on Stack Overflow or GitHub), you will most often encounter code using all of these shortcuts, so you have to know how to read it.
+Much more concise! Again, I personally prioritize readability far above brevity, so I like making things explicit rather than concise. However, when you are reading Ruby code out in the wild (on Stack Overflow or gem READMEs on GitHub), you will most often encounter code using all of these shortcuts, so you have to know how to read it.
 
 Most importantly, the Rails team has adopted the above optional syntaxes as their default, so when you're reading the [Rails Guides](https://guides.rubyonrails.org/active_record_validations.html#uniqueness), you will often see things like this:
 
