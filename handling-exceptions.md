@@ -16,7 +16,7 @@ It turns out that, like everything else in Ruby, exceptions are objects — des
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/02-exception-message?lite=true"></iframe>
 
-Most commonly, the method we use on the exception `.message`, and we log it somehow.
+Most commonly, the method we use on the exception is `.message`, which returns a string that we print or log somehow.
 
 ## Further reading
 
