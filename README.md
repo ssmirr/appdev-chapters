@@ -25,6 +25,7 @@ Works in progress, and not in order.
  1. [Hash](https://chapters.firstdraft.com/chapters/767)
  1. [Our own classes](https://chapters.firstdraft.com/chapters/769)
  1. [Optional syntaxes in Ruby](https://chapters.firstdraft.com/chapters/787)
+ 1. [Handling exceptions with `begin`/`rescue`/`end`](https://chapters.firstdraft.com/chapters/833)
  1. [API Resources](https://chapters.firstdraft.com/chapters/800)
  1. [ActiveRecord — our translator to the database](https://chapters.firstdraft.com/chapters/770)
  1. [Adding Association Query Shortcuts](https://chapters.firstdraft.com/chapters/778)
