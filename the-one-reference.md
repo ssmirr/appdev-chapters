@@ -789,7 +789,7 @@ Returns
 
 `false`
 
-[Full explanation](https://chapters.firstdraft.com/chapters/757#include?)
+[Full explanation](https://chapters.firstdraft.com/chapters/757#include)
 
 ## Integer
 
