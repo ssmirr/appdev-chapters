@@ -263,6 +263,12 @@ a.at(0) # => "H"
 a.at(-1) # => "!"
 ```
 
+### include?
+
+`include?` takes a String argument and returns `true` or `false` if the argument exists in the String that `include?` is called on. 
+
+<iframe height="600px" width="100%" src="https://repl.it/@raghubetina/stringinclude?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
 ## More on adding strings together
 
 We spend a lot of time composing strings of output for our users, so let's see a few more examples. Try this:

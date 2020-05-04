@@ -767,6 +767,30 @@ Returns
 
 [Full explanation](https://chapters.firstdraft.com/chapters/757#split)
 
+### .include?
+
+`String#include?(String) ⇒ Boolean`
+
+Returns a [_boolean_](#conditionals)(`true` or `false`) based on whether the string argument is inside the string the method is being called on.
+
+```ruby
+"Happy".include?("H")
+```
+
+Returns
+
+`true`
+
+```ruby
+"Happy".include?("Z")
+```
+
+Returns
+
+`false`
+
+[Full explanation](https://chapters.firstdraft.com/chapters/757#include?)
+
 ## Integer
 
 whole numbers
