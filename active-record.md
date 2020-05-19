@@ -16,26 +16,6 @@ Then _boom_ — our class `Contact` has now inherited[^activerecord] a _tremendo
 [^activerecord]: Actually, these methods mostly come from our grandparent class `ActiveRecord::Base` rather than our immediate parent class `ApplicationRecord`. We'll go into these details later.
 
 We refer to these database-related classes as **models**, and we place them in the `app/models` folder within our Rails app. These classes talk to the database for us, contain most of our business logic, and are, in many ways, the heart of our applications.
-<!-- 
-## Getting started
-
-Fork the `rolodex` repository and [create a Gitpod workspace](https://chapters.firstdraft.com/chapters/785) based on it. (If you clicked on the "Load assignment in a new window" button in Canvas, you should already have your own fork of `rolodex`; see [Getting automated feedback](https://chapters.firstdraft.com/chapters/777).)
-
-In this repository, I've already generated a new Rails application with the `rails new` command, but there's nothing in it other than the out-of-the-box code that the generator spits out to get you started. It's a blank slate.
-
-It will take a few minutes for Gitpod to obtain a new computer, download the code from GitHub onto it, install the Ruby gems that the project depends upon, and any other required setup[^setup]. Once it's done, you should see some feedback in the Terminal that says "Initial setup complete" and have your `$` prompt ready to receive commands.
-
-[^setup]: `bin/setup` is a program that we write that automates the process of getting your computer ready for you to work on a codebase. Usually, that involves installing any third-party libraries that the application depends upon on to your laptop, configuring the database, filling the database with some dummy data, etc. In the real world, good teams follow the practice of including a script like this in their projects so that it's drop-dead simple for a new teammate to start contributing to a codebase. Just download the code, `bin/setup`, and they're ready to go.
-
-    Since it's a good practice to write `bin/setup` scripts, Rails encourages it by including one in new projects by default. Gitpod will run it automatically when you first create each workspace. That initial run should be enough, but if for some reason you ever want to run it yourself, you can do so at any time from the command prompt by typing `bin/setup` and pressing <kbd>return</kbd>. 
-
-Next, we can start the Ruby program that listens for visitors to our web site and shows them pages with the `bin/server` command. This program is known as the "web server", not to be confused with the physical computer that the program is running on, which is also often called the same thing. Rails includes a popular web server called Puma by default, but we could substitute another if we wanted to, or write our own if we were feeling ambitious.  We can stop Puma just like any other Ruby program stuck in a loop by pressing `Ctrl-C`.
-
-Gitpod should have noticed that you started a server, and it will display a pop-up asking if you want to visit your application in a separate browser tab. If so, click yes. If you don't see that pop-up, then press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows) to bring up the Command Palette. Start typing "open port" and click the "Toggle Open Ports View" command once it appears. You will then see a pane with a button to visit your application.
-
-Congratulations! You've got a real, live, running, industrial-grade web application. Rails makes it that easy to get up and running, unlike other frameworks where you have to spend hours, days, or weeks just setting things up to get to "Hello world". We can get right down to adding our own unique value rather than re-inventing the wheel.
-
-Now that we've proven that we can visit a functional front-end web page, we're going to close it and focus on the back-end for the rest of this project. -->
 
 ## The quick way to create a table
 
@@ -90,296 +70,7 @@ rails db:migrate
 
 Voilá — now we have two tables, and are ready to CRUD rows in them.
 
-<!-- 
-If you want to, you can now skip ahead to the [Time to CRUD](https://chapters.firstdraft.com/chapters/770#time-to-crud) section to learn how to insert rows into our new tables.
-
-But, for the curious, read on for a step-by-step explanation of what just happened:
-
-## Pure Ruby Classes Review
-
-In the old, pure Ruby days, if we wanted to store some attributes about a contact, we would have declared some attribute accessors like this:
-
-```ruby
-class Contact
-  attr_accessor :first_name
-  attr_accessor :last_name
-  attr_accessor :date_of_birth
-end
-```
-
-And then we'd be able to use our class like this:
-
-```ruby
-c = Contact.new
-c.first_name = gets.chomp
-c.last_name = gets.chomp
-
-c.last_name # => "Betina"
-```
-
-However, once the program was finished running, whatever data we had stored would be lost. We weren't storing it _permanently_, in the long-term memory (hard disk) of the computer; we were only storing it _temporarily_, in the working memory (RAM) of the computer.
-
-## Storing information permanently in databases
-
-If we want to store the information permanently, we need to save it to a file on the hard drive. We could cobble together a way to write this file ourselves using the `File` class, which makes it pretty easy to write and read strings to and from disk; however, there's a _much_ better way: using a database.
-
-**Databases** are programs that have been optimized since the 1970s to be super-efficient at storing and retrieving information on disk. In particular, **relational** databases have been dominant since the 1980s, and use a language called Structured Query Language (SQL) to store and retrieve records from two-dimensional tables. Relational databases power the vast majority of software in use today.
-
-Fortunately for us, we don't need to learn yet another language to use them. All we have to do is [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from `ApplicationRecord` and our Ruby classes are empowered with methods, like `.save` and `.where`, that will _write all of the SQL for us_. We just have to write our usual `noun.verb`. Awesome!
-
-## Creating the table
-
-However, we do first need to actually create the database table, name it, and specify what columns we would like it to have. To create a table, we need to write a special Ruby program known as a **database migration**.
-
-### Database migrations
-
-Database migrations are responsible for evolving the structure of the database, one step at a time. Over the lifecycle of an application, we will make many changes to the database — adding tables here, renaming columns there — as we learn about our users and the problem domain.
-
-For each evolution of the database, we create a little Ruby class that will make the change, and make any modifications to the data already existing within the table (if necessary). This Ruby class will [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from a base Rails class known as `ActiveRecord::Migration`; which will give us a bunch of methods for free[^pattern] that make it very easy to create tables, add columns, etc.
-
-[^pattern]: You might be detecting a pattern. A lot of what we get out of Rails is powerful base classes that we inherit from when we make our own classes.
-
-For example, in order to add a table called "contacts", we would create a migration class. In order to keep the order of the migrations straight, we begin the filenames with a timestamp. To make it easy on us, Rails will create the migration files for us and put the timestamp in the filename automatically if we run this command at a Terminal prompt.
-
-(**Note that you don't actually need to run any of the following commands, or write any of the following code, if you already used [The Quick Way](https://chapters.firstdraft.com/chapters/770#the-quick-way-to-create-a-table) of creating the contacts table above.** Until you reach [Time to CRUD](https://chapters.firstdraft.com/chapters/770#time-to-crud), just read along.)
-
-Generating a blank migration file:
-
-```bash
-rails generate migration SomeRandomNameForTheMigrationClass
-```
-
-But, it would be better if the name of the migration class was descriptive of our intention for it, so for this one let's use `CreateContacts`:
-
-```bash
-rails generate migration CreateContacts
-```
-
-If you ran this command, the Terminal output would look something like this:
-
-```bash
-invoke  active_record
-create    db/migrate/20190422123800_create_contacts.rb
-```
-
-We are going to meet many `rails generate ...` commands as we continue to learn Rails. All any of the **Rails generators** do is save you some typing; they automate the creation of boilerplate files and code.
-
-In this case, you can see that it created a file for us in the `db/migrate` folder whose name starts with a timestamp and ends in `_create_contacts.rb`.
-
-If we head over to that file and take a look, we'll see something like this:
-
-```ruby
-class CreateContacts < ActiveRecord::Migration[6.0]
-  def change
-    # ...
-  end
-end
-```
-
-The generator saved us some typing by defining our migration class, `CreateContacts`, and inheriting from the base class `ActiveRecord::Migration` for us.
-
-It also stubbed out the crucial `change` method; this method is what will actually be invoked when we're ready to execute this migration to evolve the database.
-
-Within the `change` method, we can write any Ruby we want; but of course we have a specific mission, to create a table called "contacts" with three columns, `first_name`, `last_name`, and `date_of_birth`.
-
-Fortunately, we inherit methods from `ActiveRecord::Migration` that makes this very easy. First, we inherit a `create_table` method, which takes a `Symbol` (the name of the table that you want to create) and a block as inputs. The generator probably already stubbed out most of this for you too (the Rails generators are pretty smart, and try to write as much code on your behalf as possible based on what you named the migration class):
-
-```ruby
-class CreateContacts < ActiveRecord::Migration[6.0]
-  def change
-    create_table(:contacts) do |t|
-
-    end
-  end
-end
-```
-
-We could, as always, name the block variable anything. I name it `t` because that object represents the new table that's about to be created; and within the block, we can call methods on it like `.string` and `.date` to add columns of those datatypes:
-
-```ruby
-class CreateContacts < ActiveRecord::Migration[6.0]
-  def change
-    create_table(:contacts) do |t|
-      t.string(:first_name)
-      t.string(:last_name)
-      t.date(:date_of_birth)
-
-      t.timestamps
-    end
-  end
-end
-```
-
-Other commonly used datatypes for columns:
-
-```
-t.boolean    # true or false
-t.date       # Jan 27th
-t.datetime   # 7:23pm on Jan 27th
-t.decimal    # 42.42
-t.integer    # 42
-t.string     # Up to 255 characters
-t.text       # As many characters as you want
-t.time       # 7:23pm
-```
-
-The `.timestamps` method will add two columns, `created_at` and `updated_at`, that will be automatically managed by the database. And, of course, every table will have an `id` primary key column that will also be automatically managed by the database; we don't have to say anything explicitly in the migration to get that.
-
-#### Why a block?
-
-Why does the `create_table` method need a block of code within `do`/`end`, rather than maybe just an array or hash of column names and datatypes? It's because migrations can, if you want, get quite sophisticated; for (a contrived) example, we could do something like this:
-
-```ruby
-class CreateContacts < ActiveRecord::Migration[6.0]
-  def change
-    create_table(:contacts) do |t|
-      t.string(:first_name)
-      t.string(:last_name, { :default => "Doe" })
-      t.date(:date_of_birth)
-
-      t.timestamps
-    end
-  end
-end
-```
-
-Now, any new record in the table would have a default last name of `Doe`. You can also copy values over from an old table, build indexes for more performant lookups, add database-level constraints, and a bunch of other things we haven't talked about yet.
-
-Using a block rather than just passing in data gives us flexibility, should we need it.
-
-#### Automatically generating the entire migration
-
-But for now, we don't need much flexibility; in fact, our migrations are 99% of time simple enough that the generator can write the entire migration automatically for us if we tell it the columns we want when we initially generate it. This commmand:
-
-```bash
-rails generate migration CreateContacts first_name:string last_name:string date_of_birth:date
-```
-
-when run, will write the entire migration automatically:
-
-```ruby
-class CreateContacts < ActiveRecord::Migration[6.0]
-  def change
-    create_table :contacts do |t|
-      t.string :first_name
-      t.string :last_name
-      t.date :date_of_birth
-
-      t.timestamps
-    end
-  end
-end
-```
-
-The generator infers:
-
- - To use the `create_table` method because we started the name of the migration with `Create...`.
- - To pass the `create_table` method the argument of `:contacts` because we made the second word in the class name `...Contacts`.
- - All of the column methods to call from the datatypes we specified on the command line after the colons (`:`).
- - All of the column names to pass into each datatype method before the colons (`:`).
-
-Voilà!
-
-### rails db:migrate
-
-That's it! Our migration is ready to be run. Look it over one last time, and when you're confident there are no typos, you can execute it with the following command at a Terminal prompt:
-
-```bash
-rails db:migrate
-```
-
-This command will look at all of the files in the `db/migrate` folder, examine the timestamps at the beginning of the filenames, look at the current version of the database, and intelligently run only any migrations that have not yet been run.
-
-That means you can re-run the command `rails db:migrate` as many times as you like and it won't harm anything; it won't, for example, try to add the same table twice. That's what the timestamps in the filenames are there to prevent.
-
-You'll see output something like this[^annotate]:
-
-```bash
-== 20190422125330 CreateContacts: migrating ===================================
--- create_table(:contacts)
-   -> 0.0037s
-== 20190422125330 CreateContacts: migrated (0.0037s) ==========================
-
-Annotated (1): app/models/contact.rb
-```
-
-[^annotate]: The line that says `Annotated (1): app/models/contact.rb` is from a wonderful open-source library called [annotate]() that automatically adds helpful comments to our model files for us, reminding us what columns are in each table. Every time we run `rails db:migrate`, the annotate gem will automatically update these comments.
-
-### One-liner for adding tables
-
-With that, the table has been created in the database! In the end, without all of the explanation around it, all we ended up doing was:
-
-```bash
-rails generate migration CreateContacts first_name:string last_name:string date_of_birth:date
-```
-
-It's that easy in Rails to add a table. You could generate the complete migration for another table with another one-liner, once you know what you want to name it and what columns you want in it. And, of course, `rails db:migrate` to run any pending migrations. -->
-<!-- 
-But, now that we have tables, how do we actually enter _records_?
-
-## Models: our translators to the database
-
-The migration is something we run once to create our table, and then we're done with it forever. But now we want _another_ class that we're going to use a million times a day to actually create, read, update, and delete rows in our table. We refer to these classes as _models_.
-
-Create a file in the `app/models` folder called `contact.rb` and within it define a class called `Contact`:
-
-```ruby
-class Contact
-end
-```
-
-But, crucially, make it inherit from `ApplicationRecord`:
-
-```ruby
-class Contact < ApplicationRecord
-end
-```
-
-Amazingly, that's all we have to do. We don't have to declare attribute accessors or anything else. In inheriting from `ApplicationRecord`, the `Contact` class will automatically connect to the database, find the table named "contacts", inspect it and see what columns are in it, and define methods that are able to create, read, update, and delete rows, and a whole lot more.
-
-### The draft:model generator does it all at once
-
-As mentioned earlier, there's a shortcut for everything explained above. To generate the migration, columns, and model _all at once_ you can use the `draft:model` generator instead of the `migration` generator. For example, let's create another model and underlying table called `Company`:
-
-```bash
-rails generate draft:model company name:string industry:string structure:string last_year_revenue:integer founded_on:date
-```
-
-You'll see output something like:
-
-```bash
-Running via Spring preloader in process 89045
-      invoke  active_record
-      create    db/migrate/20190423211456_create_companies.rb
-      create    app/models/company.rb
-      create  app/admin/companies.rb
-      insert  app/admin/companies.rb
-```
-
- - After `rails generate` we specify which generator we want to use; in this case, `draft:model`, instead of the plain old `migration` generator.
- - Then we have to say the name of the **model** that we want, which means make it **singular**, not plural.
- - Then we provide a list of the columns that we want. Each column name should be followed immediately by a colon (`:`) and then its datatype.
- - When the command is run, you can see it creates both the migration file _and_ the model file. If you go look at the files, you'll see that the generator has already written all of the necessary code in both.
- - These lines:
-
-    ```bash
-    create  app/admin/companies.rb
-    insert  app/admin/companies.rb
-    ```
-
-    are doing even more work that we haven't talked about yet; configuring the new model such that it will appear in an open-source admin dashboard that we've included in our project, ActiveAdmin, to get a quick visual overview of our database tables. We'll talk about that soon.
-
-Since most of the code for migrations and models is formulaic, the `draft:model` generator can handle writing all of it for us. Unless we want to make some tweaks to the migration, like setting default values for columns, we can go ahead and:
-
-```
-rails db:migrate
-```
-
-without even looking at the generated code, although it's usually a good idea to at least glance at the migration file to make sure you didn't make any typos in column names. -->
-
 ## Time to CRUD
-
-<!-- Okay, so now that we've stepped through the long explanation, it's time to actually _use_ our model. It only takes five seconds to create a table if we're using the shortcut; but now how do add rows to it? -->
 
 ### Command prompt vs rails console
 
@@ -658,39 +349,39 @@ You tack `where.not` on to a collection and it accepts all the same arguments as
 
 **Everything from looking up a movie's director to putting together a feed in a social network ultimately boils down to `.where`s and `.each`s.** I can't emphasize the importance of `.where` enough. Ask lots of questions.
 
-### pluck
+### map_relation_to_array
 
 **Returns:** a regular Ruby array of scalar values (_not_ records, and _not_ an individual value)
 
-Once you've retrieved the right subset of records, you can peel off the values in just one column with `.pluck`:
+Once you've retrieved the right subset of records, you can peel off the values in just one column with `.map_relation_to_array`:
 
 ```ruby
-Contact.where({ :last_name => "Mouse" }).pluck(:first_name) # => ["Minnie", "Mickey"]
+Contact.where({ :last_name => "Mouse" }).map_relation_to_array(:first_name) # => ["Minnie", "Mickey"]
 ```
 
-The `.pluck` method returns an `Array` of values. This can be handy in conjunction with the ability to pass `.where` an `Array` of criteria to filter by, e.g.:
+The `.map_relation_to_array` method returns an `Array` of values. This can be handy in conjunction with the ability to pass `.where` an `Array` of criteria to filter by, e.g.:
 
 ```ruby
 shawshank_id = 4
 shawshank_roles = Role.where({ :movie_id => shawshank_id })
-cast_ids = shawshank_roles.pluck(:actor_id) # => [12, 94, 34]
+cast_ids = shawshank_roles.map_relation_to_array(:actor_id) # => [12, 94, 34]
 shawshank_actors = Actor.where({ :id => cast_ids }) # => the collection of Shawshank's actors
 ```
 
  - Returns an `Array` of values in the column.
     - _Not_ a single value, even if there was only one record in the `ActiveRecord_Relation`.
     - _Not_ an `ActiveRecord_Relation`, so you can no longer use methods like `.where`, `.order`, etc. You can use `Array` methods like `.each`, `.at`, etc.
- - The argument to `.pluck` must be a `Symbol` that matches the name of a column in the table.
- - You cannot call `.pluck` on an individual ActiveRecord row. If you want the value in a column for an individual row, simply call the accessor method directly:
+ - The argument to `.map_relation_to_array` must be a `Symbol` that matches the name of a column in the table.
+ - You cannot call `.map_relation_to_array` on an individual ActiveRecord row. If you want the value in a column for an individual row, simply call the accessor method directly:
 
     ```ruby
     # for an array of records
     people.last_name # undefined method for array; bad
-    people.pluck(:last_name) # => ["Betina", "Woods"]; good
+    people.map_relation_to_array(:last_name) # => ["Betina", "Woods"]; good
 
     # for an individual record
     person.last_name # => "Woods"; good
-    person.pluck(:last_name) # undefined method for Person; bad
+    person.map_relation_to_array(:last_name) # undefined method for Person; bad
     ```
 
 ### distinct
@@ -701,7 +392,7 @@ It is sometimes possible to retrieve a collection of records that contains dupli
 # Imagine Eddie's ID is 42 in the actors table:
 eddies_roles = Role.where({ :actor_id => 42 })
 # But what if Eddie played multiple roles in the same film?
-eddies_movie_ids = eddies_roles.pluck(:movie_id)
+eddies_movie_ids = eddies_roles.map_relation_to_array(:movie_id)
 # => [1, 3, 3, 12, 19] This array now has duplicate IDs in it.
 # If we use it to do a lookup of movies, we'll get duplicate rows:
 bad_eddies_movies = Movie.where({ :id => eddies_movie_ids }) 
