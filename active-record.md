@@ -1,6 +1,10 @@
 # ActiveRecord
 
-`ActiveRecord` comprises a set of classes within Ruby on Rails that help us interact with our database tables, and is one of the most powerful reasons to choose Rails. For example, if we define a class, e.g. `Contact`, and [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from `ApplicationRecord`:
+`ActiveRecord` comprises a set of classes within Ruby on Rails that help us interact with our database tables, and is one of the most powerful reasons to choose Rails.
+
+Assuming that we have a database and a table called "contacts" in it (we'll discuss how to do that in a moment), we would normally have to write Structured Query Language to interact with it.
+
+Instead, we can define a class, e.g. `Contact`, and [inherit](https://chapters.firstdraft.com/chapters/769#inheritance){:target="_blank"} from `ApplicationRecord`:
 
 ```ruby
 class Contact < ApplicationRecord
@@ -12,7 +16,7 @@ Then _boom_ — our class `Contact` has now inherited[^activerecord] a _tremendo
 [^activerecord]: Actually, these methods mostly come from our grandparent class `ActiveRecord::Base` rather than our immediate parent class `ApplicationRecord`. We'll go into these details later.
 
 We refer to these database-related classes as **models**, and we place them in the `app/models` folder within our Rails app. These classes talk to the database for us, contain most of our business logic, and are, in many ways, the heart of our applications.
-
+<!-- 
 ## Getting started
 
 Fork the `rolodex` repository and [create a Gitpod workspace](https://chapters.firstdraft.com/chapters/785) based on it. (If you clicked on the "Load assignment in a new window" button in Canvas, you should already have your own fork of `rolodex`; see [Getting automated feedback](https://chapters.firstdraft.com/chapters/777).)
@@ -31,7 +35,7 @@ Gitpod should have noticed that you started a server, and it will display a pop-
 
 Congratulations! You've got a real, live, running, industrial-grade web application. Rails makes it that easy to get up and running, unlike other frameworks where you have to spend hours, days, or weeks just setting things up to get to "Hello world". We can get right down to adding our own unique value rather than re-inventing the wheel.
 
-Now that we've proven that we can visit a functional front-end web page, we're going to close it and focus on the back-end for the rest of this project.
+Now that we've proven that we can visit a functional front-end web page, we're going to close it and focus on the back-end for the rest of this project. -->
 
 ## The quick way to create a table
 
@@ -40,7 +44,7 @@ Suppose we wanted to build an app called Rolodex that helps us keep track of our
 In Rails, anything that can be automated, _is_ automated. Much like we used the `rails new` command to generated dozens of folders and hundreds of files of boilerplate code, we can use another command to generate the boilerplate code that goes into creating a database table. Here is what the command looks like:
 
 ```bash
-rails generate draft:model contact first_name:string last_name:string date_of_birth:date
+rails generate model contact first_name:string last_name:string date_of_birth:date
 ```
 
  - All of the generators, of which there are many, are invoked by starting with `rails generate`.
@@ -84,7 +88,10 @@ rails generate draft:model company name:string industry:string structure:string 
 rails db:migrate
 ```
 
-Voilá — now we have two tables, and are ready to CRUD rows in them. If you want to, you can now skip ahead to the [Time to CRUD](https://chapters.firstdraft.com/chapters/770#time-to-crud) section to learn how to insert rows into our new tables.
+Voilá — now we have two tables, and are ready to CRUD rows in them.
+
+<!-- 
+If you want to, you can now skip ahead to the [Time to CRUD](https://chapters.firstdraft.com/chapters/770#time-to-crud) section to learn how to insert rows into our new tables.
 
 But, for the curious, read on for a step-by-step explanation of what just happened:
 
@@ -306,8 +313,8 @@ With that, the table has been created in the database! In the end, without all o
 rails generate migration CreateContacts first_name:string last_name:string date_of_birth:date
 ```
 
-It's that easy in Rails to add a table. You could generate the complete migration for another table with another one-liner, once you know what you want to name it and what columns you want in it. And, of course, `rails db:migrate` to run any pending migrations.
-
+It's that easy in Rails to add a table. You could generate the complete migration for another table with another one-liner, once you know what you want to name it and what columns you want in it. And, of course, `rails db:migrate` to run any pending migrations. -->
+<!-- 
 But, now that we have tables, how do we actually enter _records_?
 
 ## Models: our translators to the database
@@ -368,11 +375,11 @@ Since most of the code for migrations and models is formulaic, the `draft:model`
 rails db:migrate
 ```
 
-without even looking at the generated code, although it's usually a good idea to at least glance at the migration file to make sure you didn't make any typos in column names.
+without even looking at the generated code, although it's usually a good idea to at least glance at the migration file to make sure you didn't make any typos in column names. -->
 
 ## Time to CRUD
 
-Okay, so now that we've stepped through the long explanation, it's time to actually _use_ our model. It only takes five seconds to create a table if we're using the shortcut; but now how do add rows to it?
+<!-- Okay, so now that we've stepped through the long explanation, it's time to actually _use_ our model. It only takes five seconds to create a table if we're using the shortcut; but now how do add rows to it? -->
 
 ### Command prompt vs rails console
 
