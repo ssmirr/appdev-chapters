@@ -165,32 +165,32 @@ Contact.where({ :last_name => "Mouse" }).offset(10).limit(10)
 
 [Full explanation](https://chapters.firstdraft.com/chapters/770#offset)
 
-### .pluck
+### .map_relation_to_array
 
-`ActiveRecord_Relation#pluck(Symbol) ⇒ Array`
+`ActiveRecord_Relation#map_relation_to_array(Symbol) ⇒ Array`
 
-Call `.pluck` on an `ActiveRecord_Relation` to retrieve the values stored in _just one column_ of the records, and discard all other data.
+Call `.map_relation_to_array` on an `ActiveRecord_Relation` to retrieve the values stored in _just one column_ of the records, and discard all other data.
 
--   `.pluck` returns a regular Ruby [`Array`](#array) of scalar values in the column.
+-   `.map_relation_to_array` returns a regular Ruby [`Array`](#array) of scalar values in the column.
 
     -   _Not_ a single value, even if there was only one record in the `ActiveRecord_Relation`.
     -   _Not_ an `ActiveRecord_Relation`, so you can no longer use methods like `.where`, `.order`, etc. You can use `Array` methods like `.sort`, `.sample`, etc.
 
--   The argument to `.pluck` must be a `Symbol` that matches the name of a column in the table.
+-   The argument to `.map_relation_to_array` must be a `Symbol` that matches the name of a column in the table.
 
--   You cannot call `.pluck` on an individual ActiveRecord row. If you want the value in a column for an individual row, simply call the accessor method directly:
+-   You cannot call `.map_relation_to_array` on an individual ActiveRecord row. If you want the value in a column for an individual row, simply call the accessor method directly:
 
 ```ruby
-Contact.all.pluck(:last_name) # => ["Betina", "Mouse", "Woods"]
+Contact.all.map_relation_to_array(:last_name) # => ["Betina", "Mouse", "Woods"]
 ```
 
 ```ruby
 # for an array of records
 people.last_name # undefined method for array; bad
-people.pluck(:last_name) # => ["Betina", "Woods"]; good
+people.map_relation_to_array(:last_name) # => ["Betina", "Woods"]; good
 ```
 
-[Full explanation](https://chapters.firstdraft.com/chapters/770#pluck)
+[Full explanation](https://chapters.firstdraft.com/chapters/770#map_relation_to_array)
 
 ### .maximum
 
