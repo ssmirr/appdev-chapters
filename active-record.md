@@ -169,7 +169,7 @@ To retrieve all of the rows from a table, you can call `.all` on the class:
 contact_list = Contact.all
 ```
 
-The return value of `.all` is an `Array`-like object (technically it's an `ActiveRecord::Relation`, but we can do all of our usual `Array` methods on it — `.each`, etc). From now on I'll refer to these `Array`-like objects as "**collections**".
+The return value of `.all` is an `Array`-like object (technically it's an `ActiveRecord::Relation`, but we can do all of our usual `Array` methods on it — `.each`, etc). Sometimes I may shorten this to `Relation`, or refer to them as "collections" or "sets" of records.
 
 ### count
 
