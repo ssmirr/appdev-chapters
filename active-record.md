@@ -199,12 +199,12 @@ Returns the last record in a collection.
 c = Contact.all.last
 ```
 
-### Attribute getter methods
+### Attribute accessor methods
 
 However you got it, once you have an individual row stored in a variable, let's call it `c`, then you have a method for each column to retrieve the value for that cell:
 
 ```ruby
-c = Contact.all.last
+c = Contact.all.sample
 
 c.id
 c.first_name
