@@ -461,7 +461,7 @@ So that query would find all rows that have the fragment "bet" anywhere within t
 You can search for rows less than or greater than certain criteria:
 
 ```ruby
-Contact.where("date_of_birth > ?", 30.years.ago.year)
+Contact.where("date_of_birth > ?", 30.years.ago)
 Contact.where("last_name >= ? AND last_name <= ?", "A", "C")
 ```
 
