@@ -1,4 +1,4 @@
-# Embed a Google Map in a Rails View template
+# Embedding a Google Map in a view template
 
 ## Step 1
 
