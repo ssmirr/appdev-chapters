@@ -26,6 +26,7 @@ Works in progress, and not in order.
  1. [Our own classes](https://chapters.firstdraft.com/chapters/769)
  1. [Optional syntaxes in Ruby](https://chapters.firstdraft.com/chapters/787)
  1. [Handling exceptions with `begin`/`rescue`/`end`](https://chapters.firstdraft.com/chapters/833)
+ 1. [Storing credentials securely on Gitpod](https://chapters.firstdraft.com/chapters/792)
  1. [API Resources](https://chapters.firstdraft.com/chapters/800)
  1. [ActiveRecord — our translator to the database](https://chapters.firstdraft.com/chapters/770)
  1. [Adding Association Query Shortcuts](https://chapters.firstdraft.com/chapters/778)
@@ -33,10 +34,13 @@ Works in progress, and not in order.
  1. [Omnicalc API](https://chapters.firstdraft.com/chapters/786)
  1. [Photogram API](https://chapters.firstdraft.com/chapters/780)
  1. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
- 1. [A few management readings](https://chapters.firstdraft.com/chapters/789)
+ 9.  [A few management readings](https://chapters.firstdraft.com/chapters/789)
  1. [Image Uploads](https://chapters.firstdraft.com/chapters/790)
  1. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
- 1. [Storing credentials securely on Gitpod](https://chapters.firstdraft.com/chapters/792)
+ 1. [Searching and filtering with Ransack](https://chapters.firstdraft.com/chapters/835)
+
+---
+
  1. [Day 2 Notes](https://chapters.firstdraft.com/chapters/793)
  1. [Classbook exercise notes](https://chapters.firstdraft.com/chapters/794)
  1. [Day 4 Notes](https://chapters.firstdraft.com/chapters/795)

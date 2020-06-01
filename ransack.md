@@ -35,26 +35,26 @@ Next, add a search form to the view template:
 
 ```erb
 <%= search_form_for @q do |f| %>
-  <p class="lead">Narrow results:</p>
+  <p>Narrow results:</p>
 
-  <div class="form-group">
+  <div>
     <%= f.label :title_cont, "Title containing" %>
-    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
+    <%= f.text_field :title_cont, :placeholder => "Enter a few characters" %>
   </div>
 
-  <div class="form-group">
+  <div>
     <%= f.label :year_gteq, "Released after" %>
-    <%= f.text_field :year_gteq, :class => "form-control", :placeholder => "Year greater than or equal to" %>
+    <%= f.text_field :year_gteq, :placeholder => "Year greater than or equal to" %>
   </div>
 
-  <div class="form-group">
+  <div>
     <%= f.label :year_lteq, "Released before" %>
-    <%= f.text_field :year_lteq, :class => "form-control", :placeholder => "Year less than or equal to" %>
+    <%= f.text_field :year_lteq, :placeholder => "Year less than or equal to" %>
   </div>
 
   <%= f.submit :class => "btn btn-primary btn-block" %>
   
-  <a href="/movies" class="btn btn-default btn-block">Clear filters</a>
+  <a href="/movies">Clear filters</a>
 <% end %>
 
 ```
@@ -81,19 +81,19 @@ In your app, customize `.includes(:director, :actors)` with the relevant associa
 In the view, you can now add the additional inputs to the search form:
 
 ```erb
-<div class="form-group">
+<div>
   <%= f.label :director_name_cont %>
-  <%= f.text_field :director_name_cont, :class => "form-control" %>
+  <%= f.text_field :director_name_cont %>
 </div>
 
-<div class="form-group">
+<div>
   <%= f.label :actors_name_or_actors_bio_cont %>
-  <%= f.text_field :actors_name_or_actors_bio_cont, :class => "form-control" %>
+  <%= f.text_field :actors_name_or_actors_bio_cont %>
 </div>
 
-<div class="form-group">
+<div>
   <%= f.label :actors_id_eq, "Actor" %>
-  <%= f.select :actors_id_eq, options_from_collection_for_select(Actor.all, :name, :name, @q.actors_id_eq), { :include_blank => true }, :class => "form-control" %>
+  <%= f.select :actors_id_eq, options_from_collection_for_select(Actor.all, :name, :name, @q.actors_id_eq), { :include_blank => true } %>
 </div>
 ```
 
@@ -104,16 +104,16 @@ A few things to note:
  3. If you prefer a dropdown over a text field, you can do it as shown above for actors.
  4. If you prefer checkboxes, you can use code like this:
 
-    ```erb
-    <div class="form-group">
-      <% Actor.all.each do |actor| %>
-        <label>
-          <%= check_box_tag('q[actors_id_eq_any][]', actor.id, (true if @q.actors_id_eq_any.try(:include?, actor.id))) %>
-          <%= actor.name %>
-        </label>
-      <% end %>
-    </div>
-    ```
+```erb
+<div>
+  <% Actor.all.each do |actor| %>
+    <label>
+      <%= check_box_tag('q[actors_id_eq_any][]', actor.id, (true if @q.actors_id_eq_any.try(:include?, actor.id))) %>
+      <%= actor.name %>
+    </label>
+  <% end %>
+</div>
+```
 
 ### Further Reading
 
