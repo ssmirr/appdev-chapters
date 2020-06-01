@@ -119,3 +119,7 @@ A few things to note:
 
  - [Official docs](https://github.com/activerecord-hackery/ransack)
  - [Railscast #370](http://railscasts.com/episodes/370-ransack)
+
+Happy filtering!
+
+(For actual intelligent, fuzzy, _searching_, things get more involved; options include [pg_search](https://github.com/Casecommons/pg_search), [searchkick](https://github.com/ankane/searchkick), and [Algolia](https://www.algolia.com/doc/framework-integration/rails/getting-started/setup/?language=ruby).)
