@@ -1,5 +1,3 @@
-# Embedding a Google Map in a view template
-
 ## Step 1
 
 Copy and paste the following code into your View template.
@@ -67,7 +65,7 @@ var marker = new google.maps.Marker({
 });
 ```
 
-Replace the value of `lat` , `log` , and `title` .
+Replace the value of `lat` , `lng` , and `title`.
 
 You can change the value of `icon` to be a different color of pin if you change `red-dot` to `purple-dot`, `blue-dot`,`yellow-dot`, etc. 
 
@@ -107,7 +105,7 @@ locations = [
     "address" => "2311 W North Ave, Chicago, IL 60647, USA",
     "description" => "A bar with handles. Very easy to pick up! #LiftWithYourBack",
   }
-] 
+]
 ```
 
 For **each** of those `Hash`’s we want to drop a pin. So we can use an `each` loop.
@@ -116,7 +114,7 @@ For **each** of those `Hash`’s we want to drop a pin. So we can use an `each` 
 <% locations.each do |place| %>
 ```
 
-Start the loop **after** the   and _before_ `map.fitBounds(bounds);`.
+Start the loop **after** the `var bounds = new google.maps.LatLngBounds();` and _before_ `map.fitBounds(bounds);`.
 
 Next, modify our `infowindow` and `marker` code slightly, so that we create a unique variable for each element in the Array.
 
