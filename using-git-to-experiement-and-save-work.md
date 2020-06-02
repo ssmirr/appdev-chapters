@@ -76,7 +76,7 @@ Before you can push to GitHub, you need to give Gitpod access. Head over to the 
 
 You'll need to stop and start any running workspaces for the changes to take affect, but once you do simply click the "Push the GitHub" button and you should be all set.
 
-## Downgrade `web_git`
+## Downgrade web_git
 
 1.  Open your `Gemfile` and find the line that looks like
     ```rb
