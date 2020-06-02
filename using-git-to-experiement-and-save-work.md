@@ -48,6 +48,27 @@ The best time to commit is right after you just got something to work, before yo
 
 Remember: **ABC**: **A**lways **B**e **C**ommitting.
 
+## Downgrade web_git
+
+If you _often_ experience errors or very long load times while using `/git`, consider downgrading the gem to a stable version by following these steps:
+
+1.  Open your `Gemfile` and find the line that looks like
+    ```ruby
+    gem 'web_git', github: 'firstdraft/web_git', branch: 'spring2020'
+    ```
+2.  Remove `, branch: 'spring2020'` so you just have
+    ```ruby
+    gem 'web_git', github: 'firstdraft/web_git'
+    ```
+3.  In a Terminal run `bundle install`
+4.  Open a file called `config.ru` and replace the entire contents with the following:
+    ```ruby
+    require_relative 'config/environment'
+
+    run Rails.application
+    ```
+5.  Run `bin/server` again and visit `/git` again like before.
+
 ## Jumping back in time
 
 In the History dialog at the bottom, you can see a list of all of the commits you've made. If you want to jump back in time to one of them, copy the 7 letter code (known as the "hash" of the commit; it is a unique identifier) in front of it into the "Branch off of" field above. Pick a name for a new version, and click "Create a new branch off of...".
@@ -75,20 +96,3 @@ Before you can push to GitHub, you need to give Gitpod access. Head over to the 
 ![](/assets/gitpod-write-access.png)
 
 You'll need to stop and start any running workspaces for the changes to take affect, but once you do simply click the "Push the GitHub" button and you should be all set.
-
-## Downgrade web_git
-
-1.  Open your `Gemfile` and find the line that looks like
-    ```rb
-    gem 'web_git', github: 'firstdraft/web_git', branch: 'spring2020'
-    ```
-2.  Remove `, branch: 'spring2020'` so you have `gem 'web_git', github: 'firstdraft/web_git'`.
-3.  In a Terminal run `bundle install`
-4.  Open a file called `config.ru` and replace the entire contents with the following:
-
-    ```rb
-    require_relative 'config/environment'
-
-    run Rails.application
-    ```
-5.  Run `bin/server` again and visit `/git` again like before.
