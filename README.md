@@ -36,6 +36,8 @@ Works in progress, and not in order.
  1. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
  1. [Searching and filtering with Ransack](https://chapters.firstdraft.com/chapters/835)
  1. [Embedding a Google Map in a view template](https://chapters.firstdraft.com/chapters/836)
+ 1. [Photogram Final](https://chapters.firstdraft.com/chapters/837)
+ 1. [Tower of Babel](https://chapters.firstdraft.com/chapters/838)
  1. [A few management readings](https://chapters.firstdraft.com/chapters/789)
 
 ---
