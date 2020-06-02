@@ -52,18 +52,18 @@
 
 ### Custom rake tasks
 
-After getting the interface for users to add and delete flights into reasonable shape, create a file in `lib/tasks/` called `send_reminders.rake`. Within it, add this code:
+After getting the interface for users to add and delete flights into reasonable shape, create a file in `lib/tasks/` called `reminders.rake`. Within it, add this code:
  
 ```ruby
-task({ :send_sms => :environment }) do
+task({ :send_reminders => :environment }) do
   p "Howdy"
   p "World!"
 end
 ```
 
-Then, at a command prompt, run the command `rails send_sms`. You should see `Howdy!"
+Then, at a command prompt, run the command `rails send_reminders`. You should see `Howdy!"
 
-This is known as a **custom rake task**. These are nothing more than arbitrary Ruby programs that you can write and run whenever you want, but they are better than plain old `.rb` files because they are aware of your entire Rails application — most importantly, you have access to your models and gems. (Whenever you've been running `rails dev:prime` in the past, you've been running a rake task that I've written for you that pre-populates your tables.)
+This is known as a **custom rake task**. These are nothing more than arbitrary Ruby programs that you can write and run whenever you want, but they are better than plain old `.rb` files because they are aware of your entire Rails application — most importantly, you have access to your models and gems. (Whenever you've been running `rails dummy_data` in the past, you've been running a rake task that I've written for you that pre-populates your tables.)
 
 Write some Ruby within the task that:
 
