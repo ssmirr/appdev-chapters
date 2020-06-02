@@ -17,10 +17,23 @@ I wish that I could be reminded by a text message 5-10 minutes _before_ it's tim
 Our goal is to think of the simplest possible _proof of concept_ application that we can build to test out a solution to this problem. Ultimately, our goal is to have a complete domain model (all tables, all columns) so that we can generate our resources and get started coding.
 
  - First, I like to sketch out the screens that I envision in my app.
- - I eliminate features that are not essential ruthlessly.
+ - I  _ruthlessly_ eliminate features that are not essential.
  - Then, I think about the tables and columns I need to back these screens (and every link/form that I can click in these screens).
  - After a few rounds of going back and forth between my sketches, my feature list, and my database design, I hope to end up with a complete Entity Relationship Diagram / domain model.
 
-The one new technique I'm going to show you today is: how to write a standalone Ruby program and have it run automatically every 10 minutes. We'll use this technique to, every 10 minutes, send out reminders to anyone who is due to receive one.
+The one slightly non-CRUD technique this app will involve is running a rake task automatically every 10 minutes[^scheduler]. We'll use this technique to, every 10 minutes, send out reminders to anyone who is due to receive one and hasn't already been reminded.
+
+[^scheduler]: It hardly needs teaching; once we have the rake task written, we use [Heroku's Scheduler add-on](https://devcenter.heroku.com/articles/scheduler){:target="_blank"}. This involves running two commands:
+
+    ```
+    heroku addons:create scheduler:standard
+    heroku addons:open scheduler
+    ```
+
+    And then you select the rake task and the frequency with which you want Heroku to run it:
+
+    ![](/assets/heroku-scheduler.png)
+
+    That's it! Heroku will take care of the rest.
 
 Our first task will be to build a CRUD app to collect the information we need to run this program every 10 minutes. Take a few minutes and see if you can come up with a design and a domain model for a solution to this problem. Draw out an ERD at [ideas.firstdraft.com](https://ideas.firstdraft.com/).
