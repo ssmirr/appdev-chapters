@@ -36,4 +36,6 @@ The one slightly non-CRUD technique this app will involve is running a rake task
 
     That's it! Heroku will take care of the rest.
 
-Our first task will be to build a CRUD app to collect the information we need to run this program every 10 minutes. Take a few minutes and see if you can come up with a design and a domain model for a solution to this problem. Draw out an ERD at [ideas.firstdraft.com](https://ideas.firstdraft.com/).
+Our first task will be to build a CRUD app to collect the information we need to run this program every 10 minutes. Take a few minutes and see if you can sketch out a quick design for a solution to this problem.
+
+Then, try to domain model it and draw out an ERD at [ideas.firstdraft.com](https://ideas.firstdraft.com/).
