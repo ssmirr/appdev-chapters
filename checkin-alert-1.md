@@ -23,7 +23,7 @@ Our goal is to think of the simplest possible _proof of concept_ application tha
 
 The one slightly non-CRUD technique this app will involve is running a rake task automatically every 10 minutes[^scheduler]. We'll use this technique to, every 10 minutes, send out reminders to anyone who is due to receive one and hasn't already been reminded.
 
-[^scheduler]: It hardly needs teaching; once we have the rake task written, we use [Heroku's Scheduler add-on](https://devcenter.heroku.com/articles/scheduler){:target="_blank"}. This involves running two commands:
+[^scheduler]: It hardly needs teaching; once we have the rake task written and [deployed the app to Heroku](https://chapters.firstdraft.com/chapters/775), we use [the Scheduler add-on](https://devcenter.heroku.com/articles/scheduler){:target="_blank"}. This involves running two commands:
 
     ```
     heroku addons:create scheduler:standard
