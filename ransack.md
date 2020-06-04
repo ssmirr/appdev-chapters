@@ -122,4 +122,4 @@ A few things to note:
 
 Happy filtering!
 
-(For actual intelligent, fuzzy, _searching_, things get more involved; options include [pg_search](https://github.com/Casecommons/pg_search), [searchkick](https://github.com/ankane/searchkick), and [Algolia](https://www.algolia.com/doc/framework-integration/rails/getting-started/setup/?language=ruby). All of these are relatively advanced techniques that require some re-configuration of the database itself.)
+> For actual intelligent, fuzzy, _searching_, things get more involved; options include Postgres's built-in search (via a gem like [pg_search](https://github.com/Casecommons/pg_search)), Elasticsearch (via a gem like [SearchFlip](https://github.com/mrkamel/search_flip)), or [Algolia](https://www.algolia.com/doc/framework-integration/rails/getting-started/setup/?language=ruby). All of these are relatively advanced techniques that require some re-configuration of the database itself.
