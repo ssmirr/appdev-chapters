@@ -57,9 +57,6 @@ create  app/controllers/photos_controller.rb
 invoke  active_record
 create    db/migrate/20200602191145_create_photos.rb
 create    app/models/photo.rb
-invoke    test_unit
-create      test/models/photo_test.rb
-create      test/fixtures/photos.yml
 create  app/views/photos
 create  app/views/photos/index.html.erb
 create  app/views/photos/show.html.erb
