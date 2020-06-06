@@ -1,3 +1,0 @@
-# Tower of Babel Hints
-
-## 

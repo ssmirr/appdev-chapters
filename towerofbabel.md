@@ -17,3 +17,28 @@ rails db:seed
 Other than that, you're on your own! Build to match the target. You can `rails grade` once you think you're done; there aren't very many specs, just the essential ones testing the main functionality.
 
 I will post some hints soon; keep an eye on this space if you want more direction.
+
+<details>
+  <summary>Test Hint</summary>
+  <p class="lead">First hint</p>
+
+  - first
+  - second
+  - third
+
+```ruby
+def hi
+  p "howdy"
+end
+```
+
+---
+
+    ```ruby
+    def hi
+      p "howdy"
+    end
+    ```
+
+  <p>More detailts</p>
+</details>
