@@ -111,7 +111,7 @@ Fortunately, however, there is another generator that will give you a nice head 
 rails generate draft:account user first_name:string last_name:string company_id:integer
 ```
 
-You *should not include `email`, `password`, `password_confirmation`, or `password_digest`** in the command. `email` and `password_digest` string columns will automatically be added to the table for you.
+You **should not include `email`, `password`, `password_confirmation`, or `password_digest`** in the command. `email` and `password_digest` string columns will automatically be added to the table for you.
 
 Explore the generated code. It added:
 
