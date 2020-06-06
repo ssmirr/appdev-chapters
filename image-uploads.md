@@ -121,7 +121,7 @@ Create an initializer file called `carrierwave.rb` in `config/initializers` and 
 
 ```ruby
 CarrierWave.configure do |config|
- config.cache_storage = :file
+  config.cache_storage = :file
 end
 ```
 
