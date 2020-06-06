@@ -1,5 +1,18 @@
 # Tower of Babel Hints
 
+## ERD
+
+My ERD ended up looking like the below.
+
+<details>
+  <summary>Show ERD</summary>
+
+  <img class="img-fluid w-100" src="https://res.cloudinary.com/firstdraft/image/fetch/f_auto,q_auto:low/https://raw.githubusercontent.com/firstdraft/appdev-chapters/master/assets/git-clean.png" alt="" />
+</details>
+
+
+![](/assets/towerofbabel-erd.png)
+
 ## Suggested steps
 
  1. Generate [user accounts](https://chapters.firstdraft.com/chapters/773#a-special-sort-of-table-user-accounts){:target="_blank"}.
