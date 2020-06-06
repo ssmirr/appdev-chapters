@@ -115,6 +115,16 @@ Most importantly, make sure you remove the line that says:
   storage :file
 ```
 
+### Configure Temporary Storage for CarrierWave
+
+Create an initializer file called `carrierwave.rb` in `config/initializers` and add the following content:
+
+```ruby
+CarrierWave.configure do |config|
+ config.cache_storage = :file
+end
+```
+
 ### Retrieve Cloudinary API info
 
 Next, you'll need to sign up for a Cloudinary account and get your API info. You can find your cloud name, by going to Settings and clicking the Account tab. You can find your API key and secret by going to Settings and clicking the Security tab.
