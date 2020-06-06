@@ -7,11 +7,8 @@ My ERD ended up looking like the below.
 <details>
   <summary>Show ERD</summary>
 
-  <img class="img-fluid w-100" src="https://res.cloudinary.com/firstdraft/image/fetch/f_auto,q_auto:low/https://raw.githubusercontent.com/firstdraft/appdev-chapters/master/assets/git-clean.png" alt="" />
+  <img class="img-fluid w-100" src="https://res.cloudinary.com/firstdraft/image/fetch/f_auto,q_auto:low/https://raw.githubusercontent.com/firstdraft/appdev-chapters/master/assets/towerofbabel-erd.png" alt="" />
 </details>
-
-
-![](/assets/towerofbabel-erd.png)
 
 ## Suggested steps
 
