@@ -107,7 +107,9 @@ Instead, you need routes, actions, and templates for signing up, signing in, edi
 
 Fortunately, however, there is another generator that will give you a nice head start towards the boilerplate required for most sign-in/sign-out RCAVs: `draft:account`. Let's say you want a model called `user` with columns `first_name`, `last_name`, and `company_id`:
 
-`rails generate draft:account user first_name:string last_name:string company_id:integer`
+```
+rails generate draft:account user first_name:string last_name:string company_id:integer
+```
 
 You *should not include `email`, `password`, `password_confirmation`, or `password_digest`** in the command. `email` and `password_digest` string columns will automatically be added to the table for you.
 
