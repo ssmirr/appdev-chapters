@@ -10,7 +10,7 @@ My ERD ended up looking like the below.
   <img class="img-fluid w-100" src="https://res.cloudinary.com/firstdraft/image/fetch/f_auto,q_auto:low/https://raw.githubusercontent.com/firstdraft/appdev-chapters/master/assets/towerofbabel-erd.png" alt="" />
 </details>
 
-## Suggested steps
+## Steps for setting up the CRUD infrastructure
 
  1. Generate [user accounts](https://chapters.firstdraft.com/chapters/773#a-special-sort-of-table-user-accounts){:target="_blank"}.
  2. Generate [chat resources](https://chapters.firstdraft.com/chapters/773#generating-a-resource){:target="_blank"}.
@@ -33,14 +33,14 @@ My ERD ended up looking like the below.
  10. Display the list of messages associated with a chat on the details page, along with the speaker's name, in ascending order that they were `created_at`.
  11. There is a view helper method called `simple_format` that will do basic formatting of long pieces of `text`, like adding line breaks.
 
-### The crux
+### The crux of it
 
 Now that you have the basic CRUD of the application working, the crux of the application:
 
  - Create a table to store translations of each message. I called mine `Translation`, with a `message_id`, `language_id`, and `body`.
  - As you are looping through the messages for a chat to display them on the details page, for each message:
  - Look up the translation of the message in the current speaker's language.
- - If it is not `nil`
+ - If it is not `nil`,
     - Display it.
  - If it is `nil`,
     - Translate it with the Google Translate API and save it.
