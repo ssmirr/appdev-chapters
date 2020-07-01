@@ -149,15 +149,11 @@ This is particularly handy for us because it allows us to get a `String` of inpu
 
 We'll be using this technique for the remainder of our test REPLs, to make things more interesting.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056046/2a38280792b66bcfd9b18610c1bc7b81"></iframe>
-
 ### count
 
- `.count` counts how many elements are in the list, if called with no arguments. If an argument is provided, it counts how many times that argument occurs in the list.
+`.count` counts how many elements are in the list, if called with no arguments. If an argument is provided, it counts how many times that argument occurs in the list.
 
- <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/count?lite=true"></iframe>
-
- <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055583/c12a04f9499595923047a48b7780f4ba"></iframe>
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/count?lite=true"></iframe>
  
 ### include?
 
@@ -183,8 +179,6 @@ a.exclude?("z")   #=> true
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-reverse?lite=true"></iframe>
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055729/b0a7a5e4e9aefc1f901e468b66e72170"></iframe>
-
 ### sort
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/sort?lite=true"></iframe>
@@ -205,10 +199,6 @@ a.exclude?("z")   #=> true
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/max?lite=true"></iframe>
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056042/7591baf04059bc88bdb3ff4ca1dd0a58"></iframe>
-
 ### sum
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/sum?lite=true"></iframe>
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056044/a9ab190d99bac78dae3ac95dbb523719"></iframe>

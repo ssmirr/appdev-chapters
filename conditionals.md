@@ -111,10 +111,6 @@ Basically, `&&` is stricter than `||`; both comparisons have to be true in order
 
 ## Challenge
 
-Can you create a simple Rock, Paper, Scissors game?
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3079909/05408ed63586e04010be2c0788354f60"></iframe>
-
-Now, can you create a better version of the game, where the computer chooses its move randomly instead of always choosing scissors?
+Can you create a Rock, Paper, Scissors game?
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/rps-2?lite=true"></iframe>
