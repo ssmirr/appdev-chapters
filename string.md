@@ -127,12 +127,6 @@ But `3 * "Hello"` is calling the `Integer` method `*` with an argument of `"Hell
 
 Thus, we can see why the `String` version of `*` and the `Integer` version of `*` both need an integer argument. Again, [the bottom line](https://chapters.firstdraft.com/chapters/754#the-bottom-line){:target="_blank"} is — at all times as you are writing Ruby, you should be thinking: "What **class** is this object? What **methods** does _this_ class have available?" Even when there's some syntactic sugar making things _look_ unconventional, don't forget your basics! It's still `noun.verb` under the hood.
 
-Test your skills:
-
-**Here come's a submittable REPL!** You need to write some code to make the tests pass and then click Submit. Notice how it looks different — I won't keep reminding you which ones are which!
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055761/b8091d3eabe958cc55c0dd0d0845ec75"></iframe>
-
 ### upcase
 
 The upcase method returns a copy of the `String` with all lowercase letters replaced with their uppercase counterparts.
@@ -150,8 +144,6 @@ The downcase method returns a copy of the `String` with all uppercase letters re
 The swapcase returns a copy of the `String` with uppercase letters replaced with lowercase counterparts, and vice versa.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/swapcase?lite=true"></iframe>
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054730/4e44347737416ad6d635474a0e3369f1"></iframe>
 
 ### reverse
 
@@ -185,15 +177,11 @@ This seemingly strange task is very common due to the way that getting user inpu
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/chomp?lite=true"></iframe>
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055768/5eff4e7c735dc2a2821e719a87c82c36"></iframe>
-
 ### gsub
 
 The gsub method returns a copy of the `String` it was called on with all occurrences of the first argument substituted for the second argument.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/gsub?lite=true"></iframe>
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055200/37255ba7d887c35597b69abd8c7cdc9d"></iframe>
 
 #### Advanced gsub techniques
 
@@ -236,8 +224,6 @@ Sometimes you have a string that contains a number, usually input from a user, a
 `strip` removes all leading and trailing whitespace.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/strip?lite=true"></iframe>
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056024/e3e79ed5afa47389e0299abf09e3369f"></iframe>
 
 ### capitalize
 
