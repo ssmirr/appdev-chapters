@@ -44,10 +44,6 @@ Another maybe unexpected thing: raising a number to a power, e.g. 3<sup>2</sup>,
 3 ** 2
 ```
 
-Test your skills:
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056038/bc4202d3de486a78da3f03a1d73bf638"></iframe>
-
 ### odd? and even?
 
 The `.odd?` and `.even?` methods return `true` or `false` based on whether the number is, well, odd or even. Don't be thrown off by the question mark at the end of the method name — it's nothing special, just another letter. Rubyists like to end method names with a question mark when methods return `true` or `false`.

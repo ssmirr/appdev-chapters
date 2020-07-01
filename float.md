@@ -41,19 +41,11 @@ One other thing to keep in mind: you can use `**` in conjunction with fractions 
 8 ** (1/3.0) # => 2.0
 ```
 
-Test your skills:
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055426/d721e1044eb3966a6258d16a9e267b93"></iframe>
-
 ### round
 
 `Float`s can round themselves. Play around with the `.round` method:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/round?lite=true"></iframe>
-
-Test your skills:
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056033/7aa7099b585e775a081f42be4a82c72d"></iframe>
 
 ### rand
 

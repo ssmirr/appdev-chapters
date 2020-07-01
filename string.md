@@ -127,12 +127,6 @@ But `3 * "Hello"` is calling the `Integer` method `*` with an argument of `"Hell
 
 Thus, we can see why the `String` version of `*` and the `Integer` version of `*` both need an integer argument. Again, [the bottom line](https://chapters.firstdraft.com/chapters/754#the-bottom-line){:target="_blank"} is — at all times as you are writing Ruby, you should be thinking: "What **class** is this object? What **methods** does _this_ class have available?" Even when there's some syntactic sugar making things _look_ unconventional, don't forget your basics! It's still `noun.verb` under the hood.
 
-Test your skills:
-
-**Here come's a submittable REPL!** You need to write some code to make the tests pass and then click Submit. Notice how it looks different — I won't keep reminding you which ones are which!
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055761/b8091d3eabe958cc55c0dd0d0845ec75"></iframe>
-
 ### upcase
 
 The upcase method returns a copy of the `String` with all lowercase letters replaced with their uppercase counterparts.
@@ -150,8 +144,6 @@ The downcase method returns a copy of the `String` with all uppercase letters re
 The swapcase returns a copy of the `String` with uppercase letters replaced with lowercase counterparts, and vice versa.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/swapcase?lite=true"></iframe>
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3054730/4e44347737416ad6d635474a0e3369f1"></iframe>
 
 ### reverse
 
@@ -185,15 +177,11 @@ This seemingly strange task is very common due to the way that getting user inpu
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/chomp?lite=true"></iframe>
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055768/5eff4e7c735dc2a2821e719a87c82c36"></iframe>
-
 ### gsub
 
 The gsub method returns a copy of the `String` it was called on with all occurrences of the first argument substituted for the second argument.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/gsub?lite=true"></iframe>
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3055200/37255ba7d887c35597b69abd8c7cdc9d"></iframe>
 
 #### Advanced gsub techniques
 
@@ -236,8 +224,6 @@ Sometimes you have a string that contains a number, usually input from a user, a
 `strip` removes all leading and trailing whitespace.
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/strip?lite=true"></iframe>
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3056024/e3e79ed5afa47389e0299abf09e3369f"></iframe>
 
 ### capitalize
 
@@ -301,6 +287,46 @@ message = "Your lucky number for today is #{number}."
 Basically, inside the string, you place `#{}` where you eventually want your value to go. Inside the curly braces, you can write any Ruby expression without worrying about whether it is a string or not. The expression will be evaluated, converted to a string, and added to the string right in that spot. You can interpolate as many expressions as you want into a single string. Pretty neat!
 
 If you find interpolation confusing, feel free to just use addition.
+
+## Getting strings from users with gets
+
+We can make our programs much more interesting if we allow the users of the program to interact with them by supplying input. We can do this with the `gets` method (pronounced "get S", short for "get string"), which will pause the program and wait for the user to type something in the terminal and press <kbd>return</kbd>. The return value of the `gets` method will be a `String` containing what the user typed, which we can store in a variable and then process further like any other `String`.
+
+For example, rather than saying "Hello, world!", let's have the computer say hello to the user by name instead. When you run this program, it will pause after saying `"What's your name?"` and you will have to type something in and press <kbd>return</kbd>. **Click on the terminal to put focus there**, and then you'll be able to type into it:
+
+<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/Hello-gets?lite=true"></iframe>
+
+Great! Our first user input. However, you'll notice a couple of things. First of all, there's a `\n` sneaking into the input. `\n` represents a newline character, and it's in there because of the <kbd>return</kbd> that is pressed to submit the input.
+
+### puts
+
+If you want to see the newline in action, we can use a different printing method called `Kernel.puts` (pronounced "put S", short for "put string"). `puts` is actually the printing method that is used most when crafting the final output of command-line programs; as opposed to `Kernel.p`, which is used most for _making the invisible visible_ while debugging. Try switching
+
+```ruby
+p "Hello, " + their_name + "!"
+```
+
+to
+
+```ruby
+puts "Hello, " + their_name + "!"
+```
+
+and see how the output is different.
+
+You can see that the quotes around the string are removed, which makes sense if you're actually displaying output to a user and not debugging — users should not know or care about the quotes around Ruby string literals. And the newline character causes a line break when a string is printed with `puts`, as it should.
+
+Most of the time, we'll stick with `p`, since it provides more details while debugging; but it's good to know that `puts` exists.
+
+### gets.chomp
+
+We almost never want to keep the `\n` that results from the <kbd>return</kbd> keypress that submits the user's input. Fortunately, [the handy `.chomp` method](https://chapters.firstdraft.com/chapters/757#chomp){:target="_blank"} does exactly what we need — if there's a `\n` at the end of a string, it will remove it; if there isn't, it does nothing. So, in practice, when we call `gets` we almost always tack a `.chomp` on to it immediately. Try modifying the program to:
+
+```ruby
+their_name = gets.chomp
+```
+
+and see how it's different.
 
 ## Conclusion
 

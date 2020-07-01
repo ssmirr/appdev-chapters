@@ -111,22 +111,7 @@ It can be tedious to wrap every line in parentheses, and it's convenient instead
 
 ### Passing tests
 
-I'm also going to start including challenges in some of the REPLs that you have to pass. This should give you confidence that the code that you've written does the correct thing.
-
-You will have to submit your solutions to these challenges, so you'll have to sign in now using a repl.it account[^replit]:
-
-[^replit]:
-    The interactive Ruby playgrounds that are embedded in these readings are hosted on a service called repl.it. If you see a message below asking you to sign up or sign in, then click the <i class="fab fa-github fa-fw"></i> icon to sign in using your GitHub account.
-
-    If you see the message "repl.it refused to connect" after signing in, you might have to refresh this page to get the sandbox to load.
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3047597/c3646e3314f9eaa6aedda51dfdc8d59b"></iframe>
-
-Once you completed the challenge, got the tests to pass, and submitted your solution successfully, you should see something like this (the below is a screenshot, not a real REPL):
-
-![](/assets/solution-submitted.png)
-
-After you've submitted a solution, you'll be able to click "See Model Solution" to see one that I've written. Remember that there's no single "correct" solution — if yours worked, then it's just as good as mine!
+The REPLs that are embedded within the readings are good for experimentation and getting a feel for how things work. But we're also going to, at the end of each reading, have a separate assignment with exercises that include automated tests. You will have to complete and `rails grade` to ensure comprehension. Hopefully this will surface questions — our constant goal.
 
 ## Onwards
 
