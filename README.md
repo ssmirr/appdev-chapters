@@ -19,7 +19,7 @@ Works in progress, and not in order.
  15. [Float](https://chapters.firstdraft.com/chapters/759)
  16. [Date](https://chapters.firstdraft.com/chapters/768)
  17. [Array](https://chapters.firstdraft.com/chapters/758)
- 18. [Conditionals](https://chapters.firstdraft.com/chapters/763)
+ 18. [If statements](https://chapters.firstdraft.com/chapters/763)
  19. [Loops](https://chapters.firstdraft.com/chapters/764)
  20. [Each](https://chapters.firstdraft.com/chapters/765)
  21. [Hash](https://chapters.firstdraft.com/chapters/767)

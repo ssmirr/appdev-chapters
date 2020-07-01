@@ -1,4 +1,4 @@
-# Conditionals
+# If statements
 
 Now that we can get input from our users, we can start to make our programs
 smart, by behaving differently based on different conditions.
@@ -7,7 +7,7 @@ To do this, we need to add a new grammar to our toolbox: the `if`/`end` **keywor
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/first-conditional?lite=true"></iframe>
 
-Try running this program a few times and see how it behaves.
+Try running this program a few times and see how it behaves. These expressions, which conditonally run some code based on the truth or falseness of some condition, are known as **conditionals** or **if statements**.
 
 ## The basic anatomy of if statements
 
