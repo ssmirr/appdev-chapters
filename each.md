@@ -13,11 +13,34 @@ display the element to the user with some formatting around it.
 
 Try transforming the words in an Array using what you've learned so far about [loops](https://chapters.firstdraft.com/chapters/764){:target="_blank"}:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3097392/981114309d419ae15703d1917e2b7782"></iframe>
+Write a program that, given a list of words from the user, would take each word and print it in three forms:
+
+- Capitalized
+- Reversed
+- Upcased
+
+For example, for the input
+
+`apple banana orange`
+
+your program should output the following:
+```bash
+"Apple"
+"elppa"
+"APPLE"
+"Banana"
+"ananab"
+"BANANA"
+"Orange"
+"egnaro"
+"ORANGE"
+```
+
+<iframe height="600px" width="100%" src="https://repl.it/@_jelaniwoods/userwordstimes?lite=true" frameborder="no"></iframe>
 
 ---
 
-After you've got it working, examine the model solution. You'll see that I chose to use `.times` for this job.
+After you've got it working, examine [the model solution here](https://repl.it/@_jelaniwoods/userwordssolution){:target="_blank"}. You'll see that I chose to use `.times` for this job.
 
  - On Line 6, we count the length of the array.
  - On Line 8, we use that length with the `.times` method to kick off a loop with the correct number of iterations.
