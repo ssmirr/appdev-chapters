@@ -160,10 +160,6 @@ The new things to note in the code above:
  - When defining the method, we do `def Person.parse` rather than just `def parse` to make it a **class method** rather than an **instance method**. That way, we call the method directly on capital-`P` `Person`.
  - We give the method the ability to accept an argument by adding parentheses and choosing a name for the argument when defining the method. Then we can use the input within the method definition, sort of like how we use a block variable.
 
-## Test your skills
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/3108918/e76a68e1f22d348686d6bc6459a1d0fe"></iframe>
-
 ## Inheritance
 
 When you define new classes, you can choose to inherit all the power of a "parent" class, and then add some custom behavior:
