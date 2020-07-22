@@ -255,4 +255,4 @@ numbers.select { |num| num > 3 }.sort
 
 ---
 
-Ruby wants developers to be happy, so it gives them lots of options — this is a double-edged sword! It means we can be expressive, but it also means we need to be able to parse many different styles when reading other people's writing.
+Ruby wants developers to be happy, so it gives them lots of options — this is a double-edged sword! It means we can be expressive, but it also means we need to be able to parse many different styles when reading other people's writing. As beginners, it can be frustrating; but in the long-run, you'll appreciate it.
