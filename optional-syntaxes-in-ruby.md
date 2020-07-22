@@ -63,17 +63,19 @@ Now it _really_ looks like the method is taking more than three arguments, but i
 **Note that you can _only_ drop the curly braces around a Hash in this one, very specific case** — if the Hash is the _last_ argument to a method. So this:
 
 ```ruby
-my_hash = { :fruit => "banana", :sport => "hockey" }
+# Creating a Hash literal and storing it in a variable:
 
-# Creating a Hash and storing it in a variable
+my_hash = { :fruit => "banana", :sport => "hockey" }
 ```
 
 is **not** the same as this:
 
 ```ruby
+# The below is nonsensical, as far as Ruby is concerned:
+
 my_hash = :fruit => "banana", :sport => "hockey"
 
-# Nonsensical, as far as Ruby is concerned.
+# You can't drop the curly braces around the Hash unless it is the last argument to a method.
 ```
 
 ## New Hash Syntax
@@ -95,16 +97,16 @@ In other words, if the key in a key-value pair in a hash is a `Symbol`, you can 
 Consider the following Hash:
 
 ```ruby
-{ "color" => "pink", "dessert" => "cookies" }
+{ 1 => "pink", 2 => "cookies" }
 ```
 
 Can we do the same trick and write this as:
 
 ```ruby
-{ "color": "pink", "dessert": "cookies" }
+{ 1: "pink", 2: "cookies" }
 ```
 
-No! This new hash syntax is **only useable when the keys are symbols** — not strings or anything else.
+No! The "new" hash syntax is for when the keys are `Symbol`s — then you can swing the `Symbol`'s colon around to the other side of it.
 
 ## Putting it all together
 
@@ -142,7 +144,7 @@ class Holiday < ApplicationRecord
 end
 ```
 
-What's going on here? You just have to unwind each optional syntax one by one to get to something more familiar.
+Holy moly! What's going on here? You just have to unwind each optional syntax one by one to get to something more familiar.
 
 First of all, they have dropped the parentheses around the arguments to the `validates()` method. We can replace them:
 
@@ -250,3 +252,7 @@ numbers.select { |num| num > 3 }.sort
 
 # => [4, 8, 9]
 ```
+
+---
+
+Ruby wants developers to be happy, so it gives them lots of options — this is a double-edged sword! It means we can be expressive, but it also means we need to be able to parse many different styles when reading other people's writing.
