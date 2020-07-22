@@ -43,19 +43,19 @@ Let's first make it so that users can visit _any_ URL of the form `/roll/X/Y` an
 If we set up a route like this (for now let's send it to the existing `two_six` action):
 
 ```ruby
-get("/dice/:zebra/:giraffe", { :controller => "dice", :action => "two_six" })
+get("/roll/:zebra/:giraffe", { :controller => "dice", :action => "two_six" })
 ```
 
 and then try visiting `/roll/42/513` again, the route _does_ match, and you get sent to the old action for two six-sided dice. What happens if you change the route to:
 
 ```ruby
-get("/dice/zebra/giraffe", { :controller => "dice", :action => "two_six" })
+get("/roll/zebra/giraffe", { :controller => "dice", :action => "two_six" })
 ```
 
 (removing the colons before `zebra` and `giraffe`) and visit `/roll/42/513` again? "No route matches." Ok, put the colons back:
 
 ```ruby
-get("/dice/:zebra/:giraffe", { :controller => "dice", :action => "two_six" })
+get("/roll/:zebra/:giraffe", { :controller => "dice", :action => "two_six" })
 ```
 
 So, **by beginning a segment of a path with a colon, we're making it _dynamic_**. Rails will, for the purpose of routing, allow _anything_ there; it's like a wildcard.
@@ -81,7 +81,7 @@ Which ones throw a "no route matches" error and which ones don't? What appears i
 Okay, from here, we `.fetch` the data from the `params` hash, just as we did before when learning about query strings. Let's make up a new action, instead of messing with `two_six`; and let's use more meaningful labels for the dynamic segments than `:zebra` and `:giraffe`:
 
 ```ruby
-get("/dice/:number_of_dice/:how_many_sides", { :controller => "dice", :action => "infinity_and_beyond" })
+get("/roll/:number_of_dice/:how_many_sides", { :controller => "dice", :action => "infinity_and_beyond" })
 ```
 
 Now, when we visit `/roll/42/513`, we get a "missing action" error, as expected. Let's define the `infinity_and_beyond` action and make it say "hi" as usual:
