@@ -42,7 +42,7 @@ p("Hi there")
 p "Hi there"
 ```
 
-## Curly brackets around hash arguments
+## Curly braces around hash arguments
 
 Consider a hypothetical method that accepts a Hash as its last argument:
 
@@ -52,7 +52,7 @@ some_method("first_argument", 2, { :this => "argument", :is => "a Hash" })
 
 How many arguments does the above method have? You might be tempted to say four or even six if you just count, but really it's three: a string is first, an integer is second, and the entire hash (`{ :this => "argument", :is => "a Hash" }`) is the _third_ and final argument.
 
-In the case that a Hash literal is being used as the last argument to a method, you can optionally drop the curly brackets around it:
+In the case that a Hash literal is being used as the last argument to a method, you can optionally drop the curly braces around it:
 
 ```ruby
 some_method("first_argument", 2, :this => "argument", :is => "a Hash")
@@ -60,7 +60,7 @@ some_method("first_argument", 2, :this => "argument", :is => "a Hash")
 
 Now it _really_ looks like the method is taking more than three arguments, but it's not; Ruby can figure out from the hash rockets that the stuff at the end is really just one Hash.
 
-**Note that you can _only_ drop the curly brackets around a Hash in this one, very specific case** — if the Hash is the _last_ argument to a method. So this:
+**Note that you can _only_ drop the curly braces around a Hash in this one, very specific case** — if the Hash is the _last_ argument to a method. So this:
 
 ```ruby
 my_hash = { :fruit => "banana", :sport => "hockey" }
@@ -120,7 +120,7 @@ Since the keys are symbols, we can use the new hash syntax:
 get("/photos", { controller: "photos", action: "index" })
 ```
 
-Since the Hash is the final argument to the `get()` method, we can drop the curly brackets:
+Since the Hash is the final argument to the `get()` method, we can drop the curly braces:
 
 ```ruby
 get("/photos", controller: "photos", action: "index" )
@@ -162,7 +162,7 @@ end
 
 Notice that I didn't (and can't) move the colon in `:name` — it's already at the beginning, and this Symbol is not being used as the key in a Hash. It is simply the first argument to the `validates` method. Similarly, the  Symbol`:year` is the _value_ associated to the key `:scope`, so we leave it alone.
 
-Next: the second and last argument to the `validates()` method is a Hash with two keys (`:uniqueness` and `:presence`), so the Rails Guides dropped the curly brackets around it. We can put them back:
+Next: the second and last argument to the `validates()` method is a Hash with two keys (`:uniqueness` and `:presence`), so the Rails Guides dropped the curly braces around it. We can put them back:
 
 ```ruby
 class Holiday < ApplicationRecord
@@ -192,7 +192,7 @@ Now that we've fully unwound the optional syntaxes, it's easier to see that:
  - The `validates()` method is taking two arguments; the first is a Symbol and the second is a Hash.
  - The value associated with the `:uniqueness` key is itself another, nested, Hash: `{ :scope => :year, :message => "should happen once per year" }`.
  - That Hash has two keys in it: `:scope` and `:message`.
- - We cannot drop the curly brackets around `{ :scope => :year, :message => "should happen once per year" }` because **it is not the last argument to a method** — it is the value associated to the key `:uniqueness` in a parent hash. If we tried to drop them, we'll run into problems:
+ - We cannot drop the curly braces around `{ :scope => :year, :message => "should happen once per year" }` because **it is not the last argument to a method** — it is the value associated to the key `:uniqueness` in a parent hash. If we tried to drop them, we'll run into problems:
  
     ```ruby
     class Holiday < ApplicationRecord
@@ -239,7 +239,7 @@ numbers.select { |num| num > 3 }
 # => [8, 4, 9]
 ```
 
-This can get confusing, because now we're overloading the curly brackets (`{}`) for more than one purpose: Hash literals _and_ blocks. However, it's a very common style so you should get used to figuring out which one it is from the context. If the curly brackets are next to a method and there are no key/value pairs, then it's a block, not a Hash. 
+This can get confusing, because now we're overloading the curly braces (`{}`) for more than one purpose: Hash literals _and_ blocks. However, it's a very common style so you should get used to figuring out which one it is from the context. If the curly braces are next to a method and there are no key/value pairs, then it's a block, not a Hash. 
 
 This style is most often used when chaining more methods:
 
