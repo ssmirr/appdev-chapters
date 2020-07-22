@@ -4,7 +4,7 @@ This chapter is the companion to [the Refactoring Fortune Teller project](https:
 
 ## Part 1: Dice
 
-Our goal is to keep fortune-teller working exactly the same way that it was after we finished debugging the horoscopes Part 2 and building out the dice in Part 3; we're not going to add a thing. But we're going to get rid of 90% of the lines of code within it, while keeping the functionality exactly the same. How? With **dynamic route segments**. Consider this target:
+Our goal is to keep fortune-teller working exactly the same way that it was after we finished debugging the horoscopes in Part 2 and building out the dice in Part 3; we're not going to add a thing. But we're going to get rid of 90% of the lines of code within it, while keeping the functionality exactly the same. How? With **dynamic route segments**. Consider this target:
 
 [https://refactoring-fortune-teller.matchthetarget.com/roll/2/6](https://refactoring-fortune-teller.matchthetarget.com/roll/2/6)
 
