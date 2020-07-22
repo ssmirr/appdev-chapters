@@ -30,16 +30,16 @@ It's important to remember **not to mix these two by putting a space before pare
 "hello".gsub ("l", "z") # bad
 ```
 
-I like to include the parentheses around arguments because it makes it clear what's what, _especially_ when you are chaining multiple methods together. The only time that I drop the parentheses is if I am `puts`ing or `ap`ing:
+I like to include the parentheses around arguments because it makes it clear what's what, _especially_ when you are chaining multiple methods together. The only time that I drop the parentheses is if I am using trivial methods at the beginning of a line, like `p` or `ap`:
 
 ```ruby
 # Rather than
 
-puts("Hi there")
+p("Hi there")
 
 # I will usually do this instead:
 
-puts "Hi there"
+p "Hi there"
 ```
 
 ## Curly brackets around hash arguments
