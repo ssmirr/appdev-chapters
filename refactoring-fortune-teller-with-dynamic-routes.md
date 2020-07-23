@@ -6,11 +6,11 @@ This chapter is the companion to [the Refactoring Fortune Teller project](https:
 
 Our goal is to keep fortune-teller working exactly the same way that it was after we finished debugging the horoscopes in Part 2 and building out the dice in Part 3; we're not going to add a thing. But we're going to get rid of 90% of the lines of code within it, while keeping the functionality exactly the same. How? With **dynamic route segments**. Consider this target:
 
-[https://refactoring-fortune-teller.matchthetarget.com/roll/2/6](https://refactoring-fortune-teller.matchthetarget.com/roll/2/6)
+[https://refactoring-fortune-teller.matchthetarget.com/roll/2/6](https://refactoring-fortune-teller.matchthetarget.com/roll/2/6){:target="_blank"}
 
 Seems like the same thing that we had before, right? Well, try this URL instead:
 
-[https://refactoring-fortune-teller.matchthetarget.com/roll/42/513](https://refactoring-fortune-teller.matchthetarget.com/roll/42/513)
+[https://refactoring-fortune-teller.matchthetarget.com/roll/42/513](https://refactoring-fortune-teller.matchthetarget.com/roll/42/513){:target="_blank"}
 
 That's a lot of 513-sided dice. Try any combination of two numbers you want in the second and third segments of the path. You'll see that they all work!
 
@@ -227,7 +227,7 @@ You can pick whatever controller and action name you like, but when you're done 
 
 ---
 
-How can you be _sure_ that it functions exactly the same as before? Well, in this case, since we had automated tests for Part 2, you can run `rails grade`! Isn't it a nice, safe feeling to be able to run the tests to know that you didn't introduce any [regressions](https://en.wikipedia.org/wiki/Software_regression#:~:text=A%20software%20regression%20is%20a,change%20to%20daylight%20saving%20time)?
+How can you be _sure_ that it functions exactly the same as before? Well, in this case, since we had automated tests for Part 2, you can run `rails grade`! Isn't it a nice, safe feeling to be able to run the tests to know that you didn't introduce any [regressions](https://en.wikipedia.org/wiki/Software_regression#:~:text=A%20software%20regression%20is%20a,change%20to%20daylight%20saving%20time){:target="_blank"}?
 
 ## Refactoring
 
@@ -235,11 +235,11 @@ What we just did is called **refactoring**:
 
 > In computer programming and software design, **code refactoring** is the process of restructuring existing computer code—changing the factoring—without changing its external behavior. Refactoring is intended to improve the design, structure, and/or implementation of the software (its _non-functional_ attributes), while preserving its functionality. Potential advantages of refactoring may include improved code readability and reduced complexity; these can improve the source code's maintainability and create a simpler, cleaner, or more expressive internal architecture or object model to improve extensibility.
 >
-> Wikipedia, "[Code refactoring](https://en.wikipedia.org/wiki/Code_refactoring)" 
+> Wikipedia, "[Code refactoring](https://en.wikipedia.org/wiki/Code_refactoring){:target="_blank"}" 
 
 Refactoring is a crucial part of the software development process. First, we write messy, clunky, repetitive, but easy to understand and most importantly _functional_ code; then, only after having wrapped our heads around the problem by _solving_ it, we sit back and take a moment to think about whether there might be a more readable or less complex or more performant solution.
 
-However, once we have a working solution, it's often very tempting to just leave it alone; why mess with a good thing and risk introducing bugs? Especially if you're dealing with a large, old, complicated system that you didn't build entirely yourself; it can be irresponsible to refactor willy nilly if you don't fully understand what you're changing (see [Chesterton's fence](https://en.wikipedia.org/wiki/Wikipedia:Chesterton%27s_fence)).
+However, once we have a working solution, it's often very tempting to just leave it alone; why mess with a good thing and risk introducing bugs? Especially if you're dealing with a large, old, complicated system that you didn't build entirely yourself; it can be irresponsible to refactor willy nilly if you don't fully understand what you're changing (see [Chesterton's fence](https://en.wikipedia.org/wiki/Wikipedia:Chesterton%27s_fence){:target="_blank"}).
 
 And yet, we do need to make changes to our codebase over time; even if we're satisfied to never refactor, we at some point _have_ to add new features or make security patches. How do we make sure we don't inadvertently break anything or introduce bugs? No matter how good our quality assurance team is, it's not realistic to expect them to manually examine every user path through the app and verify that it still works, with every combination of possible inputs, every single time any developer makes any change.
 
