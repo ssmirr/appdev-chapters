@@ -246,3 +246,7 @@ And yet, we do need to make changes to our codebase over time; even if we're sat
 The answer: **automated tests**. This is why developers invest so much time and effort in writing automated test suites (this is what you've been running every time you do a `rails grade`). Automated tests are nothing more than a separate Ruby script that, essentially, web scrapes our own app, clicks every link, fills out every form, with every possible combination of inputs, and makes sure that the app is doing the right thing under all scenarios. As you might imagine, this self-web-scraping script takes a long time to write; often, longer than a feature itself.
 
 But, if you plan to maintain a codebase over the long term (not always true for e.g. a throwaway prototype), it is well worth the investment.
+
+---
+
+Optional extra challenge: Can you refactor RPS RCAV to use only one action instead of three for the URLs `/rock`, `/paper`, and `/scissors`?
