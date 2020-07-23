@@ -229,7 +229,7 @@ You can pick whatever controller and action name you like, but when you're done 
 
 How can you be _sure_ that it functions exactly the same as before? Well, in this case, since we had automated tests for Part 2, you can run `rails grade`! Isn't it a nice, safe feeling to be able to run the tests to know that you didn't introduce any [regressions](https://en.wikipedia.org/wiki/Software_regression#:~:text=A%20software%20regression%20is%20a,change%20to%20daylight%20saving%20time)?
 
----
+## Refactoring
 
 What we just did is called **refactoring**:
 
@@ -247,6 +247,6 @@ The answer: **automated tests**. This is why developers invest so much time and 
 
 But, if you plan to maintain a codebase over the long term (not always true for e.g. a throwaway prototype), it is well worth the investment.
 
----
+## Optional extra challenge
 
-Optional extra challenge: Can you refactor RPS RCAV to use only one action instead of three for the URLs `/rock`, `/paper`, and `/scissors`?
+Can you refactor RPS RCAV to use only one action instead of three for the URLs `/rock`, `/paper`, and `/scissors`?
