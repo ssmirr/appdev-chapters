@@ -163,7 +163,7 @@ And, voilà, it should work — and it should work for any combination of dice 
 
 Gleefully, delete all the old routes, actions, and view templates — we love deleting code. That's less costly code to maintain.
 
-But wait! Are you _sure_ you didn't forget and break some old functionality that we had before? How can we be _sure_?
+But wait! Are you sure you didn't forget and break some old functionality that we had before? How can we be _sure_?
 
 A question to ponder.
 
@@ -191,7 +191,7 @@ Imagine you had a hash of hashes that had all of the signs and horoscopes within
 # etc
 ```
 
-Fortunately, you do. I have created a class called `Zodiac`, and I defined a class-level method called `list` which returns that exact hash above[^could_you].
+Fortunately, you do. I've created a class called `Zodiac`, and I gave it class-level method called `list` which returns that exact hash above[^could_you].
 
 [^could_you]: Can you define a class and a class-level method like this? You ought to be able to, with what you've learned about [Our own classes](https://chapters.firstdraft.com/chapters/769) and [Hashes](https://chapters.firstdraft.com/chapters/767).
 
@@ -220,7 +220,7 @@ We'll talk a lot more about models in the coming weeks, but for now you can just
 Now, your task is: with what you've learned about dynamic route segments, and with the ability to look up a horoscope given a sign, can you replace all 12 of the R→C→A→Vs for zodiacs with just one R→C→A→V?
 
 ```ruby
-get("/zodiacs/:sign", { :controller => "fortunes", :action => "horoscopes" })
+get("/zodiacs/:the_sign", { :controller => "fortunes", :action => "horoscopes" })
 ```
 
 You can pick whatever controller and action name you like, but when you're done the application should function exactly the same as before.
@@ -237,7 +237,7 @@ What we just did is called **refactoring**:
 >
 > Wikipedia, "[Code refactoring](https://en.wikipedia.org/wiki/Code_refactoring)" 
 
-Refactoring is a crucial part of the software development process. First, we write messy, clunky, repetitive, but easy to understand and most importantly _functional_ code; then, only after having wrapped our heads around the problem by _solving_ it, we sit back and take a moment to think about whether there might be a more readable or less complex solution.
+Refactoring is a crucial part of the software development process. First, we write messy, clunky, repetitive, but easy to understand and most importantly _functional_ code; then, only after having wrapped our heads around the problem by _solving_ it, we sit back and take a moment to think about whether there might be a more readable or less complex or more performant solution.
 
 However, once we have a working solution, it's often very tempting to just leave it alone; why mess with a good thing and risk introducing bugs? Especially if you're dealing with a large, old, complicated system that you didn't build entirely yourself; it can be irresponsible to refactor willy nilly if you don't fully understand what you're changing (see [Chesterton's fence](https://en.wikipedia.org/wiki/Wikipedia:Chesterton%27s_fence)).
 
