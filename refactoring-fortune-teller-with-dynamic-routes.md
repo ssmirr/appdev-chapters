@@ -205,8 +205,8 @@ With:
 
 ```ruby
 all_zodiacs = Zodiac.list
-this_zodiac = all_zodiacs.fetch("aries")
-@horoscope = this_zodiac.fetch("horoscope")
+this_zodiac = all_zodiacs.fetch(:aries)
+@horoscope = this_zodiac.fetch(:horoscope)
 ```
 
 Verify that your `/zodiacs/aries` action still works just like before. If you're curious, the `Zodiac` class is in the `app/models` folder — go have a look at it. When we want to define a new Ruby class within a Rails app, we create a file for it `app/models` folder. The filename is important — it should exactly match the class name (just like when we create controller classes).
