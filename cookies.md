@@ -15,13 +15,13 @@ As of now, with the HTML, Ruby, R→C→A→V, & `params` that we've learned, we
 
 With the addition of cookies, our new target will be this:
 
-[https://omnicalc-2-cookies.matchthetarget.com/](https://omnicalc-2-cookies.matchthetarget.com/){:target="_blank"}
+[https:/form-intro-cookies.matchthetarget.com/](https:/form-intro-cookies.matchthetarget.com/){:target="_blank"}
 
 Note that the calculators now remember the results of previous calculations. Handy! Let's learn how to achieve this.
 
 ## Cookies are placed in the visitor's browser
 
-While looking at the [target](https://omnicalc-2-cookies.matchthetarget.com/){:target="_blank"} in Chrome, open your Developer Tools. Click the "Application" tab, then click "<i class="fas fa-cookie-bite"></i> Cookies" in the left sidebar, and then find `https://omnicalc-2-cookies.matchthetarget.com` in the list of domains.
+While looking at the [target](https:/form-intro-cookies.matchthetarget.com/){:target="_blank"} in Chrome, open your Developer Tools. Click the "Application" tab, then click "<i class="fas fa-cookie-bite"></i> Cookies" in the left sidebar, and then find `https:/form-intro-cookies.matchthetarget.com` in the list of domains.
 
 You're looking at your cookie jar!
 
@@ -29,7 +29,7 @@ Here's the deal: each domain that you visit is allowed to store a list of key/va
 
 Try filling out a few of the calculator forms in the target, and watch what happens in your cookie jar. You can see that the values you enter are being saved as cookies. You can delete an individual cookie by clicking on it and pressing <kbd>delete</kbd>, or you can clear all of the cookies for the domain by clicking the <i class="fas fa-ban"></i> icon at the top of the list. If you do so, the app "forgets" your calculations.
 
-Try a few more calculations, [open a new tab](https://omnicalc-2-cookies.matchthetarget.com/){:target="_blank"}, and check the cookie jar there. Your cookies are all still stored, even in the new tab! You could come back tomorrow and the results of your calculations today would be waiting for you.
+Try a few more calculations, [open a new tab](https:/form-intro-cookies.matchthetarget.com/){:target="_blank"}, and check the cookie jar there. Your cookies are all still stored, even in the new tab! You could come back tomorrow and the results of your calculations today would be waiting for you.
 
 Now, one last thing: try visiting the target in a different browser, or from a different device. Your old calculations will not be there. Cookies are browser-specific; not computer-specific, network-specific, or person-specific.
 
@@ -43,15 +43,77 @@ So we get to treat `cookies` like it's a permanent, user-specific `Hash` that pe
 
 Okay, enough theory; let's practice!
 
-## /add
+## Storing cookies
 
-In the 
+### Study the existing code
 
+First, study the code for the two R→C→A→Vs that are collaborating to let visitors add two numbers together.
 
-the target is storing information on the visitor's own computer, within the cookie jar in their browser, in a `Hash`.
+ - What URL is responsible for the addition form?
+ - Visit the form and see!
+ - Use the server log while visiting pages help identify which URLs/controllers/actions are being used.
+ - Note the `params` that are coming in with each request.
+ - Read the routes, actions, and view templates _in sequence_.
+ - Do you understand every bit of code that is involved? Every route? Every instance variable? Every attribute in every form?
 
-Here's the key thing: when the visitor comes back the next day, **they send the cookies back with their request**.
+If not, ask questions!
 
-You may have heard of browser cookies (or HTTP cookies) in the past; they've been in the news recently. 
+Now that we're familiar with the code, if wanted to store the result of each calculation in the `cookies` hash _before_ showing the results, which line of code in which file should we do that on?
 
- they've gained a rather nefarious reputation these days, since they're used for everything from ad targeting to 
+Good — now we just have to store the value in the `cookies` `Hash`!
+
+### Refresh your Hash skills
+
+We've been taking things _out_ of `Hash`es an awful lot, between APIs and `params`, but it's been a minute since we've put things _in_ to a `Hash`. Here's a quick refresher: the method to add key/value pairs to a `Hash` is `Hash#store`. Unlike `Hash#fetch` and `Array#push`, `Hash#store` requires _two_ arguments — the value that you want to add, as well the key to associate the value to:
+
+```ruby
+h = Hash.new
+
+h.store(:color, "pink")
+h.fetch(:color) # => "pink"
+```
+
+For more of a refresher, you might want to refresh your memory by [playing around with the REPLs in the Hash Chapter](https://chapters.firstdraft.com/chapters/767#creating-hashes){:target="_blank"}.
+
+### The cookies hash
+
+Fortunately, we don't have to deal directly with browser cookies ourselves, much like we didn't have to deal directly with query strings or dynamic path segments ourselves. Rails handles parsing all of the pieces of the HTTP request for us, thank goodness, and gives us lovely, easy to use Ruby objects like `params`.
+
+Similarly, Rails provides a `Hash` called `cookies`, available in all controller actions and view templates; and we just get to use it. Unlike the `params` `Hash`, which we only get to `fetch` from, we can both `store` values in `cookies` and `fetch` them back out later. Go ahead, give it a try:
+
+```
+cookies.store(:most_recent_addition, @result)
+```
+
+Open your Developer Tools, find your app's Gitpod domain in the cookie jar, and then submit your addition form. Voila! Your first cookie!
+
+## Retrieving cookies
+
+Now, can you display the most recent addition result on the page that shows the form to add two numbers? Give it a try.
+
+## Rinse and repeat
+
+Tasks:
+
+ - Display the most recent subtraction result on /muggle_subtract.
+ - Display the most recent subtraction result on /muggle_multiply.
+ - Display the most recent subtraction result on /muggle_divide.
+ - Display the most recent subtraction result on /muggle_translate.
+ 
+## Recent activity
+
+ - Display the five most recent addition results on /wizard_add.
+ - Display the five most recent addition results on /wizard_subtract.
+ - Display the five most recent addition results on /wizard_multiply.
+ - Display the five most recent addition results on /wizard_divide.
+ - Display the entire history of the user's translations on /wizard_translate.
+   - Since we pay Google for each API call, it makes sense to show visitors their submissions; maybe it will save us some repeat translations.
+
+## Conclusion
+
+There are a few more nuances to browser cookies that we could go into — setting expiration dates for specific cookies, encrypting them so that they aren't so easily visible in the Developer Tools, making them tamper-proof — but basically you've got the gist of it. It's a small `Hash` that we get to add key/value pairs to, and the user's browser will send it back to us with every subsequent request; it's like a set of permanent `params` for that user.
+
+One consequence of being able to store information in individual user's browsers is that we can store _unique_ values there, which allows us to distinguish visitors from one another. This unlocks a whole world of possibilities — everything from A/B testing to analytics to ad targeting. Depending on your perspective, browser cookies are responsible for vastly improving the web experience or chilling privacy invasions.
+
+As far as we're concerned, there's one key thing that cookies enable that we can't live without: sign-in and sign-out. Once we have user stored in our database table, we can store a cookie in their browser with their ID number. After that, whenever they visit our app, the very first thing we'll do is `cookies.fetch(:user_id)`, and based on that number, we'll personalize the entire experience for them.
+
