@@ -4,16 +4,16 @@ We've come a long way:
 
  - We learned HTML, and put static pages in the `public/` folder for visitors to browse.
  - We learned Ruby!
- - We learned how to generate dynamic responses on the fly when a _URL_ is visited.
- - We learned how to react to user input using the _params_ hash.
+ - We learned how to generate dynamic responses on the fly when a URL is visited.
+ - We learned how to react to user input using the params hash.
 
 We're able to build some pretty useful applications! For example, [our translation service](https://form-intro.matchthetarget.com/){:target="_blank"} using Google's Translate API and Twilio's SMS API is pretty amazing.
 
-Now let's learn about a third part of the HTTP request besides the _URL_ and the _params_: **cookies**. This is going to be the first tool in our kits that will allow us to _persist information between requests_.
+Now let's learn about a third part of the HTTP request besides the URL and the params: **cookies**. This is going to be the first tool in our kits that will allow us to _persist information between requests_.
 
-As of now, with the HTML, Ruby, R→C→A→V, & `params` that we've learned, we don't have any way to _store_ information. After we send the "V" in R→C→A→V, we forget everything.
+As of now, with the HTML, Ruby, R→C→A→V, and `params` that we've learned, we don't have any way to _store_ information. After we send our users the "V" in R→C→A→V, we forget everything — all our instance variables, everything goes poof at the end of each action.
 
-With the addition of cookies, our new target will be this:
+However! With the addition of cookies, our first storage mechanism, we'll be able to upgrade our little calculator to this, our new target:
 
 [https:/form-intro-cookies.matchthetarget.com/](https:/form-intro-cookies.matchthetarget.com/){:target="_blank"}
 
