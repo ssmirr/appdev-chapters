@@ -96,9 +96,9 @@ Now, can you display the most recent addition result on the page that shows the 
 Tasks:
 
  - Display the most recent subtraction result on /muggle_subtract.
- - Display the most recent subtraction result on /muggle_multiply.
- - Display the most recent subtraction result on /muggle_divide.
- - Display the most recent subtraction result on /muggle_translate.
+ - Display the most recent multiplication result on /muggle_multiply.
+ - Display the most recent division result on /muggle_divide.
+ - Display the most recent translation result on /muggle_translate.
 
 ## Conclusion
 
