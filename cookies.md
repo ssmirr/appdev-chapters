@@ -15,13 +15,13 @@ As of now, with the HTML, Ruby, R→C→A→V, and `params` that we've learned, 
 
 However! With the addition of cookies, our first storage mechanism, we'll be able to upgrade our little calculator to this, our new target:
 
-[https:/cookies-intro.matchthetarget.com/](https:/cookies-intro.matchthetarget.com/){:target="_blank"}
+[https://cookies-intro.matchthetarget.com/](https://cookies-intro.matchthetarget.com/){:target="_blank"}
 
 Note that the calculators now remember the results of previous calculations. Handy! Let's learn how to achieve this.
 
 ## Cookies are placed in the visitor's browser
 
-While looking at the [target](https:/cookies-intro.matchthetarget.com/){:target="_blank"} in Chrome, open your Developer Tools. Click the "Application" tab, then click "<i class="fas fa-cookie-bite"></i> Cookies" in the left sidebar, and then find `https:/cookies-intro.matchthetarget.com` in the list of domains.
+While looking at the [target](https://cookies-intro.matchthetarget.com/){:target="_blank"} in Chrome, open your Developer Tools. Click the "Application" tab, then click "<i class="fas fa-cookie-bite"></i> Cookies" in the left sidebar, and then find `https://cookies-intro.matchthetarget.com` in the list of domains.
 
 You're looking at your cookie jar!
 
@@ -29,7 +29,7 @@ Here's the deal: each domain that you visit is allowed to store a list of key/va
 
 Try filling out a few of the calculator forms in the target, and watch what happens in your cookie jar. You can see that the values you enter are being saved as cookies. You can delete an individual cookie by clicking on it and pressing <kbd>delete</kbd>, or you can clear all of the cookies for the domain by clicking the <i class="fas fa-ban"></i> icon at the top of the list. If you do so, the app "forgets" your calculations.
 
-Try a few more calculations, [open a new tab](https:/cookies-intro.matchthetarget.com/){:target="_blank"}, and check the cookie jar there. Your cookies are all still stored, even in the new tab! You could come back tomorrow and the results of your calculations today would be waiting for you.
+Try a few more calculations, [open a new tab](https://cookies-intro.matchthetarget.com/){:target="_blank"}, and check the cookie jar there. Your cookies are all still stored, even in the new tab! You could come back tomorrow and the results of your calculations today would be waiting for you.
 
 Now, one last thing: try visiting the target in a different browser, or from a different device. Your old calculations will not be there. Cookies are browser-specific; not computer-specific, network-specific, or person-specific.
 
