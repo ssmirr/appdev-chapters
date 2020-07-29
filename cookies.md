@@ -33,7 +33,7 @@ Try a few more calculations, [open a new tab](https://cookies-intro.matchthetarg
 
 Now, one last thing: try visiting the target in a different browser, or from a different device. Your old calculations will not be there. Cookies are browser-specific; not computer-specific, network-specific, or person-specific.
 
-## Cookies are sent back to the server with _every subsequent request_
+## Cookies are sent back to the server with every subsequent request
 
 So, when you click submit on any of the forms, you can see that the target, in addition to doing the calculation, also stores a cookie in your browser. We'll practice how to do this shortly — it's not really anything new; we [add a key/value pair](https://chapters.firstdraft.com/chapters/767#creating-hashes){:target="_blank"} to a `Hash` that Rails provides called `cookies`.
 
