@@ -95,16 +95,18 @@ Now, can you display the most recent addition result on the page that shows the 
 
 Tasks:
 
- - Display the most recent subtraction result on /muggle_subtract.
- - Display the most recent multiplication result on /muggle_multiply.
- - Display the most recent division result on /muggle_divide.
- - Display the most recent translation result on /muggle_translate.
+ - Display the most recent subtraction result on `/muggle_subtract`.
+ - Display the most recent multiplication result on `/muggle_multiply`.
+ - Display the most recent division result on `/muggle_divide`.
+ - Display the most recent translation result on `/muggle_translate`.
 
 ## Conclusion
 
-There are a few more nuances to browser cookies that we could go into — setting expiration dates for specific cookies, encrypting them so that they aren't so easily visible in the Developer Tools, making them tamper-proof — but basically you've got the gist of it. It's a small `Hash` that we get to add key/value pairs to, and the user's browser will send it back to us with every subsequent request; it's like a set of permanent `params` for that user.
+There are a few more nuances to browser cookies that we could go into — setting expiration dates for specific cookies, encrypting them so that they aren't so easily visible in the Developer Tools, making them tamper-proof — but, basically, you've got the gist of it. It's a small `Hash` that we get to add key/value pairs to, and the user's browser will send it back to us with every subsequent request. Cookies are like a set of permanent `params` for a user.
 
 One consequence of being able to store information in individual user's browsers is that we can store _unique_ values there, which allows us to distinguish visitors from one another. This unlocks a whole world of possibilities — everything from A/B testing to analytics to ad targeting. Depending on your perspective, browser cookies are responsible for vastly improving the web experience or chilling privacy invasions.
 
-As far as we're concerned, there's one key thing that cookies enable that we can't live without: sign-in and sign-out. Once we have user stored in our database table, we can store a cookie in their browser with their ID number. After that, whenever they visit our app, the very first thing we'll do is `cookies.fetch(:user_id)`, and based on that number, we'll personalize the entire experience for them.
+As far as we're concerned, there's one key thing that cookies enable that we can't live without: sign-in and sign-out. Once we have a user's record saved in our database table, and they come back later some day and sign in, we can plop a cookie in their browser with their ID number in it.
+
+After that, whenever they visit our app, the very first thing we'll do is `cookies.fetch(:user_id)`, and based on that number, we'll personalize the entire experience for them based; most likely, that value is the foreign key that will allow us to look up all of the other info that they are related to.
 
