@@ -17,7 +17,7 @@ However! With the addition of cookies, our first storage mechanism, we'll be abl
 
 [https://cookies-intro.matchthetarget.com/](https://cookies-intro.matchthetarget.com/){:target="_blank"}
 
-Note that the calculators now remember the results of previous calculations. Handy! Let's learn how to achieve this.
+As you fill out the forms and browse around, then come back to a form you filled out previously, note that the calculators now remember the results of previous calculations. Handy! Let's learn how to achieve this.
 
 ## Cookies are placed in the visitor's browser
 
