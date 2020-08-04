@@ -84,13 +84,13 @@ Or, if we're okay with chaining a couple of methods on the same line, we could e
 
 Ahhhhh! Wouldn't that be nice? Having a method at our fingertips called `.director` that we can call on any instance of `Movie` whenever we want to, and it would know how to perform the database query to find the associated record and return an instance of `Director` to us? It'd be like an _association_ accessor, the way we have convenient _attribute_ accessors for our column values.
 
-Unfortunately, if you try `<%= @the_movie.director %>` in `app/views/movie_templates/show.html.erb` right now, you'll get a big red `"undefined method 'director' for #<Movie:0x00007faadebb9e88>"` error. If we want handy "association accessors" like that, we'll have to roll up our sleeves and invent them ourselves!
+Unfortunately, if you embed `<%= @the_movie.director %>` in `app/views/movie_templates/show.html.erb` right now and visit the details page of a director, you'll get a big ol' `"undefined method 'director' for #<Movie:0x00007faadebb9e88>"` error. If we want handy "association accessors" like that, we'll have to roll up our sleeves and invent them ourselves!
 
 ## Instance method review
 
 ### Naming the method
 
-If you feel very confident about [defining instance methods](https://chapters.firstdraft.com/chapters/769#defining-instance-methods){:target="_blank"}, then you can skip forward to .... Otherwise, read on.
+If you feel very confident about [defining instance methods](https://chapters.firstdraft.com/chapters/769#defining-instance-methods){:target="_blank"}, then you can skip forward to the [Defining "association accessors"](#defining-association-accessors) section. Otherwise, read on.
 
 Recall that, in Ruby, we use the `def` keyword within the `class` definition to add new methods to a class. Here, we're adding the `say_hi` instance method within the definition of the `Person` class:
 
@@ -238,9 +238,9 @@ So, when we're authoring the `.full_name` method, we need some way to refer to w
 
 You can think of `self` as a special variable that holds whatever object is at the forefront of Ruby's mind when it is evaluating a program. Whatever line of code it is reading, whatever object is it working on at the moment, that is what `self` contains.
 
-For our purposes, here's what matters right now: when we're defining instance methods, when writing code _within_ the instance method definition, `self` represents the instance that the method will be called upon in the future.
+For our purposes, here's what matters right now: when we're defining instance methods, when writing code _within_ the instance method definition, `self` represents the instance of the class that the method will be called upon in the future. Formally, this object is known as the **receiver** of the the **message** that is the method invocation.
 
-That's great, because since we almost always need to use other, pre-existing instance methods while defining new instance methods, we need a way to refer to the object in question so that we can call those other methods on it.
+That's great, because since we almost always need to use other, pre-existing instance methods while defining new instance methods, we need a way to _refer_ to the receiver so that we can call those other methods on it. `self` is that way.
 
 So, `self` is what will allow us to use the pre-existing `.first_name` and `.last_name` attribute accessor methods to build up our handy `.full_name` method:
 
@@ -288,7 +288,7 @@ end
 
 ## Defining "association accessors"
 
-Okay, now that we've brushed up on how to define instance methods, let's do something practical with it.
+Let's put our instance method skills into practice by defining "association accessors". Given how important one-to-many and many-to-many associations are to our applications, giving ourselves shortcuts to traverse them easily will be an investment that pays for itself many times over.
 
 ### The goal
 
@@ -316,9 +316,9 @@ Or, if we're okay with chaining a couple of methods on the same line, we could e
 <%= @the_movie.director.name %>
 ```
 
-If you try `<%= @the_movie.director %>` in `app/views/movie_templates/show.html.erb` right now, you'll get a big red `"undefined method 'director' for #<Movie:0x00007faadebb9e88>"` error. Let's define the instance method and make it work.
+If you embed `<%= @the_movie.director %>` in `app/views/movie_templates/show.html.erb` right now and visit the details page of a director, you'll get a big ol' `"undefined method 'director' for #<Movie:0x00007faadebb9e88>"` error. Let's define the instance method and make it work.
 
-### Find the class definition
+### Define the method
 
 All of our model class definitions are located in the `app/models` folder. Find `movie.rb` and define a method called `director`:
 
@@ -330,6 +330,123 @@ class Movie < ApplicationRecord
   end
 end
 ```
+
+Now, visit the details page of a movie again. Progress — the error message went away!
+
+Please note that we could have called the method something else, if we wanted to. `.the_director`? `.el_capitan`? `.zebra`? Sure, if you want; go for it. Your team will hate you, though. Be descriptive.
+
+Since it is returning an instance of the `Director` class, `.director` is a good name; just like `.director_id` was a good name for the column/method that returned an `Integer`. Perhaps `.director_instance` or `.director_row` or `.director_record` might be more descriptive? 
+
+In most projects, the choice of what you call your methods, view templates, and anything else internal to your codebase (and not user-facing) is entirely up to you. Since this is a refactoring project, though, and the point of it is to change internal implementation while holding user-facing functionality constant, `rails grade` will be checking to see that you defined a new method called `.director`; so name it that.
+
+### Make it return the right thing
+
+Instead of just returning the string `"Hello!"`, let's make the method do it's job: look up the row in the directors table corresponding to the receiving movie's `director_id`, and return an instance of `Director`.
+
+Let's do it step-by-step, and look at the value of `<%= @the_movie.director %>` in the details page of a movie at each step along the way:
+
+#### Step 1: Integer
+
+Step 1 is to return the the receiving movie's `director_id`:
+
+```ruby
+class Movie < ApplicationRecord
+  def director
+    my_director_id = self.director_id
+
+    return my_director_id
+  end
+end
+```
+
+Check out the return value of `<%= @the_movie.director %>` in the details page of a movie. Hopefully you should see an `Integer`, like `42`.
+
+You might see nothing at all, if the `director_id` column was never populated; the value might still be `nil`. You could try `<%= @the_movie.director.inspect %>`, and then you'll get more useful information for debugging; `nil` will show up as "nil" instead of just nothing. (If it wasn't that, then you forgot the `=` in `<%=`.)
+
+Make sure you've got a value in the `director_id` column before moving on.
+
+#### Step 2: ActiveRecord::Relation
+
+Step 2 is to return an `ActiveRecord::Relation` containing records from the directors table that have the receiving movie's `director_id` in the director table's `id` column:
+
+```ruby
+class Movie < ApplicationRecord
+  def director
+    my_director_id = self.director_id
+
+    matching_directors = Director.where({ :id => my_director_id })
+    
+    return matching_directors
+  end
+end
+```
+
+Now check out the return value of `<%= @the_movie.director %>` in the details page of a movie. Hopefully you should see an `ActiveRecord::Relation` containing 1 record.
+
+You might see an `ActiveRecord::Relation` containing 0 records. This could be because the director of the movie has been deleted, so the value in the movie's `director_id` column no longer corresponds to any record in the directors table. Or, it could be that when the movie was created, the value that was assigned to it's `director_id` attribute was never a valid ID for any director.
+
+For whatever reason, this movie now has an invalid `director_id` and is an orphan. You could either 1) use `rails console` or visit `/rails/db` to fix the problem by updating this movie's director_id attribute to a valid director's ID, or 2) you could visit a different movie details page to test with.
+
+Make sure you've got a non-empty `ActiveRecord::Relation` before moving on.
+
+#### Step 3: Director
+
+Step 3 is to return the `Director` itself!
+
+```ruby
+class Movie < ApplicationRecord
+  def director
+    my_director_id = self.director_id
+
+    matching_directors = Director.where({ :id => my_director_id })
+    
+    the_director = matching_directors.at(0)
+
+    return the_director
+  end
+end
+```
+
+Now check out the return value of `<%= @the_movie.director %>` in the details page of a movie. Hopefully, you should see something like `#<Director:0x00007faa7c13fb68>`, which means you've successfully returned an instance of `Director` representing a row in the table. You could add a `.inspect` for more details about the object:
+
+```erb
+<%= @the_movie.director.inspect %>
+```
+
+And then you would see all of the attributes about the record:
+
+```
+#<Director id: 1, name: "Frank Darabont", dob: "1959-01-28", bio: "Three-time Oscar nominee Frank Darabont was born i...", image: "http://ia.media-imdb.com/images/M/MV5BNjk0MTkxNzQw...", created_at: "2015-08-12 17:20:05", updated_at: "2015-08-12 17:20:05">
+```
+
+Awesome! We have successfully reduced this:
+
+```erb
+<% matching_directors = Director.where({ :id => @the_movie.director_id }) %>
+    
+<% the_director = matching_directors.at(0) %>
+```
+
+To this:
+
+```erb
+<%= @the_movie.director %>
+```
+
+#### Step 4: Choose which attribute(s) to use
+
+Now it becomes a joy instead of a chore for us to embed various attributes about the associated record wherever we want within the template. For example, we could do something like:
+
+```erb
+<%= @the_movie.director.name %>, born <%= @the_movie.director.dob.year %>, ...
+```
+
+To produce something like:
+
+```
+Frank Darabont, (born 1959), ...
+```
+
 
 ## Conclusion
 
