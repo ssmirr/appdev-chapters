@@ -1,10 +1,12 @@
 # Refactoring Fortune Teller with Dynamic Routes
 
-This chapter is the companion to [the Refactoring Fortune Teller project](https://github.com/appdev-projects/refactoring-fortune-teller), which is the sequel to the [the Fortune Teller project](https://github.com/appdev-projects/fortune-teller).
+This chapter is the companion to [the refactoring-fortune-teller project](https://github.com/appdev-projects/refactoring-fortune-teller), which is the sequel to the [the fortune-teller project](https://github.com/appdev-projects/fortune-teller).
 
 ## Part 1: Dice
 
-Our goal is to keep fortune-teller working exactly the same way that it was after we finished debugging the horoscopes in Part 2 and building out the dice in Part 3; we're not going to add a thing. But we're going to get rid of 90% of the lines of code within it, while keeping the functionality exactly the same. How? With **dynamic route segments**. Consider this target:
+Our starting point for refactoring-fortune-teller is the target for fortune-teller. So, in the code you're starting with for this project, the horoscopes in Part 2 have already been debugged, and the dice in Part 3 have already been built out.
+
+In refactoring-fortune-teller, our goal is to keep everything working exactly the same way that it is; we're not going to much. But we're going to get rid of 90% of the lines of code, while keeping the functionality the same. How? With **dynamic route segments**. Consider this target:
 
 [https://refactoring-fortune-teller.matchthetarget.com/roll/2/6](https://refactoring-fortune-teller.matchthetarget.com/roll/2/6){:target="_blank"}
 
