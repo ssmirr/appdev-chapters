@@ -99,7 +99,11 @@ Or, if we're okay with chaining a couple of methods on the same line, we could e
 <%= @the_movie.director.name %>
 ```
 
-Ahhhhh! Wouldn't that be nice? Unfortunately, if you try it right now, you'll get a big red "Undefined method `director` for `Movie`" error. If we want a handy method like that, we'll have to roll up our sleeves and define it.
+Ahhhhh! Wouldn't that be nice? Having a method at our fingertips called `.director` that we can call on any instance of `Movie` whenever we want to, and it would know how to perform the database query to find the associated record and return an instance of `Director` to us so we can get on with our interface work?
+
+Unfortunately, if you try it right now, you'll get a big red "Undefined method `director` for `Movie`" error. If we want a handy method like that, we'll have to roll up our sleeves and define it.
+
+## Instance method review
 
 
 
