@@ -12,22 +12,22 @@ Our starting point code for this project, refactoring-msm-1, is one solution for
 
 So, this might be a good time for you to do two things:
 
- - Read through the starting point code and compare it to your own solution to msm-queries. `rails sample_data` and `bin/server` so that you can read the server log as you click through the application, if necessary.
+ - Read through the starting point code and compare it to your own solution to msm-queries. `rails sample_data` and `bin/server` so that you can click through the application, verify that it's working, and read the server log.
   
     Are there any differences between the starter code and your own solution to msm-queries? You will most likely find at least one or two. What are they doing? Practice _reading_ the code and reasoning your way through it, line by line; explain it to yourself, or to your rubber ducky. Developers read far more code than we write.
     
-    Do any of the differences puzzle you?
+    Does any part of the code puzzle you?
  - A quick review of the section on how we [define methods](https://chapters.firstdraft.com/chapters/769#defining-instance-methods){:target="_blank"}.
 
 Go ahead, I'll wait!
 
 ## The Issue
 
-Right now, there are several places in our application where we have a movie and we want to display something about the director of the movie. For example, on the movie details page, we have an instance of `Movie` in a variable called `@the_movie`; so, first, we use the value in the attribute `@the_movie.director_id` to look up a matching record in the directors table:
+Right now, there are several places in our application where we have a movie and we want to display something about the director of the movie.
+
+For example, in `app/views/movie_templates/show.html.erb`, we have an instance of `Movie` in a variable called `@the_movie`, and we want to display the name of the director. So, first, we use the value in the attribute `@the_movie.director_id` to look up a matching record in the directors table:
 
 ```erb
-<!-- app/views/movie_templates/show.html.erb -->
-
 <% matching_directors = Director.where({ :id => @the_movie.director_id }) %>
     
 <% the_director = matching_directors.at(0) %>
@@ -41,9 +41,11 @@ Then, finally, we can get the value in the `name` or `dob` or `bio` or whatever 
 
 This same basic logic — given a movie, use its `director_id` attribute to look up a row in the directors table — is repeated in several places: the movies index page, an actor's filmography, etc. If we were to continue building this application out more, no doubt we would be doing this task many more times; nearly everywhere a movie appears, along with information about the movie itself (like `title`, `year`, etc), we will want to display information about the associated director (like `name`, etc).
 
-Let's make life easier on our future selves and on all of our future teammates: **let's define a nicely named instance method** that we can call on any instance of `Movie` whenever we want to. The method will encapsulate the work we've been doing repetetively over and over until now: it will talk to the `Director` class, retrieve the record from the directors table corresponding to the movie's `director_id`, and return an instance of `Director` to us. Then we can use `Director` attribute accessors to get whichever column values we are interested in about the director.
+Let's make life easier on our future selves and on all our future teammates: **let's define a nicely named instance method** that will do this work and that we can call on any instance of `Movie` whenever we want to.
 
-Since we named the column in the movies table that we stored the ID number of the director in `director_id`, we automatically got an attribute accessor method called `.director_id` from ActiveRecord which returns that `Integer`. What shall we call our new method that we will define, which will _use_ the `Integer` returned by `.director_id` to retrieve an instance of `Director` and return that instead?
+The method will encapsulate what we've been doing repetitively over and over until now: it will talk to the `Director` class, retrieve the record from the directors table corresponding to the movie's `director_id`, and return an instance of `Director` to us. Then, we can use `Director` attribute accessors to get whichever column values we are interested in about the director.
+
+Since we named our foreign key column `director_id`, we automatically got an attribute accessor method called `.director_id` from ActiveRecord which returns that `Integer`. What shall we call our new method that we will define, which will _use_ the `Integer` returned by `.director_id` to retrieve an instance of `Director` and return that instead?
 
 How about `.director`?
 
@@ -81,7 +83,7 @@ Here's what I wish we could do. If we have an instance of `Movie` inside a varia
 
 I want to be able to do:
 
-```erb  
+```erb
 <% the_director = @the_movie.director %>
 
 <%= the_director.name %>
