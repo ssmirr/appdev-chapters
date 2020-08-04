@@ -4,15 +4,15 @@ This chapter is the companion to [the refactoring-msm-queries-1 project](https:/
 
 ## Objective
 
-Our goal is to keep msm-queries working exactly the same way that it was after we finished building it; we're not going to add a thing. Therefore, we'll use the exact same target as before:
+Our goal is to keep msm-queries working the same way that it was after we finished building it; we're not going to add much. Therefore, we'll use the same target as before:
 
 [https://msm-queries.matchthetarget.com/](https://msm-queries.matchthetarget.com/){:target="_blank"}
 
-Our starting point code for this project, refactoring-msm-1, is one solution for msm-queries. But we're going to make the code much more modular and re-usable, while keeping the functionality exactly the same. How? By **defining methods** to encapsulate our querying logic.
+Our starting point code for this project, refactoring-msm-1, is one possible solution for msm-queries. But we're going to make the code much more modular and re-usable, while keeping the functionality exactly the same. How? By **defining methods** to encapsulate our querying logic.
 
-You should read through the starting point code and compare it to your own solution to msm-queries. `rails sample_data` and `bin/server` so that you can click through the application, verify that it's working, and read the server log.
+First, you should read through the starting point code and compare it to your own solution to msm-queries. `rails sample_data` and `bin/server` so that you can click through the application, verify that it's working, and read the server log.
   
-Are there any differences between the starter code and your own solution to msm-queries? You will most likely find at least one or two. What are they doing? Practice _reading_ the code and reasoning your way through it, line by line; explain it to yourself, or to your rubber ducky. Developers read far more code than we write.
+Are there any differences between the starter code and your own solution to msm-queries? You will most likely find at least one or two differences. What are they doing? Practice _reading_ the code and reasoning your way through it, line by line; explain it to yourself, or to your rubber ducky. Developers read far more code than we write.
 
 Does any part of the code puzzle you?
 
@@ -447,7 +447,157 @@ To produce something like:
 Frank Darabont, (born 1959), ...
 ```
 
+## Re-using the Movie#director method
+
+Now that we've made the investment of defining our handy method, can we use it to refactor any other parts of our code? Can we reduce complexity or increase readability?
+
+Why, yes, I think we can; there are lots of places where we have an instance of the `Movie` class and we need to display something about its director. Go through and see if you can refactor them all.
+
+Imagine if we had defined this "association accessor" method _before_ we started writing our controllers and views — it would have saved a lot of work and typos!
+
+## The other side of the one-to-many
+
+What we did by defining the `.director` method is: we made it easy to travel in one direction of a one-to-many relationship, from a movie to the director it belongs to.
+
+Now, let's make it easy to travel in the other direction: from a director to the many movies that it can (potentially) have.
+
+Right now, in `app/controllers/directors_controller.rb`, we have this:
+
+```ruby
+def show
+  the_id = params.fetch("path_id")
+
+  matching_directors = Director.where({ :id => the_id })
+  @the_director = matching_directors.at(0)
+
+  matching_movies = Movie.where({ :director_id => @the_director.id })
+  @filmography = matching_movies.order({ :year => :asc })
+
+  render({ :template => "director_templates/show.html.erb" })
+end
+```
+
+But we shouldn't have to worry about querying associations when writing our controllers and view templates; hopefully, we will have written our "association accessors" already, right after we did our domain modeling and created our tables with the appropriate foreign keys.
+
+Let's define an instance method in the `Director` class called `.filmography` that returns an `ActiveRecord::Relation` of movie records that belong to the receiving director:
+
+```ruby
+class Director < ApplicationRecord
+  def filmography
+    my_id = self.id
+
+    matching_movies = Movie.where({ :director_id => my_id })
+
+    return matching_movies
+  end
+end
+```
+
+Now, we can refactor the `DirectorsController#show` action to this:
+
+```ruby
+def show
+  the_id = params.fetch("path_id")
+
+  matching_directors = Director.where({ :id => the_id })
+  @the_director = matching_directors.at(0)
+
+  @filmography = @the_director.filmography
+
+  render({ :template => "director_templates/show.html.erb" })
+end
+```
+
+Or, we can even get rid of the `@filmography` instance variable entirely, and use `@the_director.filmography` directly in the view template. It's quite concise now, and feels very similar to `@the_director.name` or `@the_director.dob` anyway:
+
+```erb
+<% @the_director.filmography.each do |a_movie| %>
+```
+
+## Other refactorings
+
+See how much more complexity you can remove by defining similar "association accessors". I think you'll be surprised, especially by how much you can simplify the filmography on the actor details page.
+
+---
+
+Here's a hint: when you're finished, you should be able to move from this:
+
+```erb
+<% @this_actors_characters.each do |a_character| %>
+  <% matching_movies = Movie.where({ :id => a_character.movie_id }) %>
+
+  <% the_movie = matching_movies.at(0) %>
+
+  <tr>
+    <td>
+      <%= the_movie.title %>
+    </td>
+
+    <td>
+      <%= the_movie.year %>
+    </td>
+
+    <td>
+      <% matching_directors = Director.where({ :id => the_movie.director_id }) %>
+      
+      <% the_director = matching_directors.at(0) %>
+
+      <%= the_director.name %>
+    </td>
+
+    <td>
+      <%= a_character.name %>
+    </td>
+
+    <td>
+      <a href="/movies/<%= the_movie.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+<% end %>
+```
+
+To this:
+
+```erb
+<% @the_actor.characters.each do |a_character| %>
+  <tr>
+    <td>
+      <%= a_character.movie.title %>
+    </td>
+
+    <td>
+      <%= a_character.movie.year %>
+    </td>
+
+    <td>
+      <%= a_character.movie.director.name %>
+    </td>
+
+    <td>
+      <%= a_character.name %>
+    </td>
+
+    <td>
+      <a href="/movies/<%= a_character.movie.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+<% end %>
+```
+
+A hundred times easier to write, read, and maintain!
 
 ## Conclusion
 
-You shouldn't be worrying about writing that database query over and over and over and over again while you are crafting your user interface. Or, more realistically, on a multi-person team, the
+You shouldn't be worrying about writing that database query over and over and over and over again while you are writing your controllers and view templates.
+
+Or, more realistically, on a multi-person team, the people who are crafting the interface probably don't even know how write the database queries. Or it would be a huge waste of time and resources for them to do so.
+
+We should always define instance methods in our models to encapsulate as much business logic as possible, to make it easy to re-use, easy to change, and easy to test.
+
+Our associations, as I've been stressing since Day 1, are among the most important domain knowledge there is, and so are among the first thing we should encapsulate in instance methods in our models.
+
+
