@@ -54,7 +54,7 @@ The method will encapsulate what we've been doing repetitively over and over unt
 
 Since we named our foreign key column in the movies table `director_id`, we automatically got an attribute accessor method on `Movie` called `.director_id` from ActiveRecord which returns an `Integer`.
 
-What shall we call our new method that we will define, which will _use_ the `Integer` returned by `.director_id` to retrieve an instance of `Director` and return that instead?
+What shall we call our new method, which will _use_ the `Integer` returned by `.director_id` to retrieve an instance of `Director` and return it?
 
 How about `.director`?
 
@@ -164,7 +164,7 @@ If you're feeling the urge to try out the Ruby that you're reading about — gre
 
 [Click here to create a blank Gitpod workspace](http://gitpod.io/#https://github.com/appdev-projects/helloruby){:target="_blank"}. Then, create a new file, type the Ruby you want to experiment with into it, and run it from a Terminal tab with `ruby YOUR_FILENAME`.
 
-For example, I created a file called `experiment.rb` and am running it with the Terminal command `ruby experiment.rb` to see my output. **Don't forget to turn on Autosave.**
+For example, I created a file called `experiment.rb` and am running it with the Terminal command `ruby experiment.rb` to see my output. **Don't forget to turn on Autosave**, and to print your output with the `p` method — it's been a while, I know!
 
 ### Using existing instance methods when defining new instance methods
 
@@ -238,7 +238,7 @@ So, when we're authoring the `.full_name` method, we need some way to refer to w
 
 You can think of `self` as a special variable that holds whatever object is at the forefront of Ruby's mind when it is evaluating a program. Whatever line of code it is reading, whatever object is it working on at the moment, that is what `self` contains.
 
-For our purposes, here's what matters right now: when we're defining instance methods, when writing code _within_ the instance method definition, `self` represents the instance of the class that the method will be called upon in the future. Formally, this object is known as the **receiver** of the the **message** that is the method invocation.
+For our purposes, here's what matters right now: when we're defining instance methods, when writing code _within_ the instance method definition, `self` represents the instance of the class that the method will be called upon in the future. Formally, this object is known as the **receiver** of the **message** that is the method invocation.
 
 That's great, because since we almost always need to use other, pre-existing instance methods while defining new instance methods, we need a way to _refer_ to the receiver so that we can call those other methods on it. `self` is that way.
 
@@ -601,5 +601,3 @@ Or, more realistically, on a multi-person team, the people who are crafting the 
 We should always define instance methods in our models to encapsulate as much business logic as possible, to make it easy to re-use, easy to change, and easy to test.
 
 Our associations, as I've been stressing since Day 1, are among the most important domain knowledge there is, and so are among the first thing we should encapsulate in instance methods in our models.
-
-
