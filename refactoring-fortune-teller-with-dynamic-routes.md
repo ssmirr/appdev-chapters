@@ -4,21 +4,21 @@ This chapter is the companion to [the refactoring-fortune-teller project](https:
 
 ## Part 1: Dice
 
-Our starting point for refactoring-fortune-teller is the target for fortune-teller. So, in the code you're starting with for this project, the horoscopes in Part 2 have already been debugged, and the dice in Part 3 have already been built out.
+Our starting point code for refactoring-fortune-teller is the target code for fortune-teller. So, in the code you're starting with, the horoscopes from Part 2 of fortune-teller have already been debugged, and the dice from Part 3 of fortune-teller have already been built out.
 
-In refactoring-fortune-teller, our goal is to keep everything working exactly the same way that it is; we're not going to much. But we're going to get rid of 90% of the lines of code, while keeping the functionality the same. How? With **dynamic route segments**. Consider this target:
+In refactoring-fortune-teller, our goal is to keep everything working exactly the same way that it is; we're not going to add much. But we're going to get rid of 90% of the lines of code, while keeping the functionality the same. How? With **dynamic route segments**. Consider our new target:
 
 [https://refactoring-fortune-teller.matchthetarget.com/roll/2/6](https://refactoring-fortune-teller.matchthetarget.com/roll/2/6){:target="_blank"}
 
 Seems like the same thing that we had before, right? Well, try this URL instead:
 
-[https://refactoring-fortune-teller.matchthetarget.com/roll/42/513](https://refactoring-fortune-teller.matchthetarget.com/roll/42/513){:target="_blank"}
+[https://refactoring-fortune-teller.matchthetarget.com/roll/42/1337](https://refactoring-fortune-teller.matchthetarget.com/roll/42/1337){:target="_blank"}
 
-That's a lot of 513-sided dice. Try any combination of two numbers you want in the second and third segments of the path. You'll see that they all work!
+That's a lot of 1337-sided dice. Try any combination of two numbers you want in the second and third segments of the path. You'll see that they all work!
 
-Obviously, I didn't write an infinite number of routes. Instead, there's only _one_ route that matches any arbitrary values in those two segments of the path.
+Obviously, I didn't just happen to add routes for the exact pairs of numbers you chose. Instead, there's only _one_ route handling all of the dice rolls; it matches URLs that starts with `/roll/` and have two more segments, but allows _any_ values to appear in the last two segments.
 
-In the action, Rails allows us to examine what values were in those places, and customize the response accordingly. How do we get access to the values? Through our old friend, the `params` hash! Let's see how:
+In the action, Rails allows us to examine what values were in those spots, and customize the response accordingly. How do we get access to the values? Through our old friend, the `params` hash! Let's see how:
 
 ---
 
