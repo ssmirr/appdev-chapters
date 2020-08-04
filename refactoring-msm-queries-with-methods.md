@@ -21,7 +21,7 @@ So, this might be a good time for you to do two things:
 
 Go ahead, I'll wait!
 
-## The Issue
+## The problem: queries all over the place
 
 Right now, there are several places in our application where we have a movie and we want to display something about the director of the movie.
 
@@ -39,13 +39,17 @@ Then, finally, we can get the value in the `name` or `dob` or `bio` or whatever 
 <%= the_director.name %>
 ```
 
-This same basic logic — given a movie, use its `director_id` attribute to look up a row in the directors table — is repeated in several places: the movies index page, an actor's filmography, etc. If we were to continue building this application out more, no doubt we would be doing this task many more times; nearly everywhere a movie appears, along with information about the movie itself (like `title`, `year`, etc), we will want to display information about the associated director (like `name`, etc).
+This same basic logic — given a movie, use its `director_id` attribute to look up a row in the directors table — is repeated in several places: the movies index page, an actor's filmography, etc. If we were to continue building this application out more, no doubt we would be doing this task many more times; nearly everywhere a movie appears, or in the `rails console`, or in a rake task, along with information about the movie itself (like `title`, `year`, etc), we will want to display information about the associated director (like `name`, etc).
+
+What a pain to have to repeat this query, `Director.where({ :id => @the_movie.director_id }).at(0)`, every single time I just want some info about a movie's director!
+
+## The solution: encapsulate queries in methods
 
 Let's make life easier on our future selves and on all our future teammates: **let's define a nicely named instance method** that will do this work and that we can call on any instance of `Movie` whenever we want to.
 
 The method will encapsulate what we've been doing repetitively over and over until now: it will talk to the `Director` class, retrieve the record from the directors table corresponding to the movie's `director_id`, and return an instance of `Director` to us. Then, we can use `Director` attribute accessors to get whichever column values we are interested in about the director.
 
-Since we named our foreign key column `director_id`, we automatically got an attribute accessor method called `.director_id` from ActiveRecord which returns that `Integer`. What shall we call our new method that we will define, which will _use_ the `Integer` returned by `.director_id` to retrieve an instance of `Director` and return that instead?
+Since we named our foreign key column in the movies table `director_id`, we automatically got an attribute accessor method on `Movie` called `.director_id` from ActiveRecord which returns an `Integer`. What shall we call our new method that we will define, which will _use_ the `Integer` returned by `.director_id` to retrieve an instance of `Director` and return that instead?
 
 How about `.director`?
 
@@ -61,17 +65,17 @@ Here's what I wish we could do. If we have an instance of `Movie` inside a varia
     <% if the_director != nil %>
       <%= the_director.name %>
     <% else %>
-      No associated director
+      Uh oh! We weren't able to find a director for this movie.
     <% end %>
     ```
 
     Why do you think this is? Which error message does this protect against?
 
-    If you deleted a director, what would happen to the movie details page if the `if`/`else`/`end` statement _wasn't_ there? Evaluate the code, line by line, as if _you_ were Ruby and had to follow the code's instructions.
+    Well: If someone deletes a movie's director, what would happen to the movie's details page if the `if`/`else`/`end` statement _wasn't_ there? Evaluate the code, line by line, as if _you_ were Ruby and had to follow the code's instructions.
 
     Without the guard of the `if the_director != nil`, once you reached `the_director.name`, you should have said "next, call the `.name` method on `nil` — oops, there's no `.name` method for `NilClass`! Did you mean `Director`?"
 
-    That's because `Director.where({ :id => @the_movie.director_id })` would have returned an empty `ActiveRecord::Relation`, and when you access an empty array with `.at()`, it returns `nil`.
+    That's because `Director.where({ :id => @the_movie.director_id })` would have returned an empty `ActiveRecord::Relation`, and when you try to access any element of an empty array with `.at()`, it returns `nil`.
 
 ```erb
 <% matching_directors = Director.where({ :id => @the_movie.director_id }) %>
