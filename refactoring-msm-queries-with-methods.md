@@ -333,9 +333,9 @@ end
 
 Now, visit the details page of a movie again. Progress — the error message went away!
 
-Please note that we could have called the method something else, if we wanted to. `.the_director`? `.el_capitan`? `.zebra`? Sure, if you want; go for it. Your team will hate you, though. Be descriptive.
+Please note that we could have called the method something else, if we wanted to. `.the_director`? `.el_capitan`? `.zebra`? Sure, if you want; go for it. Your team might not be very happy with you, though. Usually, we should try to be as descriptive as possible.
 
-Since it is returning an instance of the `Director` class, `.director` is a good name; just like `.director_id` was a good name for the column/method that returned an `Integer`. Perhaps `.director_instance` or `.director_row` or `.director_record` might be more descriptive? 
+Since it is returning an instance of the `Director` class, `.director` is a good name, I think; just like `.director_id` was a good name for the column/method that returned an `Integer`. Perhaps `.director_instance` or `.director_row` or `.director_record` might be more descriptive than `.director`?
 
 In most projects, the choice of what you call your methods, view templates, and anything else internal to your codebase (and not user-facing) is entirely up to you. Since this is a refactoring project, though, and the point of it is to change internal implementation while holding user-facing functionality constant, `rails grade` will be checking to see that you defined a new method called `.director`; so name it that.
 
