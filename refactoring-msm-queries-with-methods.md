@@ -10,14 +10,11 @@ Our goal is to keep msm-queries working exactly the same way that it was after w
 
 Our starting point code for this project, refactoring-msm-1, is one solution for msm-queries. But we're going to make the code much more modular and re-usable, while keeping the functionality exactly the same. How? By **defining methods** to encapsulate our querying logic.
 
-So, this might be a good time for you to do two things:
-
- - Read through the starting point code and compare it to your own solution to msm-queries. `rails sample_data` and `bin/server` so that you can click through the application, verify that it's working, and read the server log.
+You should read through the starting point code and compare it to your own solution to msm-queries. `rails sample_data` and `bin/server` so that you can click through the application, verify that it's working, and read the server log.
   
-    Are there any differences between the starter code and your own solution to msm-queries? You will most likely find at least one or two. What are they doing? Practice _reading_ the code and reasoning your way through it, line by line; explain it to yourself, or to your rubber ducky. Developers read far more code than we write.
-    
-    Does any part of the code puzzle you?
- - A quick review of the section on how we [define methods](https://chapters.firstdraft.com/chapters/769#defining-instance-methods){:target="_blank"}.
+Are there any differences between the starter code and your own solution to msm-queries? You will most likely find at least one or two. What are they doing? Practice _reading_ the code and reasoning your way through it, line by line; explain it to yourself, or to your rubber ducky. Developers read far more code than we write.
+
+Does any part of the code puzzle you?
 
 Go ahead, I'll wait!
 
@@ -105,9 +102,151 @@ Unfortunately, if you try it right now, you'll get a big red "Undefined method `
 
 ## Instance method review
 
+### Naming the method
 
+If you feel very confident about [defining instance methods](https://chapters.firstdraft.com/chapters/769#defining-instance-methods){:target="_blank"}, then you can skip forward to .... Otherwise, read on.
 
+Recall that we use the `def` keyword within the `class` definition to add new methods to a class. Here, we're adding the `say_hi` instance method within the definition of the `Person` class:
 
+```ruby
+class Person
+  def say_hi
+    return "Hello!"
+  end
+end
+```
+
+Since the `say_hi` comes immediately after the `def` keyword[^class_method], Ruby knows we are defining an _instance-level_ method. 
+
+[^class_method]: If, instead of `def say_hi`, we had said `def Person.say_hi`, then we would have defined a _class-level_ method.
+
+### Returning a value
+
+Every method's main job is _returning_ a value, which is what it gets substituted by as the program is being evaluated. So, the above class would now work like this:
+
+```ruby
+p = Person.new # create a new instance of Person
+x = p.say_hi # this expression is substituted by the return value "Hello!" and stored in x
+y = x.upcase # => y now contains the return value of upcase, "HELLO!"
+# etc
+```
+
+Our programs are essentially just a long sequence of methods being called on the return values of previous methods, until we arrive at our desired output.
+
+### Composing methods to build more powerful methods
+
+Usually, we start by defining small, simple methods; but then we combine these methods into ever more powerful ones.
+
+#### Attribute accessors
+
+Some of the simplest but most useful methods are _attribute accessors_. In our pure Ruby days, we had to declare them ourselves (although more recently ActiveRecord has been doing it for us automatically based on column names):
+
+```ruby
+class Person
+  attr_accessor(:first_name)
+  attr_accessor(:last_name)
+end
+```
+
+Each call to `attr_accessor` gives us two instance methods: one for storing a value in an instance of the class, and one for retrieving the value. So now, our `Person` instances can remember their first names and last names:
+
+```ruby
+class Person
+  attr_accessor(:first_name)
+  attr_accessor(:last_name)
+end
+
+sd = Person.new
+sd.first_name = "Shreya"
+sd.last_name = "Donepudi"
+p sd # => #<Person:0x00007fe0c24a6eb0 @first_name="Shreya", @last_name="Donepudi">
+
+pm = Person.new
+pm.first_name = "Patrick"
+pm.last_name = "McKernin"
+p pm # => #<Person:0x00007fe0c23f0a70 @first_name="Patrick", @last_name="McKernin">
+
+jw = Person.new
+jw.first_name = "Jelani"
+jw.last_name = "Woods"
+p jw # => #<Person:0x00007fe0802ca8b8 @first_name="Jelani", @last_name="Woods">
+```
+
+#### Doing rather than reading
+
+If you're feeling the urge to try out the Ruby that you're reading about — great!
+
+[Click here to create a blank Gitpod workspace](http://gitpod.io/#https://github.com/appdev-projects/helloruby){:target="_blank"}. Then, create a new file, type the Ruby you want to experiment with into it, and run it from a Terminal tab with `ruby YOUR_FILENAME`.
+
+For example, I created a file called `experiment.rb` and am running it with the Terminal command `ruby experiment.rb` to see my output. **Don't forget to turn on Autosave.**
+
+### Using existing instance methods when defining new instance methods
+
+Now, what if we wanted to display each person's full name? We could do this:
+
+```ruby
+p sd.first_name + " " + sd.last_name # => "Shreya Donepudi"
+p pm.first_name + " " + pm.last_name # => "Patrick McKernin"
+p jw.first_name + " " + jw.last_name # => "Jelani Woods"
+```
+
+(I'm omitting the class definition for brevity; `class Person` is still defined above in my `experiment.rb`, as well as the lines of code where we created the three `Person` instances and assigned their attribute values.)
+
+But wouldn't it be nice if we had a nicely named method we could call instead, like `.full_name`?
+
+```ruby
+p sd.full_name # => undefined method `full_name' for #<Person:0x00007fe0c24a6eb0>
+p pm.full_name # => undefined method `full_name' for #<Person:0x00007fe0c23f0a70>
+p jw.full_name # => undefined method `full_name' for #<Person:0x00007fe0802ca8b8>
+```
+
+Let's define the method, to get one step closer to our goal:
+
+```ruby
+class Person
+  attr_accessor(:first_name)
+  attr_accessor(:last_name)
+
+  def full_name
+    return "Shreya Donepudi"
+  end
+end
+```
+
+Now, if we try again:
+
+```ruby
+p sd.full_name # => "Shreya Donepudi"
+p pm.full_name # => "Shreya Donepudi"
+p jw.full_name # => "Shreya Donepudi"
+```
+
+Well, it's progress, I suppose. We resolved the `undefined method 'full_name' for #<Person>` issue. But, we want each instance to use it's _own_ first name and last name attributes to put together it's full name. How can we author the `.full_name` method to do that?
+
+If we changed the definition of the method to the following:
+
+```ruby
+class Person
+  attr_accessor(:first_name)
+  attr_accessor(:last_name)
+
+  def full_name
+    return pm.first_name + " " + pm.last_name
+  end
+end
+```
+
+Would it help? No, it wouldn't. Give it a try and see what the error message says.
+
+```
+undefined local variable or method `pm' for #<Person:0x00007fe0c24a6eb0> (NameError)
+```
+
+We can't use the `sd`, `pm`, or `jw` local variables when we define the instance method. When we _author_ the method, we have no idea what the _invokers_ of the method are going to name their variables next month or next year when they _use_ the method, or whether they are going to create variables at all! Perhaps they are just going to chain this method on to the end of another method.
+
+So, when we're authoring the `.full_name` method, we need some way to refer to whichever instance of the `Person` class the `.full_name` method is going to be called upon _in the future_. Ruby gives us a way: the `self` keyword.
+
+#### The self keyword
 
 
 
