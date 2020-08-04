@@ -38,7 +38,13 @@ Then, finally, we can get the value in the `name` or `dob` or `bio` or whatever 
 
 This same basic logic — given a movie, use its `director_id` attribute to look up a row in the directors table — is repeated in several places: the movies index page, an actor's filmography, etc. If we were to continue building this application out more, no doubt we would be doing this task many more times; nearly everywhere a movie appears, or in the `rails console`, or in a rake task, along with information about the movie itself (like `title`, `year`, etc), we will want to display information about the associated director (like `name`, etc).
 
-What a pain to have to repeat this query, `Director.where({ :id => @the_movie.director_id }).at(0)`, every single time I just want some info about a movie's director!
+What a pain to have to repeat this query,
+
+```ruby
+Director.where({ :id => @the_movie.director_id }).at(0)
+```
+
+, every single time I just want some info about `@the_movie`'s director!
 
 ## The solution: encapsulate queries in methods
 
