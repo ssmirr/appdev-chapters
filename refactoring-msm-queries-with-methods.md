@@ -52,33 +52,13 @@ Let's make life easier on our future selves and on all our future teammates: **l
 
 The method will encapsulate what we've been doing repetitively over and over until now: it will talk to the `Director` class, retrieve the record from the directors table corresponding to the movie's `director_id`, and return an instance of `Director` to us. Then, we can use `Director` attribute accessors to get whichever column values we are interested in about the director.
 
-Since we named our foreign key column in the movies table `director_id`, we automatically got an attribute accessor method on `Movie` called `.director_id` from ActiveRecord which returns an `Integer`. What shall we call our new method that we will define, which will _use_ the `Integer` returned by `.director_id` to retrieve an instance of `Director` and return that instead?
+Since we named our foreign key column in the movies table `director_id`, we automatically got an attribute accessor method on `Movie` called `.director_id` from ActiveRecord which returns an `Integer`.
+
+What shall we call our new method that we will define, which will _use_ the `Integer` returned by `.director_id` to retrieve an instance of `Director` and return that instead?
 
 How about `.director`?
 
-Here's what I wish we could do. If we have an instance of `Movie` inside a variable called `@the_movie`, instead of[^protecting_against_nil]:
-
-[^protecting_against_nil]: In the actual starter code, you'll notice that the code looks slightly different:
-
-    ```erb
-    <% matching_directors = Director.where({ :id => @the_movie.director_id }) %>
-
-    <% the_director = matching_directors.at(0) %>
-
-    <% if the_director != nil %>
-      <%= the_director.name %>
-    <% else %>
-      Uh oh! We weren't able to find a director for this movie.
-    <% end %>
-    ```
-
-    Why do you think this is? Which error message does this protect against?
-
-    Well: If someone deletes a movie's director, what would happen to the movie's details page if the `if`/`else`/`end` statement _wasn't_ there? Evaluate the code, line by line, as if _you_ were Ruby and had to follow the code's instructions.
-
-    Without the guard of the `if the_director != nil`, once you reached `the_director.name`, you should have said "next, call the `.name` method on `nil` — oops, there's no `.name` method for `NilClass`! Did you mean `Director`?"
-
-    That's because `Director.where({ :id => @the_movie.director_id })` would have returned an empty `ActiveRecord::Relation`, and when you try to access any element of an empty array with `.at()`, it returns `nil`.
+Here's what I wish we could do. If we have an instance of `Movie` inside a variable called `@the_movie`, instead of:
 
 ```erb
 <% matching_directors = Director.where({ :id => @the_movie.director_id }) %>
@@ -102,9 +82,9 @@ Or, if we're okay with chaining a couple of methods on the same line, we could e
 <%= @the_movie.director.name %>
 ```
 
-Ahhhhh! Wouldn't that be nice? Having a method at our fingertips called `.director` that we can call on any instance of `Movie` whenever we want to, and it would know how to perform the database query to find the associated record and return an instance of `Director` to us so we can get on with our interface work?
+Ahhhhh! Wouldn't that be nice? Having a method at our fingertips called `.director` that we can call on any instance of `Movie` whenever we want to, and it would know how to perform the database query to find the associated record and return an instance of `Director` to us? It'd be like an _association_ accessor, the way we have convenient _attribute_ accessors for our column values.
 
-Unfortunately, if you try it right now, you'll get a big red "Undefined method `director` for `Movie`" error. If we want a handy method like that, we'll have to roll up our sleeves and define it.
+Unfortunately, if you try `<%= @the_movie.director %>` in `app/views/movie_templates/show.html.erb` right now, you'll get a big red `"undefined method 'director' for #<Movie:0x00007faadebb9e88>"` error. If we want handy "association accessors" like that, we'll have to roll up our sleeves and invent them ourselves!
 
 ## Instance method review
 
@@ -112,7 +92,7 @@ Unfortunately, if you try it right now, you'll get a big red "Undefined method `
 
 If you feel very confident about [defining instance methods](https://chapters.firstdraft.com/chapters/769#defining-instance-methods){:target="_blank"}, then you can skip forward to .... Otherwise, read on.
 
-Recall that we use the `def` keyword within the `class` definition to add new methods to a class. Here, we're adding the `say_hi` instance method within the definition of the `Person` class:
+Recall that, in Ruby, we use the `def` keyword within the `class` definition to add new methods to a class. Here, we're adding the `say_hi` instance method within the definition of the `Person` class:
 
 ```ruby
 class Person
@@ -227,7 +207,7 @@ p pm.full_name # => "Shreya Donepudi"
 p jw.full_name # => "Shreya Donepudi"
 ```
 
-Well, it's progress, I suppose. We resolved the `undefined method 'full_name' for #<Person>` issue. But, we want each instance to use it's _own_ first name and last name attributes to put together it's full name. How can we author the `.full_name` method to do that?
+Well, it's progress, I suppose. At least we resolved the `undefined method 'full_name' for #<Person:0x00007fe0c24a6eb0>` issue. But, we want each instance to use it's _own_ first name and last name attributes to put together it's full name. How can we author the `.full_name` method to do that?
 
 If we changed the definition of the method to the following:
 
@@ -237,7 +217,9 @@ class Person
   attr_accessor(:last_name)
 
   def full_name
-    return pm.first_name + " " + pm.last_name
+    assembled_name = pm.first_name + " " + pm.last_name
+    
+    return assembled_name
   end
 end
 ```
@@ -248,13 +230,107 @@ Would it help? No, it wouldn't. Give it a try and see what the error message say
 undefined local variable or method `pm' for #<Person:0x00007fe0c24a6eb0> (NameError)
 ```
 
-We can't use the `sd`, `pm`, or `jw` local variables when we define the instance method. When we _author_ the method, we have no idea what the _invokers_ of the method are going to name their variables next month or next year when they _use_ the method, or whether they are going to create variables at all! Perhaps they are just going to chain this method on to the end of another method.
+We can't use the `sd`, `pm`, or `jw` local variables when we _define_ the instance method. When we _author_ the method, we have no idea what the _invokers_ of the method are going to name their variables next month or next year when they _use_ the method, or whether they are going to create variables at all! Perhaps they are just going to chain this method on to the end of another method.
 
 So, when we're authoring the `.full_name` method, we need some way to refer to whichever instance of the `Person` class the `.full_name` method is going to be called upon _in the future_. Ruby gives us a way: the `self` keyword.
 
 #### The self keyword
 
+You can think of `self` as a special variable that holds whatever object is at the forefront of Ruby's mind when it is evaluating a program. Whatever line of code it is reading, whatever object is it working on at the moment, that is what `self` contains.
+
+For our purposes, here's what matters right now: when we're defining instance methods, when writing code _within_ the instance method definition, `self` represents the instance that the method will be called upon in the future.
+
+That's great, because since we almost always need to use other, pre-existing instance methods while defining new instance methods, we need a way to refer to the object in question so that we can call those other methods on it.
+
+So, `self` is what will allow us to use the pre-existing `.first_name` and `.last_name` attribute accessor methods to build up our handy `.full_name` method:
+
+```ruby
+class Person
+  attr_accessor(:first_name)
+  attr_accessor(:last_name)
+
+  def full_name
+    assembled_name = self.first_name + " " + self.last_name
+
+    return assembled_name
+  end
+end
+```
+
+Now, we can use it!
+
+```ruby
+p sd.full_name # => "Shreya Donepudi"
+p pm.full_name # => "Patrick McKernin"
+p jw.full_name # => "Jelani Woods"
+```
+
+Yay! So handy. And, now that `.full_name` exists, we can use it along with `self` to build up other methods:
+
+```ruby
+class Person
+  attr_accessor(:first_name)
+  attr_accessor(:last_name)
+
+  def full_name
+    assembled_name = self.first_name + " " + self.last_name
+
+    return assembled_name
+  end
+
+  def full_name!
+    return self.full_name.upcase
+  end
+end
+```
+
+(Don't be fooled by the `!` at the end of the new method's name; it has no special meaning. It's just another letter, as far as Ruby is concerned. And one letter's difference makes them as distinct as `zebra` and `giraffe` in Ruby's eyes.)
+
+## Defining "association accessors"
+
+Okay, now that we've brushed up on how to define instance methods, let's do something practical with it.
+
+### The goal
+
+If we have an instance of `Movie` inside a variable called `@the_movie`, instead of:
+
+```erb
+<% matching_directors = Director.where({ :id => @the_movie.director_id }) %>
+    
+<% the_director = matching_directors.at(0) %>
+
+<%= the_director.name %>
+```
+
+I want to be able to do:
+
+```erb
+<% the_director = @the_movie.director %>
+
+<%= the_director.name %>
+```
+
+Or, if we're okay with chaining a couple of methods on the same line, we could even do:
+
+```erb
+<%= @the_movie.director.name %>
+```
+
+If you try `<%= @the_movie.director %>` in `app/views/movie_templates/show.html.erb` right now, you'll get a big red `"undefined method 'director' for #<Movie:0x00007faadebb9e88>"` error. Let's define the instance method and make it work.
+
+### Find the class definition
+
+All of our model class definitions are located in the `app/models` folder. Find `movie.rb` and define a method called `director`:
 
 
+```ruby
+class Movie < ApplicationRecord
+  def director
+    return "Hello!"
+  end
+end
+```
+
+## Conclusion
 
 You shouldn't be worrying about writing that database query over and over and over and over again while you are crafting your user interface. Or, more realistically, on a multi-person team, the
