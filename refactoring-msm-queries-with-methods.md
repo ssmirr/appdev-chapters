@@ -333,7 +333,7 @@ end
 
 Now, visit the details page of a movie again. Progress — the error message went away!
 
-Please note that we could have called the method something else, if we wanted to. `.the_director`? `.el_capitan`? `.zebra`? Sure, if you want; go for it. Your team might not be very happy with you, though. Usually, we should try to be as descriptive as possible.
+Please note that we could have called the method something else, if we wanted to. `.the_director`? `.el_capitan`? `.zebra`? Sure, if you want; go for it. Your team/TA/future-self might not be very happy with you, though. Usually, we should try to be as descriptive as possible.
 
 Since it is returning an instance of the `Director` class, `.director` is a good name, I think; just like `.director_id` was a good name for the column/method that returned an `Integer`. Perhaps `.director_instance` or `.director_row` or `.director_record` might be more descriptive than `.director`?
 
