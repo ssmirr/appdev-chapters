@@ -493,6 +493,8 @@ class Director < ApplicationRecord
 end
 ```
 
+The convention in the Rails community would normally have been to call this method `.movies`, since it is returning an array of `Movie` instances. But what the heck — I like the name `.filmography` better, since I think it's more descriptive of our problem domain.
+
 Now, we can refactor the `DirectorsController#show` action to this:
 
 ```ruby
