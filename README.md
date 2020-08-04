@@ -32,7 +32,7 @@ Works in progress, and not in order.
  28. [Refactoring Fortune Teller with Dynamic Routes](https://chapters.firstdraft.com/chapters/841)
  29. [Cookies](https://chapters.firstdraft.com/chapters/842)
  30. [ActiveRecord: Our translator to the database](https://chapters.firstdraft.com/chapters/770)
- 31. [Adding Association Query Shortcuts](https://chapters.firstdraft.com/chapters/778)
+ 31. [Refactoring MSM Queries with Methods](https://chapters.firstdraft.com/chapters/843)
  32. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
  33. [Image Uploads](https://chapters.firstdraft.com/chapters/790)
  34. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
