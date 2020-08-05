@@ -65,9 +65,31 @@ Now, we can use this method wherever we need a director name or apology:
 
 ## Data integrity with validations
 
-Many times, we don't want to allow spotty data; we want our data to be uniform and consistent. In this case, it's best to never allow invalid data that doesn't meet our criteria to ever enter our database in the first place; then, we don't need to worry about writing lots of defensive conditionals downstream in our code.
+Many times, we don't want to allow spotty data; we want our data to be uniform and consistent. In this case, it's best to not to allow invalid data that doesn't meet our criteria to enter our database in the first place; then, we don't need to worry about writing lots of defensive conditionals downstream in our code.
 
 If so, then ActiveRecord offers a tremendously useful feature: **validations**.
+
+Validations are a way that we can specify constraints on what we allow in each column in a model. Crucially, if our validation rules aren't met, then **the .save method won't insert the record into the database**. It will _not_ transact with the database; and, it will return `false` (until now, it has always returned `true`).
+
+Here's an example: to start to address the movies/director_id issue, let's say we don't want to allow any rows to enter our movies table with a blank `director_id` attribute.
+
+Then, we can declare a validation in the `Movie` model with the `validates` method:
+
+```ruby
+class Movie < ApplicationRecord
+  validates(:director_id, { :presence => true })
+end
+```
+
+ - The first argument to `validates` is a `Symbol`; the name of the column we are declaring constraints for.
+ - The second argument to `validates` is a `Hash`. The keys in the `Hash` are the constraints we are applying. There is a fixed list of constraints built-in to ActiveRecord that we can choose from. By far, the three most common are `:presence`, `:uniqueness`, and `:numericality`.
+ - The value associated to each key is either `true`, which means you want the simplest use of the validation; or, the value can be a whole other `Hash` containing configuration options, like minimum and maximum values for `:numericality`.
+ 
+Let's give our simple validation a test. Open a `rails console` and create a new instance of a `Movie`:
+
+```
+```
+
 
 
 
