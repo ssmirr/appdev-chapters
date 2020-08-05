@@ -33,14 +33,15 @@ Works in progress, and not in order.
  29. [Cookies](https://chapters.firstdraft.com/chapters/842)
  30. [ActiveRecord: Our translator to the database](https://chapters.firstdraft.com/chapters/770)
  31. [Refactoring MSM Queries with Methods](https://chapters.firstdraft.com/chapters/843)
- 32. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
- 33. [Image Uploads](https://chapters.firstdraft.com/chapters/790)
- 34. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
- 35. [Searching and filtering with Ransack](https://chapters.firstdraft.com/chapters/835)
- 36. [Embedding a Google Map in a view template](https://chapters.firstdraft.com/chapters/836)
- 37. [Photogram Final](https://chapters.firstdraft.com/chapters/837)
- 38. [Tower of Babel](https://chapters.firstdraft.com/chapters/838)
- 39. [A few management readings](https://chapters.firstdraft.com/chapters/789)
+ 32. [Validations](https://chapters.firstdraft.com/chapters/844)
+ 33. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
+ 34. [Image Uploads](https://chapters.firstdraft.com/chapters/790)
+ 35. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
+ 36. [Searching and filtering with Ransack](https://chapters.firstdraft.com/chapters/835)
+ 37. [Embedding a Google Map in a view template](https://chapters.firstdraft.com/chapters/836)
+ 38. [Photogram Final](https://chapters.firstdraft.com/chapters/837)
+ 39. [Tower of Babel](https://chapters.firstdraft.com/chapters/838)
+ 40. [A few management readings](https://chapters.firstdraft.com/chapters/789)
 
 ---
 
