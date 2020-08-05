@@ -1,4 +1,4 @@
-# Data integrity with validations
+# Data integrity with Validations
 
 As soon as we start saving data into our tables from external sources, be it from our users, CSVs, APIs, or wherever, we have to start worrying about whether that data is _valid_. Did they fill out all of the required fields? Did they choose a username that was already taken? Did they enter an age less than 0? Did they vote twice?
 
@@ -87,11 +87,44 @@ end
  
 Let's give our simple validation a test. Open a `rails console` and create a new instance of a `Movie`:
 
+```pry
+[1] pry(main)> m = Movie.new
+   (0.4ms)  SELECT sqlite_version(*)
+=> #<Movie:0x00007f93ab387430
+ id: nil,
+ title: nil,
+ year: nil,
+ duration: nil,
+ description: nil,
+ image: nil,
+ director_id: nil,
+ created_at: nil,
+ updated_at: nil>
 ```
+
+Now, before assigning any attributes at all, try to do a `.save`:
+
+```pry
+[2] pry(main)> m.save
+=> false
 ```
 
+Ah ha! It returned `false`, and there's no SQL output like usual. If you look at `m`, you'll see that it still has no `id`, `created_at`, or `updated_at` — it didn't sneak into the database:
 
+```pry
+[3] pry(main)> m
+=> #<Movie:0x00007f93ab387430
+ id: nil,
+ title: nil,
+ year: nil,
+ duration: nil,
+ description: nil,
+ image: nil,
+ director_id: nil,
+ created_at: nil,
+ updated_at: nil>
+```
 
+Read more about validations here:
 
-Validations are a way to declare in the model what rules we have for each column as far as what data is allowed in it.
-
+[https://guides.rubyonrails.org/active_record_validations.html](https://guides.rubyonrails.org/active_record_validations.html)

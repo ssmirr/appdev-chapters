@@ -33,7 +33,7 @@ Works in progress, and not in order.
  29. [Cookies](https://chapters.firstdraft.com/chapters/842)
  30. [ActiveRecord: Our translator to the database](https://chapters.firstdraft.com/chapters/770)
  31. [Refactoring MSM Queries with Methods](https://chapters.firstdraft.com/chapters/843)
- 32. [Validations](https://chapters.firstdraft.com/chapters/844)
+ 32. [Data integrity with Validations](https://chapters.firstdraft.com/chapters/844)
  33. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
  34. [Image Uploads](https://chapters.firstdraft.com/chapters/790)
  35. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
