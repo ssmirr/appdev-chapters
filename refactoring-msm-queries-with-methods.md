@@ -525,7 +525,9 @@ See how much more complexity you can remove by defining similar "association acc
 Here's a hint: when you're finished, you should be able to move from this:
 
 ```erb
-<% @this_actors_characters.each do |a_character| %>
+<% this_actors_characters = Character.where({ :actor_id => @the_actor.id }) %>
+
+<% this_actors_characters.each do |a_character| %>
   <% matching_movies = Movie.where({ :id => a_character.movie_id }) %>
 
   <% the_movie = matching_movies.at(0) %>
@@ -558,6 +560,7 @@ Here's a hint: when you're finished, you should be able to move from this:
     </td>
   </tr>
 <% end %>
+</table>
 ```
 
 To this:
