@@ -24,7 +24,7 @@ Right now, there are several places in our application where we have a movie and
 
 For example, in `app/views/movie_templates/show.html.erb`, we have an instance of `Movie` in a variable called `@the_movie`, and we want to display the name of the director. So, first, we use the value in the attribute `@the_movie.director_id` to look up a matching record in the directors table:
 
-```
+```erb
 <% the_id = @the_movie.director_id >
 
 <% matching_directors = Director.where({ :id => the_id }) %>
@@ -34,7 +34,7 @@ For example, in `app/views/movie_templates/show.html.erb`, we have an instance o
 
 Then, finally, we can get the value in the `name` or `dob` or `bio` or whatever other attribute we care about from that instance of `Director`:
 
-```
+```erb
 <%= the_director.name %>
 ```
 
@@ -62,7 +62,7 @@ How about `.director`?
 
 Here's what I wish we could do. If we have an instance of `Movie` inside a variable called `@the_movie`, instead of:
 
-```
+```erb
 <% the_id = @the_movie.director_id >
 
 <% matching_directors = Director.where({ :id => the_id }) %>
@@ -74,7 +74,7 @@ Here's what I wish we could do. If we have an instance of `Movie` inside a varia
 
 I want to be able to do:
 
-```
+```erb
 <% the_director = @the_movie.director %>
 
 <%= the_director.name %>
@@ -82,7 +82,7 @@ I want to be able to do:
 
 Or, if we're okay with chaining a couple of methods on the same line, we could even do:
 
-```
+```erb
 <%= @the_movie.director.name %>
 ```
 
@@ -298,7 +298,7 @@ Let's put our instance method skills into practice by defining "association acce
 
 If we have an instance of `Movie` inside a variable called `@the_movie`, instead of:
 
-```
+```erb
 <% the_id = @the_movie.director_id >
 
 <% matching_directors = Director.where({ :id => the_id }) %>
@@ -310,7 +310,7 @@ If we have an instance of `Movie` inside a variable called `@the_movie`, instead
 
 I want to be able to do:
 
-```
+```erb
 <% the_director = @the_movie.director %>
 
 <%= the_director.name %>
@@ -318,7 +318,7 @@ I want to be able to do:
 
 Or, if we're okay with chaining a couple of methods on the same line, we could even do:
 
-```
+```erb
 <%= @the_movie.director.name %>
 ```
 
@@ -415,7 +415,7 @@ end
 
 Now check out the return value of `<%= @the_movie.director %>` in the details page of a movie. Hopefully, you should see something like `#<Director:0x00007faa7c13fb68>`, which means you've successfully returned an instance of `Director` representing a row in the table. You could add a `.inspect` for more details about the object:
 
-```
+```erb
 <%= @the_movie.director.inspect %>
 ```
 
@@ -427,7 +427,7 @@ And then you would see all of the attributes about the record:
 
 Awesome! We have successfully reduced this:
 
-```
+```erb
 <% the_id = @the_movie.director_id >
 
 <% matching_directors = Director.where({ :id => the_id }) %>
@@ -437,7 +437,7 @@ Awesome! We have successfully reduced this:
 
 To this:
 
-```
+```erb
 <%= @the_movie.director %>
 ```
 
@@ -445,7 +445,7 @@ To this:
 
 Now it becomes a joy instead of a chore for us to embed various attributes about the associated record wherever we want within the template. For example, we could do something like:
 
-```
+```erb
 <%= @the_movie.director.name %>, born <%= @the_movie.director.dob.year %>, ...
 ```
 
@@ -471,7 +471,7 @@ Now, let's make it easy to travel in the other direction: from a director to the
 
 Right now, in `app/views/director_templates/show.html.erb`, we have this:
 
-```
+```erb
 <% the_id = @the_director.id %>
 
 <% matching_movies = Movie.where({ :director_id => the_id }) %>
@@ -501,7 +501,7 @@ The convention in the Rails community would normally have been to call this meth
 
 Now, we can refactor the directors' show template to this:
 
-```
+```erb
 <% films = @the_director.filmography.order({ :year => :asc }) %>
 
 <% films.each do |a_movie| %>
@@ -509,7 +509,7 @@ Now, we can refactor the directors' show template to this:
 
 It's quite concise now! If you're feeling bold, you can even get rid of the variable and take advantage of the short-hand version of `.order` (for ascending ordering):
 
-```
+```erb
 <% @the_director.filmography.order(:year).each do |a_movie| %>
 ```
 
@@ -521,7 +521,7 @@ See how much more complexity you can remove by defining similar "association acc
 
 Here's a hint: when you're finished, you should be able to move from this:
 
-```
+```erb
 <% a_id = @the_actor.id %>
 
 <% matching_characters = Character.where({ :actor_id => a_id }) %>
@@ -566,7 +566,7 @@ Here's a hint: when you're finished, you should be able to move from this:
 
 To this:
 
-```
+```erb
 <% @the_actor.characters.each do |a_character| %>
   <tr>
     <td>
