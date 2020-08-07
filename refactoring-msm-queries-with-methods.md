@@ -522,10 +522,14 @@ See how much more complexity you can remove by defining similar "association acc
 Here's a hint: when you're finished, you should be able to move from this:
 
 ```html
-<% this_actors_characters = Character.where({ :actor_id => @the_actor.id }) %>
+<% a_id = @the_actor.id %>
 
-<% this_actors_characters.each do |a_character| %>
-  <% matching_movies = Movie.where({ :id => a_character.movie_id }) %>
+<% matching_characters = Character.where({ :actor_id => a_id }) %>
+
+<% matching_characters.each do |a_character| %>
+  <% m_id = a_character.movie_id %>
+
+  <% matching_movies = Movie.where({ :id => m_id }) %>
 
   <% the_movie = matching_movies.at(0) %>
 
