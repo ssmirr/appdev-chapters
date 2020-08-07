@@ -25,7 +25,9 @@ Right now, there are several places in our application where we have a movie and
 For example, in `app/views/movie_templates/show.html.erb`, we have an instance of `Movie` in a variable called `@the_movie`, and we want to display the name of the director. So, first, we use the value in the attribute `@the_movie.director_id` to look up a matching record in the directors table:
 
 ```erb
-<% matching_directors = Director.where({ :id => @the_movie.director_id }) %>
+<% the_id = @the_movie.director_id >
+
+<% matching_directors = Director.where({ :id => the_id }) %>
     
 <% the_director = matching_directors.at(0) %>
 ```
@@ -61,7 +63,9 @@ How about `.director`?
 Here's what I wish we could do. If we have an instance of `Movie` inside a variable called `@the_movie`, instead of:
 
 ```erb
-<% matching_directors = Director.where({ :id => @the_movie.director_id }) %>
+<% the_id = @the_movie.director_id >
+
+<% matching_directors = Director.where({ :id => the_id }) %>
     
 <% the_director = matching_directors.at(0) %>
 
@@ -295,7 +299,9 @@ Let's put our instance method skills into practice by defining "association acce
 If we have an instance of `Movie` inside a variable called `@the_movie`, instead of:
 
 ```erb
-<% matching_directors = Director.where({ :id => @the_movie.director_id }) %>
+<% the_id = @the_movie.director_id >
+
+<% matching_directors = Director.where({ :id => the_id }) %>
     
 <% the_director = matching_directors.at(0) %>
 
@@ -422,7 +428,9 @@ And then you would see all of the attributes about the record:
 Awesome! We have successfully reduced this:
 
 ```erb
-<% matching_directors = Director.where({ :id => @the_movie.director_id }) %>
+<% the_id = @the_movie.director_id >
+
+<% matching_directors = Director.where({ :id => the_id }) %>
     
 <% the_director = matching_directors.at(0) %>
 ```
@@ -461,20 +469,16 @@ What we did by defining the `.director` method is: we made it easy to travel in 
 
 Now, let's make it easy to travel in the other direction: from a director to the many movies that it can (potentially) have.
 
-Right now, in `app/controllers/directors_controller.rb`, we have this:
+Right now, in `app/views/director_templates/show.html.erb`, we have this:
 
-```ruby
-def show
-  the_id = params.fetch("path_id")
+```erb
+<% the_id = @the_director.id %>
 
-  matching_directors = Director.where({ :id => the_id })
-  @the_director = matching_directors.at(0)
+<% matching_movies = Movie.where({ :director_id => the_id }) %>
 
-  matching_movies = Movie.where({ :director_id => @the_director.id })
-  @filmography = matching_movies.order({ :year => :asc })
+<% films = matching_movies.order({ :year => :asc }) %>
 
-  render({ :template => "director_templates/show.html.erb" })
-end
+<% films.each do |a_movie| %>
 ```
 
 But we shouldn't have to worry about querying associations when writing our controllers and view templates; hopefully, we will have written our "association accessors" already, right after we did our domain modeling and created our tables with the appropriate foreign keys.
@@ -495,25 +499,18 @@ end
 
 The convention in the Rails community would normally have been to call this method `.movies` (plural), since it is returning multiple `Movie` instances (an `ActiveRecord::Relation`, to be precise). But what the heck — I like the name `.filmography` better, since I think it's more descriptive of our problem domain.
 
-Now, we can refactor the `DirectorsController#show` action to this:
-
-```ruby
-def show
-  the_id = params.fetch("path_id")
-
-  matching_directors = Director.where({ :id => the_id })
-  @the_director = matching_directors.at(0)
-
-  @filmography = @the_director.filmography
-
-  render({ :template => "director_templates/show.html.erb" })
-end
-```
-
-Or, we can even get rid of the `@filmography` instance variable entirely, and use `@the_director.filmography` directly in the view template. It's quite concise now, and feels very similar to `@the_director.name` or `@the_director.dob` anyway:
+Now, we can refactor the directors' show template to this:
 
 ```erb
-<% @the_director.filmography.each do |a_movie| %>
+<% films = @the_director.filmography.order({ :year => :asc }) %>
+
+<% films.each do |a_movie| %>
+```
+
+It's quite concise now! If you're feeling bold, you can even get rid of the variable and take advantage of the short-hand version of `.order` (for ascending ordering):
+
+```erb
+<% @the_director.filmography.order(:year).each do |a_movie| %>
 ```
 
 ## Other refactorings
