@@ -543,7 +543,9 @@ Here's a hint: when you're finished, you should be able to move from this:
     </td>
 
     <td>
-      <% matching_directors = Director.where({ :id => the_movie.director_id }) %>
+      <% d_id = the_movie.director_id %>
+      
+      <% matching_directors = Director.where({ :id => d_id }) %>
       
       <% the_director = matching_directors.at(0) %>
 
@@ -561,7 +563,6 @@ Here's a hint: when you're finished, you should be able to move from this:
     </td>
   </tr>
 <% end %>
-</table>
 ```
 
 To this:
