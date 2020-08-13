@@ -34,7 +34,7 @@ Works in progress, and not in order.
  30. [ActiveRecord: Our translator to the database](https://chapters.firstdraft.com/chapters/770)
  31. [Refactoring MSM Queries with Methods](https://chapters.firstdraft.com/chapters/843)
  32. [Data integrity with Validations](https://chapters.firstdraft.com/chapters/845)
- 33. [Assocation Accessors Wizard](https://association-accessors.firstdraft.com/)
+ 33. [Advanced Assocations Wizard (`has_many`/`belongs_to`)](https://association-accessors.firstdraft.com/)
  34. [Draft Generators](https://chapters.firstdraft.com/chapters/773)
  35. [Image Uploads](https://chapters.firstdraft.com/chapters/790)
  36. [Loading data from a CSV](https://chapters.firstdraft.com/chapters/791)
