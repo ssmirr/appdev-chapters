@@ -12,8 +12,8 @@ We domain modeled this application in first two weeks of class, and used the sam
 
 ![](/assets/photogram-final-erd.png)
 
-If you add these columns _exactly_, then you can run the `rails dummy_data` Rake task to add dummy data to your database tables like with the homeworks.
+If you add these columns _exactly_, then you can run the `rails sample_data` Rake task to add dummy data to your database tables like with the homeworks.
 
 You can use the `model` generator to add your tables, or you can use [the `draft_generators`](https://chapters.firstdraft.com/chapters/773) to add the tables _and_ give yourself a big head start on routes, controllers, actions, and view templates.
 
-Remember that the [photogram-gui](https://github.com/appdev-projects/photogram-gui/blob/master/app/models/photo.rb){:target="_blank"} and [photogram-signin](https://github.com/appdev-projects/photogram-signin/blob/master/app/models/user.rb){:target="_blank"} projects had _very_ helpful instance methods already defined in the model files; go study those methods if you haven't already. You might want to define methods like those before you begin building out your interface; it will make traversing your relationships a snap.
+You should also consider adding [association accessor methods](https://association-accessors.firstdraft.com/) to your models to make your job easier. [Validations to protect data integrity](https://chapters.firstdraft.com/chapters/845) are important as well.
