@@ -1,3 +1,5 @@
+# Embedding a Google Map in a View template
+
 ## Step 1
 
 Copy and paste the following code into your View template.
