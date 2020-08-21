@@ -49,7 +49,7 @@ The [`desc`](https://apidock.com/ruby/v1_9_3_125/Rake/DSL/desc) stands for descr
 
 #### `task({ :sample_data => :environment}) do`
 
-Here we are naming our task and making it available in our coding environment.  We can name `sample_data` whatever we would like and now call it with `rails sample_data`. As long as we finish our `do` with an `end`, we have our task, not very useful yet, but it works.  
+Here we are naming our task and making it available in our coding environment.  By defing our task `sample_data`, it is ready of us to call with `rails sample_data`. As long as we finish our `do` with an `end`, we have our task, not very useful yet, but it works.  
 
 #### `starting = Time.now`
 
