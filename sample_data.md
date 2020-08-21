@@ -2,13 +2,13 @@
 
 You have just created your application and are figuring out where to start. A good practice is to create some sample data early on in the life of your application so you will always have a single command to reset your database with good data. 
 
-### Where do we write our sample data? 
+## Where do we write our sample data? 
 
 In class, whenever we have needed to get data into our database, we were able to run the command `rails sample_data`, but what where is that file located? 
 
 If you were to open a class project and do a search you would find that our `sample_data` lives in the `task` folder, which is located within the `lib` folder. The path to that would be `lib/tasks/dev.rake`. In the beginning of the class, whenver we have run a Ruby file we would have to call `ruby filename.rb`, so we might think that to run this file we would need to run `ruby dev.rake`. While this would follow our previous convention, we are able to define how we call these tasks. Let's look at the `sample_data` task for the [photogram gui assignment](https://github.com/appdev-projects/photogram-gui) and break down what is happening so we can build our own `sample_data` task.  
 
-## The code 
+### The code 
 ```
 desc "Fill the database tables with some dummy data"
 task({ :sample_data => :environment}) do
@@ -70,7 +70,7 @@ I will tell you what the rest of the code does, and you can feel free to use it 
 How we fix this is with the `.reset_pk_sequence!` command. It will reset the `id` numbers of within our database and start again at 1. 
 
 
-####  `User.delete_all`
+#### `User.delete_all`
 What we are doing a few times here is going into our database and deleting all of the records we currently have. We can call this on any of the classes we have created. 
 
 #### `users = [{id: 81, username: "galen", private: false, likes_count: 97, comments_count: 98, created_at: "2015-01-19 09:24:34", updated_at: "2019-10-08 10:25:00"},`
@@ -113,7 +113,7 @@ Just like our past assignments were able to be refactored, this `sample_data` is
 
 The first few lines will be the same, but we will start to refactor as soon as we start creating our data.
 
-### Starting with Users
+## Starting with Users
 
 In the example above we created users by manually inputting data from an array and isn't an array a collection of items, well if we know columns of the tables are we can easily fill these out.  
 
@@ -189,7 +189,7 @@ Here we changed from doing a mass input to inserting the records individually.
 
 With faker, we have access to all types of datasets. I highly recommend taking a look to see all of the [different generators](https://github.com/faker-ruby/faker#generators). 
 
-### Seeding foreign keys
+## Seeding foreign keys
 
 The only thing left for us would be to sample `user_id` into one of our other tables. This isn't too tricky because we can always call `Class.all.sample`. An example below would be if I wanted food items to belong to a user.  
 
