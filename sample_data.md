@@ -53,7 +53,7 @@ Here we are naming our task and making it available in our coding environment.  
 
 #### `starting = Time.now`
 
-We are defining a variable called `starting`, which will store the current time.  This is so that, at the end of our program, we can put a message which tells us how long our task took to run. 
+We are defining a variable called `starting`, which will store the current time.  Now at the end of our program, we can put a message which tells us how long our task took to run. 
 
 #### Big block of code 
 ```
