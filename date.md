@@ -115,10 +115,36 @@ Returns `true` if the date is a Saturday.
 
 Returns `true` if the date is a Sunday.
 
-## wday?
+## wday
 
 Returns the day of week (0-6, Sunday is zero).
 
 ```ruby
 Date.new(2001,2,3).wday #=> 6
 ```
+
+# Time
+
+Ruby has a `Time` class as well, that shares most of its methods with the `Date` class.
+
+```ruby
+Time.now.wday # => 6
+Time.now.saturday? # => true
+Time.now.day # => 3
+```
+
+## strftime
+
+The `strftime` method is used on a `Date` or `Time` object. It requires a `String` argument that will be used to format the Date or Time in a particular way.
+
+
+_Assuming today is Monday, September 7th 2020_
+
+```ruby
+Time.now.strftime("%A") # => "Monday"
+Time.now.strftime("%B") # => "September"
+Time.now.strftime("%b") # => "Sep"
+Time.now.strftime("%a %e, %R %p") # => "Mon, 7 14:35 PM"
+```
+
+You should **not** try to memorize what these patterns mean. Tools like [strftime.net](strftime.net){:target="_blank"} and [For a Good Strftime](https://www.foragoodstrftime.com/){:target="_blank"} exist to help compose the formatting string argument.
