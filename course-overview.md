@@ -8,6 +8,9 @@
 - Deploying to Heroku 
 - CSS
 
+##### Best Recording 
+- Friday October 2nd 
+
 ## Week 2
 ----
 #### Topics
