@@ -81,9 +81,11 @@ One of our foundational principles while programming, learning, and almost anyth
 
 #### Printing values
 
-Let's talk a little bit more about how the REPLs work. So far, we've been clicking "run ▶" and seeing the return value of the expression of the _last line_ of our programs in the black window (known as the "terminal") at the bottom; but what if we wanted to see more than just the return value of the last line?
+Let's talk a little bit more about how the REPLs work. So far, we've been using IRB to run one line of Ruby at a time. But our programs will be thousands of lines long, ultimately; and we want to save them permanently into files, not type them in one line at a time.
 
-It turns out there's a special method in Ruby called `Kernel.p` (`p` is short for "print inspect") that will display its argument in the terminal. Try running the following:
+So, from now one we'll write them in the editor at the top of the window; then we'll run the program by clicking "run ▶" and seeing the output in the black window (known as the "terminal") at the bottom.
+
+However, there won't be any output unless we specifically say what we want to print into the terminal. It turns out there's a special method in Ruby called `Kernel.p` (`p` is short for "print inspect") that will display its argument in the terminal. Try running the following:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/first-real-output?lite=true"></iframe>
 
