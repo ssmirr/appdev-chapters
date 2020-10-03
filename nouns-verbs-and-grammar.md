@@ -76,17 +76,19 @@ Here's a real example:
 "hello world!".upcase
 ```
 
-Here, you try it in the interactive Ruby sandbox below. In the text editor at the top, type:
+Here, you try it in the interactive Ruby sandbox below. In the black window that appears at the bottom, type:
 
-```ruby
-"hello world!".upcase
+```bash
+irb
 ```
 
-exactly as written. Then click the button at the top of the editor labeled "run ▶".
-
-You'll see the output of the program you've written in the black window at the bottom.
-
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hello-world?lite=true"></iframe>
+
+This will launch _interactive Ruby_ (IRB), a program that lets you evaluate one Ruby expression at a time.
+
+At the `irb(main)` prompt that appears, you can now try out `"hello world!".upcase`:
+
+![](/assets/irb.png)
 
 If all went well, you should have seen `=> "HELLO WORLD!"` in the black window at the bottom (known as the "terminal"). Yay[^tradition]! What just happened?
 
@@ -100,9 +102,17 @@ In this case, we asked `"hello world!"`, which is a string (Ruby's name for a pi
 
 [^string_name]: The name "string" is used in pretty much every programming language for the datatype that holds a piece of text, and refers to a string of _characters_; a holdover from back when we used to have to worry about conserving the computer's physical storage space and had a separate datatype for an individual character. Now we usually don't have to worry about storage space anymore, but the name "string" stuck with us.
 
+## Embedded REPLs from repl.it
+
+We're using embedded, interactive read-evaluate-print-loops (REPLs) from a service called repl.it in these readings — really neat! Sometimes, it will be more convenient for you to open the REPL in its own tab, so that you can continue reading while still using it (instead of having it scroll off the page). Click the "Open in repl.it" button in the top-right corner to do so:
+
+![](/assets/open-in-repl.png)
+
+This might also be a good thing to try if REPLs get sluggish.
+
 ## Every class has different methods
 
-Different **classes** can perform different **methods**. Here are a few expressions to try out. Type each one and then click "run ▶".
+Different **classes** can perform different **methods**. Here are a few expressions to try out. Type each one into IRB.
 
 ```ruby
 7.odd?
@@ -255,12 +265,6 @@ s = "hello world!".upcase
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/variables-are-boxes?lite=true"></iframe>
 
 This creates a box, labels it `s`, and stores the string `"HELLO WORLD!"` in it. 
-
-### Interactive Read-Evaluate-Print-Loops (REPLs)
-
-This might be a good time to mention that the black area at the bottom of the window is not just for output from the programs that you write above — it is also an interactive playground where you can try out Ruby expressions immediately without having to click "run ▶". Try typing `"bye".upcase` at the `›`, or any other Ruby expression, and press <kbd>return</kbd>. You'll instantly see the return value (or error message).
-
-If you've written code in the file above and "run ▶" it, it's as if you've typed each line into the REPL and hit <kbd>return</kbd>. If you now type `s` into the REPLs, you'll see that it returns `"HELLO WORLD"`. We've _assigned_ that value to the variable `s` using the `=` operator.
 
 ### The variable assignment operator
 
