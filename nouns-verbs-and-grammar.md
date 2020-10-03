@@ -256,10 +256,11 @@ We're not really able to make any forward progress when we only perform one oper
 
 So: let's start to store our return values for future reference, instead of dropping them on the ground. We do this using **variables**, or as I like to think of them, _boxes_. Let's get our feet wet:
 
-Type the following and click "run ▶":
+Type the following:
 
 ```ruby
 s = "hello world!".upcase
+s
 ```
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/variables-are-boxes?lite=true"></iframe>
@@ -283,9 +284,10 @@ Now add another line,
 ```ruby
 s = "hello world!".upcase
 s.reverse
+s
 ```
 
-and click "run ▶" again.
+and
 
 Great! Now we're making progress.
 
@@ -299,7 +301,13 @@ s.reverse
 s.gsub("L", "Z")
 ```
 
-Before you click "run ▶", take a guess in your head. Then click "run ▶". Did it match your expectation?
+What do you think `s` contains now? Try it:
+
+```
+s
+``
+
+Did it match your expectations?
 
 Most Ruby methods don't modify the object that they are called upon; they just return a modified copy. The original variable is untouched, so if we want to hold on to the new value then we better store that too. Type this:
 
@@ -307,6 +315,7 @@ Most Ruby methods don't modify the object that they are called upon; they just r
 s = "hello world!".upcase
 t = s.reverse
 u = t.gsub("L", "Z")
+u
 ```
 
 Fortunately, we can create as many variables as we want.
