@@ -287,8 +287,6 @@ s.reverse
 s
 ```
 
-and
-
 Great! Now we're making progress.
 
 ### Storing the next return value
