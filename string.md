@@ -57,9 +57,7 @@ These kinds of exceptions to the regular grammar in order to make life easier ar
 
 ## Methods
 
-Next, let's familiarize ourselves with some of the `String` class's methods. For each method below, we've provided some REPLs. Some of them are just there for you to experiment with the code, click "run ▶", and see how the methods work; but in other ones **you need to use the methods you're reading about to make some tests pass**.
-
-**Make sure you click "Submit" for any REPL that has tests in order to get credit for your work!**
+Next, let's familiarize ourselves with some of the `String` class's methods. For each method below, we've provided some REPLs. They are there for you to experiment with the code, click "run ▶", or use `irb`and see how the methods work. Keep these methods in mind when working on the assignment in Gitpod.
 
 ### String addition, a.k.a. +
 
