@@ -301,9 +301,9 @@ s.gsub("L", "Z")
 
 What do you think `s` contains now? Try it:
 
-```
+```ruby
 s
-``
+```
 
 Did it match your expectations?
 
