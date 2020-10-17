@@ -213,7 +213,7 @@ this_zodiac = all_zodiacs.fetch(:aries)
 @horoscope = this_zodiac.fetch(:horoscope)
 ```
 
-Verify that your `/zodiacs/aries` action still works just like before. If you're curious, the `Zodiac` class is in the `app/models` folder — go have a look at it. When we want to define a new Ruby class within a Rails app, we create a file for it `app/models` folder. The filename is important — it should exactly match the class name (just like when we create controller classes).
+Verify that your `/zodiacs/aries` action still works just like before. If you're curious, the `Zodiac` class is in the `app/models` folder — you can go have a look at it, if you like. When we want to define a new Ruby class within a Rails app, we create a file for it `app/models` folder. The filename is important — it should exactly match the class name (just like when we create controller classes).
 
 In this case, I created a file called `zodiac.rb` within `app/models/`, and boom — _everywhere_ within the Rails application (all controllers, all views, even within other models), we have access to the `Zodiac` class; and we can call `Zodiac.list`.
 
