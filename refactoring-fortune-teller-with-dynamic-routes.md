@@ -182,15 +182,17 @@ But, if we had a way to _look up_ the horoscope given the astrological sign that
 Imagine you had a hash of hashes that had all of the signs and horoscopes within it, something like an API response — then could you make a single RCAV that supported all 12 zodiacs? If you had a hash like this available to you:
 
 ```ruby
-:aries => {
-  :name => "Aries",
-  :horoscope => "As your professional dreams unfold, Aries, you may worry about the downside. First, there are new responsibilities that you might doubt your ability to fulfill. Second, you might be catapulted into an uncomfortable new realm of office politics. Don't let these matters put a damper on your enthusiasm. You have what it takes to fulfill the first concern and the wisdom to avoid the second. Onward and upward."
-},
-:leo => {
-  :name => "Leo",
-  :horoscope => "Success on all levels is filling your life and making you feel absolutely wonderful, Leo. The downside of this is that you might be a little too conscientious. Are you putting in a lot of extra hours? Be discriminating about this and don't work harder than necessary. You could get stressed to the point of taxing your strength too much, and that won't help you. Pace yourself."
-},
-# etc
+{
+  :aries => {
+    :name => "Aries",
+    :horoscope => "As your professional dreams unfold, Aries, you may worry about the downside. First, there are new responsibilities that you might doubt your ability to fulfill. Second, you might be catapulted into an uncomfortable new realm of office politics. Don't let these matters put a damper on your enthusiasm. You have what it takes to fulfill the first concern and the wisdom to avoid the second. Onward and upward."
+  },
+  :leo => {
+    :name => "Leo",
+    :horoscope => "Success on all levels is filling your life and making you feel absolutely wonderful, Leo. The downside of this is that you might be a little too conscientious. Are you putting in a lot of extra hours? Be discriminating about this and don't work harder than necessary. You could get stressed to the point of taxing your strength too much, and that won't help you. Pace yourself."
+  },
+  # etc
+}
 ```
 
 Fortunately, you do. I've created a class called `Zodiac`, and I gave it class-level method called `list` which returns that exact hash above[^could_you].
