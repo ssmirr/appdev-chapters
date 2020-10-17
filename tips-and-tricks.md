@@ -1,4 +1,4 @@
-# Tips and Tricks for Enhancing Productivity
+# Gitpod keyboard shortcuts and other productivity tips
 
 ## Toggle Code Comment
 
