@@ -97,9 +97,7 @@ You should see something like this:
 
 > **Note:** To scroll through long output in `rails console`, you can use <kbd>return</kbd> to scroll one line at a time, <kbd>Space</kbd> to scroll one page at a time, or <kbd>Q</kbd> to just get back to the prompt to enter a new Ruby expression.
 
-What just happened? We `open`ed the page at the location in `url`, and the return value was the HTTP response. The HTTP response is actually a complicated object, with headers and status codes and other things we haven't talked about yet.
-
-All we really want is the body of the response, the stuff that shows up in the browser window, so we used the `.read` method to pull that out. However, we just dropped that string on the ground; let's instead store the result in a variable called `raw_data`:
+What just happened? We `open`ed the page at the location in `url`, and the return value was an instance of the `StringIO` class, which represents the file. All we really want is the body of the file, the stuff that shows up in the browser window, so we used the `.read` method to pull that out as an instance of `String`. However, we just dropped that string on the ground; let's instead store the result in a variable called `raw_data`:
 
 ```ruby
 raw_data = open(url).read
