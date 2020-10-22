@@ -31,4 +31,4 @@ languages[0].name #=> "Afrikaans"
 
 Read more at the gem docs:
 
- - [Ruby gem documentation](https://googleapis.dev/ruby/google-cloud-translate/latest/index.html#Using_the_legacy_v2_client)
+[Ruby gem documentation](https://googleapis.dev/ruby/google-cloud-translate/latest/index.html#Using_the_legacy_v2_client)
