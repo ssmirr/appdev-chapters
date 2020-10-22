@@ -237,7 +237,7 @@ And now I can do whatever interesting things with `latitude` and `longitude` tha
 
 Now that we've explored in the console, it's time to take these four lines (or something similar to them, anyway) and write some actions...
 
-## Part 1: Street &rarr; Coords
+## Part 1: Street to Coordinates
 
 Now that we've seen how to retrieve information from a URL using Ruby, let's plug it in to a real application. If you haven't already, launch your Rails app with `bin/server` and navigate to the homepage in a Chrome tab.
 
@@ -261,31 +261,23 @@ If I type in `5807 S Woodlawn Ave` at the Street to Coordinates form, I should s
 </dl>
 </blockquote>
 
-## Part 2: Coords &rarr; Weather
+## Part 2: Coordinates to Weather
 
-Next, in `app/controllers/forecast_controller.rb`, you will do something similar; but instead of using Google's Geocoding API, you will use The Forecast API. We will exchange a latitude/longitude pair for weather information. Forecast is an amazing API that gives you minute-by-minute meteorological information.
+Next, you will do something similar; but instead of using Google's Geocoding API, you will use the Dark Sky API. We will exchange a latitude/longitude pair for weather information. Dark Sky is an amazing API that gives you minute-by-minute meteorological information.
 
 They released an iOS app, Dark Sky, to demonstrate the power of their API, and it instantly became a smash hit. The API is not entirely free, but we get 1,000 calls per day to play around with.
 
-Step 1 when working with any API is research. What is the URL of the page that has the data we want, preferably in JSON format?
+Step 1 when working with any API is research. What is the URL of the page that has the data we want, preferably in JSON format? Here is an example from their documentation:
 
-Let's head over to [Forecast's API documentation][2]. First, click "Try for Free" to register as a dev:
+[https://api.darksky.net/forecast/YOUR_API_KEY/37.8267,-122.4233](https://api.darksky.net/forecast/YOUR_API_KEY/37.8267,-122.4233){:target="_blank"}
 
-![](/assets/dark-sky-landing.jpg)
-
-![](/assets/dark-sky-register.png)
-
-![](/assets/dark-sky-confirmation.png)
-
-![](/assets/dark-sky-login.png)
-
-Once you've registered, verified your email, and signed in, you will be given a sample API call with your own personal API key inserted in it:
+The Dark Sky API is unfortunately no longer available for new signups, since Apple purchased them recently. You can use my key from Canvas. Here is what their dashboard looks like:
 
 ![](/assets/dark-sky-dashboard.png)
 
 #### Find an example
 
-Click the example link and check out the data they provide. Scroll up and down and get a feel for it:
+Visit the example link and check out the data they provide. Scroll up and down and get a feel for it:
 
 ![](/assets/dark-sky-sample.png)
 
@@ -293,9 +285,7 @@ It's pretty amazingly detailed data; it tells us current conditions, along with 
 
 But first, can we customize the example to get data relevant to us? Plug in some coordinates that you fetched in `street_to_coords` and try it out.
 
-Your job is to write some code in the `coords_to_weather` method, where indicated, and put the correct value in the instance variables at the end.
-
-If I type in `41.78` and `-87.59` at the Coords &rarr; Weather form, I should see something like
+Your job is to implement the actions required for the [Coordinates to Weather feature in the target](https://omnicalc-2.matchthetarget.com/coords_to_weather/new){:target="_blank"}.
 
 <blockquote>
 <dl>
@@ -334,9 +324,11 @@ rather than
 parsed_results.fetch("minutely").fetch("summary")
 ```
 
+[Read more about `.dig` here](https://tiagoamaro.com.br/2016/08/27/ruby-2-3-dig/){:target="_blank"}.
+
 ## Part 3: Address to Weather
 
-Finally, pull it all together. Use both the Google Geocoding API and the Forecast API so that if I type in `5807 S Woodlawn Ave` at the Street &rarr; Weather form, I should see something like
+Finally, pull it all together. Use both the Google Geocoding API and the Forecast API so that if I type in `5807 S Woodlawn Ave` at the Street to Weather form, I should see something like
 
 <blockquote>
 <p>Here's the outlook for 5807 S Woodlawn Ave:</p>
@@ -363,21 +355,17 @@ Finally, pull it all together. Use both the Google Geocoding API and the Forecas
 
 ### Explore APIs (Easier)
 
-Browse
+Browse some APIs:
 
- - [Mashape](https://market.mashape.com/explore)
- - [Algorithmia](https://algorithmia.com/algorithms)
- - [Google Machine Learning](https://cloud.google.com/products/machine-learning/)
- - [Amazon Machine Learning](https://aws.amazon.com/machine-learning/)
- - [Programmable Web's API Directory](http://www.programmableweb.com/category/all/apis?order=field_popularity)
+[https://chapters.firstdraft.com/chapters/800](https://chapters.firstdraft.com/chapters/800){:target="_blank"}
 
 and get inspired!
 
 ### Bootstrap (Easier)
 
-`<link>` to Bootstrap or a Bootswatch in the `<head>` of your pages (located in `app/views/layouts/application.html.erb`), and make things look prettier.
+`<link>` to Bootstrap or a [Bootswatch](https://www.bootstrapcdn.com/bootswatch/){:target="_blank"} in the `<head>` of your pages (located in `app/views/layouts/application.html.erb`), and make things look prettier.
 
-You can take [Omnicalc](http://omnicalc-target.herokuapp.com/) as inspiration, or create something entirely new.
+You can take [this Bootswatched app](https://omnicalc-bs4-final.herokuapp.com/){:target="_blank"} as inspiration, or create something entirely new.
 
 ### Future Forecast (Harder)
 
@@ -389,15 +377,10 @@ Add a feature that shows summaries for the next 14 days.
 
 ### Google Map (Harder)
 
-Embed a Google map in the view, centered on the provided address. Refer to the docs:
+Embed a Google map in the view, centered on the provided address. Refer to this chapter:
 
-[https://developers.google.com/maps/documentation/javascript/examples/map-simple](https://developers.google.com/maps/documentation/javascript/examples/map-simple){:target="_blank"}
+[https://chapters.firstdraft.com/chapters/836](https://chapters.firstdraft.com/chapters/836){:target="blank"}
 
 The key concept is, just like with Bootstrap, to first paste in the example markup and see if it works.
 
 Then, replace whichever part of the static markup you want to with embedded Ruby tags that contain your dynamic values.
-
-
-  [1]: http://www.ruby-doc.org/core-2.2.1/String.html
-  [2]: https://developer.forecast.io/
-
