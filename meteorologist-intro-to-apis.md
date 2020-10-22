@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In this project, you will practice working with Arrays and Hashes by pulling data from external services like Google Maps. You will build an application that, given a street address, tells the user the weather forecast.
+In this project, you will practice building forms and working with Arrays and Hashes by pulling data from external services like Google Maps. You will build an application that, given a street address, tells the user the weather forecast.
 
-In order to achieve this, our first task will be to exchange a **street address** for a **latitude/longitude pair** using Google's Geocoding API.
+In order to achieve this, our first task will be to exchange a **street address** for a **latitude/longitude pair** using Google's Geocoding API. Then, we'll exchange a **latitude/longitude pair** for a **weather forecast** using Dark Sky's API.
 
 We will send a location in a remarkably flexible, "English-y" format, the kind of thing we are allowed to type into a Google Maps search (e.g., "the corner of 58th and Woodlawn"), and the Geocoding API will respond with an exact latitude and longitude (along with other things) in JSON format.
 
@@ -12,72 +12,41 @@ We will send a location in a remarkably flexible, "English-y" format, the kind o
 
 Any time you are trying to develop a proof of concept of an app that needs external API data, the first step is researching the API and finding out if the information you need is available.
 
-For us, that translates to: is there a URL that I can paste into my browser's address bar that will give back JSON (JavaScript Object Notation) that has the data I need? If so, we're good; Ruby and Rails makes the rest easy.
+For us, that translates to: is there a URL that I can paste into my browser's address bar that will give back JSON (JavaScript Object Notation) that has the data I need? If so, we're good; Ruby makes the rest easy.
 
-First, let's install a Chrome Extension called JSONView that makes working with JSON easier:
+If you want to, you can install a Chrome Extension called JSONView that makes reading JSON easier:
 
-https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en
+[https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en){:target="_blank"}
 
 This will indent the JSON nicely and allow you to fold and unfold nested elements.
 
 ### API Setup
 
-We will provide you with an API key Google Maps. You'll be able to find it by visiting the assignment page for Omnicalc-Acions on Canvas. You'll need this key to complete the homework exercises below.
+We will provide you with an API key for Google Maps in the assignment page for Omnicalc 2 on Canvas. You'll need this key to complete the exercises below.
 
 We'll also need to make sure your API key stays hidden, in case your project ever gets pushed to GitHub or another public repository. Unsavory types like to scrape GitHub for sensitive information like API keys and run up huge bills for compromised users.
 
-We can do this fairly easily in your workspace:
-
-> If you realize you've made an error on any of the following steps, just type in `cd ~/workspace` and hit enter. That should get you back to the starting point.
-
-1. Type in `cd ~` and hit enter. This command should take you to the home folder of your workspace.
-1. Type in `touch .bash_profile` and hit enter. This command creates a hidden file called `.bash_profile` in your home folder.
-1. Type in `ls -a` and hit enter. You'll see a list of all the files in your current directory, including hidden files (the ones whose names start with a `.`).
-1. Mouse over the filename `.bash_profile` and click it. The file should open up in your editor.
-1. Paste in the following code into the file but make sure to use the Google API key on the right side of the `=` sign
-
-    ```bash
-    export GOOGLE_MAPS_KEY="replace_me_with_your_key"
-    ```
-
-    Note: don't put spaces around the `=`.
-
-1. Back in Terminal, type in `cd ~/workspace` to go back to your main folder, or just close that tab.
-
-    > If you ever need to reopen your bash profile, type `cd ~`, hit enter, then type `ls -a`, hit enter and click on the file to open it.
-
-1. If you have a Rails server running, stop it and re-start it.
-1. The values that we `export` in the `.bash_profile` file become key-value pairs in a special Hash that we can access anywhere in our Rails environment called `ENV`. For example, to access this sensitive info, **in a NEW Terminal tab** (it won't work in old tabs) we can open a `rails console` and type in:
-
-    ```ruby
-    ENV.fetch("GOOGLE_MAPS_KEY")
-    ```
-
-    and we should see output of
-
-    ```ruby
-    => "replace_me_with_your_key"
-    ```
-
-You can use this pattern throughout your Rails app to store and use sensitive info but prevent it from showing on GitHub when you push your code up, or from unauthorized visitors being able to see it in your public Cloud9 workspaces.
+To keep certain information out of our code, we use **environment variables**. See the [Storing credentials securely](https://chapters.firstdraft.com/chapters/792){:target="_blank"} chapter, and add our GMaps API key to your environment.
 
 ### Find an example
 
 Now, we have to research the API and find the correct URL to paste into our address bar to get back the JSON that we want. Usually, we have to start at the API Documentation. For the Geocoding API, the full docs are here:
 
-https://developers.google.com/maps/documentation/geocoding/
+[https://developers.google.com/maps/documentation/geocoding/](https://developers.google.com/maps/documentation/geocoding/){:target="_blank"}
 
-but, as usual with technical documentation, it's best once you skim the intro to head straight for the examples:
+but, as usual with technical documentation, I usually skim the intro and then head straight for the examples:
 
-https://developers.google.com/maps/documentation/geocoding/start#geocoding-request-and-response-latitudelongitude-lookup
+[https://developers.google.com/maps/documentation/geocoding/start#geocoding-request-and-response-latitudelongitude-lookup](https://developers.google.com/maps/documentation/geocoding/start#geocoding-request-and-response-latitudelongitude-lookup)
 
-The first example they give is
+The first example they give is:
 
-[https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY](https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY)
+[https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY](https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY){:target="_blank"}
 
-(I have removed the part about the API key from the end of the URL. You can find it on the Canvas assignment page.) Replace `YOUR_API_KEY` with the one provided to you. Paste that URL into a Chrome tab; you should see something like this:
+Replace `YOUR_API_KEY` with the one provided on Canvas in the Omnicalc 2 assignment. Paste that URL into a Chrome tab; you should see something like this:
 
 ![](/assets/mapsjson.png)
+
+(If your JSON looks like a wall of text instead of the nicely indented version above, then you haven't installed or enabled the [JSONView Chrome extension](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en){:target="_blank"}.)
 
 Try folding away the `address_components` section to make the value of the `geometry` key stand out, since that is where our target information lives:
 
@@ -107,13 +76,9 @@ It turns out we need to replace the part of the URL after the `?address=` with t
 
 Great! Now we know the exact data we want is available through the API. Now, how do we get it into our application? Fortunately, Ruby comes with some powerful built-in functionality that will help us with this. First, we need Ruby to read the URL that has the JSON we want, just like Chrome did. Chrome has an address bar we can paste the URL in to; how can we tell Ruby to go open a page on the Internet?
 
-If you haven't already,
+In your Omnicalc 2 workspace, open a new terminal tab and then enter the command `rails console`. This launches an interactive Ruby sandbox for us to experiment in.
 
- - create a workspace,
- - `bin/setup`,
- - and then in a Terminal tab, enter the command `rails console`. This launches an [interactive Ruby sandbox](the-rails-console.md) for us to experiment in.
-
-In the Rails Console, let's use Ruby's `open()` method to read Google's page. The `open()` method takes one `String` argument, which should contain the URL of the page you want to open. I'm going to copy-paste the URL within `"  "` and store it in a variable `url` to make it easier to work with:
+In the Rails Console, let's use Ruby's `open()` method to read Google's page. The `open()` method takes one `String` argument, which should contain the URL of the page you want to open. I'm going to copy-paste the URL within `""` and store it in a variable `url` to make it easier to work with:
 
 ```ruby
 url = "https://maps.googleapis.com/maps/api/geocode/json?address=5807+S+Woodlawn+Ave&key="
@@ -142,7 +107,7 @@ raw_data = open(url).read
 
 Alright! We just used Ruby to open up a connection over the Internet to Google's servers, placed a request for them to translate our address into a latitude and longitude, received a response, and stored it in a Ruby variable! That's a big deal, folks. However, the response is hideous. How in the world are we going to pull out the latitude and longitude values from that thing?
 
-We could explore the [String][1] class documentation and find some methods that might help us scan through `raw_data` for `"lat"`, perhaps. But then what? We could probably figure it out, but there's a much better way.
+We could explore the [String](https://chapters.firstdraft.com/chapters/757){:target="_blank"} methods and find something that might help us scan through `raw_data` for `"lat"`, perhaps. But then what? We could probably figure it out, but there's a much better way.
 
 Fortunately, Ruby provides a class called `JSON`, similar to the `CSV` class, which makes parsing a string that has data in JSON format a snap:
 
@@ -270,30 +235,18 @@ longitude = parsed_data.dig("results", 0, "geometry", "location", "lng")
 
 And now I can do whatever interesting things with `latitude` and `longitude` that I need.
 
-Now that we've explored in the console, it's time to take these four lines (or something similar to them, anyway) and write some permanent programs...
+Now that we've explored in the console, it's time to take these four lines (or something similar to them, anyway) and write some actions...
 
 ## Part 1: Street &rarr; Coords
 
 Now that we've seen how to retrieve information from a URL using Ruby, let's plug it in to a real application. If you haven't already, launch your Rails app with `bin/server` and navigate to the homepage in a Chrome tab.
 
-I have started you off with three forms:
+Given what you've learned about wiring up forms, and now what you've learned above about reading from the Google Geocoding API, implement the [Street to coordinates](https://omnicalc-2.matchthetarget.com/street_to_coords/new) functionality that you see in the target.
 
- - Street &rarr; Coords
- - Coords &rarr; Weather
- - Street &rarr; Weather
+ - The URL `/street_to_coords/results` should display the lat/lon, provided a query string on the end that contains the key `user_street_address`.
+ - A form that makes it easy to arrive at the above URL with a query string should be available at `/street_to_coords/new`
 
-And three files which process these form inputs and render results:
-
- - `app/controllers/geocoding_controller.rb`
- - `app/controllers/forecast_controller.rb`
- - `app/controllers/meteorologist_controller.rb`
-
-We'll be working on Street &rarr; Coords first.
-
-
-Open the file `app/controllers/geocoding_controller.rb`. Your job is to write some code in the `street_to_coords` method, where indicated, and put the correct value in the `@latitude` and `@longitude` variables.
-
-If I type in `5807 S Woodlawn Ave` at the Street &rarr; Coords form, I should see something like
+If I type in `5807 S Woodlawn Ave` at the Street to Coordinates form, I should see something like:
 
 <blockquote>
 <dl>
@@ -301,13 +254,12 @@ If I type in `5807 S Woodlawn Ave` at the Street &rarr; Coords form, I should se
   <dd>5807 S Woodlawn Ave</dd>
 
   <dt>Latitude</dt>
-  <dd>41.7896234</dd>
+  <dd>41.7891387</dd>
 
   <dt>Longitude</dt>
-  <dd>-87.5964137</dd>
+  <dd>-87.5954555</dd>
 </dl>
 </blockquote>
-
 
 ## Part 2: Coords &rarr; Weather
 
@@ -384,7 +336,7 @@ parsed_results.fetch("minutely").fetch("summary")
 
 ## Part 3: Address to Weather
 
-Finally, pull it all together in `app/controllers/meteorologist_controller.rb`. Use both the Google Geocoding API and the Forecast API so that if I type in `5807 S Woodlawn Ave` at the Street &rarr; Weather form, I should see something like
+Finally, pull it all together. Use both the Google Geocoding API and the Forecast API so that if I type in `5807 S Woodlawn Ave` at the Street &rarr; Weather form, I should see something like
 
 <blockquote>
 <p>Here's the outlook for 5807 S Woodlawn Ave:</p>
@@ -406,10 +358,6 @@ Finally, pull it all together in `app/controllers/meteorologist_controller.rb`. 
   <dd>No precipitation throughout the week, with temperatures falling to 62°F on Tuesday.</dd>
 </dl>
 </blockquote>
-
-## Submission
-
-Run `rails grade:all` at a Terminal prompt when you're ready for feedback and your score. You can run it as many times as you want.
 
 ## Optional Extra Exercises, for fun
 
