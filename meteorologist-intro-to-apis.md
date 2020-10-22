@@ -215,33 +215,31 @@ parsed_data.fetch("results").at(0).fetch("geometry").fetch("location").fetch("ln
 => -87.5954551
 ```
 
-I prefer working in small steps and peeling one layer off at a time while I am exploring. But, once I know what I need, there's also a method called `dig` that can help us drill down into nested Hash/Array structures like this a bit more concisely:
-
-```ruby
-parsed_data.dig("results", 0, "geometry", "location", "lng")
-=> -87.5954551
-```
-
-So, the entire program to geocode boils down to just four lines!
+But, as you know, I much prefer making nicely named variables at each step, for clarity:
 
 ```ruby
 url = "https://maps.googleapis.com/maps/api/geocode/json?address=5807+S+Woodlawn+Ave&key=" + ENV.fetch("GOOGLE_MAPS_KEY")
-parsed_data = JSON.parse(open(url).read)
-latitude = parsed_data.dig("results", 0, "geometry", "location", "lat")
-longitude = parsed_data.dig("results", 0, "geometry", "location", "lng")
+raw_data = open(url).read
+parsed_data = JSON.parse(raw_data)
+results_array = parsed_data.fetch("results")
+first_result = results_array.at(0)
+geometry_hash = first_result.fetch("geometry")
+location_hash = first_result.fetch("location")
+latitude = location_hash.fetch("lat")
+latitude = location_hash.fetch("lng")
 ```
 
 And now I can do whatever interesting things with `latitude` and `longitude` that I need.
 
-Now that we've explored in the console, it's time to take these four lines (or something similar to them, anyway) and write some actions...
+Now that we've explored in the console, it's time to take this Ruby (or something similar) and write some actions...
 
-## Part 1: Street &rarr; Coords
+## Part 1: Street to Coordinatess
 
 Now that we've seen how to retrieve information from a URL using Ruby, let's plug it in to a real application. If you haven't already, launch your Rails app with `bin/server` and navigate to the homepage in a Chrome tab.
 
-Given what you've learned about wiring up forms, and now what you've learned above about reading from the Google Geocoding API, implement the [Street to coordinates](https://omnicalc-2.matchthetarget.com/street_to_coords/new) functionality that you see in the target.
+Given what you've learned about wiring up forms, and now what you've learned above about reading from the Google Geocoding API, implement the [Street to Coordinates](https://omnicalc-2.matchthetarget.com/street_to_coords/new) functionality that you see in the target.
 
- - The URL `/street_to_coords/results` should display the lat/lon, provided a query string on the end that contains the key `user_street_address`.
+ - The URL `/street_to_coords/results` should display the lat/lon, provided a query string on the end that contains the key `user_street_address` and a value.
  - A form that makes it easy to arrive at the above URL with a query string should be available at `/street_to_coords/new`
 
 If I type in `5807 S Woodlawn Ave` at the Street to Coordinates form, I should see something like:
