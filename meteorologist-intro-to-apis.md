@@ -82,7 +82,7 @@ In the Rails Console, let's use Ruby's `open()` method to read Google's page. Th
 
 ```ruby
 url = "https://maps.googleapis.com/maps/api/geocode/json?address=5807+S+Woodlawn+Ave&key="
-  + ENV.fecth("GOOGLE_MAPS_KEY")
+  + ENV.fetch("GOOGLE_MAPS_KEY")
 ```
 
 Then, let's `open` that URL and `read` the body of the page:
