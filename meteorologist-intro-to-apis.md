@@ -391,7 +391,7 @@ Add a feature that shows summaries for the next 14 days.
 
 Embed a Google map in the view, centered on the provided address. Refer to the docs:
 
-https://developers.google.com/maps/documentation/javascript/examples/map-simple
+[https://developers.google.com/maps/documentation/javascript/examples/map-simple](https://developers.google.com/maps/documentation/javascript/examples/map-simple){:target="_blank"}
 
 The key concept is, just like with Bootstrap, to first paste in the example markup and see if it works.
 
