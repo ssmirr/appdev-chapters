@@ -14,6 +14,7 @@ Then `bundle install` and restart your web server.
 You now have access to the `Google::Cloud::Translate` class. To use it (you can launch a `rails console` in a new Terminal tab and give the following a try, if you like; be sure to add your API credentials to your Gitpod workspace as environment variables first):
 
 ```ruby
+require "google/cloud/translate"
 gt_client = Google::Cloud::Translate.new({ :version => :v2 })
 translation = gt_client.translate("Hello, world!", { :to => "es" })
 ```
