@@ -224,9 +224,9 @@ parsed_data = JSON.parse(raw_data)
 results_array = parsed_data.fetch("results")
 first_result = results_array.at(0)
 geometry_hash = first_result.fetch("geometry")
-location_hash = first_result.fetch("location")
+location_hash = geometry_hash.fetch("location")
 latitude = location_hash.fetch("lat")
-latitude = location_hash.fetch("lng")
+longitude = location_hash.fetch("lng")
 ```
 
 And now I can do whatever interesting things with `latitude` and `longitude` that I need.
