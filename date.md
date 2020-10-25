@@ -147,4 +147,4 @@ Time.now.strftime("%b") # => "Sep"
 Time.now.strftime("%a %e, %R %p") # => "Mon, 7 14:35 PM"
 ```
 
-You should **not** try to memorize what these patterns mean. Tools like [strftime.net](strftime.net){:target="_blank"} and [For a Good Strftime](https://www.foragoodstrftime.com/){:target="_blank"} exist to help compose the formatting string argument.
+You should **not** try to memorize what these patterns mean. Tools like [strftime.net](http://www.strftime.net){:target="_blank"} and [For a Good Strftime](https://www.foragoodstrftime.com/){:target="_blank"} exist to help compose the formatting string argument.
