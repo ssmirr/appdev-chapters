@@ -282,13 +282,13 @@ class Person
     return assembled_name
   end
 
-  def full_name!
+  def full_name_caps
     return self.full_name.upcase
   end
 end
 ```
 
-(Don't be fooled by the `!` at the end of the new method's name; it has no special meaning. It's just another letter, as far as Ruby is concerned. And one letter's difference makes them as distinct as `zebra` and `giraffe` in Ruby's eyes.)
+And so on, and so forth.
 
 ## Defining "association accessors"
 
@@ -341,7 +341,7 @@ Now, visit the details page of a movie again. Progress — the error message wen
 
 Please note that we could have called the method something else, if we wanted to. `.the_director`? `.el_capitan`? `.zebra`? Sure, if you want; go for it. Your team/TA/future-self might not be very happy with you, though. Usually, we should try to be as descriptive as possible.
 
-Since it is returning an instance of the `Director` class, `.director` is a good name, I think; just like `.director_id` was a good name for the column/method that returned an `Integer`. Perhaps `.director_instance` or `.director_row` or `.director_record` might be more descriptive than `.director`? I could buy that argument (you know I love long and descriptive names), but `.director` is the convention in the Rails community when returning an instance of the class `Director`.
+Since it is returning an instance of the `Director` class, `.director` is a good name, I think; just like `.director_id` was a good name for the column/method that returned an `Integer`. Perhaps `.director_instance` or `.director_row` or `.director_record` might be more descriptive than `.director`? I could buy that argument (you know I love long and descriptive names), but `.director` is the convention in the Rails community when returning an ActiveRecord instance `Director`.
 
 In most projects, the choice of what you call your methods, view templates, and anything else internal to your codebase (and not user-facing) is entirely up to you. Since this is a refactoring project, though, and the point of it is to change internal implementation while holding user-facing functionality constant, `rails grade` will be checking to see that you defined a new method called `.director`; so name it that.
 
@@ -367,7 +367,7 @@ end
 
 Check out the return value of `<%= @the_movie.director %>` in the details page of a movie. Hopefully you should see an `Integer`, like `42`.
 
-You might see nothing at all, if the `director_id` column was never populated; the value might still be `nil`. You could try `<%= @the_movie.director.inspect %>`, and then you'll get more useful information for debugging; `nil` will show up as "nil" instead of just nothing. (If it wasn't that, then you forgot the `=` in `<%=`.)
+You might see nothing at all, if the `director_id` column was never populated; the value might still be `nil`. You could try `<%= @the_movie.director.inspect %>`, and then you'll get more useful information for debugging; `nil` will show up as "nil" instead of just nothing. (If a `nil` value wasn't the cause of seeing no output, then you forgot the `=` in `<%=`.)
 
 Make sure you've got a value in the `director_id` column before moving on.
 
@@ -497,7 +497,7 @@ class Director < ApplicationRecord
 end
 ```
 
-The convention in the Rails community would normally have been to call this method `.movies` (plural), since it is returning multiple `Movie` instances (an `ActiveRecord::Relation`, to be precise). But what the heck — I like the name `.filmography` better, since I think it's more descriptive of our problem domain.
+The convention in the Rails community would normally have been to call this method `.movies` (plural), since it is returning an `ActiveRecord::Relation` containing some number of `Movie` instances. However, I like the name `.filmography` better, since I think it's more descriptive of our problem domain.
 
 Now, we can refactor the directors' show template to this:
 
