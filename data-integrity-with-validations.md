@@ -198,7 +198,7 @@ If you're experimenting in `rails console`, don't forget to `exit` and re-launch
 => false
 [18] pry(main)> n.errors.full_messages
 => ["Director can't be blank", "Title has already been taken"]
----
+```
 
 Great! But what if we want to allow multiple movies with the same name, as long as they don't also have the same year?
 
