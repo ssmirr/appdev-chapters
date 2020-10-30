@@ -1,5 +1,7 @@
 # Data integrity with Validations
 
+> If you want to type along with this reading, you can use the [MSM Validations](https://github.com/appdev-projects/msm-validations) project.
+
 As soon as we start saving data into our tables from external sources, be it from our users, CSVs, APIs, or wherever, we have to start worrying about whether that data is _valid_. Did they fill out all of the required fields? Did they choose a username that was already taken? Did they enter an age less than 0? Did they vote twice?
 
 If _invalid_ records sneak into our database, and our code assumes our data is valid, then we're going to have all kinds of problems. Then, we have to start writing our code very defensively, with tons of `if`/`elsif`/`else`/`end` statements scattered everywhere to guard against invalid _data_ causing errors in otherwise functional code.
@@ -125,6 +127,96 @@ Ah ha! It returned `false`, and there's no SQL output like usual. If you look at
  updated_at: nil>
 ```
 
-Read more about validations here:
+### The Errors collection
+
+If we want to, we can even find out why the object didn't save. Every ActiveRecord object has an attribute called `errors`, which contains an instance of `ActiveModel::Errors` — a collection of validation failures:
+
+```pry
+[4] pry(main)> m.errors
+=> #<ActiveModel::Errors:0x00007fe37fa0d0d8
+ @base=
+  #<Movie:0x00007fe3cfa753b8
+   id: nil,
+   title: nil,
+   year: nil,
+   duration: nil,
+   description: nil,
+   image: nil,
+   director_id: nil,
+   created_at: nil,
+   updated_at: nil>,
+ @details={:director_id=>[{:error=>:blank}]},
+ @messages={:director_id=>["can't be blank"]}>
+```
+
+The `messages` attribute of this object contains a `Hash` where the keys are the names of columns where something went wrong (as `Symbol`s), and the values are `Array`s of `Strings` describing what went wrong:
+
+```pry
+[5] pry(main)> m.errors.messages
+=> {:director_id=>["can't be blank"]}
+```
+
+There's even a handy method called `.full_messages` which will assemble friendly error messages for us and return an `Array` of `String`s:
+
+```pry
+[6] pry(main)> m.errors.full_messages
+=> ["Director can't be blank"]
+```
+
+Neat! Later, we will loop through this `Array` and display the friendly messages to our users to help them re-fill out forms.
+
+## Commonly used built-in validators
+
+By far the most common data integrity checks we need are:
+
+ 1. To make sure a value is present before saving. This is especially useful in the case of foreign keys, like we saw.
+ 2. To make sure a value is unique before saving (i.e., no other rows have the same value in that column).
+
+Let's add a uniqueness validation:
+
+```ruby
+class Movie < ApplicationRecord
+  validates(:director_id, { :presence => true })
+  validates(:title, { :uniqueness => true })
+end
+```
+
+If you're experimenting in `rails console`, don't forget to `exit` and re-launch it; model files are not automatically reloaded by `rails console` when we update them. But once we restart `rails console`, we can test our new validation:
+
+```pry
+[11] pry(main)> m = Movie.new
+[12] pry(main)> m.title = "zebra"
+[13] pry(main)> m.director_id = 1
+[14] pry(main)> m.save
+=> true
+[15] pry(main)> n = Movie.new
+[16] pry(main)> n.title = "zebra"
+[17] pry(main)> n.save
+   (0.1ms)  begin transaction
+  Movie Exists? (0.2ms)  SELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?  [["title", "zebra"], ["LIMIT", 1]]
+   (0.0ms)  rollback transaction
+=> false
+[18] pry(main)> n.errors.full_messages
+=> ["Director can't be blank", "Title has already been taken"]
+---
+
+Great! But what if we want to allow multiple movies with the same name, as long as they don't also have the same year?
+
+We can provide a `Hash` of options for the uniqueness validator instead of `true`:
+
+```ruby
+class Movie < ApplicationRecord
+  validates(:director_id, { :presence => true })
+  validates(:title, { :uniqueness => { :scope => [:year] } })
+end
+```
+
+Now, the table will first be scoped down to movies with the same year, and then the title will be validated unique within that subset. You can provide as many other columns to scope by in the `Array` value for `:scope`.
+
+## Further reading
+
+You can read a lot more about validations at the official Rails Guides:
 
 [https://guides.rubyonrails.org/active_record_validations.html](https://guides.rubyonrails.org/active_record_validations.html)
+
+But don't forget that the official Rails Guides use a lot of optional Ruby syntaxes to write more concise code than we like to in AppDev. Review [the Chapter on Optional Ruby Syntaxes](https://chapters.firstdraft.com/chapters/787){:target="_blank"} on it if the code examples seem confusing.
