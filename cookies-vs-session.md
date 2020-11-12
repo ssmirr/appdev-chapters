@@ -1,4 +1,4 @@
-# Cookies vs Session
+# More ways of using cookies
 
 Rails provides a few different ways to work with browser cookies, in addition to the `cookies` hash that [we've already read about](https://chapters.firstdraft.com/chapters/842){:target="_blank"}.
 
