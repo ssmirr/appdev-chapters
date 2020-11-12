@@ -24,18 +24,18 @@
 We've added our usual goodies to the base-rails repository that aren't included automatically in a new Rails app.
 
 ### Gems
-- [`amazing_print`](https://github.com/amazing-print/amazing_print)
-- [`annotate`](https://github.com/ctran/annotate_models)
-- [`better_errors`](https://github.com/BetterErrors/better_errors)
-- [`binding_of_caller`](https://github.com/banister/binding_of_caller)
-- [`draft_generators`](https://github.com/firstdraft/draft_generators/)
-- [`dotenv-rails`](https://github.com/bkeepers/dotenv)
-- [`faker`](https://github.com/faker-ruby/faker)
-- [`http`](https://github.com/httprb/http)
-- [`pry-rails`](https://github.com/rweng/pry-rails)
-- [`rails_db`](https://github.com/igorkasyanchuk/rails_db)
-- [`table_print`](https://github.com/arches/table_print)
-- [`web_git`](https://github.com/firstdraft/web_git/)
+- [`amazing_print`](https://github.com/amazing-print/amazing_print){:target="_blank"}
+- [`annotate`](https://github.com/ctran/annotate_models){:target="_blank"}
+- [`better_errors`](https://github.com/BetterErrors/better_errors){:target="_blank"}
+- [`binding_of_caller`](https://github.com/banister/binding_of_caller){:target="_blank"}
+- [`draft_generators`](https://github.com/firstdraft/draft_generators/){:target="_blank"}
+- [`dotenv-rails`](https://github.com/bkeepers/dotenv){:target="_blank"}
+- [`faker`](https://github.com/faker-ruby/faker){:target="_blank"}
+- [`http`](https://github.com/httprb/http){:target="_blank"}
+- [`pry-rails`](https://github.com/rweng/pry-rails){:target="_blank"}
+- [`rails_db`](https://github.com/igorkasyanchuk/rails_db){:target="_blank"}
+- [`table_print`](https://github.com/arches/table_print){:target="_blank"}
+- [`web_git`](https://github.com/firstdraft/web_git/){:target="_blank"}
 
 ### Configuration files
 
@@ -53,3 +53,5 @@ We've added our usual goodies to the base-rails repository that aren't included 
 - `config.ru`
 - `lib/tasks/auto_annotate_models.rake`
 - `Procfile`
+
+More details to come!
