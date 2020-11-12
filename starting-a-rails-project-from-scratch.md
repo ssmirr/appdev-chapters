@@ -1,7 +1,7 @@
 # Starting a Rails Project From Scratch
 
 ## Create your GitHub repository
-1. Visit https://github.com/appdev-projects/base-rails
+1. Visit [https://github.com/appdev-projects/base-rails](https://github.com/appdev-projects/base-rails){:target="_blank"}
 2. Click on "Use this template"
   ![](/assets/use-this-template.png)
 3. In the "Owner" dropdown, select your GitHub organization and choose a name for your project
@@ -15,7 +15,7 @@
   ![](/assets/copy-repo-url.png)
 - In the address bar of your browser type: `gitpod.io/#` + your GitHub repository URL
   ![](/assets/create-new-gitpod-workspace.png)
-  - Alternatively, if you have the [Gitpod extension](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki?hl=en) installed, you can click on the Gitpod button
+  - Alternatively, if you have the [Gitpod extension](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki?hl=en){:target="_blank"} installed, you can click on the Gitpod button
   ![](/assets/open-repo-in-gitpod.png)
 
 
