@@ -31,8 +31,8 @@ The differences between `session` and `cookies` are:
  - All of the key/value pairs in `session` are encoded into one long cookie. If you store things in `session` and then look in Chrome's developer tools, individual keys will not be visible (the way that they were with `cookies`). Instead, there will be one long, gibberish-looking cookie. All of the key/value pairs in `session` are combined and encoded into it.
 
     This is primarily for security. If we're storing something important (like the ID of the signed in user), we can't allow users to simply modify it by opening the Developer Tools. `session`, unlike `cookies`, is tamper-proof.
- - `session` expires when the user closes their browser.
- - `session` allows you to store more than just `String`s as values. You could, for example, store an `Array` of the last 10 product IDs that a user looked at.
+ - `session` expires when the user quits their browser.
+ - `session` allows you to store more than just `String`s as values. You could, for example, store an `Array` containing the last 10 product IDs that a user looked at.
  - There's a method that you can use in any controller called `reset_session`, which will delete all the key/value pairs that you've added. This is a convenient way to "forget" anything you've stored about a user, especially when signing them out.
 
 Usually, I use `cookies` while figuring things out (since I can read them in the Dev Tools which makes debugging easier). Then I switch to `session`.
