@@ -5,26 +5,22 @@
  - At a terminal prompt:
 
     ```
-    heroku login
+    heroku login -i
     ```
  - You will see something like:
 
     ```
-    heroku: Press any key to open up the browser to login or q to exit: 
+    heroku: Enter your login credentials
+    Email:
     ```
 
- - Press a key. You will then see:
+ - Enter your Heroku email and password:
 
     ```
-    Opening browser to https://cli-auth.heroku.com/auth/cli/browser/48eda9ea-0edd-426a-91eb-3a8486df4a1c
-    ›   Warning: Cannot open browser.
-    ```
-
- - Copy-paste that URL into a browser tab (or <kbd>Cmd</kbd>/<kbd>Ctrl</kbd>`+`click on it). Sign in to your Heroku account. Back in the terminal, you should see:
-
-    ```
-    Logging in... done
-    Logged in as [YOUR HEROKU EMAIL ADDRESS].
+    heroku: Enter your login credentials
+    demostudent10@firstdraft.com
+    Password: ***************
+    Logged in as demostudent10@firstdraft.com
     ```
 
 ### Create a production server (once per application)
