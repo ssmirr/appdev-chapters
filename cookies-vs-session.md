@@ -28,11 +28,9 @@ Rails provides another hash called `session` that works very similarly to `cooki
 
 The differences between `session` and `cookies` are:
 
- - All of the key/value pairs in `session` are encoded into one long cookie. If you store something in `session` and then look in Chrome's developer tools, the key/value pair you stored will not be visible (the way that they were with `cookies`).
+ - All of the key/value pairs in `session` are encoded into one long cookie. If you store things in `session` and then look in Chrome's developer tools, individual keys will not be visible (the way that they were with `cookies`). Instead, there will be one long, gibberish-looking cookie. All of the key/value pairs in `session` are combined and encoded into it.
 
-    This is primarily for security. If we're storing something important (like the ID of the signed in user), we can't allow users to simply modify it by opening the Developer Tools.
-    
-    `session`, unlike `cookies`, is tamper-proof.
+    This is primarily for security. If we're storing something important (like the ID of the signed in user), we can't allow users to simply modify it by opening the Developer Tools. `session`, unlike `cookies`, is tamper-proof.
  - `session` expires when the user closes their browser.
  - `session` allows you to store more than just `String`s as values. You could, for example, store an `Array` of the last 10 product IDs that a user looked at.
 
