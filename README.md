@@ -48,6 +48,7 @@ Works in progress, and not in order.
  44. [Photogram Final](https://chapters.firstdraft.com/chapters/837)
  45. [Tower of Babel](https://chapters.firstdraft.com/chapters/838)
  46. [A few management readings](https://chapters.firstdraft.com/chapters/789)
+ 47. [Starting a Rails app from Scratch](https://chapters.firstdraft.com/chapters/851)
 
 ---
 
