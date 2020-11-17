@@ -1,158 +1,205 @@
 # Creating Sample Data 
 
-You have just created your application and are figuring out where to start. A good practice is to create some sample data early on in the life of your application so you will always have a single command to reset your database with good data. 
+You have just created your application and are figuring out where to start. A good practice is to create some sample data early on in the life of your application so you will always have a single command to reset your database with good data. For the building of this seeds file we are going to use the Photogram signin project.  
+
+To start, open this project and start to create data.  First create a user, then go the photos page and create a new photo.  Then create a comment on that photo.  Mabye add yourself as a fan.  Then go back and make a few more photos.  Perfect now log out and make another user and do the same process again.  This sure is time consuming.  What happens if some bad data got into your database and now you need to delete all the records... 
+
+Luckly for you, we have provided sample data in all of the projects, because a project without data is pretty boring.  Now how did we do that without going in and making the records one at a time? The answer is, we created a sample data task to populate the database, and are going to show you how to do the same.
 
 ## Where do we write our sample data? 
 
 In class, whenever we have needed to get data into our database, we were able to run the command `rails sample_data`, but what where is that file located? 
 
-If you were to open a class project and do a search you would find that our `sample_data` lives in the `task` folder, which is located within the `lib` folder. The path to that would be `lib/tasks/dev.rake`. In the beginning of the class, whenver we have run a Ruby file we would have to call `ruby filename.rb`, so we might think that to run this file we would need to run `ruby dev.rake`. While this would follow our previous convention, we are able to define how we call these tasks. Let's look at the `sample_data` task for the [photogram gui assignment](https://github.com/appdev-projects/photogram-gui) and break down what is happening so we can build our own `sample_data` task.  
+If you were to open a class project and do a search you would find that our `sample_data` lives in the `tasks` folder, which is located within the `lib` folder. The path to that would be `lib/tasks/dev.rake`. When we first started learning, whenver we want to run a Ruby file we would have to call `ruby filename.rb`, so we might think that to run this file we would need to run `ruby dev.rake`. While this would follow our previous convention, we are able to define how we call these tasks. Let's start building the task by being able to call it in the rails termianl.
 
-### The code 
+### The start 
 ```
-desc "Fill the database tables with some dummy data"
+desc "Fill the database tables with some sample data"
 task({ :sample_data => :environment}) do
-  starting = Time.now
-
-  if Rails.env.production?
-    ActiveRecord::Base.connection.tables.each do |t|
-      ActiveRecord::Base.connection.reset_pk_sequence!(t)
-    end
-  end
-
-  User.delete_all
-  Photo.delete_all
-  Like.delete_all
-  Comment.delete_all
-  FollowRequest.delete_all
-
-  users = [
-    {id: 81, username: "galen", private: false, likes_count: 97, comments_count: 98, created_at: "2015-01-19 09:24:34", updated_at: "2019-10-08 10:25:00"},
-    {id: 82, username: "trina", private: false, likes_count: 22, comments_count: 35, created_at: "2014-09-02 06:05:56", updated_at: "2019-10-08 10:25:00"},...
-
-(FOUR THOUSAND LINES OF CODE!!!!)
-
-  Like.insert_all!(likes)
-  ending = Time.now
-  elapsed = ending - starting
-
-  puts "#{elapsed.to_i} seconds elapsed."
-  puts "Generated Dummy Data"
+  p "Hello, World!"
 end
 ```
 
-Okay, sooooo I chopped out four thousand or so lines of code, but as you can see, there no real magic here, and as seasoned Rubyists, we should be somewhat familiar with what is happening.  Still, let's go through line by line and see what is being done. 
+If everything is correct, when we run `rails sample_data` in the termial, the line "Hello, World!" should have appeared in the terminal. So what does this code do so far?
 
-#### `desc "Fill the database tables with some dummy data"`
+#### `desc "Fill the database tables with some sample data"`
 
 The [`desc`](https://apidock.com/ruby/v1_9_3_125/Rake/DSL/desc) stands for description, and that is what we are doing with this line, we are describing what we are going to do within this task. 
 
 #### `task({ :sample_data => :environment}) do`
 
-Here we are naming our task and making it available in our coding environment.  By defing our task `sample_data`, it is ready of us to call with `rails sample_data`. As long as we finish our `do` with an `end`, we have our task, not very useful yet, but it works.  
+Here we are naming our task and making it available in our coding environment.  By defing our task `sample_data`, it is ready of us to call with `rails sample_data`. As long as we finish our `do` with an `end`, we have our task, it ins't much yet but we are starting to connect the dots. 
 
-#### `starting = Time.now`
+### Remove old data
 
-We are defining a variable called `starting`, which will store the current time.  Now at the end of our program, we can put a message which tells us how long our task took to run. 
+Now that we are able to access our task, the first thing we should do is clear out any old data.  Based on our project schema, I know that we have the tables of, `Comments`, `Follow_requests`, `Likes`, `Photos`, and `Users`.  
 
-#### Big block of code 
+I will add the following lines to our `sample_data` task. 
+
 ```
-  if Rails.env.production?
-    ActiveRecord::Base.connection.tables.each do |t|
-      ActiveRecord::Base.connection.reset_pk_sequence!(t)
-    end
-  end
-  ```
-  Okay, so this one is more than one line but not super difficult to explain. What this block of code does it checks to see if we are in a production environment.  If we go to a rails console and type in `Rails.env.prouction` it will return `false`, because currently, we are in a `development` environment, but when we push to Heroku, we will then be in our `production` environment. So if you would like, you could take away the line of `if Rails.env.production?` and the matching `end`. If you do, the following logic will run wherever you run your task.   
+desc "Fill the database tables with some sample data"
+task({ :sample_data => :environment}) do
 
-I will tell you what the rest of the code does, and you can feel free to use it in your file. If you were to go to a console and type in `ActiveRecord::Base.connection.tables`, it would return an array of the current tables in our project.  Now, just as we have done before, we are calling `.each` on that array. Making a connection to our database with `ActiveRecord::Base.connection`, we are calling the method `.reset_pk_sequence!(t)`. We know that `t` is the name of our table, so what is `reset_pk_sequence!`? Well, has it happened yet that the foreign `user_id` has changed after deleting a user and adding that user back? What is happening is two records in the same class will never have the same id's. Even if a record is deleted, that deleted `id` will not be used again. So, if you create sample data and put the `user_id` as `1`, then run `sample_data` again and delete all of the users, that `user_id`, which was assigned as `1` wouldn't exist because we don't reuse `id` numbers.  
+ User.destroy_all
+ FollowRequest.destroy_all
+ Like.destroy_all
+ Photo.destroy_all
+ User.destroy_all
 
-How we fix this is with the `.reset_pk_sequence!` command. It will reset the `id` numbers of within our database and start again at 1. 
-
-
-#### `User.delete_all`
-What we are doing a few times here is going into our database and deleting all of the records we currently have. We can call this on any of the classes we have created. 
-
-#### `users = [{id: 81, username: "galen", private: false, likes_count: 97, comments_count: 98, created_at: "2015-01-19 09:24:34", updated_at: "2019-10-08 10:25:00"},`
-
-This code is something we have seen a few times this quarter. We are creating the variable `users`, which is an array. Inside the array, we fill it with hashes containing the information we want to save for each `user` record. We actually can leave out the `created_at` and `updated_at`, they are created when the records are saved.  
-
-#### `Like.insert_all!(likes)`
-
-Yes, this is for `Like` but we would do this after each array.  For our `users` we would call `User.insert_all!(users)`. The `.insert_all` will take all of the data in our `users` array and insert it in the database.  
-
-#### Deteming elapsed time
-``` 
-ending = Time.now
-elapsed = ending - starting
+end
 ```
-Here we define our ending time and set the variable of `ending`, this is used is with our `starting` variable from the top to determine the `elapsed` time it took to run `sample_data`
 
-#### A nice little message
+What the `.destroy_all` method does is call each record and destroy each records and each record associated with the record. Now that we have a clean database we can start adding records to our database. 
+
+### Adding Users
+
+When we start to add data to our task we will need to know what available for each table.  In the `user.rb` file we can see the schema for the `users` table. It looks like this. 
+
 ```
-puts "#{elapsed.to_i} seconds elapsed." 
-puts "Generated Dummy Data"
-  ```
-At the end of our task, we give ourselves a nice little message which tells us how long it took to run our task and that it is complete.  
-
-### Wrapping up
-
-Perfect, you are all set and ready to go; just start writing your four thousand lines of sample data. 
-
-But wait!!! What if we don't want to write four thousand lines to get some sample data in our database, is there anything we can do?!?!  
-
-... <br>
-..... <br>
-...... <br>
-........ <br>
-
-Of course there is!! This... is... RAILSSSSS!
-
-# Refactoring `sample_data` 
-Just like our past assignments were able to be refactored, this `sample_data` is no different.  
-
-The first few lines will be the same, but we will start to refactor as soon as we start creating our data.
-
-## Starting with Users
-
-In the example above we created users by manually inputting data from an array and isn't an array a collection of items, well if we know columns of the tables are we can easily fill these out.  
-
-Because we are dealing with Ruby, we can use all of the Ruby we know so what if we did something like this 
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  comments_count  :integer
+#  likes_count     :integer
+#  password_digest :string
+#  private         :boolean
+#  username        :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 ```
-users = []
-100.times do 
+
+```
+3.times do 
     user = User.new
     user.username = "Pat"
     user.private = true
-    users.push(user)
+    user.comments_count = 0
+    user.password = "password"
+    user.likes_count = 0
+    users.save
 end
-Users.insert_all!(users)
 ```
 
-Wow, we just created 100 users in no time!! I mean yes, it might be the world's most boring data, but who wouldn't want 100 users named "Pat"?  
+Wow, we just created 3 users in no time!! I mean yes, it might be the world's most boring data, but who wouldn't all of their users with the same name? 
 
 Okay, I understand, how can we make this better? 
 
 What if we did this? 
 ```
-names = ["Pat", "Raghu", "Jelani", Shreya"]
+names = ["Pat", "Raghu", "Jelani"]
 bool = [true, false]
-users = []
-100.times do 
+
+ 3.times do |count|
     user = User.new
-    user.username = names.sample
-    user.private = bool.sample 
-    users.push(user)
-end
-Users.insert_all!(users)
+    user.username = names.at(count)
+    user.private = bool.sample
+    user.comments_count = 0
+    user.password = "password"
+    user.likes_count = 0
+    user.save
+    p count
+ end
 ```
-Now we are getting somewhere, and our 100 users will come from 4 different names, this is better. 
+Now we are getting somewhere, each of our users have a different names and sone of them might be private. 
 
-We could this for each of our tables, and create arrays of whatever we want and sample the data for each of the records, but wouldn't it be better if there was a giant collection of records that we could sample? Yes, yes it would and again because this is Rails, let's get help from the community and not reinvent the wheel.    
+Sidenote - Why did we use the column of `password` even though our schema is `password_digest`?  Not to go too far down the rabbit hole, but the `password` in the seeds file acctually calls Adding `password` method written within rails by the `bcrypt` gem.  When this method is called, it will take the value you are trying to save as the password and save it into your `password_digest` column before encrypting it. 
 
-# Refactoring with Faker
+### Adding Follow Requests 
+Now that we have a few users, we can create a few follow requests. 
 
-Now, instead of having to come up with all of these datasets, let's use the [`faker gem`](https://github.com/faker-ruby/faker). What this will do for us is let us pick from a bunch of data sets to sample. To use this in our project, we would install it like any other gem. 
+We can start off the same as when we were writing our the seeds for our `User`.  By taking a look at the schema we see that a `FollowRequest` takes a `user.id` as well as a boolean column. 
+
+To solve those two column types we can add the two lines before going through our loop 
+
+```
+users = User.all
+trueorfalse = [true, flase]
+```
+This will let us sample from these arrays within our new `FollowRequest` allowing our loop to look like something below. 
+
+```
+users = User.all
+truefalse = [true, false]
+
+10.times do 
+  fr = FollowRequest.new
+  fr.status = truefalse.sample
+  fr.sender_id = users.sample.id 
+  fr.recipient_id = users.sample.id 
+  fr.save  
+end
+
+p "Added #{FollowRequest.count} FollowRequests"
+```
+
+This loop above will create 10 `FollowRequests`. Now there is no way to tell if they are duplicates or not so it might be a good time to add in some [validations](https://chapters.firstdraft.com/chapters/845) to make sure we are only allowing data into our database that we want to be there.
+
+### Adding the remainder of the data
+
+We can handle the rest of the data in our seeds file in a very similar way as the `FollowRequest` above. It will result in the following code. 
+
+```
+10.times do 
+    photo = Photo.new
+    photo.caption = "This is my photo"
+    photo.image = "https://tinyurl.com/y6hk6oep"
+    photo.likes_count = 1
+    photo.owner_id = users.sample.id
+    photo.save
+  end
+
+  p "Added #{Photo.count} Photos"
+
+  photos = Photo.all 
+
+  10.times do 
+    like = Like.new
+    like.fan_id = users.sample.id 
+    like.photo_id = photos.sample.id
+    like.save
+  end
+
+  p "Added #{Like.count} Likes"
+
+  comments = ["Cool", "I like it", "Love it"]
+  10.times do 
+    comment = Comment.new
+    comment.body = comments.sample
+    comment.author_id = users.sample.id 
+    comment.photo_id = photos.sample.id 
+    comment.save
+  end
+
+  p "Added #{Comment.count} Comments"
+```
+
+Ok, we are almost done..
+
+### Updating our counts for users and photos
+
+The one thing that we haven't done yet is corrected the `likes_count` and `comments_count` for `Users` and the `likes_count` for `Photos`.  We can do this with the following code.
+
+```
+  User.all.each do |user|
+    user.comments_count = Comment.where(:author_id => user.id).count
+    user.likes_count = Like.where(:fan_id => user.id).count
+    user.save
+  end
+
+  Photo.all.each do |photo|
+    photo.likes_count = Like.where(:photo_id => photo.id).count
+    photo.save
+  end
+```
+
+With the rest of the this code added that you just added to your seeds file you can seed some pretty boring data without having to take too much time.  Now what if we want some data that is a little bit more interesting. 
+
+# Adding intereting data with with Faker
+
+Now, instead of having to come up with all of these data, let's use the [`faker gem`](https://github.com/faker-ruby/faker). What this will do for us is let us pick from a bunch of data sets to sample. To use this in our project, we would install it like any other gem. 
 
 First, add this to our gem file. 
 ```
@@ -160,51 +207,29 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 ```
 Then we need to run our `bundle install`
 
-Now in our `sample_data` file, we will have to `require faker` with 
+Now in our `sample_data` file, we will have to put `require faker` at the top of our seeds file within the task
 ```
 require 'faker'
 ```
-After this, we have all the power to refactor our `sample_data` file once again. Let's take a look at what our file might look like after adding the `faker gem`. 
+After this, we have all the power to update our `sample_data` file once again. Let's take a look at what our file might look like after adding the `faker gem`. 
 
 ```
-users = []
-100.times do 
+25.times do 
     user = User.new
     user.username = Faker::Name.first_name 
     user.private = Faker::Boolean.boolean
-    users.push(user)
-end
-Users.insert_all!(users)
-```
-Now each of our records will have a name sampled from the faker database of names.  We can do this with all of our columns. Also, we can refactor this again.
-```
-100.times do 
-    user = User.new
-    user.username = Faker::Name.first_name 
-    user.private = Faker::Boolean.boolean
+    user.password = "password"
+    user.comments_count = 0
+    user.likes_count = 0
     user.save
 end
 ```
-Here we changed from doing a mass input to inserting the records individually. 
+Now each of our records will have a name sampled from the faker database of names.  We can do this with all of our columns. 
 
 With faker, we have access to all types of datasets. I highly recommend taking a look to see all of the [different generators](https://github.com/faker-ruby/faker#generators). 
 
-## Seeding foreign keys
 
-The only thing left for us would be to sample `user_id` into one of our other tables. This isn't too tricky because we can always call `Class.all.sample`. An example below would be if I wanted food items to belong to a user.  
 
-```
-1000.times do 
-    food = Food.new
-    food.name = Faker::Food.dish
-    food.description = Faker::Food.description
-    food.user_id = User.all.sample.id
-    food.save
-end
-```
-Now the random foods I created will belong to one of my users.  
-
-Be creative in creating your seeds file; try all different types of data, and remember it is only Ruby.  
 
 
 
