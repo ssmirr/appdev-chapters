@@ -1,8 +1,16 @@
 # Creating Sample Data 
 
-You have just created your application and are figuring out where to start. A good practice is to create some sample data early on in the life of your application so you will always have a single command to reset your database with good data. For the building of this seeds file we are going to use the [Photogram-signin](github.com/appdev-projects/photogram-signin-fall20) project.  I recommend opening this project in Gitpod and following along.  
+You have just created your application and are figuring out where to start. A good practice is to create some sample data early on in the life of your application so you will always have a single command to reset your database with good data. For the building of this seeds file we are going to use the [Photogram-signin](https://github.com/appdev-projects/photogram-signin-fall20/tree/no-rake) project.  I recommend opening this project in Gitpod and following along.  
 
-To start, open this project and start to create data.  First, create a user, then go to the photos page and create a new photo.  Then create a comment on that photo.  Maybe add yourself as a fan.  Then go back and make a few more photos.  Perfect, now log out and make another user and do the same process again.  This process sure is time-consuming.  What happens if some corrupt data got into your database, and now you need to delete all the records... 
+To start, open this project and start to create data. There are a few ways we can do this.  We can run `bin/server` and start to put in data through the forms.  We can also go to visit `/rails/db` within our running application and create some records.  Also, in case you forgot we can visit a rails console by typing `rails console` into a terminal and start to enter some records.  Let's visit a console and create the first record together. 
+
+```
+u = User.new
+u.username = "Norman"
+u.save
+```
+
+That is a bit of typing, so maybe we should go to the running application and fill out the forms. Let's sign up a new user, then go to the photos page and create a new photo.  Then create a comment on that photo.  Maybe add yourself as a fan.  Then go back and make a few more photos.  Perfect, now log out and make another user and do the same process again.  This process sure is time-consuming.  What happens if some corrupt data got into your database, and now you need to delete all the records... 
 
 Luckily for you, we have provided sample data in all of the projects because a project without data is pretty boring and can be hard to debug.  Now, how did we do that without going in and making the records one at a time? What we do is create a sample data task to populate the database and are going to show you how to do the same.
 
@@ -10,7 +18,7 @@ Luckily for you, we have provided sample data in all of the projects because a p
 
 In class, whenever we have needed to get data into our database, we were able to run the command `rails sample_data`, but where is that file located? 
 
-If you were to open a class project and do a search, you would find that our `sample_data` lives in the `tasks` folder, which is located within the `lib` folder. The path to that would be `lib/tasks/dev.rake`. When we first started learning, whenever we want to run a Ruby file, we would have to call `ruby filename.rb`, so we might think that we would need to run `ruby dev.rake` to run this file. While this would follow our previous convention, we are able to define how we call these tasks in a rake file. Let's start building the task by being able to call it in the rails terminal.
+If you were to open a class project and search through all the files, you would find that our `sample_data` lives in the `tasks` folder, which is located within the `lib` folder. The path to that would be `lib/tasks/dev.rake`. Now that we have found where our task should live, let's start building the task that can be called in the termianl. 
 
 ### The start 
 ```
@@ -28,7 +36,7 @@ The [`desc`](https://apidock.com/ruby/v1_9_3_125/Rake/DSL/desc) stands for descr
 
 #### `task({ :sample_data => :environment}) do`
 
-Here we are naming our task and making it available in our coding environment.  By defining our task `sample_data`, it is ready for us to call with `rails sample_data`. As long as we finish our `do` with an `end`, we have our task. It isn't much yet, but we are starting to connect the dots. 
+Here we are naming our calling the `task` method and giving it a hash as the argument. The hash will use the name of our task as the key and use `:environment` as the value.  Using `:environment` as the value will make the Rails environment load in our task giving us access to all models, gems, and initializers. After we finish our `do` with an `end`, our task is ready to call by inputting `rails sample_data` in a terminal.  It isn't much yet, but we are starting to connect the dots. 
 
 ### Remove old data
 
@@ -49,7 +57,9 @@ task({ :sample_data => :environment}) do
 end
 ```
 
-The `.destroy_all` method calls each record and destroys each record and each record associated with it. Now that we have a clean database, we can start adding records to our database. 
+The `.destroy_all` method calls each record and destroys each record and each record associated with it.  Now that we have a clean database, we can start adding records to our database.
+
+ **Sidenote - `.destroy_all` is a very permanent method and shouldn't be used with production data that belongs to your users**,   
 
 ### Adding Users
 
@@ -72,20 +82,31 @@ When we start to add data to our task, we will need to know what column is avail
 ```
 With that information, we can add our first data to the database. 
 ```
-3.times do 
-    user = User.new
-    user.username = "Pat"
-    user.private = true
-    user.comments_count = 0
-    user.password = "password"
-    user.likes_count = 0
-    users.save
+  user = User.new
+  user.username = "Pat"
+  user.private = true
+  user.comments_count = 0
+  user.password = "password"
+  user.likes_count = 0
+  users.save
+```
+If we run `rails sample_data we have just created seeded our first user.  Now we can copy and paste that code as many times as we need to create or users.  Or we can use a loop.
+```
+3.times do
+  user = User.new
+  user.username = "Pat"
+  user.private = true
+  user.comments_count = 0
+  user.password = "password"
+  user.likes_count = 0
+  users.save
 end
 ```
 
+
 Wow, we just created three users in no time!! I mean, yes, it might be the world's most boring data, but who wouldn't all of their users with the same name? 
 
-Okay, so how can we make this better? 
+Okay, so this is pretty great, but wouldn't it be better if they had different `usernames`. 
 
 What if we did this? 
 ```
@@ -105,7 +126,15 @@ bool = [true, false]
 ```
 Now we are getting somewhere, each of our users has a different name, and some might be private. 
 
-Sidenote: Why did we use the column of `password` even though our schema is `password_digest`?  Not to go too far down the rabbit hole, but the `.password` in the seeds file calls the `.password` method written within rails by the `bcrypt` gem.  When this method is called, it will take the value you are trying to save as the password and saves it into your `password_digest` column before encrypting it. 
+#### An aside: Password
+ You might ask why did we use the column of `password` even though our schema is `password_digest`?  Not to go too far down the rabbit hole, but the `.password` in the seeds file calls the `.password` method written within rails by the `bcrypt` gem.  When this method is called, it will take the value you are trying to save as the password and saves it into your `password_digest` column before encrypting it. 
+
+### How do we know if records are getting into the database?
+Well, one way for us to do this is to open a `rails console` and do a `User.all.count`. This command should return a number displaying how many `Users` are now in the database, but it sure takes some time.  Let's make this easier but adding this line of code. 
+```
+p "Added #{User.count} Users"
+```
+Now, when we run our task, we should get a nice message showing how many `Users` are in the database. 
 
 ### Adding Follow Requests 
 Now that we have a few users, we can create a few follow requests. 
@@ -116,13 +145,12 @@ To solve that, we can create a variable for all of our `Users`
 
 ```
 users = User.all
-trueorfalse = [true, flase]
 ```
-This will let us to sample from this array within our new `FollowRequest`. Our loop will look like this. 
+Now we can sample from the `users` array to assign `sender_id` and `recipient_id` within our new `FollowRequest`. 
 
+When we create our `FollowRequst`, we will have to save a `user.id` number in the `sender_id` and `recipient_id` column, but how will we do that? Maybe we can get a random user is to call our `users` variable and do a `.sample`. After we have that single `User` record, we can access the id with `.id`. 
 ```
 users = User.all
-truefalse = [true, false]
 
 10.times do 
   fr = FollowRequest.new
@@ -143,94 +171,90 @@ We can handle the rest of the data in our seeds file similarly to the `FollowReq
 
 ```
 10.times do 
-    photo = Photo.new
-    photo.caption = "This is my photo"
-    photo.image = "https://tinyurl.com/y6hk6oep"
-    photo.likes_count = 1
-    photo.owner_id = users.sample.id
-    photo.save
-  end
+  photo = Photo.new
+  photo.caption = "This is my photo"
+  photo.image = "https://tinyurl.comy6hk6oep"
+  photo.likes_count = 1
+  photo.owner_id = users.sample.id
+  photo.save
+end
 
-  p "Added #{Photo.count} Photos"
+p "Added #{Photo.count} Photos"
 
-  photos = Photo.all 
+photos = Photo.all 
 
-  10.times do 
-    like = Like.new
-    like.fan_id = users.sample.id 
-    like.photo_id = photos.sample.id
-    like.save
-  end
+10.times do 
+  like = Like.new
+  like.fan_id = users.sample.id 
+  like.photo_id = photos.sample.id
+  like.save
+end
 
-  p "Added #{Like.count} Likes"
+p "Added #{Like.count} Likes"
 
-  comments = ["Cool", "I like it", "Love it"]
-  10.times do 
-    comment = Comment.new
-    comment.body = comments.sample
-    comment.author_id = users.sample.id 
-    comment.photo_id = photos.sample.id 
-    comment.save
-  end
+comments = ["Cool", "I like it", "Love it"]
+  
+10.times do 
+  comment = Comment.new
+  comment.body = comments.sample
+  comment.author_id = users.sample.id 
+  comment.photo_id = photos.sample.id 
+  comment.save
+end
 
-  p "Added #{Comment.count} Comments"
+p "Added #{Comment.count} Comments"
 ```
 
-Okay, we are almost done...
+Okay, we are almost done!
 
 ### Updating our counts for users and photos
 
-What we haven't done yet is corrected the `likes_count` and `comments_count` for `Users` and the `likes_count` for `Photos`.  We can do this with the following code.
+What we haven't done yet is corrected the `likes_count` and `comments_count` for `Users` and the `likes_count` for `Photos`.  We can do this with the following code after at the end of our code after `Users`, `Likes`, and `Comments` have been created.
 
 ```
-  User.all.each do |user|
-    user.comments_count = Comment.where(:author_id => user.id).count
-    user.likes_count = Like.where(:fan_id => user.id).count
-    user.save
-  end
+User.all.each do |user|
+  user.comments_count = Comment.wher  (:author_id => user.id).count
+  user.likes_count = Like.where(:fan_id =>  user.id).count
+  user.save
+end
 
-  Photo.all.each do |photo|
-    photo.likes_count = Like.where(:photo_id => photo.id).count
-    photo.save
-  end
+Photo.all.each do |photo|
+  photo.likes_count = Like.where(:photo_id => photo.id).count
+  photo.save
+end
 ```
 
-Congratulations, with the code you just added, you have fully seeded your database.  Now, what if we want some data that is a little bit more interesting. 
+Congratulations, with the code you just added, you have fully seeded your database!  The problem is that we only have three users.  What if we want 50 `usernames` or 100?  Do you think you could create an array with all of those `usernames`? Is there a faster way to get `usernames`? 
 
 # Adding interesting data with Faker
 
-Now, instead of having to come up with all of these data, let's use the [`faker gem`](https://github.com/faker-ruby/faker). What this will do for us is let us pick from a bunch of data sets to sample. To use this in our project, we would install it like any other gem. 
+Instead of having to come up with all of this data, let's use the [`faker gem`](https://github.com/faker-ruby/faker). What this will do for us is let us pick from a bunch of data sets to sample. To use this in our project, we would install it like any other gem. 
 
 First, add this to our gem file. 
 ```
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 ```
-Then we need to run our `bundle install`
+To install the gem we need to run `bundle install` in a Terminal.
 
-Now in our `sample_data` file, we will have to put `require faker` at the top of our seeds file within the task
+Now in our `sample_data` task, we will have to put `require "faker"` at the top of our seeds file within the task
 ```
 require 'faker'
 ```
-After this, we have all the power to update our `sample_data` file once again. Let's look at what our file might look like after adding the `faker gem`. 
+After this, we have all the power to update our `sample_data` file once again. Let's look at what our file might look like after adding the `faker` gem. 
 
 ```
 25.times do 
-    user = User.new
-    user.username = Faker::Name.first_name 
-    user.private = Faker::Boolean.boolean
-    user.password = "password"
-    user.comments_count = 0
-    user.likes_count = 0
-    user.save
+  user = User.new
+  user.username = Faker::Name.first_name 
+  user.private = Faker::Boolean.boolean
+  user.password = "password"
+  user.comments_count = 0
+  user.likes_count = 0
+  user.save
 end
 ```
 Now each of our records will have a name sampled from the faker database of names.  We can do this with all of our columns. 
 
 With Faker, we have access to all types of datasets. I highly recommend taking a look to see all of the [different generators](https://github.com/faker-ruby/faker#generators). 
 
-
-
-
-
-
-
+Looking at the faker documentation, we can scroll down to the Generators section.  In this section, we can select one of the links.  For our seeds file, we selected `Faker::Name`.  Inside this link, you can see all of the different methods we can call on `Faker::Name` to return something different. Try some of them in your application!
