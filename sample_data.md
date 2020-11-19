@@ -1,8 +1,8 @@
 # Creating Sample Data 
 
-You have just created your application and are figuring out where to start. A good practice is to create some sample data early on in the life of your application so you will always have a single command to reset your database with good data. For the building of this seeds file we are going to use the [Photogram-signin](https://github.com/appdev-projects/photogram-signin-fall20/tree/no-rake) project.  I recommend opening this project in Gitpod and following along.  
+You have just created your application and are figuring out where to start. A good practice is to create some sample data early on in the life of your application so you will always have a single command to reset your database with good data. For the building of this seeds file we are going to use the [Photogram-signin](https://github.com/appdev-projects/photogram-signin-fall20/tree/no-rake) project. I recommend opening this project in Gitpod and following along.
 
-To start, open this project and start to create data. There are a few ways we can do this.  We can run `bin/server` and start to put in data through the forms.  We can also go to visit `/rails/db` within our running application and create some records.  Also, in case you forgot we can visit a rails console by typing `rails console` into a terminal and start to enter some records.  Let's visit a console and create the first record together. 
+To start, open this project and start to create data. There are a few ways we can do this. We can run `bin/server` and start to put in data through the forms. We can also go to visit `/rails/db` within our running application and create some records. Also, in case you forgot we can visit a rails console by typing `rails console` into a terminal and start to enter some records. Let's visit a console and create the first record together. 
 
 ```
 u = User.new
@@ -10,9 +10,9 @@ u.username = "Norman"
 u.save
 ```
 
-That is a bit of typing, so maybe we should go to the running application and fill out the forms. Let's sign up a new user, then go to the photos page and create a new photo.  Then create a comment on that photo.  Maybe add yourself as a fan.  Then go back and make a few more photos.  Perfect, now log out and make another user and do the same process again.  This process sure is time-consuming.  What happens if some corrupt data got into your database, and now you need to delete all the records... 
+That is a bit of typing, so maybe we should go to the running application and fill out the forms. Let's sign up a new user, then go to the photos page and create a new photo. Then create a comment on that photo. Maybe add yourself as a fan. Then go back and make a few more photos. Perfect, now log out and make another user and do the same process again. This process sure is time-consuming. What happens if some corrupt data got into your database, and now you need to delete all the records... 
 
-Luckily for you, we have provided sample data in all of the projects because a project without data is pretty boring and can be hard to debug.  Now, how did we do that without going in and making the records one at a time? What we do is create a sample data task to populate the database and are going to show you how to do the same.
+Luckily for you, we have provided sample data in all of the projects because a project without data is pretty boring and can be hard to debug. Now, how did we do that without going in and making the records one at a time? What we do is create a sample data task to populate the database and are going to show you how to do the same.
 
 ## Where do we write our sample data? 
 
@@ -34,36 +34,13 @@ If everything is correct, when we run `rails sample_data` in the terminal, the l
 
 The [`desc`](https://apidock.com/ruby/v1_9_3_125/Rake/DSL/desc) stands for description, and that is what we are doing with this line, we are describing what we are going to do within this task. 
 
-#### `task({ :sample_data => :environment}) do`
+#### `task({ :sample_data => :environment}) do ... end`
 
-Here we are naming our calling the `task` method and giving it a hash as the argument. The hash will use the name of our task as the key and use `:environment` as the value.  Using `:environment` as the value will make the Rails environment load in our task giving us access to all models, gems, and initializers. After we finish our `do` with an `end`, our task is ready to call by inputting `rails sample_data` in a terminal.  It isn't much yet, but we are starting to connect the dots. 
-
-### Remove old data
-
-Now that we can access our task, the first thing we should do is clear out any old data.  Based on our project schema, I know that we have the tables for `Comments`, `Follow_requests`, `Likes`, `Photos`, and `Users`.  
-
-I will add the following lines to our `sample_data` task. 
-
-```
-desc "Fill the database tables with some sample data"
-task({ :sample_data => :environment}) do
-
- User.destroy_all
- FollowRequest.destroy_all
- Like.destroy_all
- Photo.destroy_all
- User.destroy_all
-
-end
-```
-
-The `.destroy_all` method calls each record and destroys each record and each record associated with it.  Now that we have a clean database, we can start adding records to our database.
-
- **Sidenote - `.destroy_all` is a very permanent method and shouldn't be used with production data that belongs to your users**,   
+Here we are naming our calling the `task` method and giving it a hash as the argument. The key in the Hash is the name of our Task (as a Symbol) and the value should be `:environment`. Using `:environment` as the value will make the Rails environment load in our task giving us access to all models, gems, and initializers. After we finish our `do` with an `end`, our task is ready to call by inputting `rails sample_data` in a terminal. It isn't much yet, but we are starting to connect the dots. 
 
 ### Adding Users
 
-When we start to add data to our task, we will need to know what column is available for each table.  In the `user.rb` file, we can see the `users` table schema. It looks like this. 
+When we start to add data to our task, we will need to know what column is available for each table. In the `user.rb` file, we can see the `User` table schema. It looks like this. 
 
 ```
 # == Schema Information
@@ -82,15 +59,15 @@ When we start to add data to our task, we will need to know what column is avail
 ```
 With that information, we can add our first data to the database. 
 ```
-  user = User.new
-  user.username = "Pat"
-  user.private = true
-  user.comments_count = 0
-  user.password = "password"
-  user.likes_count = 0
-  users.save
+user = User.new
+user.username = "Pat"
+user.private = true
+user.comments_count = 0
+user.password = "password"
+user.likes_count = 0
+user.save
 ```
-If we run `rails sample_data we have just created seeded our first user.  Now we can copy and paste that code as many times as we need to create or users.  Or we can use a loop.
+If we run `rails sample_data we have just created seeded our first user. Now we can copy and paste that code as many times as we need to create or users. Or we can use a loop.
 ```
 3.times do
   user = User.new
@@ -104,9 +81,9 @@ end
 ```
 
 
-Wow, we just created three users in no time!! I mean, yes, it might be the world's most boring data, but who wouldn't all of their users with the same name? 
+Wow, we just created three users in no time! It might not be the world's most _interesting_ data, since each user has the same username and is private, but it's a start. 
 
-Okay, so this is pretty great, but wouldn't it be better if they had different `usernames`. 
+When we create this data, it might be pretty challenging to determine which `User` belongs to any other record if they all show up with the same `username`. How can we create a `User` with a different `username`?
 
 What if we did this? 
 ```
@@ -124,24 +101,26 @@ bool = [true, false]
     p count
  end
 ```
-Now we are getting somewhere, each of our users has a different name, and some might be private. 
+Now we are getting somewhere! Each of our users has a different name, and only some might be private. 
 
 #### An aside: Password
- You might ask why did we use the column of `password` even though our schema is `password_digest`?  Not to go too far down the rabbit hole, but the `.password` in the seeds file calls the `.password` method written within rails by the `bcrypt` gem.  When this method is called, it will take the value you are trying to save as the password and saves it into your `password_digest` column before encrypting it. 
+ You might ask why did we use the column of `password` even though our schema is `password_digest`? Not to go too far down the rabbit hole, but the `.password` in the seeds file calls the `.password` method written within rails by the `bcrypt` gem. When this method is called, it will take the value you are trying to save as the password and saves it into your `password_digest` column before encrypting it. 
 
 ### How do we know if records are getting into the database?
-Well, one way for us to do this is to open a `rails console` and do a `User.all.count`. This command should return a number displaying how many `Users` are now in the database, but it sure takes some time.  Let's make this easier but adding this line of code. 
+Well, one way for us to do this is to open a `rails console` and do a `User.all.count`. This command will return a number how many users are now in the database. Do we want to do that everytime we seed our datatbase?
+
+Let's make this easier but adding this line of code. 
 ```
 p "Added #{User.count} Users"
 ```
-Now, when we run our task, we should get a nice message showing how many `Users` are in the database. 
+Now, when we run our task, we should get a nice message showing how many users are in the database. 
 
 ### Adding Follow Requests 
 Now that we have a few users, we can create a few follow requests. 
 
-We can start off the same as when we were writing the seeds for our `User`.  By taking a look at the schema, we see that a `FollowRequest` takes a `user.id`. 
+We can start off the same as when we were writing the seeds for our `User`. By taking a look at the schema, we see that a `FollowRequest` has a column of `user_id`. 
 
-To solve that, we can create a variable for all of our `Users`
+To solve that, we can create a variable for all of our every `User`.
 
 ```
 users = User.all
@@ -157,13 +136,15 @@ users = User.all
   fr.status = bool.sample
   fr.sender_id = users.sample.id 
   fr.recipient_id = users.sample.id 
-  fr.save  
+  fr.save
 end
 
 p "Added #{FollowRequest.count} FollowRequests"
 ```
 
-This loop above will create 10 `FollowRequests`. Now there is no way to tell if they are duplicates or not, so it might be a good time to add in some [validations](https://chapters.firstdraft.com/chapters/845) to make sure we are only allowing data into our database that we want to be there.
+This loop above will create 10 `FollowRequests`, but do we want a `User` to be able to create a `FollowRequest` for themselves? What will happen if we have duplicate records?
+
+If either of those questions created a concern, it might be a good time to add in some [validations](https://chapters.firstdraft.com/chapters/845) to make sure we are only allowing data into our database that we want to be there.  With validations will will be able to prevent those records from entering our database.
 
 ### Adding the remainder of the data
 
@@ -209,12 +190,12 @@ Okay, we are almost done!
 
 ### Updating our counts for users and photos
 
-What we haven't done yet is corrected the `likes_count` and `comments_count` for `Users` and the `likes_count` for `Photos`.  We can do this with the following code after at the end of our code after `Users`, `Likes`, and `Comments` have been created.
+What we haven't done yet is corrected the `likes_count` and `comments_count` for each `User` and the `likes_count` for each `Photo`. We can do this with the following code after at the end of our code after the `User`, `Like`, and `Comment` data have been created.
 
 ```
 User.all.each do |user|
-  user.comments_count = Comment.wher  (:author_id => user.id).count
-  user.likes_count = Like.where(:fan_id =>  user.id).count
+  user.comments_count = Comment.where(:author_id => user.id).count
+  user.likes_count = Like.where(:fan_id => user.id).count
   user.save
 end
 
@@ -224,7 +205,7 @@ Photo.all.each do |photo|
 end
 ```
 
-Congratulations, with the code you just added, you have fully seeded your database!  The problem is that we only have three users.  What if we want 50 `usernames` or 100?  Do you think you could create an array with all of those `usernames`? Is there a faster way to get `usernames`? 
+Congratulations, with the code you just added, you have fully seeded your database! The problem is that we only have three users. What if we want 50 usernames or 100? Do you think you could create an array with all of those usernames? Is there a faster way to get usernames? 
 
 # Adding interesting data with Faker
 
@@ -253,8 +234,31 @@ After this, we have all the power to update our `sample_data` file once again. L
   user.save
 end
 ```
-Now each of our records will have a name sampled from the faker database of names.  We can do this with all of our columns. 
+Now each of our records will have a name sampled from the faker dataset of names. We can do this with all of our columns. 
 
 With Faker, we have access to all types of datasets. I highly recommend taking a look to see all of the [different generators](https://github.com/faker-ruby/faker#generators). 
 
-Looking at the faker documentation, we can scroll down to the Generators section.  In this section, we can select one of the links.  For our seeds file, we selected `Faker::Name`.  Inside this link, you can see all of the different methods we can call on `Faker::Name` to return something different. Try some of them in your application!
+Looking at the faker documentation, we can scroll down to the Generators section.In this section, we can select one of the links. For our seeds file, we selected `Faker::Name`. Inside this link, you can see all of the different methods we can call on `Faker::Name` to return something different. Try some of them in your application!
+
+### Remove old data
+
+Now that we can create all of this data, how do we keep our datasets clean? What if we change our seeds file and want to add more records? What happens to the old data, does it just stay? How do we remove this stale data?
+
+Luckily for us, we can add the following lines to the beginning of our `sample_data` task. 
+
+```
+desc "Fill the database tables with some sample data"
+task({ :sample_data => :environment}) do
+
+ User.destroy_all
+ FollowRequest.destroy_all
+ Like.destroy_all
+ Photo.destroy_all
+ User.destroy_all
+
+end
+```
+
+The `.destroy_all` method calls each record and destroys each record and each record associated with it. This will allow us to start with good data everytime we run the `sample_data` task. 
+
+ **Sidenote - `.destroy_all` is a very permanent method and shouldn't be used with production data that belongs to your users**,
