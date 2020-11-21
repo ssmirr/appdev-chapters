@@ -111,19 +111,17 @@ bool = [true, false]
  end
 ```
 
-Now we are getting somewhere! By using `names.at(count)` we will be able to access a different name from our `names` array and assign it to our `username` column.  For the user's `private` column, we can call the `.sample` on our `bool` array; This will set a user's `private` column to either `true` or `false`.
+Now we are getting somewhere! By using `names.at(count)` within our [loop](https://chapters.firstdraft.com/chapters/764), we will be able to access a different name from our `names` array and assign it to our `username` column.  For the user's `private` column, we can call the `.sample` on our `bool` array; This will set a user's `private` column to either `true` or `false`.
 
 #### An aside: Passwords
-What happens if you need to add a password? If you were to run the firstdraft draft generators the generator would add the column of `password_digest`.  Once this is added you would think you would want to add the `password_digest` column to the `user`. Add the column of `password_digest` and run the task, what happens? Do you get an error?
-
-What you have to do is the the column of `password`[^1].  The code would look like this. 
+What happens if you need to add a password? If you were to run the firstdraft draft generators the generator would add the column of `password_digest` to the schema.  Once this is added you would think you would want to add call `.password`[^1] column to the `user`. The code will look like this.
 
 ```
   user.password = "my_password"
 ```
 
 ### How do we know if records are getting into the database?
-If we have a server running we can visit `/rails/db`. Another way is to open a `rails console` and do a `User.all.count`. This command will return a number how many users are now in the database. Do we want to do that everytime we create a record in our datatbase?
+If we have a server running we can visit `/rails/db` to see if there are any records. Another way is to open a `rails console` and do a `User.all.count`. This command will return a number how many users are now in the database. Do we want to do that everytime we create a record in our datatbase?
 
 Let's make this easier but adding this line of code. 
 
@@ -151,9 +149,10 @@ We can start off the same as when we were creating records for our `User` by tak
 #  sender_id    :integer
 #
 ```
+
 It appears that a `FollowRequest` has a column of `sender_id` and `recipient_id`.  So how are we going to get a `User` record from our database and get the `id` number from that record for our new `FollowRequest`? 
 
-One way to do it is to create a variable that contains `User` record.
+One way to do it is to create a variable that contains all the `User` records.
 
 ```
 users = User.all
@@ -225,7 +224,7 @@ end
 p "Added #{Comment.count} Comments"
 ```
 
-Congratulations, with the code you just added, you have fully created your database! The problem is that we only have three users. What if we want 50 usernames or 100? Do you think you could create an array with all of those usernames? Is there an easier way to get usernames? 
+Congratulations, with the code you just added, you have fully created your database! The problem is that we only have three usernames. What if we want 50 usernames or 100? Do you think you could create an array with all of those usernames? Is there an easier way to get usernames? 
 
 # Adding interesting data with Faker
 
@@ -240,10 +239,12 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 To install the gem we need to run `bundle install` in a Terminal.
 
 Now in our `sample_data` task, we will have to put `require 'faker'` at the top of our task after the task name. 
+
 ```
 require 'faker'
 ```
-After this, we have all the power to update our `sample_data` file once again. Let's look at what our file might look like after adding the `faker` gem. 
+
+After this, we have the power to update our `sample_data` file once again. Let's look at what our file might look like after adding the `faker` gem. 
 
 ```
 25.times do 
@@ -254,11 +255,12 @@ After this, we have all the power to update our `sample_data` file once again. L
   user.save
 end
 ```
-Now each of our records will have a name sampled from the faker dataset of names. We can do this with all of our columns. 
+
+Now each of our records will have a name sampled from the Faker dataset of names. Are there any other columns in our app that would benefit from Fakers' datasets?
 
 With Faker, we have access to all types of datasets. I highly recommend taking a look to see all of the [different generators](https://github.com/faker-ruby/faker#generators). 
 
-Looking at the faker documentation, we can scroll down to the Generators section. In this section, we can select one of the links. For our `sample_data` task, we selected `Faker::Name`. Inside this [link](https://github.com/faker-ruby/faker/blob/master/doc/default/name.md), you can see all of the different methods we can call on `Faker::Name` to return something different. Try some of them in your application!
+Looking at the faker documentation, we can scroll down to the Generators section. In this section, we can select one of the links. For our `sample_data` task, we selected `Faker::Name`. Inside this [link](https://github.com/faker-ruby/faker/blob/master/doc/default/name.md), you can see all of the different methods we can call on `Faker::Name` to sample a different dataset. Try some of them in your application!
 
 ### Remove old data
 
