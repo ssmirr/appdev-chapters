@@ -45,7 +45,7 @@ The [`desc`](https://apidock.com/ruby/v1_9_3_125/Rake/DSL/desc) stands for descr
 
 #### `task({ :sample_data => :environment}) do ... end`
 
-Here we are naming our calling the `task` method and giving it a hash as the argument. The key in the Hash is the name of our task (as a Symbol) and the value should be `:environment`. Using `:environment` as the value will make the Rails environment load in our task giving us access to all models, gems, and initializers. After we finish our `do` with an `end`, our task is ready to call by inputting `rails sample_data` in a terminal. It isn't much yet, but we are starting to connect the dots. 
+The task method, requires a Hash argument. The key in the Hash is the name (as a Symbol). The value in the Hash should be  `:environment`. Using `:environment` as the value will make the Rails environment load in our task giving us access to all models, gems, and initializers. After we finish our `do` with an `end`, our task is ready to call by inputting `rails sample_data` in a terminal. It isn't much yet, but we are starting to connect the dots. 
 
 ### Adding Users
 
@@ -59,7 +59,6 @@ When we start to add data to our `sample_data` task, we will need to know what c
 #  id              :integer          not null, primary key
 #  comments_count  :integer
 #  likes_count     :integer
-#  password_digest :string
 #  private         :boolean
 #  username        :string
 #  created_at      :datetime         not null
