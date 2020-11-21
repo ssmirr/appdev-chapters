@@ -64,7 +64,6 @@ When we start to add data to our `sample_data` task, we will need to know what c
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
-
 ```
 
 By calling the column names on a new instance of the `User` table, we can now assign values to the columns of our new `User` record. 
