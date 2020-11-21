@@ -1,8 +1,10 @@
 # Creating Sample Data 
 
+## Getting Started!
+
 You have just created your application and are figuring out where to start. A good practice is to create some sample data early on in the life of your application so you will always have a single command to reset your database with good data. Together we are going to build a `sample_data` task using the [Photogram-signin](https://github.com/appdev-projects/photogram-signin-fall20/tree/no-rake) project. I recommend opening this project in Gitpod and following along.
 
-After the repo has opened in Gitpod start to create some data. There are a few ways we can do this. We can run `bin/server` and start to put in data through the forms. We can also go to visit `/rails/db` within our running application and create some records. Lastly, we can visit a rails console by typing `rails console` into a terminal and start to enter some records.  If you are in a rails console, here is the code to create your first `User` record.
+After the repo has opened in Gitpod start to create some data. There are a few ways we can do this. We can run `bin/server` and start to put in data through the forms. We can visit `/rails/db` within our running application and create some records. Lastly, we can open a rails console by typing `rails console` into a terminal and start to enter some records.  If you are in a rails console, here is the code to create your first `User` record.
 
 ```
 u = User.new
@@ -12,11 +14,11 @@ u.save
 
 That is a bit of typing, so maybe we should go to the running application and fill out the forms. Let's sign up a new user, then go to `/photos` and create a new photo. We can then click on the details of a photo, and create a comment, make sure to add the correct `author_id`. Then go back `/photos` and make a few more `Photo` records, adding comments each time. 
 
-This process sure is time-consuming, and what happens if some corrupt data got into your database, and now you need to delete all the records... 
+This process sure is time-consuming! What if some invalid data gets into your database and breaks your app? Now you need to delete all the records and start making records one at a time again...  
 
 Luckily for you, we have provided sample data in all of the projects because a project without data is pretty boring and can be hard to debug. Now, how did we do that without going in and making the records one at a time? What we did was create a `sample_data` task to populate the database, and we are going to show you how to create your own!
 
-## Where do we write our sample data? 
+## Where do we write our sample data task? 
 
 In class, whenever we have needed to get data into our database, we were able to run the command `rails sample_data`, but where is that command is defined? 
 
@@ -24,7 +26,7 @@ If you were to open a class project and search through all the files, you would 
 
 A "task" is just a small program that does useful things in our application like backing up the database, generating reports, or sending out email notices to your users. With everything in Rails, there is a designated location for the files that define the tasks for our application, `lib/tasks/`.
 
-Now that we have found where our `sample_data` task should live, let's start building a task that can be called in the terminal. 
+Now that we know where our `sample_data` task should live, let's start building a task that can be called in the terminal. 
 
 ### The start 
 
