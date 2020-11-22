@@ -69,18 +69,17 @@ When we start to add data to our `sample_data` task, we will need to know what c
 By calling the column names on a new instance of the `User` table, we can now assign values to the columns of our new `User` record. 
 
 ```
-
 user = User.new
 user.username = "Pat"
 user.private = true
 user.comments_count = 0
 user.likes_count = 0
 user.save
-
 ```
+
 If we run `rails sample_data` we have just created our first user. Now we can copy and paste that code as many times as we need to create more users. Or we can use a loop.
-```
 
+```
 3.times do
   user = User.new
   user.username = "Pat"
@@ -111,10 +110,10 @@ bool = [true, false]
  end
 ```
 
-Now we are getting somewhere! By using `names.at(count)` within our [loop](https://chapters.firstdraft.com/chapters/764), we will be able to access a different name from our `names` array and assign it to our `username` column.  For the user's `private` column, we can call the `.sample` on our `bool` array; This will set a user's `private` column to either `true` or `false`.
+Now we are getting somewhere! By using `names.at(count)` within our [loop](https://chapters.firstdraft.com/chapters/764), we will be able to access a different name from our `names` array and assign it to our `username` column. For the user's `private` column, we can call the `.sample` on our `bool` array; This will set a user's `private` column to either `true` or `false`.
 
 #### An aside: Passwords
-What happens if you need to add a password? If you were to run the firstdraft draft generators the generator would add the column of `password_digest` to the schema.  Once this is added you would think you would want to add call `.password`[^1] column to the `user`. The code will look like this.
+What happens if you need to add a password? If you were to run the firstdraft `draft:account` for `User` the generator would add the column of `password_digest` to the schema.  Once this is added you would think you would want to add call `.password`[^1] column to the `user`. The code will look like this.
 
 ```
   user.password = "my_password"
@@ -174,7 +173,7 @@ end
 p "Added #{FollowRequest.count} FollowRequests"
 ```
 
-This loop above will create 10 `FollowRequests` where the sender and receiver are random existing users. 
+The loop above will create 10 `FollowRequests` where the sender and receiver are random existing users. 
 
 A few things to consider:
  - What would happen if the random user is the sender _and_ receiver of a FollowRequest?
