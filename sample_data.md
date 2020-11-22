@@ -223,7 +223,7 @@ end
 p "Added #{Comment.count} Comments"
 ```
 
-Congratulations, with the code you just added, you have fully created your database! The problem is that we only have three usernames. What if we want 50 usernames or 100? Do you think you could create an array with all of those usernames? Is there an easier way to get usernames? 
+Congratulations, with the code you just added, you can run `rails sample_data` to add records into each of your database tables! The problem is that we only have three usernames. What if we want 50 usernames or 100? Do you think you could create an array with all of those usernames? Is there an easier way to get usernames? 
 
 # Adding interesting data with Faker
 
