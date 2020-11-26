@@ -52,3 +52,5 @@ One other thing to keep in mind: you can use `**` in conjunction with fractions 
 The `rand` method that we met earlier can also be called with no arguments, in which case it returns a `Float` between 0 and 1. This is very handy for e.g. probabilities. Give it a try:
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/float-rand?lite=true"></iframe>
+
+Looking for even more Float methods? See [here]().
