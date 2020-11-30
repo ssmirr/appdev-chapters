@@ -159,3 +159,5 @@ end
 - [Official docs](https://github.com/carrierwaveuploader/carrierwave)
 - [Railscast #253](http://railscasts.com/episodes/253-carrierwave-file-uploads)
 - [Cloudinary Carrierwave integration](https://cloudinary.com/documentation/rails_carrierwave)
+
+---
