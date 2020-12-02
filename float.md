@@ -53,4 +53,4 @@ The `rand` method that we met earlier can also be called with no arguments, in w
 
 <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/float-rand?lite=true"></iframe>
 
-Looking for even more Float methods? See [here]().
+Looking for even more Float methods? See [here](https://chapters.firstdraft.com/chapters/853){:target="_blank"}.
