@@ -50,9 +50,9 @@ Windows: <kbd>Alt</kbd> + <kbd>&#11015;</kbd>
 
 ## Duplicate line
 
-Mac OS: <kbd>Command</kbd> + <kbd>Option</kbd> + <kbd>&#11015;</kbd>
+Mac OS: <kbd>Shift</kbd> + <kbd>Option</kbd> + <kbd>&#11015;</kbd>
 
-Windows: <kbd>Ctrl</kbd> + <kbd>Option</kbd> + <kbd>&#11015;</kbd>
+Windows: <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>&#11015;</kbd>
 
 ![](/assets/duplicate_line.gif)
 
