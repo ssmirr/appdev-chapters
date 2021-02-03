@@ -229,6 +229,8 @@ get("/zodiacs/:the_sign", { :controller => "fortunes", :action => "horoscopes" }
 
 You can pick whatever controller and action name you like, but when you're done the application should function exactly the same as before.
 
+### String#to_sym
+
 Remember that the values in the `params` hash come to us as `String`s. Just as we had to convert these `String`s to `Float`s with `.to_f` before doing math on them in Omnicalc, we'll have to convert them to `Symbol`s if we want to use them to key into the `Hash` returned by `Zodiac.list`. Fortunately, there's a handy method `.to_sym` that will do just that:
 
 ```ruby
