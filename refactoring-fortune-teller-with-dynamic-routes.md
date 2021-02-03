@@ -231,13 +231,40 @@ You can pick whatever controller and action name you like, but when you're done 
 
 ### String#to_sym
 
-Remember that the values in the `params` hash come to us as `String`s. Just as we had to convert these `String`s to `Float`s with `.to_f` before doing math on them in Omnicalc, we'll have to convert them to `Symbol`s if we want to use them to key into the `Hash` returned by `Zodiac.list`. Fortunately, there's a handy method `.to_sym` that will do just that:
+If we try to access an element in a `Hash` that looks like this:
+
+```ruby
+zodiacs = {
+  :aries => "stuff",
+  :leo => "more stuff",
+}
+```
+
+with a `String` key `"leo"`:
+
+```ruby
+zodiacs.fetch("leo")
+```
+
+we'll get the familiar error message:
+
+```
+KeyError (key not found: "leo")
+```
+
+because the `String`, `"leo"`, is not the same as the `Symbol`, `:leo`.
+
+Remember that all values in the `params` hash come to us as `String`s. Just as we had to convert these `String`s to `Float`s with `.to_f` before doing math on them in Omnicalc, we'll have to convert them to `Symbol`s if we want to use them to key into the `Hash` returned by `Zodiac.list`.
+
+Fortunately, there's a handy method `.to_sym` that will do just that:
 
 ```ruby
 "hello".to_sym # => :hello
 ```
 
----
+With the `.to_sym` method in hand, you should be able to use `params` and `Zodiac.list` to replace all 12 actions with 1!
+
+## Regressions
 
 How can you be _sure_ that it functions exactly the same as before? Well, in this case, since we had automated tests for Part 2, you can run `rails grade`! Isn't it a nice, safe feeling to be able to run the tests to know that you didn't introduce any [regressions](https://en.wikipedia.org/wiki/Software_regression#:~:text=A%20software%20regression%20is%20a,change%20to%20daylight%20saving%20time){:target="_blank"}?
 
