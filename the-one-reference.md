@@ -6,7 +6,7 @@ This document should be used as a quick reference; for more depth, click through
 
 This reference is (with a few exceptions) organized by Ruby Class, e.g. `String`, `Array`, `Hash`, etc. Click the firstdraft icon in the top-left corner of the page to slide out the table of contents, scan it, and find a section that interests you. Usually, each section describes a Ruby _method_. For example, here's what the section `String#split` looks like:
 
-![](/assets/the-one-reference.jpg)
+![](/assets/the-one-reference.png)
 
  - `String#split => Array` is called the _method signature_:
     - `String` since the method is defined for that class.
