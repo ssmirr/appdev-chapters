@@ -1,6 +1,6 @@
 # The One Reference
 
-This document should be used as a quick reference; for more depth, click through to the "Full Explanation"s.
+This document should be used as a quick reference for Ruby; for more depth, click through to the "Full Explanation"s.
 
 ## How to interpret this reference
 
