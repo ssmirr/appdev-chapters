@@ -12,7 +12,7 @@ Works in progress, and not in order.
  8. [HTML Reference](https://chapters.firstdraft.com/chapters/771)
  9. [Deploying to Heroku](https://chapters.firstdraft.com/chapters/775)
  10. [Design resources](https://chapters.firstdraft.com/chapters/788)
- 11. [The One Reference](https://chapters.firstdraft.com/chapters/774)
+ 11. [The One Ruby Reference](https://chapters.firstdraft.com/chapters/774)
  12. [Nouns, verbs, and grammar](https://chapters.firstdraft.com/chapters/754)
  13. [A few program notes](https://chapters.firstdraft.com/chapters/755)
  14. [String](https://chapters.firstdraft.com/chapters/757)
