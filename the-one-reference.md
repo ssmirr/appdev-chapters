@@ -1,6 +1,22 @@
 # The One Reference
 
-This document should be used as a quick reference; read the full explanations for more depth.
+This document should be used as a quick reference; for more depth, click through to the "Full Explanation"s.
+
+## How to interpret this reference
+
+This reference is (with a few exceptions) organized by Ruby Class, e.g. `String`, `Array`, `Hash`, etc. Click the firstdraft icon in the top-left corner of the page to slide out the table of contents, scan it, and find a section that interests you. Usually, each section describes a Ruby _method_. For example, `String#split`:
+
+![](/assets/the-one-reference.png)
+
+ - `String#split => Array` is called the _method signature_:
+    - `String` since the method is defined for that class.
+    - `#` since it is an instance method (as opposed to a class method, in which case the notation would be `.`).
+    - `=> Array` since the _return value_ of this method is an instance of the class `Array`.
+ - Then a description of the method.
+ - Then examples.
+ - Then, usually, a link to the longer explanation from the original chapter where the method was first introduced.
+
+Please let us know if you find errors, omissions, or have any other suggestions or comments. Thank you!
 
 ## ActiveRecord_Relation (array of records)
 
@@ -17,7 +33,7 @@ This document should be used as a quick reference; read the full explanations fo
 
 ### .where
 
-`ActiveRecord_Relation#where(Hash) ⇒ ActiveRecord_Relation`
+ActiveRecord_Relation#where(Hash) ⇒ ActiveRecord_Relation
 
 Call `.where` on an `ActiveRecord_Relation` to filter the array of records based on some criteria.
 
