@@ -32,6 +32,8 @@ Windows: <kbd>Ctrl</kbd> + <kbd>D</kbd>
 
 ![](/assets/select_next.gif)
 
+If you go too far by mistake, you can step backwards with <kbd>Command</kbd> + <kbd>U</kbd> or <kbd>Ctrl</kbd> + <kbd>U</kbd>.
+
 ## Open File
 
 Mac OS: <kbd>Command</kbd> + <kbd>P</kbd>
