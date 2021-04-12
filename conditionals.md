@@ -81,13 +81,13 @@ end
  - The conditions are checked in top-down priority, so even if more than one is true, whichever one is first has its branch executed; the rest are ignored.
  - If none are true, the final `else` fallback branch is executed; but you don't have to have one if you don't want one.
  - Inside a branch of an `if` statement, you can have as many lines of code as you want — and you can even have whole other multi-branch if statements, if that's what you need.
- - Try to indent the code within each branch by two space, especially if you have multiple nested `if` statements within one another.
+ - Try to indent the code within each branch by two spaces, especially if you have multiple nested `if` statements within one another.
 
 ## truthiness and falsiness
 
 Why did I say "truthy" and "falsy" instead of just `true` and `false`? Because many — most — Ruby expressions return values other than `true` or `false`. _Any_ expression can appear next to an `if`, and some will cause the code inside the `if` statement to execute (these values are known as "truthy") and some will not (these are "falsy").
 
-In the REPL below, try replacing `1 == 1` with each of the following. Before clicking "run" for each one, ask yourself, do you expect to see the output `"The condition is truthy."` or not?
+In the REPL below, try replacing `1 == 1` with each of the following. Before clicking "run" for each one, ask yourself, do you expect to see the output `"The expression is truthy."` or not?
 
  - `0`
  - `"false"`
@@ -110,6 +110,8 @@ end
 For how many of the above did you correctly predict the output? What did you learn about what objects count as truthy and what objects count as falsy in Ruby?
 
 ---
+
+<p style="height: 500px"></p>
 
 ---
 
