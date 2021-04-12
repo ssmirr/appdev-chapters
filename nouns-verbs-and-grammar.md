@@ -76,15 +76,13 @@ Here's a real example:
 "hello world!".upcase
 ```
 
-Here, you try it in the interactive Ruby sandbox below. In the black window that appears at the bottom, type:
+Here, you try it. [Click here to visit repl.it](https://replit.com/@raghubetina/hello-world?lite=true){:target="_blank"}, a service that offers instant programming sandboxes within your browser. In the black window that appears at the bottom of the window, type:
 
 ```bash
 irb
 ```
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hello-world?lite=true"></iframe>
-
-This will launch _interactive Ruby_ (IRB), a program that lets you evaluate one Ruby expression at a time.
+and press <kbd>return</kbd>. This will launch _interactive Ruby_ (IRB), a program that lets you evaluate one Ruby expression at a time.
 
 At the `irb(main)` prompt that appears, you can now try out `"hello world!".upcase`:
 
@@ -102,14 +100,6 @@ In this case, we asked `"hello world!"`, which is a string (Ruby's name for a pi
 
 [^string_name]: The name "string" is used in pretty much every programming language for the datatype that holds a piece of text, and refers to a string of _characters_; a holdover from back when we used to have to worry about conserving the computer's physical storage space and had a separate datatype for an individual character. Now we usually don't have to worry about storage space anymore, but the name "string" stuck with us.
 
-## Embedded REPLs from repl.it
-
-We're using embedded, interactive read-evaluate-print-loops (REPLs) from a service called repl.it in these readings — really neat! Sometimes, it will be more convenient for you to open the REPL in its own tab, so that you can continue reading while still using it (instead of having it scroll off the page). Click the "Open in repl.it" button in the top-right corner to do so:
-
-![](/assets/open-in-repl.png)
-
-This might also be a good thing to try if REPLs get sluggish.
-
 ## Every class has different methods
 
 Different **classes** can perform different **methods**. Here are a few expressions to try out. Type each one into IRB.
@@ -122,7 +112,7 @@ Different **classes** can perform different **methods**. Here are a few expressi
 "Your Name".swapcase
 ```
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/different-classes-have-different-methods?lite=true"></iframe>
+[Click here for a REPL.](https://repl.it/@raghubetina/different-classes-have-different-methods?lite=true){:target="_blank"}
 
 What do you expect will happen if we ask `"Mississippi"` if it is `even?`? Try it:
 
@@ -132,7 +122,7 @@ What do you expect will happen if we ask `"Mississippi"` if it is `even?`? Try i
 
 ### _Do_, or do not. There is no  _read_.
 
-If you weren't typing out every expression, then you're doing this wrong. If you're just _reading_, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. _Practice is crucial._ 
+If you weren't typing out every expression in a REPL, then you're doing this wrong. If you're just _reading_, you won't be successful at learning programming; you have to _do_ in order to build up some muscle memory. _Practice is crucial._ 
 
 In fact, not only should you be typing the things I ask you to type, but you should also be trying out random other things that occur to you. (E.g., "What if I tried `"Mississippi".length.even?`)
 
@@ -172,7 +162,7 @@ Alright, so the **primary syntax** in Ruby is straightforward — `object.method
 "Java is a joy".gsub("Java", "Ruby")
 ```
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/arguments-are-inputs?lite=true"></iframe>
+[Click here for a REPL.](https://repl.it/@raghubetina/arguments-are-inputs?lite=true){:target="_blank"}
 
 `gsub` is short for "globally substitute", because it will replace _all_ occurrences of one _substring_ with another _substring_.
 
@@ -212,7 +202,7 @@ Can you spot the difference? **Don't put a space between the method and the open
 
 It's a very easy mistake to make, so I just wanted to warn you early on so you that can begin developing good muscle memory. Try the bad version in your sandbox and see what the error message looks like:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/bad-argument-syntax?lite=true"></iframe>
+[Click here for a REPL.](https://replit.com/@raghubetina/bad-argument-syntax?lite=true){:target="_blank"}
 
 ### Seriously: please read the error message
 
@@ -250,7 +240,12 @@ Now that you've seen arguments, you know all there is to know about crafting _ex
 
 However, so far we haven't been doing much with the **return value** of each expression. We've just been reading it off the screen, and then dropping it on the ground. For example, try the following:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/variables-drop-on-the-ground?lite=true"></iframe>
+```ruby
+# "hello world".upcase
+# "hello world".reverse
+```
+
+[Click here for a REPL.](https://repl.it/@raghubetina/variables-drop-on-the-ground?lite=true){:target="_blank"}
 
 We're not really able to make any forward progress when we only perform one operation at a time. Programs get interesting only when we start to take the return value of one expression and feed it into the _next_ method. That's how we craft our own novel, useful applications from the basic building blocks of Ruby.
 
@@ -263,7 +258,7 @@ s = "hello world!".upcase
 s
 ```
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/variables-are-boxes?lite=true"></iframe>
+[Click here for a REPL.](https://repl.it/@raghubetina/variables-are-boxes?lite=true){:target="_blank"}
 
 This creates a box, labels it `s`, and stores the string `"HELLO WORLD!"` in it. 
 
