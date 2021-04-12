@@ -147,9 +147,9 @@ Note the difference between the **equivalence operator** — two equals signs, 
 x = 2
 
 if x = 3
-  p "x is equal to 3"
+  p "x is 3"
 else
-  p "x is not equal to 3"
+  p "x is not 3"
 end
 ```
 
