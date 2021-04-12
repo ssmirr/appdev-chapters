@@ -19,11 +19,14 @@ Write a program that, given a list of words from the user, would take each word 
 - Reversed
 - Upcased
 
-For example, for the input
+For example, for the input:
 
-`apple banana orange`
+```
+apple banana orange
+```
 
-your program should output the following:
+Your program should output the following:
+
 ```bash
 "Apple"
 "elppa"
@@ -36,11 +39,11 @@ your program should output the following:
 "ORANGE"
 ```
 
-<iframe height="600px" width="100%" src="https://repl.it/@_jelaniwoods/userwordstimes?lite=true" frameborder="no"></iframe>
+[Click here for a REPL to try it.](https://repl.it/@_jelaniwoods/userwordstimes?lite=true){:target="_blank"}
 
 ---
 
-After you've got it working, examine [the model solution here](https://repl.it/@_jelaniwoods/userwordssolution){:target="_blank"}. You'll see that I chose to use `.times` for this job.
+After you've got it working, examine [the model solution here](https://repl.it/@_jelaniwoods/userwordssolution?lite=true){:target="_blank"}. You'll see that I chose to use `.times` for this job.
 
  - On Line 6, we count the length of the array.
  - On Line 8, we use that length with the `.times` method to kick off a loop with the correct number of iterations.
@@ -52,7 +55,20 @@ Using `.times` to iterate over an `Array` is not bad at all, especially because 
 
 But we can do even better than using `Integer`'s `.times` method to iterate over an `Array`. There's a method that you can call directly on the `Array` itself called `.each`. Compare the code below to the model solution above and try to find the differences:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/each-iterating-with-each?lite=true"></iframe>
+```ruby
+p "Enter at least 2 words, separated by spaces:"
+user_words = gets.chomp.split
+p "user_words:"
+p user_words
+
+user_words.each do |the_word|
+  p the_word.capitalize
+  p the_word.reverse
+  p the_word.upcase
+end
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/each-iterating-with-each?lite=true){:target="_blank"}
 
 Click "run" and verify that both programs do the same thing.
 
@@ -98,6 +114,23 @@ Code like this is what drives the dozens of dynamic applications you interact wi
 
 There are some rare cases when you are looping over an array and, within the block, you would like access to the element _and_ its index. For example, maybe you want to print a line after every other element. You could fall back to `.times` in these scenarios, but there's also another `Array` method that has your back: `.each_with_index`. It looks like this:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/each-each-with-index?lite=true"></iframe>
+```ruby
+p "Enter at least 2 words, separated by spaces:"
+user_words = gets.chomp.split
+p "user_words:"
+p user_words
 
-As you can see, some methods provide more than one block variable. `.each_with_index` allows you to name two variables within the pipes; the first one will receive the element, and the second one will receive the index of the iteration. Within the block you can use both variables as you see fit. That's that.
+user_words.each_with_index do |the_word, the_index|
+  p the_word.capitalize
+  p the_word.reverse
+  p the_word.upcase
+
+  if the_index.odd?
+    p "=" * 20
+  end
+end
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/each-each-with-index?lite=true){:target="_blank"}
+
+As you can see, some methods provide more than one block variable. `.each_with_index` allows you to name two variables within the pipes; the first one will receive the element, and the second one will receive the index of the iteration. Within the block you can use both variables as you see fit. In rare cases, handy.
