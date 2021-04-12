@@ -18,7 +18,7 @@ cities = Array.new
 
 Try it out and see what you get if you `p cities`:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/Arraynew?lite=true"></iframe>
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/Arraynew?lite=true){:target="_blank}
 
 ### push
 
@@ -73,7 +73,14 @@ After adding elements to the list, the next most important thing we need to be a
 
 The `.at` method takes an `Integer` argument, which is interpreted as the position, or **index**, in the `Array` of the element that you want to retrieve. Give it a try:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-at?lite=true"></iframe>
+```ruby
+cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
+
+p cities
+p cities.at(2)
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/array-at?lite=true){:target="_blank}
 
 Whoa! Did you expect `cities.at(2)` to return `"LA"`? I sure didn't, the first time I tried it; I was expecting `"NYC"`.
 
@@ -106,7 +113,13 @@ p cities[2] # => "LA"
 
 Which is sort of nice. I prefer `.at` because I think it reads better, but feel free to use the square brackets if you like that style better.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-square-bracket?lite=true"></iframe>
+```ruby
+array = [8, 3, 1, 19, 23, 3]
+
+p array[2]
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/array-square-bracket?lite=true){:target="_blank}
 
 ### first, last
 
@@ -116,7 +129,13 @@ Since retrieving the elements at positions `0` (the first one) and `-1` (the las
 
 The `.index` method is sort of the inverse of `.at`: given an object, `.index` searches within the array and returns the index where it resides. Give it a try:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-index?lite=true"></iframe>
+```ruby
+cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
+
+p cities.index("SF")
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/array-index?lite=true){:target="_blank}
 
 Some further things for you to experiment with:
 
@@ -145,7 +164,21 @@ a.at(-1) # => "!"
 
 This is particularly handy for us because it allows us to get a `String` of input from users with `gets` and then transform it into an `Array` for processing:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/gets-with-split?lite=true"></iframe>
+```ruby
+p "Enter a series of numbers, separated by spaces:"
+
+user_string = gets.chomp
+
+user_numbers = user_string.split
+
+length = user_numbers.count
+
+p user_string
+p user_numbers
+p "You entered " + length.to_s + " numbers."
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/gets-with-split?lite=true){:target="_blank}
 
 We'll be using this technique for the remainder of our test REPLs, to make things more interesting.
 
@@ -153,7 +186,15 @@ We'll be using this technique for the remainder of our test REPLs, to make thing
 
 `.count` counts how many elements are in the list, if called with no arguments. If an argument is provided, it counts how many times that argument occurs in the list.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/count?lite=true"></iframe>
+```ruby
+a = [8, 3, 1, 19, 23, 3]
+
+p a.count
+
+p a.count(3)
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/count?lite=true){:target="_blank}
  
 ### include?
 
@@ -161,8 +202,8 @@ A thin convenience layer on top of `.count`, `.include?` will quickly tell you w
 
 ```ruby
 a = [ "a", "b", "c" ]
-a.include?("b")   #=> true
-a.include?("z")   #=> false
+a.include?("b")   # => true
+a.include?("z")   # => false
 ```
 
 ### exclude?
@@ -171,34 +212,76 @@ Similar to `.include?`, but the opposite:
 
 ```ruby
 a = [ "a", "b", "c" ]
-a.exclude?("b")   #=> false
-a.exclude?("z")   #=> true
+a.exclude?("b")   # => false
+a.exclude?("z")   # => true
 ```
 
 ### reverse
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/array-reverse?lite=true"></iframe>
+```ruby
+array = [8, 3, 1, 19, 23, 3]
+
+p array.reverse # => [3, 23, 19, 1, 3, 8]
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/array-reverse?lite=true){:target="_blank}
 
 ### sort
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/sort?lite=true"></iframe>
+```ruby
+array = [12, 4, 5, 13, 56, 32]
+
+p array.sort # => [4, 5, 12, 13, 32, 56]
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/sort?lite=true){:target="_blank}
 
 ### shuffle
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/shuffle?lite=true"></iframe>
+```ruby
+array = [1, 2, 3, 4, 5]
+
+p array.shuffle # Returns a copy of array in random order
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/shuffle?lite=true){:target="_blank}
 
 ### sample
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/sample?lite=true"></iframe>
+```ruby
+array = [8, 3, 1, 19, 23, 3]
+
+p array.sample # => Returns a single random element from the array
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/sample?lite=true){:target="_blank}
 
 ### min
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/min?lite=true"></iframe>
+```ruby
+a = [8, 3, 1, 19, 23, 3]
+
+p a.min # => 1
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/min?lite=true){:target="_blank}
 
 ### max
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/max?lite=true"></iframe>
+```ruby
+a = [8, 3, 1, 19, 23, 3]
+
+p a.max # => 23
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/max?lite=true){:target="_blank}
 
 ### sum
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/sum?lite=true"></iframe>
+```ruby
+a = [8, 3, 1, 19, 23, 3]
+
+p a.sum # => 57
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/sum?lite=true){:target="_blank}
