@@ -21,14 +21,14 @@ We, of course, have the standard math methods, like the calculator language. The
 
 Try each of the following:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/add-subtract-multiply-divide-exponent?lite=true"></iframe>
-
 ```ruby
 12 + 5
 12 - 5
 12 * 5
 12 / 5
 ```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/add-subtract-multiply-divide-exponent?lite=true){:target="_blank"}
 
 Whoa! Did you get what you expected for that last one?
 
@@ -48,7 +48,11 @@ Another maybe unexpected thing: raising a number to a power, e.g. 3<sup>2</sup>,
 
 The `.odd?` and `.even?` methods return `true` or `false` based on whether the number is, well, odd or even. Don't be thrown off by the question mark at the end of the method name — it's nothing special, just another letter. Rubyists like to end method names with a question mark when methods return `true` or `false`.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/odd?lite=true"></iframe>
+```ruby
+p 7.odd?
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/odd?lite=true){:target="_blank"}
 
 ### rand
 
@@ -64,19 +68,31 @@ Somewhat oddly, `rand(n)` will return a random integer between `0` and `n - 1` r
 
 Give it a try:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/rand?lite=true"></iframe>
+```ruby
+# random number between 0 and 9
+p rand(9)
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/rand?lite=true){:target="_blank"}
 
 ### to_s
 
 We often will want to combine our `Integer`s with `String`s when crafting output for our users. Give it a try:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/no-implicit-conversion?lite=true"></iframe>
+```ruby
+lucky_number = rand(100)
+p "Your lucky number is" + lucky_number
+```
 
 Uh oh! [RTEM!](https://chapters.firstdraft.com/chapters/754#seriously-please-read-the-error-message){:target="_blank"}
 
 It turns out that `String`'s `+` method can only add two strings together, not a string and an object of some other class. So, a lot of times we'll need to convert an `Integer` into a `String` prior to output. Fortunately `Integer` has a handy method, `to_s` (or "to string"), that does just that:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/tos?lite=true"></iframe>
+```ruby
+p 98.to_s
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/tos?lite=true){:target="_blank"}
 
 ### to_f
 
