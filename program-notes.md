@@ -85,9 +85,19 @@ Let's talk a little bit more about how the REPLs work. So far, we've been using 
 
 So, from now one we'll write them in the editor at the top of the window; then we'll run the program by clicking "run ▶" and seeing the output in the black window (known as the "terminal") at the bottom.
 
-However, there won't be any output unless we specifically say what we want to print into the terminal. It turns out there's a special method in Ruby called `Kernel.p` (`p` is short for "print inspect") that will display its argument in the terminal. Try running the following:
+However, there won't be any output unless we specifically say what we want to print into the terminal. It turns out there's a special method in Ruby called `Kernel.p` (`p` is short for "print inspect") that will display its argument in the terminal. Try running the following in a REPL:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/first-real-output?lite=true"></iframe>
+```ruby
+s = "hello world!".upcase
+t = s.reverse
+u = t.gsub("L", "Z")
+
+Kernel.p(s)
+Kernel.p(t)
+Kernel.p(u)
+```
+
+[Click here for a REPL.](https://repl.it/@raghubetina/first-real-output?lite=true){:target="_blank"}
 
 Printing values to the terminal is something we're going to want to do _a lot_, and so Ruby makes it easy for us; rather than having to type `Kernel.p`, we can just type the shorthand of `p`. Change `Kernel.p` to `p` above and give it a try.
 
