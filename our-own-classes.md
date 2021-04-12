@@ -51,7 +51,25 @@ end
 
 And now the `Person` class is a first-class citizen in the language, just like `Array` and `Hash`. Compare the code below to the code above for creating `Array`s and `Hash`s to store information:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/our-own-classes?lite=true"></iframe>
+```ruby
+class Person
+  attr_accessor :first_name
+  attr_accessor :last_name
+  attr_accessor :role
+end
+
+c = Person.new
+c.first_name = "Raghu"
+c.last_name = "Betina"
+c.role = "Instructor"
+
+
+p c.last_name # => "Betina"
+p c.role
+p c.class # => Person
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/our-own-classes?lite=true)
 
 For each attribute that we declared, we get methods that we can call to assign and retrieve values.
 
@@ -227,4 +245,15 @@ person4.grade # => "Incomplete"
 
 What would happen if I tried doing `person4.role`? How about `person1.grade`? Why? What would the error message be? Try defining all of the above and give it a shot in a REPL:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/our-own-classes-inheritance?lite=true"></iframe>
+```ruby
+class Person
+end
+
+class Instructor
+end
+
+class Student
+end
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/our-own-classes-inheritance?lite=true)
