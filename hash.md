@@ -52,7 +52,23 @@ So, that's that. `Symbol`s are lightweight strings that we, the developers, use 
 Back to the problem of storing a list of attributes about a person effectively, without mixing them up.
 `Hash`es are like `Array`s, except each cell isn't automatically numbered — **we get to label each cell ourselves**. So instead of representing a person with an Array like `["Raghu", "Betina", "Instructor"]`, we instead can use a `Hash` like this:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hash-hash-new?lite=true"></iframe>
+```ruby
+person1 = Hash.new
+p person1
+
+person1.store(:first_name, "Raghu")
+p person1
+
+person1.store(:last_name, "Betina")
+p person1
+
+person1.store(:role, "Instructor")
+p person1
+
+p person1.fetch(:role)
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/hash-hash-new?lite=true)
 
 Click "run" and see what it looks like to build up a `Hash`. A few things to note:
 
@@ -69,13 +85,37 @@ Click "run" and see what it looks like to build up a `Hash`. A few things to not
 
 To retrieve a piece of data from a `Hash`, we use the `.fetch` method (as opposed to `Array`'s `.at`):
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hash-fetch?lite=true"></iframe>
+```ruby
+person1 = Hash.new
+person1.store(:first_name, "Raghu")
+person1.store(:last_name, "Betina")
+person1.store(:role, "Instructor")
+
+p person1.fetch(:last_name)
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/hash-fetch?lite=true)
 
 Beautiful! Now we don't have to remember that position number 1 is last name, position number 2 is role, etc. We can retrieve objects from the list using meaningful labels instead.
 
 Let's put it all together with multiple `Hash`es:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hash-second-person?lite=true"></iframe>
+```
+person1 = Hash.new
+person1.store(:first_name, "Raghu")
+person1.store(:last_name, "Betina")
+person1.store(:role, "Instructor")
+
+person2 = Hash.new
+person2.store(:first_name, "Jocelyn")
+person2.store(:last_name, "Williams")
+person2.store(:role, "Student")
+
+p person1.fetch(:first_name) + " is a " + person1.fetch(:role)
+p person2.fetch(:first_name) + " is a " + person2.fetch(:role)
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/hash-second-person?lite=true)
 
 A few things to try:
 
@@ -88,7 +128,17 @@ Get used to those error messages. You're going to see them a _lot_.
 
 Sometimes you may want to call `.fetch` using a key that may not be present in the `Hash`, and you don't want the program to crash with the "key not found" error message. In that case, you can provide a second argument which will be used as a fallback return value:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hash-fetch-with-fallback?lite=true"></iframe>
+```ruby
+person1 = Hash.new
+person1.store(:first_name, "Raghu")
+person1.store(:last_name, "Betina")
+person1.store(:role, "Instructor")
+
+p person1.fetch(:first_name, "None provided")
+p person1.fetch(:middle_name, "None provided")
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/hash-fetch-with-fallback?lite=true)
 
 ## Hash literals
 
@@ -119,7 +169,14 @@ p person1[:last_name]
 
 _However_, unlike with `Array`, `Hash`'s `.[]` method and `.fetch` method do _not_ do the exact same thing. Experiment with them and see if you can find the difference:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/hash-fetch-shorthand?lite=true"></iframe>
+```ruby
+person1 = { :first_name => "Raghu", :last_name => "Betina", :role => "Instructor" }
+
+p person1.fetch(:last_name)
+p person1[:last_name]
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/hash-fetch-shorthand?lite=true)
 
 Were you able to find the difference between the two methods?
 
