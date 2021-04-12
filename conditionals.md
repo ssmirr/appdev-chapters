@@ -153,7 +153,7 @@ else
 end
 ```
 
-If you run the code above, what would be printed? `"x is equal to 3"`. Why?
+If you run the code above, what would be printed? Why?
 
 We accidentally used the assignment operator instead of the equivalence comparison, and in doing so, we _set_ `x = 3` when we meant to check `if x == 3`.
 
