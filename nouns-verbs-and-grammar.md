@@ -112,7 +112,7 @@ Different **classes** can perform different **methods**. Here are a few expressi
 "Your Name".swapcase
 ```
 
-[Click here for a REPL.](https://repl.it/@raghubetina/different-classes-have-different-methods?lite=true){:target="_blank"}
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/different-classes-have-different-methods?lite=true){:target="_blank"}
 
 What do you expect will happen if we ask `"Mississippi"` if it is `even?`? Try it:
 
@@ -162,7 +162,7 @@ Alright, so the **primary syntax** in Ruby is straightforward — `object.method
 "Java is a joy".gsub("Java", "Ruby")
 ```
 
-[Click here for a REPL.](https://repl.it/@raghubetina/arguments-are-inputs?lite=true){:target="_blank"}
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/arguments-are-inputs?lite=true){:target="_blank"}
 
 `gsub` is short for "globally substitute", because it will replace _all_ occurrences of one _substring_ with another _substring_.
 
@@ -202,7 +202,7 @@ Can you spot the difference? **Don't put a space between the method and the open
 
 It's a very easy mistake to make, so I just wanted to warn you early on so you that can begin developing good muscle memory. Try the bad version in your sandbox and see what the error message looks like:
 
-[Click here for a REPL.](https://replit.com/@raghubetina/bad-argument-syntax?lite=true){:target="_blank"}
+[Click here for a REPL to try it.](https://replit.com/@raghubetina/bad-argument-syntax?lite=true){:target="_blank"}
 
 ### Seriously: please read the error message
 
@@ -245,7 +245,7 @@ However, so far we haven't been doing much with the **return value** of each exp
 # "hello world".reverse
 ```
 
-[Click here for a REPL.](https://repl.it/@raghubetina/variables-drop-on-the-ground?lite=true){:target="_blank"}
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/variables-drop-on-the-ground?lite=true){:target="_blank"}
 
 We're not really able to make any forward progress when we only perform one operation at a time. Programs get interesting only when we start to take the return value of one expression and feed it into the _next_ method. That's how we craft our own novel, useful applications from the basic building blocks of Ruby.
 
@@ -258,7 +258,7 @@ s = "hello world!".upcase
 s
 ```
 
-[Click here for a REPL.](https://repl.it/@raghubetina/variables-are-boxes?lite=true){:target="_blank"}
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/variables-are-boxes?lite=true){:target="_blank"}
 
 This creates a box, labels it `s`, and stores the string `"HELLO WORLD!"` in it. 
 

@@ -97,7 +97,7 @@ Kernel.p(t)
 Kernel.p(u)
 ```
 
-[Click here for a REPL.](https://repl.it/@raghubetina/first-real-output?lite=true){:target="_blank"}
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/first-real-output?lite=true){:target="_blank"}
 
 Printing values to the terminal is something we're going to want to do _a lot_, and so Ruby makes it easy for us; rather than having to type `Kernel.p`, we can just type the shorthand of `p`. Change `Kernel.p` to `p` above and give it a try.
 

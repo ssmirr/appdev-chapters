@@ -47,7 +47,32 @@ What's an ASCII code? At the hardware level, computers only store integers (spec
 
 Given those ASCII codes, we can now build up a new string from scratch like so:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/creating-objects-with-new?lite=true"></iframe>
+```ruby
+my_string = String.new
+
+p my_string
+
+my_string.concat(72)
+my_string.concat(101)
+my_string.concat(108)
+my_string.concat(108)
+my_string.concat(111)
+my_string.concat(44)
+
+p my_string
+
+my_string.concat(32)
+my_string.concat(119)
+my_string.concat(111)
+my_string.concat(114)
+my_string.concat(108)
+my_string.concat(100)
+my_string.concat(33)
+
+p my_string
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/creating-objects-with-new?lite=true){:target="_blank"}
 
 ### String literals
 
@@ -87,7 +112,7 @@ But here's where it gets interesting; Ruby has another bit of nice _syntactic su
 "hi" +(" there") # => "hi there"
 ```
 
-Crazy! And, as we learned earlier when we were [introduced](https://chapters.firstdraft.com/chapters/755#make-the-invisible-visible){:target="_blank"} to the `p` method, Ruby also allows you to omit the parentheses around arguments if you want to; so this can be further shortened to:
+Wild! And, as we learned earlier when we were [introduced](https://chapters.firstdraft.com/chapters/755#make-the-invisible-visible){:target="_blank"} to the `p` method, Ruby also allows you to omit the parentheses around arguments if you want to; so this can be further shortened to:
 
 ```ruby
 "hi" + " there" # => "hi there"
@@ -95,7 +120,13 @@ Crazy! And, as we learned earlier when we were [introduced](https://chapters.fir
 
 Now this is really starting to look familiar! It's a lot like the calculator language, actually. [Developer happiness](https://chapters.firstdraft.com/chapters/755#developer-happiness){:target="_blank"}, indeed.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/concatenation?lite=true"></iframe>
+```ruby
+a = "Hello"
+b = "World"
+p a + b        # You can add strings together
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/concatenation?lite=true){:target="_blank"}
 
 ### String multiplication, a.k.a *
 
@@ -109,7 +140,11 @@ This sort of makes sense, if you think about multiplication as being repeated ad
 
 [^more_sugar]: More syntactic sugar here, like with the `+` method above; you can say `"Ya" * 5` rather than `"Ya".*(5)`.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/multiplication?lite=true"></iframe>
+```ruby
+p "Hello" * 3
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/multiplication?lite=true){:target="_blank"}
 
 The order matters, though. See what happens when you try:
 
@@ -129,31 +164,41 @@ Thus, we can see why the `String` version of `*` and the `Integer` version of `*
 
 The upcase method returns a copy of the `String` with all lowercase letters replaced with their uppercase counterparts.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/upcase?lite=true"></iframe>
+```ruby
+p "hello".upcase
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/upcase?lite=true){:target="_blank"}
 
 ### downcase
 
 The downcase method returns a copy of the `String` with all uppercase letters replaced with their lowercase counterparts.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/downcase?lite=true"></iframe>
+```ruby
+p "I'M NOT YELLING AT YOU".downcase
+```
 
-### swapcase
-
-The swapcase returns a copy of the `String` with uppercase letters replaced with lowercase counterparts, and vice versa.
-
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/swapcase?lite=true"></iframe>
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/downcase?lite=true){:target="_blank"}
 
 ### reverse
 
 The reverse method returns a new `String` with the characters from the `String` in reverse order.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/reverse?lite=true"></iframe>
+```ruby
+p "I can speak in backwords words".reverse
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/reverse?lite=true){:target="_blank"}
 
 ### length
 
 The length method  returns the number of characters (as an `Integer`) that a `String` has.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/length?lite=true"></iframe>
+```ruby
+p "Supercalifragilisticexpialidocious".length
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/length?lite=true){:target="_blank"}
 
 ### chomp
 
@@ -173,61 +218,79 @@ This seemingly strange task is very common due to the way that getting user inpu
 "1 apple".chomp("s") # => "1 apple"
 ```
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/chomp?lite=true"></iframe>
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/chomp?lite=true){:target="_blank"}
 
 ### gsub
 
 The gsub method returns a copy of the `String` it was called on with all occurrences of the first argument substituted for the second argument.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/gsub?lite=true"></iframe>
+```ruby
+a = "Hello"
+p a.gsub("ll", "ww")  # => "Hewwo"
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/gsub?lite=true){:target="_blank"}
 
 #### Advanced gsub techniques
 
-You can provide some advanced pattern-matchers known as _regular expressions_ as the first argument to `gsub`. For example,
+`gsub` also supports accepting a _regular expression_ as its first argument. We won't get into regular expressions in detail right now, but all languages (C, C++, Python, etc) include a way to write regular expressions and they are a very powerful way to check whether input strings match certain patterns.
 
-```ruby
-my_string.gsub(/\s+/, "")
-```
+In Ruby, we work with regular expressions the way we work with everything else — via a class, `Regexp`. We create `Regexp` _literals_ with forward slashes (like we use quotes to create `String` literals), and then put the pattern that we're trying to match between the slashes.
 
-will match and remove all whitespace from `my_string.`
+For now, we're just going to copy-paste a few simple regexes[^regexone] that come in handy with `gsub`, in particular:
 
-```ruby
-my_string.gsub(/[^0-9]/, "")
-```
+[^regexone]: If your project requires scanning text for patterns, then [RegexOne](https://regexone.com/){:target="_blank"} is a good resource for learning more. [Rubular](https://rubular.com/) is handy for quickly testing your regular expressions against some example strings.
 
-will match and remove everything _except_ numeric digits.
+ - `/\s+/` matches all whitespace, so we can use it with `gsub` to _remove_ all whitespace:
 
+    ```ruby
+    "Hello there,\nfriend".gsub(/\s+/, "") # => "Hellothere,friend"
+    ```
+ - `/[^0-9]/` matches everything _except_ numeric digits, , so we can use it with `gsub` to _remove_ everything except digits:
 
-```ruby
-my_string.gsub(/[^a-z]/i, "")
-```
+    ```ruby
+    "March 29th!".gsub(/[^0-9]/, "") # => "29"
+    ```
+ - `/[^a-z]/i/` matches everything _except_ letters (case-insensitively), so we can use it with `gsub` to _remove_ everything except letters:
 
-will match and remove everything _except_ letters.
+    ```ruby
+    "March 29th!".gsub(/[^a-z]/i, "") # => "Marchth"
+    ```
+ - `/[^a-z0-9\s]/i` matches everything except letters, digits, and whitespace, so we can use it to remove everything except for those:
 
-
-```ruby
-my_string.gsub(/[^a-z0-9\s]/i, "")
-```
-
-will match and remove everything _except_ alphanumerics and whitespace.
+    ```ruby
+    "March 29th!".gsub(/[^a-z0-9\s]/i, "") # => "March 29th"
+    ```
 
 ### to_i
 
 Sometimes you have a string that contains a number, usually input from a user, and want to do math on it. `to_i` will attempt to convert a `String` object into an `Integer` object.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/toi?lite=true"></iframe>
+```ruby
+p "8".to_i
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/toi?lite=true){:target="_blank"}
 
 ### strip
 
 `strip` removes all leading and trailing whitespace.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/strip?lite=true"></iframe>
+```ruby
+p "   This has a lot of space on the outside     ".strip
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/strip?lite=true){:target="_blank"}
 
 ### capitalize
 
 capitalize returns a `String` with the first character converted to uppercase and the remainder to lowercase.
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/capitalize?lite=true"></iframe>
+```ruby
+p "beginning".capitalize
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/capitalize?lite=true){:target="_blank"}
 
 ### split
 
@@ -235,7 +298,15 @@ This transforms the `String` into an `Array` (a list), which we'll [read more ab
 
 If you provide no argument, the string is split upon whitespace, which is handy for e.g. turning a sentence into a list of words:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/split?lite=true"></iframe>
+```ruby
+sentence = "Hi I'd like to learn how to program please!"
+
+words = sentence.split
+
+p words
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/split?lite=true){:target="_blank"}
 
 If you do provide an argument to `.split`, then the string will be chopped up wherever that argument occurs instead of whitespace — for example, use `"4,8,15,16,23,42".split(",")` to split on commas.
 
@@ -251,7 +322,13 @@ a.at(-1) # => "!"
 
 `include?` takes a String argument and returns `true` or `false` if the argument exists in the String that `include?` is called on. 
 
-<iframe height="600px" width="100%" src="https://repl.it/@raghubetina/stringinclude?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```ruby
+p "Happy Days".include?("H")
+
+p "Happy Days".include?("Z")
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/stringinclude?lite=true){:target="_blank"}
 
 ## More on adding strings together
 
@@ -262,7 +339,7 @@ number = 6 * 7
 message = "Your lucky number for today is " + number + "."
 ```
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/String-interpolation?lite=true"></iframe>
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/String-interpolation?lite=true){:target="_blank"}
 
 You'll see that Ruby gets confused (RTEM!), because we are trying to add an integer to a string and it doesn't feel comfortable with that.
 
@@ -292,7 +369,15 @@ We can make our programs much more interesting if we allow the users of the prog
 
 For example, rather than saying "Hello, world!", let's have the computer say hello to the user by name instead. When you run this program, it will pause after saying `"What's your name?"` and you will have to type something in and press <kbd>return</kbd>. **Click on the terminal to put focus there**, and then you'll be able to type into it:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/Hello-gets?lite=true"></iframe>
+```ruby
+p "What's your name?"
+
+their_name = gets
+
+p "Hello, " + their_name + "!"
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/Hello-gets?lite=true){:target="_blank"}
 
 Great! Our first user input. However, you'll notice a couple of things. First of all, there's a `\n` sneaking into the input. `\n` represents a newline character, and it's in there because of the <kbd>return</kbd> that is pressed to submit the input.
 
