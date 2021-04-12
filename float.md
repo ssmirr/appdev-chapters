@@ -27,8 +27,7 @@ Try the following and see what you get:
 12 / 5.0
 ```
 
-<iframe frameborder="0" width="100%" height="600px" src="
-https://repl.it/@raghubetina/Float-math?lite=true"></iframe>
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/Float-math?lite=true){:target="_blank"}
 
 What did you discover? If _either_ side is a float, float division will be performed.
 
@@ -45,12 +44,21 @@ One other thing to keep in mind: you can use `**` in conjunction with fractions 
 
 `Float`s can round themselves. Play around with the `.round` method:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/round?lite=true"></iframe>
+```ruby
+pi = 3.1415926535897932384626433832795028841976939937510
+p pi.round(3)
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/round?lite=true){:target="_blank"}
 
 ### rand
 
 The `rand` method that we met earlier can also be called with no arguments, in which case it returns a `Float` between 0 and 1. This is very handy for e.g. probabilities. Give it a try:
 
-<iframe frameborder="0" width="100%" height="600px" src="https://repl.it/@raghubetina/float-rand?lite=true"></iframe>
+```ruby
+p rand
+```
+
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/float-rand?lite=true){:target="_blank"}
 
 Looking for even more Float methods? See [here](https://chapters.firstdraft.com/chapters/853){:target="_blank"}.
