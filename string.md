@@ -182,7 +182,7 @@ p "I'M NOT YELLING AT YOU".downcase
 
 ### swapcase
 
-The downcase method returns a copy of the `String` with all uppercase letters replaced with their lowercase counterparts, and vice versa.
+The swapcase method returns a copy of the `String` with all uppercase letters replaced with their lowercase counterparts, _and_ vice versa.
 
 ```ruby
 p "FaMiLy".swapcase # => "fAmIlY
