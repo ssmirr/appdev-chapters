@@ -5,7 +5,7 @@ We will be using the [Devise gem][2] to help us get started with authentication 
 ## Add sign-in/sign-out
 
  - Add `gem 'devise'` to your Gemfile and `bundle`
- - `rails g devise:install`
+ - `rails generate devise:install`
 
 Devise will give you some setup instructions. We don't need to worry about most of them, but we do need to set a root URL. Usually, you will point the root URL to the index action of some important resource in your application: In `config/routes.rb`:
 
@@ -24,7 +24,7 @@ Next, we need to secure one of our models with Devise. If you already have a mod
 Use the following command to generate a User model with Devise built-in. Replace the column names with ones that are relevant to your application. 
 
 ```bash
-rails g devise user username:string avatar_url:string
+rails generate devise user username:string avatar_url:string
 ```
 
 `rails db:migrate` and restart your server.
@@ -40,7 +40,7 @@ If you already have rows in the users table and don't want to drop your database
 
     Then,
 
-        rails g devise user
+        rails generate devise user
 
  - Finally, go into the migration file called "add_devise_to_users" and comment out the line that adds an email column.
 
@@ -80,7 +80,7 @@ The first problem is that we don't even have any code to edit in order to custom
 It's really easy to have Devise generate copies of these templates that we can edit, though. And then our edited versions will take precedence. Simply run
 
 ```bash
-rails g devise:views
+rails generate devise:views
 ```
 
 There will now be a folder in your `app/views` folder called `devise`, with a whole bunch of stuff in it. What we are most interested in are the contents of the `registrations` and `sessions` subfolders. `app/views/devise/registrations/new.html.erb` is the sign up form, `registrations/edit.html.erb` is the edit profile form, and `sessions/new.html.erb` is the sign in form.

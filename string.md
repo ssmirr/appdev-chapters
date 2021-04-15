@@ -180,6 +180,14 @@ p "I'M NOT YELLING AT YOU".downcase
 
 [Click here for a REPL to try it.](https://repl.it/@raghubetina/downcase?lite=true){:target="_blank"}
 
+### swapcase
+
+The downcase method returns a copy of the `String` with all uppercase letters replaced with their lowercase counterparts, and vice versa.
+
+```ruby
+p "FaMiLy".swapcase # => "fAmIlY
+```
+
 ### reverse
 
 The reverse method returns a new `String` with the characters from the `String` in reverse order.
