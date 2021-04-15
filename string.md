@@ -251,7 +251,7 @@ For now, we're just going to copy-paste a few simple regexes[^regexone] that com
     ```ruby
     "March 29th!".gsub(/[^0-9]/, "") # => "29"
     ```
- - `/[^a-z]/i/` matches everything _except_ letters (case-insensitively), so we can use it with `gsub` to _remove_ everything except letters:
+ - `/[^a-z]/i` matches everything _except_ letters (case-insensitively), so we can use it with `gsub` to _remove_ everything except letters:
 
     ```ruby
     "March 29th!".gsub(/[^a-z]/i, "") # => "Marchth"
