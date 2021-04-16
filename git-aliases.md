@@ -8,7 +8,7 @@ We've abbreviated `git` to just `g`.
 
 In addition, if you don't supply a command, we've made the default `status`.
 
-So now you should very frequently do:
+So now anytime you're at a terminal prompt, you should make a habit of randomly doing:
 
 ```
 g
@@ -20,7 +20,7 @@ And it will be the equivalent of:
 git status
 ```
 
-To see what's what.
+And you'll know what's changed since the last commit, what branch you're on, how many commits you've made since you last pulled, etc.
 
 ### Make a commit
 
