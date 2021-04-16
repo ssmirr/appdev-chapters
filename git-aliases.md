@@ -22,6 +22,8 @@ git status
 
 And you'll know what's changed since the last commit, what branch you're on, how many commits you've made since you last pulled, etc.
 
+## Command Aliases
+
 ### Make a commit
 
 Instead of:
