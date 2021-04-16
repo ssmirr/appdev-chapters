@@ -2,23 +2,25 @@
 
 In our workspaces, we've added some Git aliases to make our lives easier.
 
-## g shell fallthrough
+## git is now g
 
-We've abbreviated the `git` command to just `g`.
+We've abbreviated `git` to just `g`.
 
-Instead of:
+In addition, if you don't supply a command, we've made the default `status`.
 
-```
-git status
-```
-
-You can do:
+So now you should very frequently do:
 
 ```
 g
 ```
 
-## Aliases
+And it will be the equivalent of:
+
+```
+git status
+```
+
+To see what's what.
 
 ### Make a commit
 
