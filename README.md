@@ -50,7 +50,6 @@ Works in progress, and not in order.
  46. [A few management readings](https://chapters.firstdraft.com/chapters/789)
  47. [Starting a Rails app from Scratch](https://chapters.firstdraft.com/chapters/851)
  48. [Adding Sample_data](https://chapters.firstdraft.com/chapters/852)
-
 ---
 
  1. [Day 2 Notes](https://chapters.firstdraft.com/chapters/793)
@@ -58,5 +57,6 @@ Works in progress, and not in order.
  3. [Day 4 Notes](https://chapters.firstdraft.com/chapters/795)
  4. [Omnicalc API](https://chapters.firstdraft.com/chapters/786)
  5. [Photogram API](https://chapters.firstdraft.com/chapters/780)
+ 6. [Git Aliases](https://chapters.firstdraft.com/chapters/857)
    
 Please let us know if you find any links to pages that are no longer live, or any other errata.
