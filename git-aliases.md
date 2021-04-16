@@ -83,8 +83,6 @@ g co my-existing-branch
 
 ### Discard uncommitted changes
 
-> Technically, stashing doesn't discard changes; it stores them on a randomly named commit on a randomly named branch. You can get them back with `git stash pop`.
-
 Instead of:
 
 ```
@@ -97,6 +95,8 @@ You can do:
 ```
 g as
 ```
+
+> Technically, stashing doesn't discard changes; it stores them in a randomly named commit on a randomly named branch. You can get them back with `git stash pop`. Handy if you want to quickly save your current work to work on a different branch. [Read more about stash here.](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning)
 
 ### See a prettier log of the whole tree
 
