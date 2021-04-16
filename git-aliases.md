@@ -8,7 +8,7 @@ We've abbreviated `git` to just `g`.
 
 In addition, if you don't supply a command, we've made the default `status`.
 
-So now anytime you're at a terminal prompt, you should make a habit of randomly doing:
+So now anytime you're at a terminal prompt, you should make a habit of frequently doing:
 
 ```
 g
