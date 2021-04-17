@@ -13,11 +13,11 @@ You can't use your mouse at the command line, so it's important to know how to m
 
 Mac OS, Windows: <kbd>Ctrl</kbd> + <kbd>E</kbd>
 
+![](/assets/back-to-end.gif)
+
 ### Up and down arrows to scroll through your history
 
 Use your up and down arrows to scroll through your command history so that you don't have to re-type your commands over and over.
-
-![](/assets/back-to-end.gif)
 
 ### Interrupt command
 
