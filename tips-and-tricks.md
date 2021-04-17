@@ -1,18 +1,44 @@
 # Gitpod keyboard shortcuts and other productivity tips
 
+## Command Palette
+
+The most important thing to memorize is how to open the **Command Palette**, which will allow you to fuzzy search within for all other commands. If the command has a keyboard shortcut mapped to it, the shortcut will be displayed to the right. This is the best way to learn the keyboard shortcuts for the commands that you use most frequently.
+
+Mac OS: <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+
+Windows: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+
+![](/assets/command-palette.gif)
+
+## Quick open file
+
+To quickly jump to a file:
+
+Mac OS: <kbd>Command</kbd> + <kbd>P</kbd>
+
+Windows: <kbd>Ctrl</kbd> + <kbd>P</kbd>
+
+And then fuzzily search for its name. For example, you could type "phco" to get to **ph**hotos_**co**ntroller.rb and the list would quickly narrow to bring that file to the top of the list.
+
+![](/assets/quick-open-file.gif)
+
 ## Toggle Code Comment
+
+To quickly comment a line of code, put your cursor on that line and then:
 
 Mac OS: <kbd>Command</kbd> + <kbd>/</kbd>
 
 Windows: <kbd>Ctrl</kbd> + <kbd>/</kbd>
 
+You can also highlight multiple lines of code and comment/uncomment all of them at once.
+
 ![](/assets/toggle-comment.gif)
 
 ## Open New Terminal
 
-Mac OS: <kbd>Command</kbd> + <kbd>~</kbd>
+Mac OS: <kbd>Ctrl</kbd> + <kbd>~</kbd> (i.e. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>)
 
-Windows: <kbd>Ctrl</kbd> + <kbd>~</kbd>
+Windows: <kbd>Ctrl</kbd> + <kbd>~</kbd> (i.e. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>)
 
 ![](/assets/new_terminal.gif)
 
