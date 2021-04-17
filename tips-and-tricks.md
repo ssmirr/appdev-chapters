@@ -8,7 +8,7 @@ Mac OS: <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
 
 Windows: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
 
-![](/assets/command-palette.gif)
+![](/assets/gitpod-command-palette.gif)
 
 ## Quick open file
 
@@ -18,7 +18,7 @@ Mac OS: <kbd>Command</kbd> + <kbd>P</kbd>
 
 Windows: <kbd>Ctrl</kbd> + <kbd>P</kbd>
 
-And then fuzzily search for its name. For example, you could type "phco" to get to **ph**hotos_**co**ntroller.rb and the list would quickly narrow to bring that file to the top of the list.
+And then fuzzily search for its name. For example, you could type "phco" to get to **ph**otos_**co**ntroller.rb and the list would quickly narrow to bring that file to the top of the list.
 
 ![](/assets/quick-open-file.gif)
 
