@@ -1,6 +1,5 @@
 # Gitpod keyboard shortcuts and other productivity tips
 
-
 ## Important Terminal keystrokes to know
 
 ### Jump to beginning of line
@@ -18,6 +17,16 @@ Mac OS, Windows: <kbd>Ctrl</kbd> + <kbd>E</kbd>
 ### Up and down arrows to scroll through your history
 
 Use your up and down arrows to scroll through your command history so that you don't have to re-type your commands over and over.
+
+![](/assets/previous-terminal-command.gif)
+
+### Clear Terminal
+
+Mac OS: <kbd>Command</kbd> + <kbd>K</kbd>
+
+Windows: <kbd>Ctrl</kbd> + <kbd>K</kbd>
+
+![](/assets/clear_terminal.gif)
 
 ### Interrupt command
 
@@ -55,7 +64,7 @@ Windows: <kbd>Ctrl</kbd> + <kbd>P</kbd>
 
 And then fuzzily search for its name. For example, you could type "phco" to get to **ph**otos_**co**ntroller.rb and the list would quickly narrow to bring that file to the top of the list.
 
-![](/assets/quick-open-file.gif)
+![](/assets/open_file.gif)
 
 ### Toggle Code Comment
 
@@ -68,14 +77,6 @@ Windows: <kbd>Ctrl</kbd> + <kbd>/</kbd>
 You can also highlight multiple lines of code and comment/uncomment all of them at once.
 
 ![](/assets/toggle-comment.gif)
-
-### Open New Terminal
-
-Mac OS: <kbd>Ctrl</kbd> + <kbd>~</kbd> (i.e. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>)
-
-Windows: <kbd>Ctrl</kbd> + <kbd>~</kbd> (i.e. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>)
-
-![](/assets/new_terminal.gif)
 
 ### Find (and replace)
 
@@ -95,15 +96,7 @@ Windows: <kbd>Ctrl</kbd> + <kbd>D</kbd>
 
 If you go too far by mistake, you can step backwards with <kbd>Command</kbd> + <kbd>U</kbd> or <kbd>Ctrl</kbd> + <kbd>U</kbd>.
 
-### Open File
-
-Mac OS: <kbd>Command</kbd> + <kbd>P</kbd>
-
-Windows: <kbd>Ctrl</kbd> + <kbd>P</kbd>
-
-![](/assets/open_file.gif)
-
-### Move Line
+### Move line
 
 Mac OS: <kbd>Option</kbd> + <kbd>&#11015;</kbd>
 
@@ -119,14 +112,6 @@ Windows: <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>&#11015;</kbd>
 
 ![](/assets/duplicate_line.gif)
 
-### Toggle Terminal Panel
-
-Mac OS: <kbd>Command</kbd> + <kbd>J</kbd>
-
-Windows: <kbd>Ctrl</kbd> + <kbd>J</kbd>
-
-![](/assets/toggle_terminal_view.gif)
-
 ### Add/Remove Tab spaces for multiple lines
 
 Mac OS: <kbd>Command</kbd> + (<kbd>Shift</kbd>) + <kbd>Tab</kbd>
@@ -134,22 +119,6 @@ Mac OS: <kbd>Command</kbd> + (<kbd>Shift</kbd>) + <kbd>Tab</kbd>
 Windows: <kbd>Ctrl</kbd> + (<kbd>Shift</kbd>) + <kbd>Tab</kbd>
 
 ![](/assets/tab-spacing.gif)
-
-### Clear Terminal
-
-Mac OS: <kbd>Command</kbd> + <kbd>K</kbd>
-
-Windows: <kbd>Ctrl</kbd> + <kbd>K</kbd>
-
-![](/assets/clear_terminal.gif)
-
-### Previous Terminal Command
-
-Mac OS: <kbd>&#x2B06;</kbd>
-
-Windows: <kbd>&#x2B06;</kbd>
-
-![](/assets/previous-terminal-command.gif)
 
 ### Add More Cursors
 
@@ -164,3 +133,19 @@ Windows: <kbd>Alt</kbd> + Click
 Mac OS, Windows: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>
 
 ![](/assets/ERB-shortcut.gif)
+
+### Toggle Terminal Panel
+
+Mac OS: <kbd>Command</kbd> + <kbd>J</kbd>
+
+Windows: <kbd>Ctrl</kbd> + <kbd>J</kbd>
+
+![](/assets/toggle_terminal_view.gif)
+
+### Open New Terminal
+
+Mac OS: <kbd>Ctrl</kbd> + <kbd>~</kbd> (i.e. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>)
+
+Windows: <kbd>Ctrl</kbd> + <kbd>~</kbd> (i.e. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>)
+
+![](/assets/new_terminal.gif)
