@@ -205,4 +205,12 @@ Adding the `-r production` or `-r staging` flag to every `heroku ...` command is
 
 Now that we have our two apps up and running, let's create a Heroku Pipeline for them. Head over to your Heroku dashboard and, first, confirm that your two new apps appear in the list there. Create a new pipeline from the dropdown in the top-right:
 
+![](/assets/continuous-delivery-1-create-pipeline.png)
 
+![](/assets/continuous-delivery-2-choose-name.png)
+
+![](/assets/continuous-delivery-3-stages.png)
+
+![](/assets/continuous-delivery-5-connect-github.png)
+
+![](/assets/continuous-delivery-6-configure-review.png)
