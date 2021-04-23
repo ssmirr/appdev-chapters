@@ -203,4 +203,6 @@ Adding the `-r production` or `-r staging` flag to every `heroku ...` command is
 
 ## Create pipeline
 
-Now that we have our two apps up and running, let's create a Heroku Pipeline for them. Head over to your Heroku dashboard and 
+Now that we have our two apps up and running, let's create a Heroku Pipeline for them. Head over to your Heroku dashboard and, first, confirm that your two new apps appear in the list there. Create a new pipeline from the dropdown in the top-right:
+
+
