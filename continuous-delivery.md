@@ -50,7 +50,14 @@ This lets us know for sure where our code is going to and coming from when we `p
 
 Most importantly, we can add new remotes with the `git remote add` command.
 
-You don't need to do this part, but for demonstration purposes, I am going to add a remote and nickname it `gitlab`. I want it to point to a repository that I will create on [Gitlab.com](https://gitlab.com/), a GitHub alternative. First I need to go to Gitlab, create the new repository there, and they will give me the URL to use as my remote. Then I can add it:
+You don't need to do this part, but for demonstration purposes, I am going to add a remote. Let's say I want to make a redundant copy of the repository on [Gitlab.com](https://gitlab.com/), a GitHub alternative, and `push` to it from time to time for safekeeping. I went there, signed in to my account, and created a repository. They assigned the repository the following URL:
+
+```
+https://gitlab.com/raghubetina/industrial-auth-1.git
+```
+
+Now I'm ready to add my remote and nickname it `gitlab`:
+
 
 ```
 gitpod /workspace/industrial-auth-1:(main) $ git remote add gitlab https://gitlab.com/raghubetina/industrial-auth-1.git
@@ -67,7 +74,7 @@ upstream        https://github.com/appdev-projects/industrial-auth-1.git (push)
 
 Now I've got three remotes. I can `git push gitlab` whenever I choose, and my branch will be sent to Gitlab for safekeeping (provided [I set up authentication](https://docs.gitlab.com/ee/integration/gitpod.html#enable-gitpod-in-your-user-settings)).
 
-The point is: we're not limited to just one storage location for our repositories; we can `add` as many `remote` as we like, and sending our code to them is as simple as `git push`.
+The point is: we're not limited to just one storage location for our repositories; we can `add` as many `remote`s as we like, and sending our code to them is as simple as `git push`.
 
 One last thing: you can see an overview of all of your remotes as well as some other Git configuration by opening the config file within the hidden `.git` folder:
 
@@ -81,11 +88,14 @@ Take a look at it, but be careful with this file; you don't want to make any err
 
 Now, back to Pipelines.
 
-The thing that made Heroku revolutionary when [it stormed the scene in 2009](https://www.infoq.com/news/2009/05/heroku-provisionless-revolution/) was that it made deployment as simple as `git push`, which is what developers were doing anyway for version control. Before that, and still today on other platforms (although there are other similar alternatives today), deployment takes _a lot more_.
+The thing that made Heroku revolutionary when [it stormed the scene in 2009](https://www.infoq.com/news/2009/05/heroku-provisionless-revolution/) was that it said "Okay, as long as you're sending code around with `git push`, send it to us that way too — and we'll provision a server for you, put your code on it, spin up a database, set up a connection pool, and do the 1001 other things needed to get your app up and running. You just need to add us as an additional `remote` and `git push` a commit whenever it's ready to ship."
 
-For version control, we usually `git push origin [branch name]`, where `origin` is the nickname we give to the  remote Git storage location that all developers push to and pull from — usually GitHub, for most teams, but some use alternatives like Gitlab, Bitbucket, or private on-premises Git remotes.
+So, when we ran the `heroku create my-app-name` command, it actually did two things:
 
-Heroku said, "Okay, as long as you're sending around code using `git push`, send it to us that way too — and we'll provision a server for you, put your code on it, spin up a database, set up a connection pool, and do the 1001 other things needed to get your app up and running. You just need to add us as an additional `remote` and `git push` a commit when it is ready to ship."
+ 1. Through Heroku's API, it created a Git repository called `https://git.heroku.com/my-app-name.git`
+ 2. It did a `git remote add 
+ - `main` says "I want to push the `main` branch to the remote" (regardless of what branch I have checked out right now). We usually specify because Heroku only deploys the `main` branch; if you push any other branch to Heroku, it is ignored. If you already on `main` then you need not specify.
+
 
 So, that is why, all this time, we've been deploying with:
 
@@ -98,12 +108,7 @@ If we unpack that command:
  - `git push` is hopefully clear by now.
  - `heroku` is the name of the remote location that we're pushing code to. We have to specify because we're _not_ pushing to the default, which is `origin`, which for us has been GitHub.
 
-    When we ran the `heroku create my-app-name` command, it did two things:
-
-    1. Through Heroku's API, it created a Git repository called `my-app-name
-    1. It did a `git remote add 
- - `main` says "I want to push the `main` branch to the remote" (regardless of what branch I have checked out right now). We usually specify because Heroku only deploys the `main` branch; if you push any other branch to Heroku, it is ignored. If you already on `main` then you need not specify.
-
+    
 
 ## Create a new pipeline
 
