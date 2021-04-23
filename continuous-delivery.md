@@ -8,7 +8,7 @@ We're still going to deploy to Heroku, but in a more robust way than we [first l
 
 This time, we're going to take advantage of [Heroku Pipelines](https://devcenter.heroku.com/articles/pipelines) to easily manage _multiple_ deployment targets.
 
-We'll have an app for our real users, which we'll now call `production`; but we'll also have other apps for demonstrating unreleased features, quality assurance, and review purposes.
+We'll have an app for our customers just like before, which we'll now call `production`; but we'll also have other apps: for beta testers, for demonstrating unreleased features, for quality assurance, for code review, etc
 
 This will unlock powerful workflows wherein you can give and get continuous feedback on in-progress features every time you push a commit, even from non-technical stakeholders. Let's get started!
 
@@ -16,7 +16,7 @@ If you want to follow along, you can set up a workspace with any application tha
 
 ## A deeper dive into Git remotes
 
-First, let's do a deeper dive into Git "remotes".
+First, let's dive deeper into Git "remotes".
 
 Whenever we've been pushing code, we've been doing something like:
 
@@ -24,7 +24,7 @@ Whenever we've been pushing code, we've been doing something like:
 git push origin main
 ```
 
-or just `git push` for short, which by default uses `origin` for the third part and whichever branch you have checked out for the fourth part.
+or just `git push` for short; which by default uses `origin` for the third part, and whichever branch you have checked out for the fourth part.
 
 The third part is **the location that we want to send the code to**, known as **the "remote"**. You can list out all of the remotes that you've got with the `git remote` command:
 
@@ -88,27 +88,35 @@ Take a look at it, but be careful with this file; you don't want to make any err
 
 Now, back to Pipelines.
 
-The thing that made Heroku revolutionary when [it stormed the scene in 2009](https://www.infoq.com/news/2009/05/heroku-provisionless-revolution/) was that it said "Okay, as long as you're sending code around with `git push`, send it to us that way too — and we'll provision a server for you, put your code on it, spin up a database, set up a connection pool, and do the 1001 other things needed to get your app up and running. You just need to add us as an additional `remote` and `git push` a commit whenever it's ready to ship."
+The thing that made Heroku revolutionary when [they stormed the scene in 2009](https://www.infoq.com/news/2009/05/heroku-provisionless-revolution/) was that they said "Okay, as long as you're sending code around with `git push`, send it to us that way too — and we'll provision a server for you, put your code on it, spin up a database, set up a connection pool, and do the 1001 other things needed to get your app up and running. You just need to add us as an additional `remote` and `git push` a commit whenever it's ready to ship."
 
-So, when we ran the `heroku create my-app-name` command, it actually did two things:
+So, when we run the `heroku create my-app-name` command, it actually does two things:
 
- 1. Through Heroku's API, it created a Git repository called `https://git.heroku.com/my-app-name.git`
- 2. It did a `git remote add 
- - `main` says "I want to push the `main` branch to the remote" (regardless of what branch I have checked out right now). We usually specify because Heroku only deploys the `main` branch; if you push any other branch to Heroku, it is ignored. If you already on `main` then you need not specify.
+ 1. Through Heroku's API, it creates a Git repository called `https://git.heroku.com/my-app-name.git`
+ 2. It adds a Git remote called `heroku`:
+ 
+    ```
+    git remote add heroku https://git.heroku.com/my-app-name.git
+    ```
 
-
-So, that is why, all this time, we've been deploying with:
+That is what enables us to deploy using:
 
 ```
 git push heroku main
 ```
 
-If we unpack that command:
+From now on, we're going to stop using the default remote nickname of `heroku`. We'll call our first Heroku app, the one that our customers interact with, `production`.
 
- - `git push` is hopefully clear by now.
- - `heroku` is the name of the remote location that we're pushing code to. We have to specify because we're _not_ pushing to the default, which is `origin`, which for us has been GitHub.
-
+ - When initially creating an app using the `heroku` command-line tool, you can choose a remote name using the `-r` option:
     
+    ```
+    heroku create my-app-name -r production
+    ```
+ - If you already have a remote named `heroku`, you can rename it:
+
+    ```
+    git remote rename heroku production
+    ```
 
 ## Create a new pipeline
 
