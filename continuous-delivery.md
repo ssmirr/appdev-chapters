@@ -34,7 +34,7 @@ gitpod /workspace/minimal-heroku:(main) $ git remote
 origin
 ```
 
-I happen to have two; you might have the same, or you might only have one, or you might have more. `origin` and `upstream` are just nicknames; we can see the actual URLs of the locations with `git remote -v`:
+I happen to have one; you might have the same, or you might have more. `origin` is just a nickname; we can see the actual URL of the location with `git remote -v`:
 
 ```
 gitpod /workspace/minimal-heroku:(main) $ git remote -v
