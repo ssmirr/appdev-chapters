@@ -207,10 +207,38 @@ Now that we have our two apps up and running, let's create a Heroku Pipeline for
 
 ![](/assets/continuous-delivery-1-create-pipeline.png)
 
+Choose a name for your pipeline:
+
 ![](/assets/continuous-delivery-2-choose-name.png)
+
+On the next screen, you will see Stages, Staging and Production. Add your two apps to each. (If you hadn't already created your apps from the command-line with `heroku create`, you could have also created them from here and then added them as remotes with `git remote add`). 
 
 ![](/assets/continuous-delivery-3-stages.png)
 
+Then, click the "Connect to GitHub" button, authorize Heroku to access your GitHub account (don't forget to Grant access to any organizations you want) and locate the repository that your `origin` remote is pointing at. Finally, click the "Enable" button next to "Enable Review Apps":
+
 ![](/assets/continuous-delivery-5-connect-github.png)
 
+In the pane that opens, check off "Create new review apps for new pull requests automatically" and "Destroy stale review apps automatically":
+
 ![](/assets/continuous-delivery-6-configure-review.png)
+
+## Review apps
+
+Whew! What just happened? Well, having a `staging` app is nice, but it can get cumbersome quickly. If you have 10 or 20 developers all jostling to get their code tested by the QA team, having only one `staging` app can get constraining very quickly.
+
+By connecting our Heroku Pipeline to our GitHub repository, we've enabled a wonderful feature. Try the following:
+
+ - Create a new feature branch. E.g.,
+
+    ```
+    git checkout -b a-new-feature
+    ```
+ - Commit a change. For me, in `minimal-heroku`, I made a change to `public/index.html` and committed it.
+ - Push your change to GitHub and open a Pull Request.
+ - Look at your Heroku Pipeline:
+
+
+Voilá! Heroku automatically detected the new pull request, immediately provisioned a new app, and deployed the feature branch (not `main`) to it! A link to the **review app**, as they are called, will be placed in the pull request so that code reviewers can easily access it and click through the live application. Awesome!
+
+In my experience, Review Apps dramatically tighten feedback loops between product owners, developers, usability testers, and stakeholders all throughout the development cycle. This is one of the most important Continuous Delivery techniques that we'll add to our arsenal.
