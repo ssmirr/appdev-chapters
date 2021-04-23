@@ -111,7 +111,7 @@ The presence of this remote is what enables us to deploy using:
 git push heroku main
 ```
 
-## Set up production remote
+## Set up production app
 
 From now on, we're going to stop using the default remote nickname of `heroku`. For our primary app, the one that our customers interact with, lets use the remote name `production`.
 
@@ -146,7 +146,7 @@ You probably need to `heroku run rails db:migrate`, for one thing. Possibly also
 
 Woohoo! Even 10+ years later, it still brings a tear to my eye how much Heroku has simplified deployment 😢
 
-## Set up staging remote
+## Set up staging app
 
 Let's now add a second Heroku app. This one is going to be for testing purposes — let's say we're working on a feature, but it's not ready for customers yet, so we can't deploy it to `production`. However, we want to deploy it _somewhere_ so that non-technical teammates — say, usability or QA testers — can kick the tires and give us feedback.
 
@@ -174,11 +174,38 @@ staging
 upstream
 ```
 
-It's hard to believe that provisioning a second, fully functional application only took two commands, but with Heroku
+If you try to open your staging application with `heroku open`, you should see an error:
 
-## Create a new pipeline
+```
+gitpod /workspace/industrial-auth-1:(main) $ heroku open
 
-Assuming we have an application that we're ready to deploy  in this article, but it can be any app at any stage of completion — even a brand new one), the first step is to create a Pipeline:
+ ›   Error: Multiple apps in git remotes
+ ›     Usage: --remote staging
+ ›        or: --app industrial-auth-1-staging
+ ›     Your local git repository has more than 1 app referenced in git remotes.
+ ›     Because of this, we can't determine which app you want to run this command against.
+ ›     Specify the app you want with --app or --remote.
+ ›     Heroku remotes in repo:
+ ›     industrial-auth-1-production (production)
+ ›   industrial-auth-1-staging (staging)
+ ›
+ ›     https://devcenter.heroku.com/articles/multiple-environments
+```
 
+Now that we have more than one Heroku app, we have to be more specific:
 
-Within, you'll see Staging and Production stages. Let's add an app to the Production stage — if you've already deployed to Heroku, find your existing app, otherwise 
+```
+heroku open -r staging
+```
+
+And if you have errors like before, to run the same commands on `staging`, add the `-r staging` flag:
+
+```
+heroku run rails db:migrate sample_data -r staging
+```
+
+Adding the `-r production` or `-r staging` flag to every `heroku ...` command is a pain, but I'll show you a shortcut soon.
+
+## Create pipeline
+
+Now that we have our two apps up and running, let's create a Heroku Pipeline for them. Head over to your Heroku dashboard and 
