@@ -50,7 +50,9 @@ This lets us know for sure where our code is going to and coming from when we `p
 
 Most importantly, we can add new remotes with the `git remote add` command.
 
-You don't need to do this part, but for demonstration purposes, I am going to add a remote. Let's say I want to make a redundant copy of the repository on [Gitlab.com](https://gitlab.com/), a GitHub alternative, and `push` to it from time to time for safekeeping. I went there, signed in to my account, and created a repository. They assigned the repository the following URL:
+You don't need to do this part, but for demonstration purposes, I am going to add a remote. Let's say I want to make a redundant copy of the repository on [Gitlab.com](https://gitlab.com/), a GitHub alternative, and `push` to it from time to time for safekeeping.
+
+First, I need to go to my Gitlab dashboard and create a repository. Then, they will assign the repository a Git URL, such as the following:
 
 ```
 https://gitlab.com/raghubetina/industrial-auth-1.git
@@ -92,31 +94,87 @@ The thing that made Heroku revolutionary when [they stormed the scene in 2009](h
 
 So, when we run the `heroku create my-app-name` command, it actually does two things:
 
- 1. Through Heroku's API, it creates a Git repository called `https://git.heroku.com/my-app-name.git`
- 2. It adds a Git remote called `heroku`:
+ 1. Through Heroku's API, it creates an app and retrieves the assigned Git URL. If the app name we chose is available the Git URL would be `https://git.heroku.com/my-app-name.git`.
+
+    We could do the same thing by going to our Heroku dashboard in the browser and creating a new app there.
+ 1. It adds a Git remote called `heroku`:
  
     ```
     git remote add heroku https://git.heroku.com/my-app-name.git
     ```
 
-That is what enables us to deploy using:
+    We could do the same thing ourselves at the command line.
+
+The presence of this remote is what enables us to deploy using:
 
 ```
 git push heroku main
 ```
 
-From now on, we're going to stop using the default remote nickname of `heroku`. We'll call our first Heroku app, the one that our customers interact with, `production`.
+## Set up production remote
 
- - When initially creating an app using the `heroku` command-line tool, you can choose a remote name using the `-r` option:
+From now on, we're going to stop using the default remote nickname of `heroku`. For our primary app, the one that our customers interact with, lets use the remote name `production`.
+
+For the Heroku app name itself, my convention is end the name in `-production` or `-prod` — e.g., `my-app-name-production`.
+
+When initially creating an app using the `heroku` command-line tool, you can choose a remote name using the `-r` option. 
     
-    ```
-    heroku create my-app-name -r production
-    ```
- - If you already have a remote named `heroku`, you can rename it:
+```
+gitpod /workspace/industrial-auth-1:(main) $ heroku create industrial-auth-1-production -r production
 
-    ```
-    git remote rename heroku production
-    ```
+Creating ⬢ industrial-auth-1-production... done
+https://industrial-auth-1-production.herokuapp.com/ | https://git.heroku.com/industrial-auth-1-production.git
+```
+
+If you already have a remote named `heroku`, you can rename it:
+
+```
+git remote rename heroku production
+```
+
+If you don't already have a `production` app, create one now and deploy your `main` branch to it:
+
+```
+git push production main
+```
+
+Visit your application with `heroku open`. Is it working?
+
+If not, [recall your old Heroku skills](https://chapters.firstdraft.com/chapters/775#seeing-error-messages), read the error messages with `heroku logs --tail`, and debug.
+
+You probably need to `heroku run rails db:migrate`, for one thing. Possibly also `heroku run rails sample_data` if that makes sense for your application.
+
+Woohoo! Even 10+ years later, it still brings a tear to my eye how much Heroku has simplified deployment 😢
+
+## Set up staging remote
+
+Let's now add a second Heroku app. This one is going to be for testing purposes — let's say we're working on a feature, but it's not ready for customers yet, so we can't deploy it to `production`. However, we want to deploy it _somewhere_ so that non-technical teammates — say, usability or QA testers — can kick the tires and give us feedback.
+
+Non-technical teammates aren't about to set up Gitpod workspaces, `bin/server`, `rails db:create`, `rails db:migrate`, `rails sample_data`, etc; so we're going to need to deploy another Heroku app for them to interact with the experimental branch. We'll call this one `staging`:
+
+```
+heroku create my-app-name -r staging
+```
+
+Let's deploy to this one, too:
+
+```
+git push staging main
+```
+
+If we look at our list of remotes now, we should see `origin`, `production`, and `staging`:
+
+```
+gitpod /workspace/industrial-auth-1:(main) $ git remote
+
+gitlab
+origin
+production
+staging
+upstream
+```
+
+It's hard to believe that provisioning a second, fully functional application only took two commands, but with Heroku
 
 ## Create a new pipeline
 
