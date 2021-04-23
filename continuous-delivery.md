@@ -45,7 +45,7 @@ origin  https://github.com/raghubetina/minimal-heroku.git (push)
 
 This lets us know for sure where our code is going to and coming from when we `push` and `pull`. Typically, `origin` is our primary repository on GitHub.com.
 
-Most importantly, we can add new remotes with the `git remote add` command.
+Importantly, we can add new remotes with the `git remote add` command.
 
 You don't need to do this part, but for demonstration purposes, I am going to add a remote. Let's say I want to make a redundant copy of the repository on [Gitlab.com](https://gitlab.com/), a GitHub alternative, and `push` to it from time to time for safekeeping.
 
