@@ -12,7 +12,7 @@ We'll have an app for our customers just like before, which we'll now call `prod
 
 This will unlock powerful workflows wherein you can give and get continuous feedback on in-progress features every time you push a commit, even from non-technical stakeholders. Let's get started!
 
-If you want to follow along, you can set up a workspace with any application that's ready to be deployed, even if it's a brand new one. I'll be using [industrial-auth-1](https://github.com/appdev-projects/industrial-auth-1).
+If you want to follow along, you can set up a workspace with any application that's ready to be deployed, even if it's a brand new one. I'll be using a repository that I created using the [minimal-heroku template](https://github.com/appdev-projects/minimal-heroku/generate).
 
 ## A deeper dive into Git remotes
 
@@ -29,24 +29,21 @@ or just `git push` for short; which by default uses `origin` for the third part,
 The third part is **the location that we want to send the code to**, known as **the "remote"**. You can list out all of the remotes that you've got with the `git remote` command:
 
 ```
-gitpod /workspace/industrial-auth-1:(main) $ git remote
+gitpod /workspace/minimal-heroku:(main) $ git remote
 
 origin
-upstream
 ```
 
 I happen to have two; you might have the same, or you might only have one, or you might have more. `origin` and `upstream` are just nicknames; we can see the actual URLs of the locations with `git remote -v`:
 
 ```
-gitpod /workspace/industrial-auth-1:(main) $ git remote -v
+gitpod /workspace/minimal-heroku:(main) $ git remote -v
 
-origin  https://github.com/raghubetina/industrial-auth-1.git (fetch)
-origin  https://github.com/raghubetina/industrial-auth-1.git (push)
-upstream        https://github.com/appdev-projects/industrial-auth-1.git (fetch)
-upstream        https://github.com/appdev-projects/industrial-auth-1.git (push)
+origin  https://github.com/raghubetina/minimal-heroku.git (fetch)
+origin  https://github.com/raghubetina/minimal-heroku.git (push)
 ```
 
-This lets us know for sure where our code is going to and coming from when we `push` and `pull`. Typically, `origin` is our primary repository on GitHub.com; and if it's a fork of another repository, then that one is called `upstream`.
+This lets us know for sure where our code is going to and coming from when we `push` and `pull`. Typically, `origin` is our primary repository on GitHub.com.
 
 Most importantly, we can add new remotes with the `git remote add` command.
 
@@ -55,26 +52,24 @@ You don't need to do this part, but for demonstration purposes, I am going to ad
 First, I need to go to my Gitlab dashboard and create a repository. Then, they will assign the repository a Git URL, such as the following:
 
 ```
-https://gitlab.com/raghubetina/industrial-auth-1.git
+https://gitlab.com/raghubetina/minimal-heroku.git
 ```
 
 Now I'm ready to add my remote and nickname it `gitlab`:
 
 
 ```
-gitpod /workspace/industrial-auth-1:(main) $ git remote add gitlab https://gitlab.com/raghubetina/industrial-auth-1.git
+gitpod /workspace/minimal-heroku:(main) $ git remote add gitlab https://gitlab.com/raghubetina/minimal-heroku.git
 
-gitpod /workspace/industrial-auth-1:(main) $ git remote -v
+gitpod /workspace/minimal-heroku:(main) $ git remote -v
 
-gitlab  https://gitlab.com/raghubetina/industrial-auth-1.git (fetch)
-gitlab  https://gitlab.com/raghubetina/industrial-auth-1.git (push)
-origin  https://github.com/raghubetina-appdev/industrial-auth-1.git (fetch)
-origin  https://github.com/raghubetina-appdev/industrial-auth-1.git (push)
-upstream        https://github.com/appdev-projects/industrial-auth-1.git (fetch)
-upstream        https://github.com/appdev-projects/industrial-auth-1.git (push)
+gitlab  https://gitlab.com/raghubetina/minimal-heroku.git (fetch)
+gitlab  https://gitlab.com/raghubetina/minimal-heroku.git (push)
+origin  https://github.com/raghubetina-appdev/minimal-heroku.git (fetch)
+origin  https://github.com/raghubetina-appdev/minimal-heroku.git (push)
 ```
 
-Now I've got three remotes. I can `git push gitlab` whenever I choose, and my branch will be sent to Gitlab for safekeeping (provided [I set up authentication](https://docs.gitlab.com/ee/integration/gitpod.html#enable-gitpod-in-your-user-settings)).
+Now I've got two remotes. I can `git push gitlab` whenever I choose, and my branch will be sent to Gitlab for safekeeping (provided [I set up authentication](https://docs.gitlab.com/ee/integration/gitpod.html#enable-gitpod-in-your-user-settings)).
 
 The point is: we're not limited to just one storage location for our repositories; we can `add` as many `remote`s as we like, and sending our code to them is as simple as `git push`.
 
@@ -120,10 +115,10 @@ For the Heroku app name itself, my convention is end the name in `-production` o
 When initially creating an app using the `heroku` command-line tool, you can choose a remote name using the `-r` option. 
     
 ```
-gitpod /workspace/industrial-auth-1:(main) $ heroku create industrial-auth-1-production -r production
+gitpod /workspace/minimal-heroku:(main) $ heroku create minimal-heroku-production -r production
 
-Creating ⬢ industrial-auth-1-production... done
-https://industrial-auth-1-production.herokuapp.com/ | https://git.heroku.com/industrial-auth-1-production.git
+Creating ⬢ minimal-heroku-production... done
+https://minimal-heroku-production.herokuapp.com/ | https://git.heroku.com/minimal-heroku-production.git
 ```
 
 If you already have a remote named `heroku`, you can rename it:
@@ -138,7 +133,7 @@ If you don't already have a `production` app, create one now and deploy your `ma
 git push production main
 ```
 
-Visit your application with `heroku open`. Is it working?
+Visit your application with `heroku open`. Is it working? If so, yay!
 
 If not, [recall your old Heroku skills](https://chapters.firstdraft.com/chapters/775#seeing-error-messages), read the error messages with `heroku logs --tail`, and debug.
 
@@ -153,7 +148,7 @@ Let's now add a second Heroku app. This one is going to be for testing purposes 
 Non-technical teammates aren't about to set up Gitpod workspaces, `bin/server`, `rails db:create`, `rails db:migrate`, `rails sample_data`, etc; so we're going to need to deploy another Heroku app for them to interact with the experimental branch. We'll call this one `staging`:
 
 ```
-heroku create my-app-name -r staging
+heroku create minimal-heroku-staging -r staging
 ```
 
 Let's deploy to this one, too:
@@ -165,34 +160,32 @@ git push staging main
 If we look at our list of remotes now, we should see `origin`, `production`, and `staging`:
 
 ```
-gitpod /workspace/industrial-auth-1:(main) $ git remote
+gitpod /workspace/minimal-heroku:(main) $ git remote
 
-gitlab
 origin
 production
 staging
-upstream
 ```
 
 If you try to open your staging application with `heroku open`, you should see an error:
 
 ```
-gitpod /workspace/industrial-auth-1:(main) $ heroku open
+gitpod /workspace/minimal-heroku:(main) $ heroku open
 
  ›   Error: Multiple apps in git remotes
  ›     Usage: --remote staging
- ›        or: --app industrial-auth-1-staging
+ ›        or: --app minimal-heroku-staging
  ›     Your local git repository has more than 1 app referenced in git remotes.
  ›     Because of this, we can't determine which app you want to run this command against.
  ›     Specify the app you want with --app or --remote.
  ›     Heroku remotes in repo:
- ›     industrial-auth-1-production (production)
- ›   industrial-auth-1-staging (staging)
+ ›     minimal-heroku-production (production)
+ ›   minimal-heroku-staging (staging)
  ›
  ›     https://devcenter.heroku.com/articles/multiple-environments
 ```
 
-Now that we have more than one Heroku app, we have to be more specific:
+The issue is: now that we have more than one Heroku app, we have to be more specific when we run our `heroku` commands about which location we want them performed on.
 
 ```
 heroku open -r staging
@@ -201,10 +194,12 @@ heroku open -r staging
 And if you have errors like before, to run the same commands on `staging`, add the `-r staging` flag:
 
 ```
-heroku run rails db:migrate sample_data -r staging
+heroku logs --tail -r staging
+heroku run rails db:migrate -r staging
+heroku run sample_data -r staging
 ```
 
-Adding the `-r production` or `-r staging` flag to every `heroku ...` command is a pain, but I'll show you a shortcut soon.
+Adding the `-r production` or `-r staging` flag to every `heroku ...` command is a pain, but I'll show you some shortcuts soon.
 
 ## Create pipeline
 
