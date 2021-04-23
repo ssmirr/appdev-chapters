@@ -58,5 +58,6 @@ Works in progress, and not in order.
  4. [Omnicalc API](https://chapters.firstdraft.com/chapters/786)
  5. [Photogram API](https://chapters.firstdraft.com/chapters/780)
  6. [Git Aliases](https://chapters.firstdraft.com/chapters/857)
+ 7. [Continuous Delivery](https://chapters.firstdraft.com/chapters/858)
    
 Please let us know if you find any links to pages that are no longer live, or any other errata.
