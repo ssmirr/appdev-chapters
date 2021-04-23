@@ -238,6 +238,7 @@ By connecting our Heroku Pipeline to our GitHub repository, we've enabled a wond
  - Push your change to GitHub and open a Pull Request.
  - Look at your Heroku Pipeline:
 
+![](/assets/continuous-delivery-7-review-app-provisioning.png)
 
 Voilá! Heroku automatically detected the new pull request, immediately provisioned a new app, and deployed the feature branch (not `main`) to it! A link to the **review app**, as they are called, will be placed in the pull request so that code reviewers can easily access it and click through the live application. Awesome!
 
