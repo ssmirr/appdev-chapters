@@ -50,6 +50,7 @@ Works in progress, and not in order.
  46. [A few management readings](https://chapters.firstdraft.com/chapters/789)
  47. [Starting a Rails app from Scratch](https://chapters.firstdraft.com/chapters/851)
  48. [Adding Sample_data](https://chapters.firstdraft.com/chapters/852)
+
 ---
 
  1. [Day 2 Notes](https://chapters.firstdraft.com/chapters/793)
