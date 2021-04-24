@@ -255,4 +255,4 @@ By connecting our Heroku Pipeline to our GitHub repository, we've enabled a wond
 
 Voilá! Heroku automatically detected the new pull request, immediately provisioned a new app, and deployed the feature branch (not `main`) to it. A link to the **Review App**, as they are called, will be placed in the pull request once it is ready, so that code reviewers can easily access it and click through the live application. Every time you push a new commit, the Review App will automatically re-deploy. Awesome!
 
-In my experience, Review Apps _dramatically_ tighten feedback loops between product owners, developers, designers, usability testers, and stakeholders all throughout the development cycle. This is one of the most important Continuous Delivery techniques that we'll add to our arsenal.
+In my experience, Review Apps _dramatically_ tighten feedback loops between product owners, developers, clients, designers, usability testers, and stakeholders all throughout the development cycle. This is one of the most important Continuous Delivery techniques that we'll add to our arsenal.
