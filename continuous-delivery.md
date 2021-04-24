@@ -212,9 +212,11 @@ I now have two applications:
  - `production` is for customers, and will be reachable at (for example) `www.my-app-name.com`.
  - `staging` is for testing or demonstration purposes (different teams use `staging` differently), and will be reachable at (for example) `staging.my-app-name.com`.
 
+Much better than only having a single deployment target! Now I can merge to `main`, deploy to `staging`, kick the tires in a real production environment, and then finally ship it to customers.
+
 ## Create pipeline
 
-Now that we have our two apps up and running, let's create a Heroku Pipeline for them.
+Now that we have our two apps up and running, let's create a Heroku Pipeline to group them together.
 
 Head over to your Heroku dashboard and, first, confirm that your two new apps appear in the list there. Create a new pipeline from the dropdown in the top-right:
 
@@ -228,7 +230,15 @@ On the next screen, you will see Stages, Staging and Production. Add your apps t
 
 ![](/assets/continuous-delivery-3-stages.png)
 
-Then, click the "Connect to GitHub" button, authorize Heroku to access your GitHub account (don't forget to Grant access to any organizations you want) and locate the repository that your `origin` remote is pointing at. Finally, click the "Enable" button next to "Enable Review Apps":
+One immediate benefit of grouping the apps together in a Pipeline is that, once you're fully confident in a change, you can [promote your staging app's slug](https://devcenter.heroku.com/articles/pipelines#promoting) directly to the production app, which speeds up deployment.
+
+## Review Apps
+
+Imagine there are 10 developers on the team with 2-3 branches each that they think are ready to merge into `main` and deploy to `production`. They are just waiting for approval from Q&A and the product owners.
+
+If you only have a single `staging` server, you're going to have a big traffic jam. Should each developer create their own staging server? Since we're using Heroku, with it's unbelievably good deployment ergonomics, that is actually within the realm of possibility; if we were working directly with e.g. Amazon AWS for hosting, it would be out of the question. However, there's a better way: Review Apps.
+
+To enable Review Apps in our Pipeline, click the "Connect to GitHub" button, authorize Heroku to access your GitHub account (don't forget to Grant access to any organizations you want) and locate the repository that your `origin` remote is pointing at. Finally, click the "Enable" button next to "Enable Review Apps":
 
 ![](/assets/continuous-delivery-5-connect-github.png)
 
@@ -236,11 +246,7 @@ In the pane that opens, check off "Create new review apps for new pull requests 
 
 ![](/assets/continuous-delivery-6-configure-review.png)
 
-## Review apps
-
-Whew! What just happened? Well, having a `staging` app is nice, but it can get overburdened quickly. If you have 10 or 20 developers all ready for QA and approval before merging their feature branches, you'll quickly find that a single `staging` server becomes a bottleneck.
-
-By connecting our Heroku Pipeline to our GitHub repository, we've enabled a wonderful feature — Review Apps. Try the following:
+Now, try the following:
 
  - Create a new feature branch. E.g.,
 
