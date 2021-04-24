@@ -234,7 +234,7 @@ One immediate benefit of grouping the apps together in a Pipeline is that, once 
 
 ## Review Apps
 
-Imagine there are 10 developers on the team with 2-3 branches each that they think are ready to merge into `main` and deploy to `production`. They are just waiting for approval from Q&A and the product owners.
+Imagine there are 10 developers on the team with 2-3 branches each that they think are ready to merge into `main` and deploy to `production`. They are just waiting for approval from Quality Assurance and the product owners.
 
 If you only have a single `staging` server, you're going to have a big traffic jam. Should each developer create their own staging server? Since we're using Heroku, with it's unbelievably good deployment ergonomics, that is actually within the realm of possibility; if we were working directly with e.g. Amazon AWS for hosting, it would be out of the question. However, there's a better way: Review Apps.
 
