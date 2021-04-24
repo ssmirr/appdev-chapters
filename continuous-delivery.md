@@ -106,11 +106,19 @@ The presence of this remote is what enables us to deploy using:
 git push heroku main
 ```
 
+As we know, once the deployment completes, Heroku will assign the domain:
+
+```
+https://my-app-name.herokuapp.com
+```
+
+We will, for any real application, never allow our users to see that underlying `.herokuapp.com` subdomain. We will purchase our own domain, e.g. `www.my-app-name.com`, and [configure it to point to our Heroku app](https://devcenter.heroku.com/articles/custom-domains); so that our users never know the difference.
+
 ## Set up production app
 
-From now on, we're going to stop using the default remote nickname of `heroku`. For our primary app, the one that our customers interact with, lets use the remote name `production`.
+From now on, within our remotes, we're going to stop using the default nickname of `heroku`. For our primary app, the one that our customers interact with, lets use the nickname `production`.
 
-For the Heroku app name itself, my convention is end the name in `-production` or `-prod` — e.g., `my-app-name-production`.
+As far as the app's name within Heroku, my convention is end the name in `-production` or `-prod` — e.g., `my-app-name-production`. Sometimes, the exact name I want will already be taken in Heroku; but that's okay, because I'm going to mostly be referring to them by my local Git remote nicknames when I'm running commands. So just pick a name that's close and available.
 
 When initially creating an app using the `heroku` command-line tool, you can choose a remote name using the `-r` option. 
     
@@ -135,17 +143,15 @@ git push production main
 
 Visit your application with `heroku open`. Is it working? If so, yay!
 
-If not, [recall your old Heroku skills](https://chapters.firstdraft.com/chapters/775#seeing-error-messages), read the error messages with `heroku logs --tail`, and debug.
-
-You probably need to `heroku run rails db:migrate`, for one thing. Possibly also `heroku run rails sample_data` if that makes sense for your application.
+If not, read the server log with `heroku logs --tail` and debug. You probably need to `heroku run rails db:migrate`, for one thing. Possibly also `heroku run rails sample_data` if that makes sense for your application.
 
 Woohoo! Even 10+ years later, it still brings a tear to my eye how much Heroku has simplified deployment 😢
 
 ## Set up staging app
 
-Let's now add a second Heroku app. This one is going to be for testing purposes — let's say we're working on a feature, but it's not ready for customers yet, so we can't deploy it to `production`. However, we want to deploy it _somewhere_ so that non-technical teammates — say, usability or QA testers — can kick the tires and give us feedback.
+Let's say you want feedback on a feature that you're working on from a client, a co-founder, or a designer who aren't familiar with GitHub, GitPod, etc. It would be a huge amount of friction to ask them to sign up for accounts, `rails db:create`, `rails db:migrate`, `rails sample_data`, `bin/server`, etc. 
 
-Non-technical teammates aren't about to set up Gitpod workspaces, `bin/server`, `rails db:create`, `rails db:migrate`, `rails sample_data`, etc; so we're going to need to deploy another Heroku app for them to interact with the experimental branch. We'll call this one `staging`:
+Instead, let's create a second Heroku app whose purpose will be for deploying experimental code to. We'll call this one `staging`:
 
 ```
 heroku create minimal-heroku-staging -r staging
@@ -201,9 +207,16 @@ heroku run sample_data -r staging
 
 Adding the `-r production` or `-r staging` flag to every `heroku ...` command is a pain, but I'll show you some shortcuts soon.
 
+I now have two applications:
+
+ - `production` is for customers, and will be reachable at (for example) `www.my-app-name.com`.
+ - `staging` is for testing or demonstration purposes (different teams use `staging` differently), and will be reachable at (for example) `staging.my-app-name.com`.
+
 ## Create pipeline
 
-Now that we have our two apps up and running, let's create a Heroku Pipeline for them. Head over to your Heroku dashboard and, first, confirm that your two new apps appear in the list there. Create a new pipeline from the dropdown in the top-right:
+Now that we have our two apps up and running, let's create a Heroku Pipeline for them.
+
+Head over to your Heroku dashboard and, first, confirm that your two new apps appear in the list there. Create a new pipeline from the dropdown in the top-right:
 
 ![](/assets/continuous-delivery-1-create-pipeline.png)
 
