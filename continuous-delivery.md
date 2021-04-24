@@ -238,9 +238,9 @@ In the pane that opens, check off "Create new review apps for new pull requests 
 
 ## Review apps
 
-Whew! What just happened? Well, having a `staging` app is nice, but it can get cumbersome quickly. If you have 10 or 20 developers all jostling to get their code tested by the QA team, having only one `staging` app can get constraining very quickly.
+Whew! What just happened? Well, having a `staging` app is nice, but it can get overburdened quickly. If you have 10 or 20 developers all ready for QA and approval before merging their feature branches, you'll quickly find that a single `staging` server becomes a bottleneck.
 
-By connecting our Heroku Pipeline to our GitHub repository, we've enabled a wonderful feature. Try the following:
+By connecting our Heroku Pipeline to our GitHub repository, we've enabled a wonderful feature — Review Apps. Try the following:
 
  - Create a new feature branch. E.g.,
 
@@ -255,4 +255,4 @@ By connecting our Heroku Pipeline to our GitHub repository, we've enabled a wond
 
 Voilá! Heroku automatically detected the new pull request, immediately provisioned a new app, and deployed the feature branch (not `main`) to it. A link to the **Review App**, as they are called, will be placed in the pull request once it is ready, so that code reviewers can easily access it and click through the live application. Every time you push a new commit, the Review App will automatically re-deploy. Awesome!
 
-In my experience, Review Apps _dramatically_ tighten feedback loops between product owners, developers, usability testers, and stakeholders all throughout the development cycle. This is one of the most important Continuous Delivery techniques that we'll add to our arsenal.
+In my experience, Review Apps _dramatically_ tighten feedback loops between product owners, developers, designers, usability testers, and stakeholders all throughout the development cycle. This is one of the most important Continuous Delivery techniques that we'll add to our arsenal.
