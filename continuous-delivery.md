@@ -224,7 +224,7 @@ Choose a name for your pipeline:
 
 ![](/assets/continuous-delivery-2-choose-name.png)
 
-On the next screen, you will see Stages, Staging and Production. Add your apps to the respective pipeline. (If you hadn't already created your apps from the command-line with `heroku create`, you could have also created them from here and then added them as remotes with `git remote add`). 
+On the next screen, you will see Stages, Staging and Production. Add your apps to their respective pipeline. (If you hadn't already created your apps from the command-line with `heroku create`, you could have also created them from here and then added them as remotes with `git remote add`). 
 
 ![](/assets/continuous-delivery-3-stages.png)
 
