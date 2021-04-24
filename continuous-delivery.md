@@ -149,7 +149,7 @@ Woohoo! Even 10+ years later, it still brings a tear to my eye how much Heroku h
 
 ## Set up staging app
 
-Let's say you want feedback on a feature that you're working on from a client, a co-founder, or a designer who aren't familiar with GitHub, GitPod, etc. It would be a huge amount of friction to ask them to sign up for accounts, `rails db:create`, `rails db:migrate`, `rails sample_data`, `bin/server`, etc. 
+Let's say you want feedback on a feature that you're working on from a client, a co-founder, or a designer who isn't familiar with GitHub, GitPod, etc. It would be a huge amount of friction to ask them to sign up for accounts, `rails db:create`, `rails db:migrate`, `rails sample_data`, `bin/server`, etc. 
 
 Instead, let's create a second Heroku app whose purpose will be for deploying experimental code to. We'll call this one `staging`:
 
