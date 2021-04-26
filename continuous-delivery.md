@@ -209,7 +209,7 @@ Adding the `-r production` or `-r staging` flag to every `heroku ...` command is
 
 I now have two applications:
 
- - `production` is for customers, and will be reachable at (for example) `www.my-app-name.com`.
+ - `production` is for customers, and will be reachable at (for example) `www.my-app-name.com` (once I [add a custom domain](https://devcenter.heroku.com/articles/custom-domains)).
  - `staging` is for testing or demonstration purposes (different teams use `staging` differently), and will be reachable at (for example) `staging.my-app-name.com`.
 
 Much better than only having a single deployment target! Now I can merge to `main`, deploy to `staging`, kick the tires in a real production environment, and then finally ship it to customers.
@@ -230,7 +230,7 @@ On the next screen, you will see Stages, Staging and Production. Add your apps t
 
 ![](/assets/continuous-delivery-3-stages.png)
 
-One immediate benefit of grouping the apps together in a Pipeline is that, once you're fully confident in a change, you can [promote your staging app's slug](https://devcenter.heroku.com/articles/pipelines#promoting) directly to the production app, which speeds up deployment.
+One immediate benefit of grouping the apps together in a Pipeline is that, once you're fully confident in a change, you can [promote your staging app's slug](https://devcenter.heroku.com/articles/pipelines#promoting) directly to the production app. This results in a faster deployment, in some cases with less downtime, than `git push production main`.
 
 ## Review Apps
 
@@ -261,10 +261,12 @@ Now, try the following:
 
 Voilá! Heroku automatically detected the new pull request, immediately provisioned a new app, and deployed the feature branch (not `main`) to it.
 
- - Once its ready, you can share the URL of the ****Review App** with clients, designers, etc.
+ - Once its ready, you can share the URL of the **Review App** with clients, designers, etc.
  - It's common to put a link in your task management/ticketing system, which aids tremendously in getting feedback and approval from all stakeholders before merging to `main`.
  - A link to the review app will automatically be added to the Pull Request thread. That means that code reviewers don't have to go through the trouble of stopping their work, `git pull`ing your branch, switching to it, possibly running database migrations, etc, in order to interact with your feature while providing feedback.
  - Every time you push a new commit, the Review App will automatically re-deploy.
  - Awesome!
 
 In my experience, Review Apps _dramatically_ tighten feedback loops between product owners, developers, clients, designers, usability testers, and stakeholders all throughout the development cycle. This is one of the most important Continuous Delivery techniques that we'll add to our arsenal.
+
+The [official docs on Heroku Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration) are worth perusing. 
