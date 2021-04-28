@@ -269,6 +269,16 @@ Voilá! Heroku automatically detected the new pull request, immediately provisio
 
 In my experience, Review Apps _dramatically_ tighten feedback loops between product owners, developers, clients, designers, usability testers, and stakeholders all throughout the development cycle. This is one of the most important Continuous Delivery techniques that we'll add to our arsenal.
 
+There's just one problem: when the Review App is done building and you visit it, it's quite likely that you probably see the familiar "Something went wrong" error, due to the familiar "pending migrations" issue. Ugh.
+
+Fix it with:
+
+```
+heroku run rails db:migrate -a the-assigned-heroku-app-name
+```
+
+You can find the assigned Heroku app name in your dashboard, or in the pull request on GitHub.
+
 ## Procfile
 
 Let's continue to make our deployment workflow even smoother.
@@ -298,7 +308,7 @@ release: bundle exec rails db:migrate
  - Very commonly, you'll add another line to tell Heroku commands to run when each [Worker dyno](https://devcenter.heroku.com/articles/background-jobs-queueing) starts.
  - The second line, `release:`, is how we tell Heroku any commands we want to run every time we deploy a new version of the app. Here's our chance to automatically `rails db:migrate` — phew!
 
-After your very first deploy, when you tried to visit your application, you almost certainly saw the familiar "Something went wrong" error — oops, we forgot to `rails db:migrate`! 
+Happily, the `Procfile` takes care of `rails db:migrate` for our Review Apps also, which takes care of the issue we ran into above.
 
 ---
 
