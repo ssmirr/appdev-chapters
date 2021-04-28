@@ -314,5 +314,5 @@ Happily, the `Procfile` runs for Review Apps just like any other apps, which tak
 
 ---
 
-This deployment technique integrated into our already powerful Git branch-PR-merge workflow is a very powerful baseline _continuous delivery_ methodology.
+This deployment technique combined with our Git branch→pull request-→code review→merge workflow is a very powerful. It works especially well with an [iterative product management process](https://thoughtbot.com/blog/how-we-use-trello-for-product-development) for _continuously delivering_ useful software and improving based on feedback.
 
