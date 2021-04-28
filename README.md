@@ -31,7 +31,7 @@ Works in progress, and not in order.
  27. [Sending emails and text messages](https://chapters.firstdraft.com/chapters/848)
  28. [Google Translate API](https://chapters.firstdraft.com/chapters/849)
  29. [API Resources](https://chapters.firstdraft.com/chapters/800)
- 30. [Optional syntaxes in Ruby](https://chapters.firstdraft.com/chapters/787)
+ 30. [Different Ruby Styles](https://chapters.firstdraft.com/chapters/787)
  31. [Adding Routes](https://chapters.firstdraft.com/chapters/779)
  32. [Refactoring Fortune Teller with Dynamic Routes](https://chapters.firstdraft.com/chapters/841)
  33. [Cookies](https://chapters.firstdraft.com/chapters/842)
