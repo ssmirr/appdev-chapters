@@ -1,4 +1,4 @@
-# Optional Syntaxes in Ruby
+# Different Ruby Styles
 
 Ruby, unlike many other languages, often supports multiple different syntax styles to achieve the same thing. This is both good and bad. It's good because it lets us choose a style that we are most comfortable with, but it's bad because we need to learn to at least recognize all of the styles so that we can read other people's code.
 

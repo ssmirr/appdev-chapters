@@ -269,4 +269,38 @@ Voilá! Heroku automatically detected the new pull request, immediately provisio
 
 In my experience, Review Apps _dramatically_ tighten feedback loops between product owners, developers, clients, designers, usability testers, and stakeholders all throughout the development cycle. This is one of the most important Continuous Delivery techniques that we'll add to our arsenal.
 
-The [official docs on Heroku Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration) are worth perusing. 
+## Procfile
+
+Let's continue to make our deployment workflow even smoother.
+
+Here's something that used to happen to me every almost every single time I deployed, and probably just happened to you a minute ago:
+
+ - Deploy: `git push main production`
+ - Visit application: `heroku open`
+ - See the "We're sorry, but something went wrong. If you are the application owner check the logs for more information."
+ - `heroku logs --tail`
+ - See the "pending migrations" error.
+ - `heroku run rails db:migrate -r production`
+ - Visit application for real.
+
+Argh! I _always_ forget to `rails db:migrate`. Can't we just tell Heroku to always `rails db:migrate` whenever we deploy, just in case there are any new migrations?
+
+Why yes, we can! Heroku allows you to include a file called `Procfile` in the root folder of your application, in which you can specify commands that you want to be executed upon startup.
+
+[There's a lot of things that you can include in a `Procfile`](https://devcenter.heroku.com/articles/procfile), but here's a good starting point that you can use for your applications:
+
+```
+web: bundle exec puma -p $PORT -C ./config/puma.rb
+release: bundle exec rails db:migrate
+```
+
+ - The first line, `web:`, is how you tell Heroku what commands to run when each Web dyno starts. Heroku does a pretty good job with Rails apps by default, but here you can fine tune it if you want. In the example above, we're telling Heroku to launch the Puma web server on the default port using the configuration we specified in our `config/puma.rb` file.
+ - Very commonly, you'll add another line to tell Heroku commands to run when each [Worker dyno](https://devcenter.heroku.com/articles/background-jobs-queueing) starts.
+ - The second line, `release:`, is how we tell Heroku any commands we want to run every time we deploy a new version of the app. Here's our chance to automatically `rails db:migrate` — phew!
+
+After your very first deploy, when you tried to visit your application, you almost certainly saw the familiar "Something went wrong" error — oops, we forgot to `rails db:migrate`! 
+
+---
+
+This deployment technique integrated into our already powerful Git branch-PR-merge workflow is a very powerful baseline _continuous delivery_ methodology.
+
