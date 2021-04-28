@@ -308,7 +308,7 @@ release: bundle exec rails db:migrate
  - Very commonly, you'll add another line to tell Heroku commands to run when each [Worker dyno](https://devcenter.heroku.com/articles/background-jobs-queueing) starts.
  - The second line, `release:`, is how we tell Heroku any commands we want to run every time we deploy a new version of the app. Here's our chance to automatically `rails db:migrate` — phew!
 
-Happily, the `Procfile` takes care of `rails db:migrate` for our Review Apps also, which takes care of the issue we ran into above.
+Happily, the `Procfile` runs for Review Apps just like any other apps, which takes care of the issue we ran into above.
 
 ---
 
