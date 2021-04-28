@@ -277,7 +277,7 @@ Fix it with:
 heroku run rails db:migrate -a the-assigned-heroku-app-name
 ```
 
-You can find the assigned Heroku app name in your dashboard, or in the pull request on GitHub.
+You can find the assigned Heroku app name in the pipeline, or in the pull request on GitHub.
 
 ## Procfile
 
