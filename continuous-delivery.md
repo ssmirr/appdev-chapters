@@ -300,6 +300,8 @@ Why yes, we can! Heroku allows you to include a file called `Procfile` in the ro
 [There's a lot of things that you can include in a `Procfile`](https://devcenter.heroku.com/articles/procfile), but here's a good starting point that you can use for your applications:
 
 ```
+# /Procfile
+
 web: bundle exec puma -p $PORT -C ./config/puma.rb
 release: bundle exec rails db:migrate
 ```
