@@ -275,13 +275,15 @@ In my experience, Review Apps _dramatically_ tighten feedback loops between prod
 
 There's just one problem: when the Review App is done building and you visit it, it's quite likely that you probably see the familiar "Something went wrong" error, due to the familiar "pending migrations" issue. Ugh.
 
-We don't have a remote for the Review App, so we can't do the usual thing of `heroku run rails db:migrate` with the `-r` flag. Instead, we'll use the `-a` flag with the app name. You can find the assigned Heroku app name in the pipeline, or in the pull request on GitHub. By default, it will be the pipeline name followed by a random string:
+We don't have a remote for the Review App, so we can't do the usual thing of `heroku run rails db:migrate` with the `-r` flag.
+
+Instead, we'll use the `-a` flag with the app name. You can find the assigned Heroku app name in the pipeline, or in the pull request on GitHub. By default, it will be the pipeline name followed by a random string:
 
 ```
 heroku run rails db:migrate -a minimal-heroku-pho-z9a9qp
 ```
 
-You can also configure your Review Apps settings to have predictable names based on PR numbers: `[PIPELINE-NAME]-pr-123.herokuapp.com`. If you don't mind Review App URLs being guessable, you might prefer these slightly more convenient URLs; particularly when you need to use the `-a` flag with the `heroku` CLI.
+You can also, in your Review App settings, configure to have predictable names based on PR numbers: `minimal-heroku-pr-1.herokuapp.com`. If you don't mind Review App URLs being guessable, you might prefer these slightly more convenient URLs; particularly when you need to use the `-a` flag with the `heroku` CLI.
 
 ## Procfile
 
