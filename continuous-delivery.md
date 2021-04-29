@@ -353,11 +353,11 @@ Even though we've done some pretty sweet automation of some of the most frequent
  - `heroku addons`
  - `heroku pg`
 
-Now that we have `production` and `staging` remotes (at least), we're going to have to add `-r production` and `-r staging` to all of these commands. That's gonna get old, fast.
+Now that we have `production` and `staging` remotes (at least), we're going to have to tack `-r production` and `-r staging` to the end of all these commands. That's gonna get old real fast.
 
 Fortunately, our friends at thoughtbot felt the same way and wrote a handy library to make it less painful: [Parity](https://github.com/thoughtbot/parity){:target="_blank"}.
 
-Once installed, you now have a new commands available: `production` and `staging`. These are a lot like `heroku`, but imagine they automatically have the `-r production` or `-r staging` tacked on to the end. In other words,
+Once installed, you now have two new commands available: `production` and `staging`. These are a lot like `heroku`, but imagine they automatically have the `-r production` or `-r staging` tacked on to the end. In other words,
 
  - `heroku domains:add -r staging` => `staging domains:add`
  - `heroku logs --tail -r production` => `production tail`
