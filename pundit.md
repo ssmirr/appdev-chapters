@@ -4,7 +4,7 @@ Now that've got a handle on, fundamentally, how authorization is done — with c
 
 ## Pundit
 
-There are many Ruby authorization libraries, but my go-to is one called [Pundit](https://github.com/varvet/pundit). Add it to your `Gemfile` and `bundle`.
+There are many Ruby authorization libraries, but my go-to is one called [Pundit](https://github.com/varvet/pundit){:target="_blank"}. Add it to your `Gemfile` and `bundle`.
 
 Pundit revolves around the idea of **policies**. Create a folder within `app/` called `policies/`, and within it create a file called `photo_policy.rb`. This will be a plain ol' Ruby object (PORO):
 
@@ -159,7 +159,7 @@ To start with, we can run the generator `rails g pundit:install` for a good star
 
 So — that means that all we need to do from now on is:
 
- 1. Remember to define a method in our policy that matches **every** action name.
+ 1. Remember to define a method in our policy that matches **every** action name (but we can [alias](https://medium.com/rubycademy/alias-in-ruby-bf89be245f69){:target="_blank"}).
  2. Remember to call `authorize` within **every** action.
 
 If we've done #2, which will force us to do #1, that will ensure that we've at least thought about who can get into every action.
@@ -182,4 +182,4 @@ Now try visiting `/follow_requests` or some other scaffolded route that was inse
 
 ## Read more
 
-There's more to Pundit [that you should read about in the README](https://github.com/varvet/pundit), but not a _ton_ more. That's what I like about it — it's relatively lightweight, but gets the job done well. The way that it is structured also plays great with [Rails I18n](https://guides.rubyonrails.org/i18n.html) and other libraries. Another powerful tool for your belt.
+There's more to Pundit [that you should read about in the README](https://github.com/varvet/pundit){:target="_blank"}, but not a _ton_ more. That's what I like about it — it's relatively lightweight, but gets the job done well. The way that it is structured also plays great with [Rails I18n](https://guides.rubyonrails.org/i18n.html){:target="_blank"} and other libraries. Another powerful tool for your belt.
