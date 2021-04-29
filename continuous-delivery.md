@@ -344,7 +344,7 @@ Here is a minimal example `app.json`:
 
 A real one would likely include add-ons, a worker dyno, environment variables, etc. [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration){:target="_blank"}
 
-If you add an `app.json` to your app, commit, and push, it won't take effect until you destroy the Review App in your pipeline and then re-build it from scratch. But then, you should see that the database migrates automatically (from the `Procfile`) and the sample data is ready to go for reviewers to play around with (from `app.json`). Yay!
+If you add an `app.json` to your app, commit, and push, it won't take effect until you destroy the Review App in your pipeline and then re-build it again (or close the Pull Request in GitHub and re-open it). But then, you should see that the database migrated automatically (from the `Procfile`) and the sample data is ready to go for reviewers to play around with (from `app.json`). Yay!
 
 ## Parity gem
 
