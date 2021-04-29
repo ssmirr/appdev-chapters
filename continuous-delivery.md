@@ -73,7 +73,7 @@ Now I've got two remotes. I can `git push gitlab` whenever I choose, and my bran
 
 The point is: we're not limited to just one storage location for our repositories; we can `add` as many `remote`s as we like, and sending our code to them is as simple as `git push`.
 
-One last thing: you can see an overview of all of your remotes as well as some other Git configuration by opening the config file within the hidden `.git` folder:
+One last thing on Git remotes: you can see an overview of all of your remotes as well as some other Git configuration by opening the config file within the hidden `.git` folder:
 
 ```
 open .git/config
@@ -202,7 +202,7 @@ And if you have errors like before, to run the same commands on `staging`, add t
 ```
 heroku logs --tail -r staging
 heroku run rails db:migrate -r staging
-heroku run sample_data -r staging
+heroku run rails sample_data -r staging
 ```
 
 Adding the `-r production` or `-r staging` flag to every `heroku ...` command is a pain, but I'll show you some shortcuts soon.
@@ -311,6 +311,34 @@ release: bundle exec rails db:migrate
  - The second line, `release:`, is how we tell Heroku any commands we want to run every time we deploy a new version of the app. Here's our chance to automatically `rails db:migrate` — phew!
 
 Happily, the `Procfile` runs for Review Apps just like any other apps, which takes care of the issue we ran into above.
+
+## Environment variables
+
+For our production app, we set environment variables as usual, [using the `heroku config:set` CLI or the dashboard](https://devcenter.heroku.com/articles/config-vars). What about for Review Apps? 
+
+## app.json
+
+In addition to a `Procfile`, Heroku allows us to include an `app.json` file in the root of our application to describe other details about how to deploy it. Here, we can say things like what add-ons to include, what environment variables we require, how many web and worker dynos to spin up, etc.
+
+All of the above are important, but for Review Apps, there's one thing particularly important about `app.json`: the ability to specify a command to run after the _initial_ deploy, as opposed to every _release_ (as we did in the `Procfile`). This allows us to run e.g. `rails sample_data` automatically, which is a huge benefit for Review Apps (but we wouldn't want to do it for e.g. `production`).
+
+Here is a minimal example `app.json`:
+
+```
+{
+  "name": "Minimal Heroku",
+  "scripts": {
+    "postdeploy": "bundle exec rails db:seed sample_data"
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  }
+}
+```
+
+A real one would likely include add-ons like Redis, a worker dyno, environment variables, etc. (`app.json` files are also handy in case you want to include a ["Deploy to Heroku" button](https://devcenter.heroku.com/articles/heroku-button) in your README.) [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration)
 
 ---
 
