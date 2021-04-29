@@ -59,6 +59,10 @@
  - That's it! Your app will be available, once deployed, at `https://my-awesome-app.herokuapp.com` (or whatever name you chose or were assigned).
  - Repeat the two steps above as many times as you like to deploy new changes.
 
+### Set environment variables
+
+If you need to set any environment variables on Heroku to mirror [the ones you have locally](https://chapters.firstdraft.com/chapters/792) (to e.g. store credentials securely), you can do it in [the application's settings in your Heroku dashboard](https://devcenter.heroku.com/articles/config-vars#using-the-heroku-dashboard){:target="_blank"}. (Heroku refers to environment variables as "Config Vars".)
+
 ### Optional: set a custom domain
 
  - To put your app behind a custom domain name, you must first verify your identity by adding a credit card to your Heroku account. This will also lift your app limit from 5 to 100.
