@@ -271,15 +271,17 @@ Voilá! Heroku automatically detected the new pull request, immediately provisio
 
 In my experience, Review Apps _dramatically_ tighten feedback loops between product owners, developers, clients, designers, usability testers, and stakeholders all throughout the development cycle. This is one of the most important Continuous Delivery techniques that we'll add to our arsenal.
 
+## Running commands on the Review App
+
 There's just one problem: when the Review App is done building and you visit it, it's quite likely that you probably see the familiar "Something went wrong" error, due to the familiar "pending migrations" issue. Ugh.
 
-Fix it with:
+We don't have a remote for the Review App, so we can't do the usual thing of `heroku run rails db:migrate` with the `-r` flag. Instead, we'll use the `-a` flag with the app name. You can find the assigned Heroku app name in the pipeline, or in the pull request on GitHub. By default, it will be the pipeline name followed by a random string:
 
 ```
-heroku run rails db:migrate -a the-assigned-heroku-app-name
+heroku run rails db:migrate -a minimal-heroku-pho-z9a9qp
 ```
 
-You can find the assigned Heroku app name in the pipeline, or in the pull request on GitHub.
+You can also configure your Review Apps settings to have predictable names based on PR numbers: `[PIPELINE-NAME]-pr-123.herokuapp.com`. If you don't mind Review App URLs being guessable, you might prefer these slightly more convenient URLs; particularly when you need to use the `-a` flag with the `heroku` CLI.
 
 ## Procfile
 
@@ -339,6 +341,28 @@ Here is a minimal example `app.json`:
 ```
 
 A real one would likely include add-ons, a worker dyno, environment variables, etc. [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration){:target="_blank"}
+
+## Parity gem
+
+Even though we've done some pretty sweet automation of some of the most frequently run `heroku` commands (`rails db:migrate` is now handled by `Procfile`, `rails db:seed` and `rails sample_data` are handled by `app.json`), we still use the `heroku` command _a lot_. A brief selection of the top-level commands that we run a million times a day:
+
+ - `heroku logs`
+ - `heroku console`
+ - `heroku domains`
+ - `heroku certs`
+ - `heroku addons`
+ - `heroku pg`
+
+Now that we have `production` and `staging` remotes (at least), we're going to have to add `-r production` and `-r staging` to all of these commands. That's gonna get old, fast.
+
+Fortunately, our friends at thoughtbot felt the same way and wrote a handy library to make it less painful: [Parity](https://github.com/thoughtbot/parity){:target="_blank"}.
+
+Once installed, you now have a new commands available: `production` and `staging`. These are a lot like `heroku`, but imagine they automatically have the `-r production` or `-r staging` tacked on to the end. In other words,
+
+ - `heroku run rails db:migrate -r production` => `production run rails db:migrate`
+ - `heroku domains:add -r staging` => `staging domains:add`
+
+Check out [the Parity README for more](https://github.com/thoughtbot/parity#usage){:target="_blank"}.
 
 ---
 
