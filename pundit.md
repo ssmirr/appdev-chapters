@@ -159,7 +159,7 @@ To start with, we can run the generator `rails g pundit:install` for a good star
 
 So — that means that all we need to do from now on is:
 
- 1. Remember to define a method in our policy that matches **every** action name (but we can [alias](https://medium.com/rubycademy/alias-in-ruby-bf89be245f69){:target="_blank"}).
+ 1. Remember to define a method in our policy that matches **every** action name (but we can alias).
  2. Remember to call `authorize` within **every** action.
 
 If we've done #2, which will force us to do #1, that will ensure that we've at least thought about who can get into every action.
