@@ -164,7 +164,9 @@ So — that means that all we need to do from now on is:
 
 If we've done #2, which will force us to do #1, that will ensure that we've at least thought about who can get into every action.
 
-If we really want to enforce this discipline upon ourselves while developing, Pundit includes a method called `verify_authorized` that we can call in an `after_action`:
+Try visiting `/follow_requests` right now — oops! Quite a big security hole, and one that's depressingly common to find left open after a resource has been generated with `scaffold`.
+
+Pundit includes a method called `verify_authorized` that we can call in an `after_action` to help enforce the discipline of pruning our unused routes:
 
 ```ruby
 after_action :verify_authorized
