@@ -314,7 +314,7 @@ Happily, the `Procfile` runs for Review Apps just like any other apps, which tak
 
 ## app.json
 
-In addition to a `Procfile`, Heroku allows us to include an `app.json` file in the root of our application to describe other details about how to deploy it. Here, we can say things like what add-ons to include, what environment variables we require, how many web and worker dynos to spin up, etc.
+In addition to a `Procfile`, Heroku allows us to include an `app.json` file in the root of our application to describe other details about how to deploy it. Here, we can say things like what add-ons (like Scheduler or Redis) to include, what environment variables we require, how many web and worker dynos to spin up, etc.
 
 The `app.json` file is ignored during the regular `git push` deployment process, but it is respected during Review App deployment (and other [Platform API deployments](https://devcenter.heroku.com/articles/setting-up-apps-using-the-heroku-platform-api){:target="_blank"}, like if you want to include a ["Deploy to Heroku" button](https://devcenter.heroku.com/articles/heroku-button){:target="_blank"} in your README).
 
@@ -336,7 +336,7 @@ Here is a minimal example `app.json`:
 }
 ```
 
-A real one would likely include add-ons (like Scheduler or Redis), a worker dyno, environment variables, etc. [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration){:target="_blank"}
+A real one would likely include add-ons, a worker dyno, environment variables, etc. [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration){:target="_blank"}
 
 ---
 
