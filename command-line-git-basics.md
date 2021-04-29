@@ -35,7 +35,7 @@ git commit -m "My surgical commit"
 
 Try to make the title somewhat descriptive of what you did since the last snapshot, but it's more important that you just **make lots of commits**. So if you must just say `git commit -m "WIP"` (for "work in progress"), that's fine; we can clean it up later.
 
-Our golden rule: **A**lways **B**e **C**ommitting. As long as you do that, everything will be okay; we can recover from anything with git as long as you commit early and often. You cannot _over_commit but you can most certainly _under_commit.
+Our golden rule: **A**lways **B**e **C**ommitting. As long as you do that, everything will be okay; we can recover from anything with Git as long as you commit early and often. You cannot _over_commit but you can most certainly _under_commit.
 
 ### Check your status often
 
@@ -62,13 +62,13 @@ git checkout -b fancy-new-version-name
 ```
 Again, branch early and often. There's no cost to it and there's lots of benefits to it. In particular, it's good to start a new branch for each _task_ or _feature_. Or just a different approach to the same task, if you want to start over.
 
+### Switch to a different branch
+
 To list all branches:
 
 ```
 git branch
 ```
-
-### Switch to a different branch
 
 To switch to another existing branch:
 
