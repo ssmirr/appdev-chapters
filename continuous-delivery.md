@@ -336,7 +336,7 @@ Here is a minimal example `app.json`:
 }
 ```
 
-A real one would likely include add-ons (like Redis), a worker dyno, environment variables, etc. [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration){:target="_blank"}
+A real one would likely include add-ons (like Scheduler or Redis), a worker dyno, environment variables, etc. [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration){:target="_blank"}
 
 ---
 
