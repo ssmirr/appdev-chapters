@@ -316,7 +316,7 @@ release: bundle exec rails db:migrate
  - Very commonly, you'll add another line to tell Heroku commands to run when each [Worker dyno](https://devcenter.heroku.com/articles/background-jobs-queueing){:target="_blank"} starts.
  - The second line, `release:`, is how we tell Heroku any commands we want to run every time we deploy a new version of the app. Here's our chance to automatically `rails db:migrate` — phew!
 
-Happily, the `Procfile` runs for Review Apps just like any other apps, which takes care of the issue we ran into above.
+Happily, the `Procfile` runs for Review Apps just like any other apps, which takes care of the issue we ran into above. If you create a `Procfile` with the above contents in the root folder of your application, commit, and push to your branch, the Review App should re-deploy and the database ought to be automatically migrated. Yay!
 
 ## app.json
 
@@ -343,6 +343,8 @@ Here is a minimal example `app.json`:
 ```
 
 A real one would likely include add-ons, a worker dyno, environment variables, etc. [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration){:target="_blank"}
+
+If you add an `app.json` to your app, commit, and push, it won't take effect until you destroy the Review App in your pipeline and then re-build it from scratch. But then, you should see that the database migrates automatically (from the `Procfile`) and the sample data is ready to go for reviewers to play around with (from `app.json`). Yay!
 
 ## Parity gem
 
