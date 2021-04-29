@@ -168,18 +168,18 @@ To merge changes from e.g. `your-name-first-branch` into `main` using GitHub's i
  1. Push your branch to GitHub:
  
     ```
-    git checkout your-name-first-branch
-    git push
+git checkout your-name-first-branch
+git push
     ```
     
  1. [Create a Pull Request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request){:target="_blank}.
- 1. If there have been any commits on `main` since the time you branched off it, and if any of those commits have modified the same lines of code that your commits have modified, you will have to [reconcile how you want those conflicts to be handled](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github){:target="_blank}.
- 1. [Merge the PR](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request){:target="_blank}. You're given a few strategies to choose from on how to do so; choose [Squash and merge](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squash-and-merge-your-pull-request-commits){:target="_blank}. This will combine all of your work-in-progress commits into just one commit; now's your chance to craft [a wonderful commit message](https://chris.beams.io/posts/git-commit/){:target="_blank} to [communicate the WHY of your changes](https://dhwthompson.com/2019/my-favourite-git-commit){:target="_blank} (the WHAT is told by the diff).
- 1. Switch back to `main` on your machine and fetch the merged version:
+ 2. If there have been any commits on `main` since the time you branched off it, and if any of those commits have modified the same lines of code that your commits have modified, you will have to [reconcile how you want those conflicts to be handled](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github){:target="_blank}.
+ 3. [Merge the PR](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request){:target="_blank}. You're given a few strategies to choose from on how to do so; choose [Squash and merge](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squash-and-merge-your-pull-request-commits){:target="_blank}. This will combine all of your work-in-progress commits into just one commit; now's your chance to craft [a wonderful commit message](https://chris.beams.io/posts/git-commit/){:target="_blank} to [communicate the WHY of your changes](https://dhwthompson.com/2019/my-favourite-git-commit){:target="_blank} (the WHAT is told by the diff).
+ 4. Switch back to `main` on your machine and fetch the merged version:
  
     ```
-    git checkout main
-    git pull
+git checkout main
+git pull
     ```
 
 ### git merge command
@@ -189,28 +189,28 @@ To merge changes from e.g. `your-name-first-branch` into `main` using the comman
  1. First switch to `main` and make sure it is up to date:
  
     ```
-    git checkout main
-    git pull
+git checkout main
+git pull
     ```
     
  1. Switch back to your feature branch and "rebase interactively" onto `main`. This means, essentially, sync up the feature branch with any changes that may have occurred on `main` since they time you created the branch:
  
     ```
-    git checkout your-name-first-branch
-    git rebase main -i
+git checkout your-name-first-branch
+git rebase main -i
     ```
     
  1. A text editor will pop up with a list of all of the commits you made along the way on your feature branch. Replace `pick` for all but the first one of them with `s` (for `squash`). Save and close the file.
- 1. Another text editor will open where you can craft [a wonderful commit message](https://chris.beams.io/posts/git-commit/){:target="_blank} to [communicate the WHY of your changes](https://dhwthompson.com/2019/my-favourite-git-commit){:target="_blank} (the WHAT is told by the diff).
- 1. Now that all your messy work-in-progress commits have been ironed out, we can merge:
+ 2. Another text editor will open where you can craft [a wonderful commit message](https://chris.beams.io/posts/git-commit/){:target="_blank} to [communicate the WHY of your changes](https://dhwthompson.com/2019/my-favourite-git-commit){:target="_blank} (the WHAT is told by the diff).
+ 3. Now that all your messy work-in-progress commits have been ironed out, we can merge:
  
     ```
-    git checkout main
-    git merge your-name-first-branch
+git checkout main
+git merge your-name-first-branch
     ```
  
  1. That's it — verify with `git log`. It's as if you made one, beautiful commit directly to `main`.
- 1. Now you can `git push` your `main` to GitHub to share your work with your team and make it an official, unchangeable part of the history.
- 2. `git checkout -b` a new branch for your next task, rinse, and repeat.
+ 2. Now you can `git push` your `main` to GitHub to share your work with your team and make it an official, unchangeable part of the history.
+ 3. `git checkout -b` a new branch for your next task, rinse, and repeat.
 
 You may hear about many other commands available in Git (`cherry-pick`, `reflog`, `bisect`), and they can indeed come in handy in rare cases, but the above workflow is extremely powerful and are the commands that I use 99.99% of the time. They will take you far, once you get the hang of them.
