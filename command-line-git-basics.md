@@ -114,7 +114,7 @@ Find the SHA by looking at the output if `git log`. Just the first 7 or so digit
 
 If you jump to a commit like this, you'll be in a "detached" state — i.e., not on any branch. This is okay for browsing, but it's best not to make any changes.
 
-If you want to start a new branch from this point, though, that's perfectly fine — I do that all the time when I decide I want to try a new approach. Just `git checkout -b new-branch-name` as usual.
+If you want to start a new branch from this point, though, that's perfectly fine — I do that all the time when I decide I want to try a new approach. Just `git checkout -b new-branch-name` and then continue making commits as usual.
 
 ### Push to GitHub
 
