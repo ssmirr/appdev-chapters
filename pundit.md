@@ -113,7 +113,7 @@ First, `include Pundit` in `ApplicationController` to gain access to the methods
 include Pundit
 ```
 
-Now, we can use the `authorize` method.
+Now, we can use the `authorize` method. Instead of all this:
 
 ```ruby
 def show
@@ -123,7 +123,7 @@ def show
 end
 ```
 
-Can instead be written as:
+We can write just this:
 
 ```
 def show
