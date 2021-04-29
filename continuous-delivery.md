@@ -359,7 +359,7 @@ Fortunately, our friends at thoughtbot felt the same way and wrote a handy libra
 
 Once installed, you now have a new commands available: `production` and `staging`. These are a lot like `heroku`, but imagine they automatically have the `-r production` or `-r staging` tacked on to the end. In other words,
 
- - `heroku run rails db:migrate -r production` => `production run rails db:migrate`
+ - `heroku logs --tail -r production` => `production tail`
  - `heroku domains:add -r staging` => `staging domains:add`
 
 Check out [the Parity README for more](https://github.com/thoughtbot/parity#usage){:target="_blank"}.
