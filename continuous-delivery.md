@@ -312,10 +312,6 @@ release: bundle exec rails db:migrate
 
 Happily, the `Procfile` runs for Review Apps just like any other apps, which takes care of the issue we ran into above.
 
-## Environment variables
-
-For our production app, we set environment variables as usual, [using the `heroku config:set` CLI or the dashboard](https://devcenter.heroku.com/articles/config-vars). What about for Review Apps? 
-
 ## app.json
 
 In addition to a `Procfile`, Heroku allows us to include an `app.json` file in the root of our application to describe other details about how to deploy it. Here, we can say things like what add-ons to include, what environment variables we require, how many web and worker dynos to spin up, etc.
