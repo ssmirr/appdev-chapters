@@ -1,6 +1,6 @@
-# Creating Sample Data 
+# Adding a sample_data rake task
 
-## Getting Started!
+## Getting started
 
 You have just created your application and are figuring out where to start. A good practice is to create some sample data early on in the life of your application so you will always have a single command to reset your database with good data. Together we are going to build a `sample_data` task using the [Photogram-signin](https://github.com/appdev-projects/photogram-signin-fall20/tree/no-rake) project. I recommend opening this project in Gitpod and following along.
 

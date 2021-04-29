@@ -48,17 +48,15 @@ Works in progress, and not in order.
  44. [Photogram Final](https://chapters.firstdraft.com/chapters/837)
  45. [Tower of Babel](https://chapters.firstdraft.com/chapters/838)
  46. [A few management readings](https://chapters.firstdraft.com/chapters/789)
- 47. [Starting a Rails app from Scratch](https://chapters.firstdraft.com/chapters/851)
- 48. [Adding Sample_data](https://chapters.firstdraft.com/chapters/852)
+ 47. [Starting a Rails app from scratch](https://chapters.firstdraft.com/chapters/851)
+ 48. [Adding a sample_data rake task](https://chapters.firstdraft.com/chapters/852)
 
 ---
 
- 1. [Day 2 Notes](https://chapters.firstdraft.com/chapters/793)
- 2. [Classbook exercise notes](https://chapters.firstdraft.com/chapters/794)
- 3. [Day 4 Notes](https://chapters.firstdraft.com/chapters/795)
- 4. [Omnicalc API](https://chapters.firstdraft.com/chapters/786)
- 5. [Photogram API](https://chapters.firstdraft.com/chapters/780)
- 6. [Git Aliases](https://chapters.firstdraft.com/chapters/857)
- 7. [Continuous Delivery](https://chapters.firstdraft.com/chapters/858)
+---
+
+ 1. [Command-line Git basics](https://chapters.firstdraft.com/chapters/859)
+ 2. [A few Git aliases](https://chapters.firstdraft.com/chapters/857)
+ 3. [Continuous Delivery](https://chapters.firstdraft.com/chapters/858)
    
 Please let us know if you find any links to pages that are no longer live, or any other errata.
