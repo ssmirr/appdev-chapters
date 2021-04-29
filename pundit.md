@@ -180,7 +180,7 @@ after_action :verify_authorized, except: :index
 after_action :verify_policy_scoped, only: :index
 ```
 
-Now try visiting `/follow_requests` or some other scaffolded route that was insecurely left reachable. We are now by-default-secure instead of by-default-insecure.
+Now try visiting `/follow_requests` or some other scaffolded route that was insecurely left reachable. We are now secure-by-default instead of insecure-by-default.
 
 ## Read more
 
