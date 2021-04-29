@@ -163,7 +163,7 @@ When you're ready to bring the changes from one branch (usually from one of your
 
 ### Use GitHub's interface to merge
 
-To merge changes from e.g. `your-name-first-branch` into `main` using GitHub's interface:
+To merge changes from e.g. `your-name-first-branch` into `main` remotely using GitHub's web UI:
 
  1. Push your branch to GitHub:
  
@@ -184,7 +184,7 @@ git pull
 
 ### git merge command
 
-To merge changes from e.g. `your-name-first-branch` into `main` using the command-line:
+To merge changes from e.g. `your-name-first-branch` into `main` locally using `git merge`:
 
  1. First switch to `main` and make sure it is up to date:
  
