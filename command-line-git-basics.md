@@ -104,7 +104,7 @@ git log --oneline --decorate --graph --all -30
 
 ### Jump back to a previous commit
 
-(Advanced) To jump back to a prior commit:
+To jump back to a prior commit:
 
 ```
 git checkout [SHA of commit you want to go back to]
