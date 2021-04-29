@@ -316,7 +316,9 @@ Happily, the `Procfile` runs for Review Apps just like any other apps, which tak
 
 In addition to a `Procfile`, Heroku allows us to include an `app.json` file in the root of our application to describe other details about how to deploy it. Here, we can say things like what add-ons to include, what environment variables we require, how many web and worker dynos to spin up, etc.
 
-All of the above are important, but for Review Apps, there's one thing particularly important about `app.json`: the ability to specify a command to run after the _initial_ deploy, as opposed to every _release_ (as we did in the `Procfile`). This allows us to run e.g. `rails sample_data` automatically, which is a huge benefit for Review Apps (but we wouldn't want to do it for e.g. `production`).
+The `app.json` file is ignored during the regular `git push` deployment process, but it is respected during Review App deployment (and other [Platform API deployments](https://devcenter.heroku.com/articles/setting-up-apps-using-the-heroku-platform-api), like if you want to include a ["Deploy to Heroku" button](https://devcenter.heroku.com/articles/heroku-button) in your README).
+
+For Review Apps, there's one thing particularly important about `app.json`: the ability to specify a command to run after the _initial_ deploy, as opposed to every _release_ (as in the `Procfile`). This allows us to run e.g. `rails sample_data` automatically, which is a huge benefit for Review Apps (but we wouldn't want to do it for e.g. `production`).
 
 Here is a minimal example `app.json`:
 
@@ -334,7 +336,7 @@ Here is a minimal example `app.json`:
 }
 ```
 
-A real one would likely include add-ons like Redis, a worker dyno, environment variables, etc. (`app.json` files are also handy in case you want to include a ["Deploy to Heroku" button](https://devcenter.heroku.com/articles/heroku-button) in your README.) [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration)
+A real one would likely include add-ons (like Redis), a worker dyno, environment variables, etc. [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration)
 
 ---
 
