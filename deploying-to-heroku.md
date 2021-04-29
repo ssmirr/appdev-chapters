@@ -14,7 +14,8 @@
     Email:
     ```
 
- - Enter your Heroku email and password:
+ - Enter your Heroku email and password[^mfa]:
+    - https://dashboard.heroku.com/account
 
     ```
     heroku: Enter your login credentials
@@ -22,6 +23,10 @@
     Password: ***************
     Logged in as demostudent10@firstdraft.com
     ```
+
+[^mfa]: If you have [Multi-Factor Authentication](https://devcenter.heroku.com/articles/multi-factor-authentication){:target="_blank"} enabled, then instead of your password you'll need to paste an API Key. Generate and copy your API Key under your [Account Settings in the Heroku Dashboard](https://dashboard.heroku.com/account){:target="_blank"}:
+
+    ![](/assets/heroku-api-key.png)
 
 ### Create a production server (once per application)
 
