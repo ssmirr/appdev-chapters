@@ -58,5 +58,6 @@ Works in progress, and not in order.
  1. [Command-line Git basics](https://chapters.firstdraft.com/chapters/859)
  2. [A few Git aliases](https://chapters.firstdraft.com/chapters/857)
  3. [Continuous Delivery](https://chapters.firstdraft.com/chapters/858)
+ 4. [Authorization with Pundit](https://chapters.firstdraft.com/chapters/860)
    
 Please let us know if you find any links to pages that are no longer live, or any other errata.

@@ -1,4 +1,4 @@
-# Pundit
+# Authorization with Pundit
 
 Now that've got a handle on, fundamentally, how authorization is done — with conditionals and redirects — for an application of any real size, it's probably worth using an authorization library. A good one will give us helper methods that will allow us to be more concise, and more importantly will help us avoid letting security holes slip through the cracks.
 
