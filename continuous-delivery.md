@@ -6,13 +6,13 @@ Now that we've leveled up our applications' code, let's level up our deployment 
 
 We're still going to deploy to Heroku, but in a more robust way than we [first learned how to](https://chapters.firstdraft.com/chapters/775).
 
-This time, we're going to take advantage of [Heroku Pipelines](https://devcenter.heroku.com/articles/pipelines) to easily manage _multiple_ deployment targets.
+This time, we're going to take advantage of [Heroku Pipelines](https://devcenter.heroku.com/articles/pipelines){:target="_blank"} to easily manage _multiple_ deployment targets.
 
 We'll have an app for our customers just like before, which we'll now call `production`; but we'll also have other apps: for beta testers, for demonstrating unreleased features, for quality assurance, for code review, etc
 
 This will unlock powerful workflows wherein you can give and get continuous feedback on in-progress features every time you push a commit, even from non-technical stakeholders. Let's get started!
 
-If you want to follow along, you can set up a workspace with any application that's ready to be deployed, even if it's a brand new one. I'll be using a repository that I created using the [minimal-heroku template](https://github.com/appdev-projects/minimal-heroku/generate).
+If you want to follow along, you can set up a workspace with any application that's ready to be deployed, even if it's a brand new one. I'll be using a repository that I created using the [minimal-heroku template](https://github.com/appdev-projects/minimal-heroku/generate){:target="_blank"}.
 
 ## A deeper dive into Git remotes
 
@@ -47,7 +47,7 @@ This lets us know for sure where our code is going to and coming from when we `p
 
 Importantly, we can add new remotes with the `git remote add` command.
 
-You don't need to do this part, but for demonstration purposes, I am going to add a remote. Let's say I want to make a redundant copy of the repository on [Gitlab.com](https://gitlab.com/), a GitHub alternative, and `push` to it from time to time for safekeeping.
+You don't need to do this part, but for demonstration purposes, I am going to add a remote. Let's say I want to make a redundant copy of the repository on [Gitlab.com](https://gitlab.com/){:target="_blank"}, a GitHub alternative, and `push` to it from time to time for safekeeping.
 
 First, I need to go to my Gitlab dashboard and create a repository. Then, they will assign the repository a Git URL, such as the following:
 
@@ -69,7 +69,7 @@ origin  https://github.com/raghubetina-appdev/minimal-heroku.git (fetch)
 origin  https://github.com/raghubetina-appdev/minimal-heroku.git (push)
 ```
 
-Now I've got two remotes. I can `git push gitlab` whenever I choose, and my branch will be sent to Gitlab for safekeeping (provided [I set up authentication](https://docs.gitlab.com/ee/integration/gitpod.html#enable-gitpod-in-your-user-settings)).
+Now I've got two remotes. I can `git push gitlab` whenever I choose, and my branch will be sent to Gitlab for safekeeping (provided [I set up authentication](https://docs.gitlab.com/ee/integration/gitpod.html#enable-gitpod-in-your-user-settings){:target="_blank"}).
 
 The point is: we're not limited to just one storage location for our repositories; we can `add` as many `remote`s as we like, and sending our code to them is as simple as `git push`.
 
@@ -85,7 +85,7 @@ Take a look at it, but be careful with this file; you don't want to make any err
 
 Now, back to Pipelines.
 
-The thing that made Heroku revolutionary when [they stormed the scene in 2009](https://www.infoq.com/news/2009/05/heroku-provisionless-revolution/) was that they said "Okay, as long as you're sending code around with `git push`, send it to us that way too — and we'll provision a server for you, put your code on it, spin up a database, set up a connection pool, and do the 1001 other things needed to get your app up and running. You just need to add us as an additional `remote` and `git push` a commit whenever it's ready to ship."
+The thing that made Heroku revolutionary when [they stormed the scene in 2009](https://www.infoq.com/news/2009/05/heroku-provisionless-revolution/){:target="_blank"} was that they said "Okay, as long as you're sending code around with `git push`, send it to us that way too — and we'll provision a server for you, put your code on it, spin up a database, set up a connection pool, and do the 1001 other things needed to get your app up and running. You just need to add us as an additional `remote` and `git push` a commit whenever it's ready to ship."
 
 So, when we run the `heroku create my-app-name` command, it actually does two things:
 
@@ -112,7 +112,7 @@ As we know, once the deployment completes, Heroku will assign the domain:
 https://my-app-name.herokuapp.com
 ```
 
-We will, for any real application, never allow our users to see that underlying `.herokuapp.com` subdomain. We will purchase our own domain, e.g. `www.my-app-name.com`, and [configure it to point to our Heroku app](https://devcenter.heroku.com/articles/custom-domains); so that our users never know the difference.
+We will, for any real application, never allow our users to see that underlying `.herokuapp.com` subdomain. We will purchase our own domain, e.g. `www.my-app-name.com`, and [configure it to point to our Heroku app](https://devcenter.heroku.com/articles/custom-domains){:target="_blank"}; so that our users never know the difference.
 
 ## Set up production app
 
@@ -209,7 +209,7 @@ Adding the `-r production` or `-r staging` flag to every `heroku ...` command is
 
 I now have two applications:
 
- - `production` is for customers, and will be reachable at (for example) `www.my-app-name.com` (once I [add a custom domain](https://devcenter.heroku.com/articles/custom-domains)).
+ - `production` is for customers, and will be reachable at (for example) `www.my-app-name.com` (once I [add a custom domain](https://devcenter.heroku.com/articles/custom-domains){:target="_blank"}).
  - `staging` is for testing or demonstration purposes (different teams use `staging` differently), and will be reachable at (for example) `staging.my-app-name.com`.
 
 Much better than only having a single deployment target! Now I can merge to `main`, deploy to `staging`, kick the tires in a real production environment, and then finally ship it to customers.
@@ -230,7 +230,7 @@ On the next screen, you will see Stages, Staging and Production. Add your apps t
 
 ![](/assets/continuous-delivery-3-stages.png)
 
-One immediate benefit of grouping the apps together in a Pipeline is that, once you're fully confident in a change, you can [promote your staging app's slug](https://devcenter.heroku.com/articles/pipelines#promoting) directly to the production app. This results in a faster deployment, in some cases with less downtime, than `git push production main`.
+One immediate benefit of grouping the apps together in a Pipeline is that, once you're fully confident in a change, you can [promote your staging app's slug](https://devcenter.heroku.com/articles/pipelines#promoting){:target="_blank"} directly to the production app. This results in a faster deployment, in some cases with less downtime, than `git push production main`.
 
 ## Review Apps
 
@@ -297,7 +297,7 @@ Argh! I _always_ forget to `rails db:migrate`. Can't we just tell Heroku to alwa
 
 Why yes, we can! Heroku allows you to include a file called `Procfile` in the root folder of your application, in which you can specify commands that you want to be executed upon startup.
 
-[There's a lot of things that you can include in a `Procfile`](https://devcenter.heroku.com/articles/procfile), but here's a good starting point that you can use for your applications:
+[There's a lot of things that you can include in a `Procfile`](https://devcenter.heroku.com/articles/procfile){:target="_blank"}, but here's a good starting point that you can use for your applications:
 
 ```
 # /Procfile
@@ -307,7 +307,7 @@ release: bundle exec rails db:migrate
 ```
 
  - The first line, `web:`, is how you tell Heroku what commands to run when each Web dyno starts. Heroku does a pretty good job with Rails apps by default, but here you can fine tune it if you want. In the example above, we're telling Heroku to launch the Puma web server on the default port using the configuration we specified in our `config/puma.rb` file.
- - Very commonly, you'll add another line to tell Heroku commands to run when each [Worker dyno](https://devcenter.heroku.com/articles/background-jobs-queueing) starts.
+ - Very commonly, you'll add another line to tell Heroku commands to run when each [Worker dyno](https://devcenter.heroku.com/articles/background-jobs-queueing){:target="_blank"} starts.
  - The second line, `release:`, is how we tell Heroku any commands we want to run every time we deploy a new version of the app. Here's our chance to automatically `rails db:migrate` — phew!
 
 Happily, the `Procfile` runs for Review Apps just like any other apps, which takes care of the issue we ran into above.
@@ -316,7 +316,7 @@ Happily, the `Procfile` runs for Review Apps just like any other apps, which tak
 
 In addition to a `Procfile`, Heroku allows us to include an `app.json` file in the root of our application to describe other details about how to deploy it. Here, we can say things like what add-ons to include, what environment variables we require, how many web and worker dynos to spin up, etc.
 
-The `app.json` file is ignored during the regular `git push` deployment process, but it is respected during Review App deployment (and other [Platform API deployments](https://devcenter.heroku.com/articles/setting-up-apps-using-the-heroku-platform-api), like if you want to include a ["Deploy to Heroku" button](https://devcenter.heroku.com/articles/heroku-button) in your README).
+The `app.json` file is ignored during the regular `git push` deployment process, but it is respected during Review App deployment (and other [Platform API deployments](https://devcenter.heroku.com/articles/setting-up-apps-using-the-heroku-platform-api){:target="_blank"}, like if you want to include a ["Deploy to Heroku" button](https://devcenter.heroku.com/articles/heroku-button){:target="_blank"} in your README).
 
 For Review Apps, there's one thing particularly important about `app.json`: the ability to specify a command to run after the _initial_ deploy, as opposed to every _release_ (as in the `Procfile`). This allows us to run e.g. `rails sample_data` automatically, which is a huge benefit for Review Apps (but we wouldn't want to do it for e.g. `production`).
 
@@ -336,7 +336,7 @@ Here is a minimal example `app.json`:
 }
 ```
 
-A real one would likely include add-ons (like Redis), a worker dyno, environment variables, etc. [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration)
+A real one would likely include add-ons (like Redis), a worker dyno, environment variables, etc. [Read more about `app.json` at the official docs.](https://devcenter.heroku.com/articles/github-integration-review-apps#configuration){:target="_blank"}
 
 ---
 
