@@ -322,7 +322,7 @@ In addition to a `Procfile`, Heroku allows us to include an `app.json` file in t
 
 The `app.json` file is ignored during the regular `git push` deployment process, but it is respected during Review App deployment (and other [Platform API deployments](https://devcenter.heroku.com/articles/setting-up-apps-using-the-heroku-platform-api){:target="_blank"}, like if you want to include a ["Deploy to Heroku" button](https://devcenter.heroku.com/articles/heroku-button){:target="_blank"} in your README).
 
-For Review Apps, there's one thing particularly important about `app.json`: the ability to specify a command to run after the _initial_ deploy, as opposed to every _release_ (as in the `Procfile`). This allows us to run e.g. `rails sample_data` automatically, which is a huge benefit for Review Apps (but we wouldn't want to do it for e.g. `production`).
+For Review Apps, there's one thing particularly important about `app.json`: the ability to specify a command to run only after the _initial_ deploy, as opposed to after every _release_ (as in the `Procfile`). This allows us to run e.g. `rails sample_data` automatically, which is a huge benefit for Review Apps (but we wouldn't want to do it for e.g. `production`).
 
 Here is a minimal example `app.json`:
 
@@ -359,8 +359,8 @@ Fortunately, our friends at thoughtbot felt the same way and wrote a handy libra
 
 Once installed, you now have a new commands available: `production` and `staging`. These are a lot like `heroku`, but imagine they automatically have the `-r production` or `-r staging` tacked on to the end. In other words,
 
- - `heroku logs --tail -r production` => `production tail`
  - `heroku domains:add -r staging` => `staging domains:add`
+ - `heroku logs --tail -r production` => `production tail`
 
 Check out [the Parity README for more](https://github.com/thoughtbot/parity#usage){:target="_blank"}.
 
