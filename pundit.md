@@ -75,7 +75,7 @@ Great! Now we can replace the conditionals that we have scattered about the appl
 
 Let's start by locking down access to the `Photos#show` action. Instead of redirecting inside a `before_action` (which is a solid strategy, mind you), let's take a slightly different tack: we'll raise an exception if the `current_user` isn't authorized.
 
-```
+```ruby
 def show
   unless PhotoPolicy.new(current_user, @photo).show?
     raise Pundit::NotAuthorizedError, "not allowed"
@@ -125,7 +125,7 @@ end
 
 We can write just this:
 
-```
+```ruby
 def show
   authorize @photo
 end
@@ -151,7 +151,7 @@ In view templates, we now have a `policy` helper method that will make it easier
 
 ## Just plain ol' Ruby
 
-Since policies are just POROs, we can bring all our Ruby skills to bear: inheritance, modules, aliasing / delegating methods, etc.
+Since policies are just POROs, we can bring all our Ruby skills to bear: inheritance, [aliasing](https://medium.com/rubycademy/alias-in-ruby-bf89be245f69){:target="_blank"}, etc.
 
 To start with, we can run the generator `rails g pundit:install` for a good starting point policy to inherit from. Take a look and see what you think.
 
