@@ -130,7 +130,7 @@ The very first time you `push` to a branch, it may ask you to do something like:
 git push --set-upstream origin your-branch-name
 ```
 
-> The very first time you `push` from Gitpod, it may ask you to give it permission to do so from GitHub. Go ahead and do so. 
+> The very first time you `push` from Gitpod, it may ask you to give it permission to do so from GitHub. Go ahead and do so.
 
 ### Pull from GitHub
 
@@ -156,7 +156,7 @@ It's almost never a good idea to make commits directly to the `main` branch. Mak
 
 ## Merging branches
 
-When you're reading to bring the changes from one branch (usually from one of your experimental branches, e.g. `your-name-first-branch`) into another branch (usually into the `main` branch), we have a couple of options:
+When you're ready to bring the changes from one branch (usually from one of your experimental branches, e.g. `your-name-first-branch`) into another branch (usually into the `main` branch), we have a couple of options:
 
  1. Fundamentally, we use Git's `merge` command at the command-line.
  1. In the early days, I recommend pushing your branch to GitHub and using GitHub's interface for merging.
