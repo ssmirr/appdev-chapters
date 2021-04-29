@@ -1,6 +1,8 @@
 # Command-line Git Basics
 
-Git is a very powerful tool with a _lot_ of commands. Here is the small subset of commands that I use a million times a day. We'll add to our toolbelt as time goes on:
+Git is a very powerful tool with a _lot_ of commands. Here is the small subset of commands that I use a million times a day.
+
+> Note: we've [added some aliases for the below commands to our Gitpod workspaces](https://chapters.firstdraft.com/chapters/857){:target="_blank"} to make them quicker to type, but it's good that you know the underlying commands so that you can use them when you're on unfamiliar computers. Also, in case our aliases ever fail, use the real Git commands and they will always work.
 
 ### Initialize a repo
 
