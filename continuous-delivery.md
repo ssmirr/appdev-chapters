@@ -246,6 +246,8 @@ In the pane that opens, check off "Create new review apps for new pull requests 
 
 ![](/assets/continuous-delivery-6-configure-review.png)
 
+If your application [requires any environment variables](https://chapters.firstdraft.com/chapters/792), click the "Reveal Config Vars" button and add them.
+
 Now, try the following:
 
  - Create a new feature branch. E.g.,
