@@ -179,7 +179,9 @@ world
 
 The `border` method now adds a row above and below the content with a left and right border, but the character used is random. I would like to prepend and append the same character before and after my content, but I need the method to tell me what it's going to be.
 
-Ok, I know this is a contrived example, but the point is: _What if the user of the method needs some information within their block that only the method can provide?_ That sounds like a job for a block variable! Here's what I'd really like to do:
+Ok, I know this is a contrived example, but the point is: _What if the user of the method needs some information within their block that only the method can provide?_ That sounds like a job for a block variable!
+
+Here's what the caller of the method would really like to do: make up a name for a block variable, say `edge`, and then use it within the block:
 
 ```ruby
 border(40, "*") do |edge|
