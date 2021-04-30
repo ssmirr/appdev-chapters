@@ -1,4 +1,4 @@
-# The most minimal introduction to JavaScript
+# A minimal introduction to JavaScript
 
 ## History
 
