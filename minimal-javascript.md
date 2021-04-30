@@ -22,7 +22,7 @@ Conversely, every language has some distinct characteristics about it that will 
 
 [^second_lang]: This has hiring implications. _Really_ good developers can get up to speed on a new language pretty quickly (especially if it's a nice language like Ruby). If there are other developers on the team to answer questions about the codebase/framework while they are working on small introductory tasks, then it shouldn't be a dealbreaker that a strong developer has 0 years of experience in whatever stack you happen to be using, if they say they're willing to learn.
 
-    Conversely, if a developer pigeonholes themselves as just a Rails developer or just a Node developer or just a React developer, then that's a red flag; they probably aren't very strong.
+    Conversely, if a developer pigeonholes themselves as just a Rails developer or just a Node developer or just a React developer, then that's a red flag; they probably aren't very strong. (My opinion.)
 
 ### A review of some Ruby
 
