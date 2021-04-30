@@ -2,7 +2,7 @@
 
 ## History
 
-Oh, JavaScript. Whipped together at Netscape in 1995, back during the Browser Wars; named "Java"Script to piggy-back on popularity of Java (despite having nothing to do with Java); and, through some historical, accident won the battle to become the third standard language of the web, along with HTML (for structure) and CSS (for style).
+Oh, JavaScript. Whipped together at Netscape in 1995, back during the Browser Wars; named "Java"Script to piggy-back on popularity of Java (despite having nothing to do with Java); and, through some historical accident, won the battle to become the third standard language of the web, along with HTML (for structure) and CSS (for style).
 
 As the only scripting language that browsers run natively, it has by default become one of the most widely used general-purpose programming languages, maybe _the_ most. However, like CSS, it can't undo mistakes in the design of the language (which was done, initially, in just 10 days) very often; in order to maintain backwards compatibility. Thankfully, also like CSS, JavaScript has made tremendous strides in the last 5-10 years in paving over the warts of the past with new features and getting them adopted across _most_ browsers so that, in 2021, it's quite nice to use.
 
