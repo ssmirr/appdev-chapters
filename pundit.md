@@ -186,7 +186,9 @@ after_action :verify_authorized, except: :index
 after_action :verify_policy_scoped, only: :index
 ```
 
-Now try visiting `/follow_requests` or some other scaffolded route that was insecurely left reachable. We are now secure-by-default instead of insecure-by-default. If necessary, you can make the choice to `skip_before_action :verify_authorized` on a case-by-case basis, as we did for `:authenticate_user!`.
+Now try visiting `/follow_requests` or some other scaffolded route that was insecurely left reachable. You'll see that you can't. We are now secure-by-default instead of insecure-by-default.
+
+If necessary, you can make the choice to `skip_before_action :verify_authorized` on a case-by-case basis, as we did for `:authenticate_user!`.
 
 ## Read more
 
