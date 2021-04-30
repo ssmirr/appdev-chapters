@@ -12,11 +12,19 @@ For the very basics of JavaScript, I recommend this Scrimba course: [Introductio
 
 Welcome back! What did you think?
 
+### This ain't your first rodeo
+
 First of all, compare your experience learning JavaScript for the first time to when you learned Ruby for the first time. How did it feel this time around to learn about variables, string interpolation, arrays, arguments, `split`, etc?
 
-So much easier, right? This was, for me, one of the best things about learning Ruby. After learning the (friendly, welcoming) Ruby and building some applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second language was _so much easier_, and the third was even easier still.
+So much easier, right? This was, for me, one of the best things about learning Ruby. After learning (the friendly, welcoming) Ruby and building some applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second language was _so much easier_, and the third was even easier still.
 
-Conversely, every language has some distinct characteristics about it that will change the way you think and make you better at your previous languages. Welcome to being a polyglot developer 🙌🏾
+Conversely, every language has some distinct characteristics about it that will change the way you _think_ and make you better at your previous languages. Welcome to being a polyglot developer[^polyglot] 🙌🏾 
+
+[^polyglot] _Really_ good developers don't pigeonhole themselves into a single stack — "I'm a Rails developer", "I use Mongo", "I use React". They can pick up any language that's needed, and they choose the best tool for the job at hand. Sure, they might have the most experience in a particular library already, and they might have a preference for one library over another if they both do the same job; but if a job calls for Phoenix, a good developer won't insist on using Rails just because they are familiar with it.
+
+
+
+
 
 
 
