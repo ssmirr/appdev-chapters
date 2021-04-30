@@ -1,4 +1,4 @@
-# A minimal introduction to JavaScript
+# JavaScript for Rails Developers
 
 ## History
 
