@@ -181,7 +181,7 @@ The `border` method now adds a row above and below the content with a left and r
 
 Ok, I know this is a contrived example, but the point is: _What if the user of the method needs some information within their block that only the method can provide?_ That sounds like a job for a block variable!
 
-Here's what the caller of the method would really like to do: make up a name for a block variable, say `edge`, and then use it within the block:
+Here's what the caller of the method would really like to do — make up a name for a block variable, say `edge`, and then use it within the block:
 
 ```ruby
 border(40, "*") do |edge|
@@ -230,7 +230,9 @@ border(40, "*") do |edge|
 end
 ```
 
-And that about all there is to know about blocks.
+The key bit: `content_instructions.call(side_character)`. This is where we're sending information that then becomes `edge` when the caller of the method makes up a name for the block variable.
+
+And that's about all there is to know about blocks.
 
 ### Callbacks
 
