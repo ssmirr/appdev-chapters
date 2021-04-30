@@ -256,7 +256,9 @@ So: let's now, finally, take a look at JavaScript — through a Rails developer'
 
 ### Ruby -> JavaScript [rosetta stone](https://en.wikipedia.org/wiki/Rosetta_Stone)
 
-First, go through the following Ruby statements and the roughly equivalent translation into JavaScript and see if they all make sense to you. If not, experiment with them (you can use a repl.it REPL, a Scrimba workspace, the Chrome JavaScript console, or write some JS in an HTML file) and ask questions on Piazza.
+First, go through the following Ruby statements and the roughly equivalent translation into JavaScript and see if they all make sense to you. If not, experiment with them. To experiment, create an HTML file on your computer ([VSCode](https://code.visualstudio.com/) is a good choice for an editor), write your code in a `<script>` tag, open the file in Chrome, and look at the output in [the JavaScript console](https://developer.chrome.com/docs/devtools/console/javascript/).
+
+Ask questions on Piazza about anything that's fuzzy.
 
 #### Semicolon rule of thumb
 
@@ -542,28 +544,3 @@ end
 ```
 
 If you can do it, you're in great shape for what we want to do — adding interactivity to our apps with **A**synchronous **J**avaScript **A**nd **X**ML — AJAX! (No one really uses XML for it anymore, but the name sounds much better than "AJAJ" (for JSON) or "AJAH" (for HTML), so we stuck with that.)
-
-### Manipulating HTML elements
-
-JavaScript is okay, as far as languages go, but we were perfectly happy with Ruby. The only reason we're interested in JavaScript is that it has a unique ability: it can run inside the browser, and that means we can use it to modify HTML elements in our pages _without needing to refresh the page_. This is the key to making our apps feel like _apps_ and not pages.
-
-Let's see how this works. In Chrome, open the JavaScript Console from the View > Developer menu. There, you have a REPL, much like `irb`, where you can type any JavaScript expression. (There's also great autocomplete functionality in the Chrome dev tools, so use tab often.)
-
-Importantly, there is an object available, `document`. If you're looking at this page, try:
-
-```js
-let h = document.getElementById("history")
-```
-
-As you were typing, you might have noticed the autocomplete showing you other methods that were available — `getElementsByClassName`, `getElementsByTag`, etc. These are all ways that we can query the DOM (Document Object Model) and find HTML elements; exactly the way we did when we were writing CSS selectors.
-
-Now that we have the element in the variable `h`, we can do things like:
-
- -  `h.innerText` (will return the text content of the element)
- -  `h.classList.add("display-1")` (adds a CSS class to the element)
- -  `h.remove()` (removes the element from the DOM)
- -  and a whole bunch more. Neat!
-
-### jQuery
-
-
