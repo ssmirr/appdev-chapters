@@ -105,7 +105,7 @@ The `.call` method is used to actually execute the code that is stored in the bl
 
 Okay, what about if we want the method to accept both a block _and_ arguments?
 
-What if I wanted a method that I can call like this:
+What if I wanted to improve the methods such that the caller gets to choose the character used to draw the border:
 
 ```ruby
 border(20, "*") do
