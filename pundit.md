@@ -153,7 +153,12 @@ In view templates, we now have a `policy` helper method that will make it easier
 
 Since policies are just POROs, we can bring all our Ruby skills to bear: inheritance, [aliasing](https://medium.com/rubycademy/alias-in-ruby-bf89be245f69){:target="_blank"}, etc.
 
-To start with, we can run the generator `rails g pundit:install` for a good starting point policy to inherit from. Take a look and see what you think.
+To start with, we can run the generator `rails g pundit:install` for a good starting point policy to inherit from. Take a look and see what you think. If you like it, let's inherit from it:
+
+```ruby
+class PhotoPolicy < ApplicationPolicy
+# ... etc
+```
 
 ## Secure by default
 
