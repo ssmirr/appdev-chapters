@@ -246,49 +246,11 @@ Callbacks are extremely common — we've seen and used them many times before, a
  - [`before_action` and `after_action` filters](https://guides.rubyonrails.org/action_controller_overview.html#filters) in controllers are callbacks
  - Even controller actions themselves (code that we write in advance and give to `routes.rb` to run later when a user visits a URL) are callbacks! Most of our work all along has been writing callbacks, if you squint.
 
-That said, JavaScript, and particularly the sort of JavaScript that we're going to be writing (to make our pages interactive) is _really_ callback-heavy. That's because a lot of what we're going to want to do is attach **event handlers** to elements in our HTML that will wait for the user to perform some interaction (for example, click on it, or mouse-over it), and then it is supposed to spring to life and run the code we give it (`call` the block, in Ruby terms).
+That said, JavaScript, and particularly the sort of JavaScript that we're going to be writing (to make our pages interactive) is _really_ callback-heavy.
 
+That's because a lot of what we're going to want to do is attach **event handlers** to elements in our HTML that will wait for the user to perform some interaction (for example, click on it, or mouse-over it), and then it is supposed to spring to life and run the _callback_ we give it (`.call()` the block, in Ruby terms).
 
+So: let's now, finally, take a look at JavaScript — through a Rails developer's eyes.
 
-
-
-
-
-
-
-
-def border(&content_instructions)
-  puts '-'*80
-  content_instructions.call
-  puts '-'*80
-end
-
-
-
-
-
-
-### Ruby `for` loop
-
-Rubyists tend to prefer looping with instance methods that are well-suited to whichever situation we find ourselves in, like `Array#each`, `Integer#times`, `Integer#upto`, `Integer#step`, etc.
-
-That said, almost all languages, Ruby included, have a general-purpose `for` keyword (along with `while`) for looping. It works like this:
-
-```ruby
-for i in 2...6
-  p i * i
-end
-```
-
-When run, would output:
-
-```
-4
-9
-16
-25
-```
-
-
-
+## JavaScript for Rails Developers
 
