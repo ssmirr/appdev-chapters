@@ -26,7 +26,11 @@ class PhotoPolicy
 end
 ```
 
-And now, for example, to figure out who can see a photo, let's define a method called `show?` that will return `true` if the user is allowed to see the photo and `false` if not:
+And now, for example, to figure out who can see a photo, let's define a method called `show?`[^question_mark_methods] that will return `true` if the user is allowed to see the photo and `false` if not:
+
+[^question_mark_methods]: A question mark at the end of a method name doesn't do anything special, functionally; it's just another letter in the method name, as far as Ruby is concerned.
+
+    It's a convention among Rubyists to end the names of methods that return `true` or `false` with a question mark, so I'm attempting to follow that convention here with `show?`.
 
 ```ruby
 class PhotoPolicy
