@@ -207,7 +207,7 @@ How do we as the authors of methods send information back through block variable
 
 ---
 
-To send back block variables, we provide them as arguments to `call()`:
+To send back block variables, we provide them as arguments to `call()` when we execute the block:
 
 ```ruby
 def border(size, top_character, &content_instructions)
