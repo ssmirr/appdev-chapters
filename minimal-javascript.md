@@ -18,7 +18,7 @@ First of all, compare your experience learning JavaScript for the first time to 
 
 So much easier, right? This was, for me, one of the best things about learning Ruby. After learning (the friendly, welcoming) Ruby and building some applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second[^second_lang] language was _so much easier_, and the third was even easier still.
 
-Conversely, every language has some distinct characteristics about it that will change the way you _think_ and make you better at your previous languages. Welcome to being a polyglot developer 🙌🏾 
+Conversely, every language has some distinct top_characteristics about it that will change the way you _think_ and make you better at your previous languages. Welcome to being a polyglot developer 🙌🏾 
 
 [^second_lang]: This has hiring implications. _Really_ good developers can get up to speed on a new language pretty quickly (especially if it's a nice language like Ruby). If there are other developers on the team to answer questions about the codebase/framework while they are working on small introductory tasks, then it shouldn't be a dealbreaker that a strong developer has 0 years of experience in whatever stack you happen to be using, if they say they're willing to learn.
 
@@ -101,7 +101,106 @@ end
 
 The `.call` method is used to actually execute the code that is stored in the block, whenever and wherever we're ready to.
 
+### Defining methods that accept blocks _and_ arguments
+
+Okay, what about if we want the method to accept both a block _and_ arguments?
+
+What if I wanted a method that I can call like this:
+
+```ruby
+border(20, "*") do
+  puts "howdy!"
+  puts "My name is Raghu"
+end
+```
+
+And the output should be:
+
+```
+********************
+howdy!
+My name is Raghu
+********************
+```
+
+Give it a try.
+
 ---
+
+---
+
+---
+
+In order to allow our method to receive arguments as well, we need to move our block over and make sure it comes last:
+
+```ruby
+def border(size, top_character, &content_instructions)
+  puts top_character * size
+  content_instructions.call
+  puts top_character * size
+end
+```
+
+### Sending block variables back to the caller
+
+Finally, what if the user of the method needs some information within their block that only the method can provide? That sounds like a job for a block variable! How do we as the authors of methods send information back through block variables?
+
+Let's say I wanted to use a method like this, where I expect the block variable to contain a character that will be used as a left and right border so that I can prepend and append it to my content:
+
+```ruby
+border(40, "*") do |edge|
+  puts "#{edge} " + "howdy!".ljust(36) + " #{edge}"
+  puts "#{edge} " + "My name is Raghu".ljust(36) + " #{edge}"
+end
+```
+
+Which would produce output like this:
+
+```
+****************************************
+|                                      |
+| howdy!                               |
+| My name is Raghu                     |
+|                                      |
+****************************************
+```
+
+How would you write the method now? Give it a try.
+
+---
+
+---
+
+---
+
+To send back block variables, we provide them as arguments to `call()`:
+
+```ruby
+def border(size, top_character, &content_instructions)
+  side_character = "|"
+  
+  puts top_character * size
+  puts side_character + " " * (size - 2) + side_character
+  
+  content_instructions.call(side_character)
+
+  puts side_character + " " * (size - 2) + side_character
+  puts top_character * size
+end
+
+border(40, "*") do |edge|
+  puts "#{edge} " + "howdy!".ljust(36) + " #{edge}"
+  puts "#{edge} " + "My name is Raghu".ljust(36) + " #{edge}"
+end
+```
+
+## Callbacks
+
+Why have I spent all this time reviewing Ruby blocks during a lesson on JavaScript?  
+
+
+https://en.wikipedia.org/wiki/Callback_(computer_programming)
+
 
 
 def border(&content_instructions)
