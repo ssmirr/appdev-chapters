@@ -244,7 +244,7 @@ Ruby blocks are an example of a general concept in computer programming known as
 
 Callbacks are extremely common — we've seen and used them many times before, and not just every time we used a Ruby block with `do`/`end`. Think about it:
 
- - From the name, it's obvious that [ActiveRecord Callbacks](https://guides.rubyonrails.org/active_record_callbacks.html), are callbacks.
+ - From the name, it's obvious that [ActiveRecord Callbacks](https://guides.rubyonrails.org/active_record_callbacks.html) are callbacks.
  - [The `dependent: destroy` option](https://guides.rubyonrails.org/association_basics.html#options-for-belongs-to-dependent) and [the `counter_cache: true` option](https://guides.rubyonrails.org/association_basics.html#options-for-belongs-to) are ready-made ActiveRecord callbacks.
  - [ActiveRecord validations](https://guides.rubyonrails.org/active_record_validations.html) are a form of callbacks.
  - [`before_action` and `after_action` filters](https://guides.rubyonrails.org/action_controller_overview.html#filters) in controllers are callbacks
