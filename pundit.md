@@ -172,7 +172,7 @@ Pundit includes a method called `verify_authorized` that we can call in an `afte
 after_action :verify_authorized
 ```
 
-[There's another method called `policy_scope`](https://github.com/varvet/pundit#scopes){:target=["_blank"]} similar to `authorize` that's used for collections rather than single objects. Usually, you'll want to ensure that either one or the other is called with something like the following in `ApplicationController`:
+[There's another method called `policy_scope`](https://github.com/varvet/pundit#scopes){:target="_blank"} similar to `authorize` that's used for collections rather than single objects. Usually, you'll want to ensure that either one or the other is called with something like the following in `ApplicationController`:
 
 ```ruby
 # app/controllers/application_controller.rb
