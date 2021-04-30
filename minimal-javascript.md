@@ -246,6 +246,9 @@ Callbacks are extremely common — we've seen and used them many times before, a
  - [`before_action` and `after_action` filters](https://guides.rubyonrails.org/action_controller_overview.html#filters) in controllers are callbacks
  - Every controller actions themselves (code that we write in advance and give to `routes.rb` to run later when a user visits a URL) are callbacks!
 
+That said, JavaScript, and particularly the sort of JavaScript that we're going to be writing (to make our pages interactive) is _really_ callback-heavy. That's because a lot of what we're going to want to do is attach **event handlers** to elements in our HTML that will wait for the user to perform some interaction (for example, click on it, or mouse-over it), and then it is supposed to spring to life and run the code we give it (`call` the block, in Ruby terms).
+
+
 
 
 
