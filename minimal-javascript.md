@@ -254,3 +254,316 @@ So: let's now, finally, take a look at JavaScript — through a Rails developer'
 
 ## JavaScript for Rails Developers
 
+### Ruby -> JavaScript [rosetta stone](https://en.wikipedia.org/wiki/Rosetta_Stone)
+
+First, go through the following Ruby statements and the roughly equivalent translation into JavaScript and see if they all make sense to you. If not, experiment with them (you can use a repl.it REPL, a Scrimba workspace, the Chrome JavaScript console, or write some JS in an HTML file) and ask questions on Piazza.
+
+#### Semicolon rule of thumb
+
+Rule of thumb: put a semicolon at the end of every line that doesn't end in a curly.
+
+#### Simple output
+
+Ruby:
+
+```ruby
+p "howdy!"
+```
+
+JavaScript:
+
+```js
+console.log("howdy!");
+```
+
+#### Declaring local variables
+
+Ruby:
+
+```ruby
+name = "Raghu"
+p "howdy, #{name}!"
+```
+
+JavaScript:
+
+```js
+let name = "Raghu";
+console.log(`howdy ${name}!`);
+```
+
+#### Defining and calling methods
+
+Ruby:
+
+```ruby
+def greet
+  puts "howdy!"
+end
+
+greet
+```
+
+JavaScript:
+
+```js
+function greet() {
+  console.log("howdy!");
+}
+
+greet();
+```
+    
+Note: in JavaScript, if you don't include the parentheses (even if there are no arguments), the function will not be executed; it will be referenced as an object (so that you can e.g. pass it as an argument to a method that takes a function as an input).
+
+#### Methods that accept arguments
+
+Ruby:
+
+```ruby
+def greet(name)
+  puts "howdy, #{name}!"
+end
+
+greet("Raghu")
+```
+
+JavaScript:
+
+```js
+function greet(name) {
+  console.log(`howdy, ${name}!`);
+}
+
+greet("Raghu");
+```
+
+#### Conditionals
+
+Ruby:
+
+```ruby
+city = "Toledo"
+if city == "Chicago"
+  puts "You live in the best city ever!"
+else
+  puts "You live in a so-so city."
+end
+```
+
+JavaScript:
+
+```js
+let city = "Toledo";
+if (city === "Chicago") {
+  console.log("You live in the best city ever!");
+}
+else {
+  console.log("You live in a so-so city.");
+}
+```
+
+Note: That was a triple ===, not a double ==. It's not the same as the Ruby triple ===.
+
+Beware: There's also a JS double == (non-strict equivalence) operator. Look it up.
+
+#### For loops
+
+Ruby:
+
+```ruby
+for i in 2...6
+  puts i * i
+end
+```
+
+JavaScript:
+
+```js
+for (let i = 2; i < 6; i++) {
+  console.log(i * i);
+}
+```
+
+#### Methods that accept blocks of code
+
+Ruby:
+
+```ruby
+def announce(&instructions)
+  puts "********** DEAR PASSENGER **********"
+  instructions.call
+  puts "********** THANK YOU FOR FLYING ONE-WAY AIR **********"
+end
+
+announce do
+  puts "Your flight is boarding in 5 minutes."
+end
+```
+
+JavaScript:
+
+```js
+function announce(instructions) {
+  console.log("********** DEAR PASSENGER **********");
+  instructions();
+  console.log("********** THANK YOU FOR FLYING ONE-WAY AIR **********");
+}
+
+announce(function() {
+  console.log("Your flight is boarding in 5 minutes.");
+});
+```
+
+#### Methods that accept arguments and blocks
+
+Ruby:
+
+```ruby
+def announce(salutation, valediction, &instructions)
+  puts "********** #{salutation} **********"
+  instructions.call
+  puts "********** #{valediction} **********"
+end
+
+announce("DEAR PASSENGER", "THANK YOU FOR FLYING ONE-WAY AIR") do
+  puts "Your flight is boarding in 5 minutes."
+end
+```
+
+JavaScript:
+
+```js
+function announce(salutation, valediction, instructions) {
+  console.log(`********** ${salutation} **********`);
+  instructions();
+  console.log(`********** ${valediction} **********`);
+}
+
+announce("DEAR PASSENGER", "THANK YOU FOR FLYING ONE-WAY AIR", function() {
+  console.log("Your flight is boarding in 5 minutes.");
+});
+```
+
+#### Providing block variables
+
+Ruby:
+
+```ruby
+def announce(&instructions)
+  puts "********** DEAR PASSENGER **********"
+  instructions.call("*")
+  puts "********** THANK YOU FOR FLYING ONE-WAY AIR **********"
+end
+
+announce do |special_character|
+  puts "#{special_character} Your flight is boarding in 5 minutes. #{special_character}"
+end
+```
+
+JavaScript:
+
+```js
+function announce(instructions) {
+  console.log("********** DEAR PASSENGER **********");
+  instructions("*");
+  console.log("********** THANK YOU FOR FLYING ONE-WAY AIR **********");
+}
+
+announce(function(specialCharacter) {
+  console.log(`${specialCharacter} Your flight is boarding in 5 minutes ${specialCharacter}`);
+});
+```
+
+#### Methods with arguments, blocks, and block variables
+
+Ruby:
+
+```ruby
+def announce(salutation, valediction, &instructions)
+  puts "********** #{salutation} **********"
+  instructions.call("*")
+  puts "********** #{valediction} **********"
+end
+
+announce("DEAR PASSENGER", "THANK YOU FOR FLYING ONE-WAY AIR") do |special_character|
+  puts "#{special_character} Your flight is boarding in 5 minutes. #{special_character}"
+end
+```
+
+JavaScript:
+
+```js
+function announce(salutation, valediction, instructions) {
+  console.log("********** " + salutation + " **********");
+  instructions("*");
+  console.log("********** " + valediction + " **********");
+}
+
+announce("DEAR PASSENGER", "THANK YOU FOR FLYING ONE-WAY AIR", function(specialCharacter) {
+  console.log(specialCharacter + " Your flight is boarding in 5 minutes. " + specialCharacter);
+});
+```
+
+#### Arrays
+
+Ruby:
+
+
+```ruby
+fruits = ["apples", "oranges", "bananas"]
+puts fruits[1]
+puts fruits.length
+```
+
+JavaScript:
+
+```js
+let fruits = ["apples", "oranges", "bananas"];
+console.log(fruits[1]);
+console.log(fruits.length);
+```
+
+#### Challenge
+
+Translate the following Ruby into Javascript:
+
+```ruby
+def for_each_in(array, &instructions)
+  for i in 0...array.length
+    instructions.call(array[i])
+  end
+end
+
+fruits = ["apples", "oranges", "bananas", "pears"]
+for_each_in(fruits) do |f|
+  puts "I like #{f}."
+end
+```
+
+If you can do it, you're in great shape for what we want to do — adding interactivity to our apps with **A**synchronous **J**avaScript **A**nd **X**ML — AJAX! (No one really uses XML for it anymore, but the name sounds much better than "AJAJ" (for JSON) or "AJAH" (for HTML), so we stuck with that.)
+
+### Manipulating HTML elements
+
+JavaScript is okay, as far as languages go, but we were perfectly happy with Ruby. The only reason we're interested in JavaScript is that it has a unique ability: it can run inside the browser, and that means we can use it to modify HTML elements in our pages _without needing to refresh the page_. This is the key to making our apps feel like _apps_ and not pages.
+
+Let's see how this works. In Chrome, open the JavaScript Console from the View > Developer menu. There, you have a REPL, much like `irb`, where you can type any JavaScript expression. (There's also great autocomplete functionality in the Chrome dev tools, so use tab often.)
+
+Importantly, there is an object available, `document`. If you're looking at this page, try:
+
+```js
+let h = document.getElementById("history")
+```
+
+As you were typing, you might have noticed the autocomplete showing you other methods that were available — `getElementsByClassName`, `getElementsByTag`, etc. These are all ways that we can query the DOM (Document Object Model) and find HTML elements; exactly the way we did when we were writing CSS selectors.
+
+Now that we have the element in the variable `h`, we can do things like:
+
+ -  `h.innerText` (will return the text content of the element)
+ -  `h.classList.add("display-1")` (adds a CSS class to the element)
+ -  `h.remove()` (removes the element from the DOM)
+ -  and a whole bunch more. Neat!
+
+### jQuery
+
+
