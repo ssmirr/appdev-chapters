@@ -16,12 +16,15 @@ Welcome back! What did you think?
 
 First of all, compare your experience learning JavaScript for the first time to when you learned Ruby for the first time. How did it feel this time around to learn about variables, string interpolation, arrays, arguments, `split`, etc?
 
-So much easier, right? This was, for me, one of the best things about learning Ruby[^polyglot]. After learning (the friendly, welcoming) Ruby and building some applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second language was _so much easier_, and the third was even easier still.
+So much easier, right? This was, for me, one of the best things about learning Ruby. After learning (the friendly, welcoming) Ruby and building some applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second[^second_lang] language was _so much easier_, and the third was even easier still.
 
 Conversely, every language has some distinct characteristics about it that will change the way you _think_ and make you better at your previous languages. Welcome to being a polyglot developer 🙌🏾 
 
-[^polyglot] _Really_ good developers don't pigeonhole themselves into a single stack — "I'm a Rails developer", "I use Mongo", "I use React". They can pick up any language that's needed, and they choose the best tool for the job at hand. Sure, they might have the most experience in a particular library already, and they might have a preference for one library over another if they both do the same job; but if a job calls for Phoenix, a good developer won't insist on using Rails just because they are familiar with it.
+[^second_lang] This has hiring implications. _Really_ good developers can get up to speed on a new language pretty quickly (especially if it's a nice language like Ruby). If there are other developers on the team to answer questions about the codebase/framework while they are working on small introductory tasks, then it shouldn't be a dealbreaker that a strong developer has 0 years of experience in whatever stack you happen to be using.
 
+    Conversely, if a developer pigeonholes themselves as just a Rails developer or just a Node developer or just a React developer, then that's a red flag; they probably aren't very strong.
+
+### 
 
 
 
