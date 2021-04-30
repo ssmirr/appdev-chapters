@@ -244,7 +244,7 @@ Callbacks are extremely common — we've seen and used them many times before, a
  - [The `dependent: destroy` option](https://guides.rubyonrails.org/association_basics.html#options-for-belongs-to-dependent) and [the `counter_cache: true` option](https://guides.rubyonrails.org/association_basics.html#options-for-belongs-to) are ready-made ActiveRecord callbacks.
  - [ActiveRecord validations](https://guides.rubyonrails.org/active_record_validations.html) are a form of callbacks.
  - [`before_action` and `after_action` filters](https://guides.rubyonrails.org/action_controller_overview.html#filters) in controllers are callbacks
- - Even controller actions themselves (code that we write in advance and give to `routes.rb` to run later when a user visits a URL) are callbacks! Most of our work all along has been writing callbacks, if you think about it.
+ - Even controller actions themselves (code that we write in advance and give to `routes.rb` to run later when a user visits a URL) are callbacks! Most of our work all along has been writing callbacks, if you squint.
 
 That said, JavaScript, and particularly the sort of JavaScript that we're going to be writing (to make our pages interactive) is _really_ callback-heavy. That's because a lot of what we're going to want to do is attach **event handlers** to elements in our HTML that will wait for the user to perform some interaction (for example, click on it, or mouse-over it), and then it is supposed to spring to life and run the code we give it (`call` the block, in Ruby terms).
 
