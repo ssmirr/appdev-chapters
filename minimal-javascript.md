@@ -24,7 +24,7 @@ Conversely, every language has some distinct top_characteristics about it that w
 
     Conversely, if a developer pigeonholes themselves as just a Rails developer or just a Node developer or just a React developer, then that's a red flag; they probably aren't very strong. (My opinion.)
 
-## A review of some Ruby
+## A review of Ruby blocks
 
 I'm going to give you another brief introduction to JavaScript in a moment, with a specific focus on what we're going to need for our objective: making our web apps interactive and _slick_.
 
@@ -143,9 +143,43 @@ end
 
 ### Sending block variables back to the caller
 
-Finally, what if the user of the method needs some information within their block that only the method can provide? That sounds like a job for a block variable! How do we as the authors of methods send information back through block variables?
+Let's say, for argument's sake, that we're going to upgrade the method with side borders; something like this:
 
-Let's say I wanted to use a method like this, where I expect the block variable to contain a character that will be used as a left and right border so that I can prepend and append it to my content:
+```ruby
+border(10, "*") do 
+  puts "Hi"
+end
+border(50, "=") do 
+  puts "there"
+end
+border(20, ".") do 
+  puts "world"
+end
+```
+
+Which produces this:
+
+```
+**********
+!        !
+Hi
+!        !
+**********
+==================================================
+:                                                :
+there
+:                                                :
+==================================================
+....................
+!                  !
+world
+!                  !
+....................
+```
+
+The `border` method now adds a row above and below the content with a left and right border, but the character used is random. I would like to prepend and append the same character before and after my content, but I need the method to tell me what it's going to be.
+
+What if the user of the method needs some information within their block that only the method can provide? That sounds like a job for a block variable! Here's what I'd really like to do:
 
 ```ruby
 border(40, "*") do |edge|
@@ -154,18 +188,18 @@ border(40, "*") do |edge|
 end
 ```
 
-Which would produce output like this:
+To produce:
 
 ```
 ****************************************
-|                                      |
-| howdy!                               |
-| My name is Raghu                     |
-|                                      |
+:                                      :
+: howdy!                               :
+: My name is Raghu                     :
+:                                      :
 ****************************************
 ```
 
-How would you write the method now? Give it a try.
+How do we as the authors of methods send information back through block variables? How would you write the method now? Give it a try.
 
 ---
 
@@ -177,7 +211,7 @@ To send back block variables, we provide them as arguments to `call()`:
 
 ```ruby
 def border(size, top_character, &content_instructions)
-  side_character = "|"
+  side_character = ["|", ":", "!", "I"].sample
   
   puts top_character * size
   puts side_character + " " * (size - 2) + side_character
@@ -194,7 +228,9 @@ border(40, "*") do |edge|
 end
 ```
 
-## Callbacks
+And that about all there is to know about blocks.
+
+### Callbacks
 
 Why have I spent all this time reviewing Ruby blocks during a lesson on JavaScript?  
 
