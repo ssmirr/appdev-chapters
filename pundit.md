@@ -172,13 +172,13 @@ Pundit includes a method called `verify_authorized` that we can call in an `afte
 after_action :verify_authorized
 ```
 
-We haven't talked about it yet, but there's another method called `policy_scope` similar to `authorize` that's used for collections rather than single objects. Usually you'll want to enforce that either one or the other is called with something like this in `ApplicationController`:
+[There's another method called `policy_scope`](https://github.com/varvet/pundit#scopes){:target=["_blank"]} similar to `authorize` that's used for collections rather than single objects. Usually, you'll want to ensure that either one or the other is called with something like the following in `ApplicationController`:
 
 ```ruby
 # app/controllers/application_controller.rb
-after_action :verify_authorized, except: :index
-after_action :verify_policy_scoped, only: :index
-```
+after_action :verify_authorized, except: [:index]
+after_action :verify_policy_scoped, only: [:index]
+```]
 
 Now try visiting `/follow_requests` or some other scaffolded route that was insecurely left reachable. We are now secure-by-default instead of insecure-by-default.
 
