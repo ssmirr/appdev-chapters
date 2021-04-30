@@ -26,10 +26,9 @@ Conversely, every language has some distinct characteristics about it that will 
 
 ### A review of some Ruby
 
-I want to give you another introduction to JavaScript in a moment, with a specific focus on what we're going to need for our objective: making our web apps interactive and _slick_.
+I'm going to give you another brief introduction to JavaScript in a moment, with a specific focus on what we're going to need for our objective: making our web apps interactive and _slick_.
 
-But first, it will be helpful to make sure you understand the following Ruby, so think about it carefully and [experiment with it in a workspace](https://github.com/appdev-projects/base-ruby/generate){:target="blank"} if you need to.
-
+But first, it will be helpful to make sure you understand the following Ruby, so think about it carefully and [experiment with the concepts in a workspace](https://github.com/appdev-projects/base-ruby/generate){:target="blank"} if you need to.
 
 
 
