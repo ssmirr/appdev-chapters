@@ -156,6 +156,8 @@ Since policies are just POROs, we can bring all our Ruby skills to bear: inherit
 To start with, we can run the generator `rails g pundit:install` for a good starting point policy to inherit from. Take a look and see what you think. If you like it, let's inherit from it:
 
 ```ruby
+# app/policies/photo_policy.rb
+
 class PhotoPolicy < ApplicationPolicy
 # ... etc
 ```
