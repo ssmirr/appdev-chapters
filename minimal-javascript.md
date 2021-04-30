@@ -101,7 +101,7 @@ end
 
 The `.call` method is used to actually execute the code that is stored in the block, whenever and wherever we're ready to.
 
-### Defining methods that accept blocks _and_ arguments
+### Defining methods that accept blocks and arguments
 
 Okay, what about if we want the method to accept both a block _and_ arguments?
 
