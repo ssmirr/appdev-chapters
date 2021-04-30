@@ -234,8 +234,23 @@ And that about all there is to know about blocks.
 
 Why have I spent all this time reviewing Ruby blocks during a lesson on JavaScript?  
 
+Ruby blocks are an example of a general concept in computer programming known as **callbacks**. [From Wikipedia](https://en.wikipedia.org/wiki/Callback_(computer_programming)){:target="_blank"}:
 
-https://en.wikipedia.org/wiki/Callback_(computer_programming)
+> In computer programming, a callback, also known as a "call-after"[1] function, is any executable code that is passed as an argument to other code; that other code is expected to call back (execute) the argument at a given time.
+
+Callbacks are extremely common — we've seen and used them many times before, and not just every time we used a Ruby block with `do`/`end`. Think about it:
+
+ - From the name, it's obvious that [ActiveRecord Callbacks](https://guides.rubyonrails.org/active_record_callbacks.html), are callbacks.
+ - [The `dependent: destroy` option](https://guides.rubyonrails.org/association_basics.html#options-for-belongs-to-dependent) and [the `counter_cache: true` option](https://guides.rubyonrails.org/association_basics.html#options-for-belongs-to) are ready-made ActiveRecord callbacks.
+ - [ActiveRecord validations](https://guides.rubyonrails.org/active_record_validations.html) are a form of callbacks.
+ - [`before_action` and `after_action` filters](https://guides.rubyonrails.org/action_controller_overview.html#filters) in controllers are callbacks
+ - Every controller actions themselves (code that we write in advance and give to `routes.rb` to run later when a user visits a URL) are callbacks!
+
+
+
+
+
+
 
 
 
