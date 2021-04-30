@@ -1,6 +1,6 @@
 # jQuery
 
-### Manipulating HTML elements
+## Manipulating HTML elements
 
 JavaScript is okay, as far as languages go, but we were perfectly happy with Ruby. The only reason we're interested in JavaScript is that it has a unique ability: it can run inside the browser, and that means we can use it to modify HTML elements in our pages _without needing to refresh the page_. This is the key to making our apps feel like _apps_ and not pages.
 
@@ -29,7 +29,7 @@ Now that we have one element in the variable `h`, we can do things like:
  -  `h.remove()` (removes the element from the DOM)
  -  and a whole bunch more. Neat!
 
-### jQuery
+## jQuery
 
 In 2021, plain vanilla JavaScript is pretty nice to use; but before, say, 2015, it was quite a different story. The language itself was missing lots of features that we Rubyists take for granted, there were lots of cross-browser inconsistencies, and life was hard.
 
@@ -45,7 +45,7 @@ However, I still use jQuery on almost every project and I recommend that you do 
 
 I've already added the above `<script>` tag to [this solutions file](https://github.com/appdev-projects/javascript_intro/blob/b1bb82ae3b80fec5fc8ccc0cb4dcf7bb2b7fa31d/hello.html). You can download it and work in there if you like, or you could start a file from scratch to experiment with.
 
-#### Add some elements
+## Add some elements
 
 Let's get some HTML elements in our page to work with.
 
