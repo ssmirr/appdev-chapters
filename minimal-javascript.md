@@ -709,4 +709,4 @@ Let's see if we can use our new JavaScript skills to improve this experience —
  4. The jQuery will run in the user's browser to update it (adding the comment, removing the like, etc).
  5. Voilá! Ajax!
 
-Let's get started.
+That's coming up next.
