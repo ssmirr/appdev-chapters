@@ -203,8 +203,8 @@ Here's what the caller of the method would really like to do — make up a name 
 
 ```ruby
 border(40, "*") do |edge|
-  puts "#{edge} " + "howdy!".ljust(36) + " #{edge}"
-  puts "#{edge} " + "My name is Raghu".ljust(36) + " #{edge}"
+  puts edge + " howdy! ".ljust(38) + edge
+  puts edge + " My name is Raghu ".ljust(38) + edge
 end
 ```
 
@@ -243,8 +243,8 @@ def border(size, top_character, &content_instructions)
 end
 
 border(40, "*") do |edge|
-  puts "#{edge} " + "howdy!".ljust(36) + " #{edge}"
-  puts "#{edge} " + "My name is Raghu".ljust(36) + " #{edge}"
+  puts edge + " howdy! ".ljust(38) + edge
+  puts edge + " My name is Raghu ".ljust(38) + edge
 end
 ```
 
