@@ -839,7 +839,7 @@ If you pull in a 3rd-party JavaScript library (say, for example, Google Maps), a
 
 Try the `turbolinks:load` fix above. Or sometimes you have to do some other things, [as we did to fix the Bootstrap modal in Photogram Industrial](https://www.honeybadger.io/blog/turbolinks/){:target="_blank"}.
 
-A common strategy is to [just disable Turbolinks](https://stackoverflow.com/questions/38649550/rails-how-to-disable-turbolinks-in-rails-5){:target="_blank"}. Since we're about to add real Ajax to our application anyway, having the automatic sort-of-but-not-really-Ajax of Turbolinks becomes less helpful.
+A common strategy is to [just remove Turbolinks](https://stackoverflow.com/questions/38649550/rails-how-to-disable-turbolinks-in-rails-5){:target="_blank"}; or when you're first creating your app with `rails new`, use the `--skip-turbolinks` option to never include it in the first place. Since we're about to add real Ajax to our application anyway, having the automatic sort-of-but-not-really-Ajax of Turbolinks becomes less helpful.
 
 ## Conclusion
 
