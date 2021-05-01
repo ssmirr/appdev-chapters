@@ -744,7 +744,7 @@ Other examples of events that we'll listen for with [the on method](https://api.
 
 #### Frequently used jQuery methods
 
-If you look at the left sidebar of the jQuery docs, you'll see they nicely organize methods by category:
+If you look at the left sidebar of [the jQuery docs](https://api.jquery.com/){:target="_blank}, you'll see they nicely organize methods by category:
 
  - [Effects](https://api.jquery.com/category/effects/){:target="_blank}
  - DOM [Manipulation](https://api.jquery.com/category/manipulation/){:target="_blank}
