@@ -777,9 +777,59 @@ Here are the jQuery methods that I wind up using most frequently. Read about and
 
 ## jQuery plugins
 
-Even if we just stopped here, you've already gained a lot of power, because jQuery has a whole ecosystem of plugins built around it. A lot of library authors architected their projects as: "locate the element on your page with `$()`, call my function on it, and _poof_, it will turn into a chart/datepicker/calendar/carousel/etc".
+Even if we just stopped here, you've already gained a lot of power, because jQuery has a whole ecosystem of plugins built around it. A lot of JavaScript library authors architected their projects as: "locate the element on your page with `$()`, call my function on it, and _poof_, it will turn into a chart/datepicker/calendar/carousel/etc".
 
 For example, [here's a nice datepicker library](https://getdatepicker.com/5-4/Usage/){:target="blank"} that plays well with Bootstrap. There are _many_ other jQuery plugins out there that follow the same pattern.
+
+## $(document).ready
+
+Note that, if you use libraries like [the datepicker](https://getdatepicker.com/5-4/Usage/){:target="blank"} above, Google Maps, or any JS library that acts upon one of your HTML elements: you need to wait until the element that you want to call the method on has been loaded before it will work. JavaScript runs _asynchronously_ in the browser, so there's no guarantee that just because the `<script>` tag appears in the document after the element that the element will have been fully loaded in time.
+
+To solve this problem, jQuery adds a `.ready` method to the `$(document)` object that we can, you guessed it, provide a callback to; and we put all our code that binds event handlers to elements within this callback, and it will execute only after the document has been fully loaded.
+
+For example, to use the datepicker library referenced above, rather than just this:
+
+```js
+<script>
+  $('#datetimepicker1').datetimepicker();
+</script>
+```
+
+We should do something like the following:
+
+```js
+<script>
+  $(document).ready(function() {
+    $('#datetimepicker1').datetimepicker();
+  });
+</script>
+```
+
+[Read more about `$(document).ready` here](https://learn.jquery.com/using-jquery-core/document-ready/){:target="_blank"}, if you're interested.
+
+## Turbolinks
+
+### turbolinks:load
+
+Rails, by default, includes a library called Turbolinks that actually has been doing some Ajax for us all along without us even knowing it. When users click on links, Turbolinks has been only replacing the `<body>` of the document, to make the application feel a bit snappier.
+
+This, however, can mess with our jQuery, which is listening for `$(document).ready` (which only fires when a full page reload occurs) to initialize event handlers when users navigate to different pages. To solve this, we can use the `turbolinks:load` event instead:
+
+```js
+$( document ).on('turbolinks:load', function() {
+  console.log("It works on each visit!")
+})
+```
+
+### If something is funny with your JavaScript libraries, it's probably turbolinks
+
+If you pull in a 3rd-party JavaScript library (say, for example, Google Maps), and you notice some weird behavior, especially things that are resolved when you do a full page refresh: the issue is probably related to Turbolinks.
+
+Try the `turbolinks:load` fix above. Or sometimes you have to do some other things, [as we did to fix the Bootstrap modal in Photogram Industrial](https://www.honeybadger.io/blog/turbolinks/){:target="_blank"}.
+
+A common strategy is to [just disable Turbolinks](https://stackoverflow.com/questions/38649550/rails-how-to-disable-turbolinks-in-rails-5){:target="_blank"}. Since we're about to add real Ajax to our application anyway, having the automatic sort-of-but-not-really-Ajax of Turbolinks becomes less helpful.
+
+[Read more about Turbolinks here](https://github.com/turbolinks/turbolinks#installing-javascript-behavior){:target="_blank"}, if you're interested.
 
 ## Conclusion
 
@@ -789,10 +839,9 @@ Now, we're ready to revamp the interactions in our UI. When someone clicks on a 
 
 Let's see if we can use our new JavaScript skills to improve this experience — with a technique called Ajax. We're going to:
 
- 1. Break the default behavior of links and forms, so when the user clicks on them, they don't go anywhere.
- 2. Make the same GET/PATCH/POST/DELETE request to whatever route that the link or form would have made, with the same parameters; but do it in the background, using JavaScript.
- 3. In the action triggered by the request, instead of responding with a `.html.erb` template or redirecting as usual, we'll **respond with a `.js.erb` template containing jQuery**.
- 4. The jQuery will run in the user's browser and update just the part of the page that needs it (adding the comment, changing the like count, etc).
- 5. Voilá! Ajax!
+ 1. Change the default behavior of links and forms. When the user clicks on them, they will submit the same GET/PATCH/POST/DELETE request as before, to the same route and with the same parameters; but it will be in the background, using JavaScript.
+ 2. In the action triggered by the request, instead of responding with a `.html.erb` template or redirecting as usual, we'll **respond with a `.js.erb` template containing jQuery**.
+ 3. The jQuery will run in the user's browser and update just the part of the page that needs it (adding the comment, changing the like count, etc).
+ 4. Voilá! Ajax!
 
 That's coming up next.
