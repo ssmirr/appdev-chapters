@@ -555,12 +555,18 @@ If you can do it, you're in great shape for what we want to do — adding inter
 
 JavaScript is okay, as far as languages go, but we were perfectly happy with Ruby. The only reason we're interested in JavaScript is that it has a unique ability: it can run inside the browser, and that means we can use it to modify HTML elements in our pages _without needing to refresh the page_. This is the key to making our apps feel like _apps_ and not pages.
 
-Let's see how this works. In Chrome, open the JavaScript Console from the View > Developer menu. There, you have a REPL, much like `irb`, where you can type any JavaScript expression. (There's also great autocomplete functionality in the Chrome dev tools, so use tab often.)
+Let's see how this works. In Chrome, open the JavaScript Console from the View > Developer menu. There, you have a REPL, much like `irb`, where you can type any JavaScript expression. (There's also great autocomplete functionality in the Chrome dev tools, so use <kbd>tab</kbd> often.)
 
-Importantly, there is an object available, `document`, that represents the page itself. Next, let's try:
+Importantly, there is an object available, `document`, that represents the page itself:
 
 ```js
-let headings = document.getElementsByTagName("h1")
+document
+```
+
+Let's try working with it:
+
+```js
+let headings = document.getElementsByTagName("h1");
 ```
 
 We've created a variable, `headings`, and stored an array of all the `h1` elements on the page within it. Neat!
@@ -570,7 +576,7 @@ As you were typing, you might have noticed the autocomplete showing you other me
 Let's keep going and get just one heading out of the array:
 
 ```js
-let h = headings[0]
+let h = headings[0];
 ```
 
 Now that we have one element in the variable `h`, we can do things like:
@@ -624,7 +630,7 @@ jQuery(".west");
 jQuery("#best");
 ```
 
-Since we're going to be using the `jQuery()` function _a lot_, they conveniently aliased it as `$()`, to save us a lot of typing. So the above could also be shortened to:
+Since we're going to be using the `jQuery()` function _a lot_, they conveniently aliased it as `$()`, to save us a bunch of typing. So the above could also be shortened to:
 
 ```js
 $("li");
@@ -695,4 +701,12 @@ And that, from the perspective of a Rails developer who wants to improve the UX 
 
 Now, we're ready to revamp the interactions in our UI. When someone clicks on a link or submits a form, in many cases we end up redirecting them to the same URL that they were on before; but they wind up at the top of the page, losing their scroll position. Annoying!
 
-Let's see if we can use our new JavaScript skills to improve this experience — with Ajax.
+Let's see if we can use our new JavaScript skills to improve this experience — with a technique called Ajax. We're going to:
+
+ 1. Break the default behavior of links and forms, so when the user clicks on them, they don't go anywhere.
+ 2. Make the GET/PATCH/POST/DELETE request to whatever route that the link or form would have made in the background, using JavaScript.
+ 3. From the action, respond with a bit of jQuery instead of with a `.html.erb` template.
+ 4. The jQuery will run in the user's browser to update it (adding the comment, removing the like, etc).
+ 5. Voilá! Ajax!
+
+Let's get started.
