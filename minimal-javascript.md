@@ -46,7 +46,7 @@ Conversely, every language has some distinctive characteristics about it that wi
 
 I'm going to give you another brief introduction to JavaScript in a moment, with a specific focus on what we're going to need for our objective: making our web apps interactive and _slick_.
 
-But first, it will be helpful to make sure you understand the following Ruby, so think about it carefully and [experiment with the concepts in a workspace](https://github.com/appdev-projects/base-ruby/generate){:target="blank"} if you need to.
+But first, it will be helpful to make sure you understand the following Ruby, so think about it carefully and [experiment with the concepts in a Ruby workspace](https://github.com/appdev-projects/base-ruby/generate){:target="blank"} if you need to.
 
 ### Defining methods that accept blocks
 
