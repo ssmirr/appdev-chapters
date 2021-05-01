@@ -777,7 +777,7 @@ Here are the jQuery methods that I wind up using most frequently. Read about and
 
 ## jQuery plugins
 
-Even if we just stopped here, you've already gained a lot of power, because jQuery has a whole ecosystem of plugins built around it. A lot of library authors architected their projects as: "locate the element on your page with `$()`, call my function on it, and POOF, it will turn into a chart/datepicker/calendar/carousel/etc".
+Even if we just stopped here, you've already gained a lot of power, because jQuery has a whole ecosystem of plugins built around it. A lot of library authors architected their projects as: "locate the element on your page with `$()`, call my function on it, and _poof_, it will turn into a chart/datepicker/calendar/carousel/etc".
 
 For example, [here's a nice datepicker library](https://getdatepicker.com/5-4/Usage/){:target="blank"} that plays well with Bootstrap. There are _many_ other jQuery plugins out there that follow the same pattern.
 
