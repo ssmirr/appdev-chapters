@@ -10,7 +10,9 @@ Oh, JavaScript:
 
 As the only scripting language that browsers run natively, it has by default become one of the most widely used general-purpose programming languages; maybe _the_ most.
 
-However, like CSS, it can't undo mistakes in the design of the language[^ten_days] very often; in order to maintain backwards compatibility. Thankfully, also like CSS, JavaScript has made tremendous strides in the last 5-10 years in paving over the warts of the past with new features and getting them adopted across _most_ browsers so that, in 2021, it's quite nice to use.
+However, like CSS, it can't undo mistakes in the design of the language[^ten_days] very often; in order to maintain backwards compatibility.
+
+Thankfully, also like CSS, JavaScript has made tremendous strides in the last 5-10 years in paving over the warts of the past with new features and getting them adopted across _most_ browsers so that, in 2021, it's quite nice to use.
 
 [^ten_days]: The initial design of JavaScript was done in just 10 days. This sometimes painfully obvious in the early days.
 
@@ -24,7 +26,7 @@ Welcome back! What did you think?
 
 First of all, compare your experience learning JavaScript for the first time to when you learned Ruby for the first time. How did it feel this time around to learn about variables, string interpolation, arrays, arguments, `split`, etc?
 
-So much easier, right? This was, for me, one of the best things about learning Ruby. After learning (the friendly, welcoming) Ruby and building some applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second[^second_lang] language was _so much easier_, and the third was even easier still.
+_So_ much better, right? This was, for me, one of the best things about learning Ruby. After learning (the friendly, welcoming) Ruby and building some applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second[^second_lang] language was _so much easier_, and the third was even easier still.
 
 Conversely, every language has some distinctive characteristics about it that will change the way you _think_ and make you better at your previous languages. Welcome to being a polyglot programmer 🙌🏾 
 
