@@ -768,7 +768,7 @@ Here are the jQuery methods that I wind up using most frequently. Read about and
  - [https://api.jquery.com/remove/](https://api.jquery.com/remove/){:target="_blank}
  - [https://api.jquery.com/append/](https://api.jquery.com/append/){:target="_blank}
  - [https://api.jquery.com/prepend/](https://api.jquery.com/prepend/){:target="_blank}
- - [https://api.jquery.com/replacewith/](https://api.jquery.com/replacewith/){:target="_blank}
+ - [https://api.jquery.com/replaceWwith/](https://api.jquery.com/replaceWith/){:target="_blank}
  - [https://api.jquery.com/html/](https://api.jquery.com/html/){:target="_blank}
 
 ## Conclusion
