@@ -755,7 +755,7 @@ If you look at the left sidebar of [the jQuery docs](https://api.jquery.com/){:t
     -  [Replacement](https://api.jquery.com/category/manipulation/dom-replacement/){:target="_blank}
  - [CSS](https://api.jquery.com/category/css/){:target="_blank}
 
-It's worth looking through the docs for what you need; but usually, you can Google "jQuery how to ________" and have pretty good success. E.g., "jquery how to add an element as the last child".
+It's worth looking through the docs for what you need; but usually, you can Google "jQuery how to ＿＿＿＿" and have pretty good success. E.g., "jquery how to add an element as the last child".
 
 Here are the jQuery methods that I wind up using most frequently. Read about and experiment with them. If you need to, refresh the page to reset the state of the elements:
 
