@@ -789,7 +789,7 @@ To solve this problem, jQuery adds a `.ready` method to the `$(document)` object
 
 For example, to use the datepicker library referenced above, rather than just this:
 
-```js
+```html
 <script>
   $('#datetimepicker1').datetimepicker();
 </script>
