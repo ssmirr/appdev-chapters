@@ -479,8 +479,8 @@ def announce(&instructions)
   puts "********** THANK YOU FOR FLYING ONE-WAY AIR **********"
 end
 
-announce do |special_character|
-  puts "#{special_character} Your flight is boarding in 5 minutes. #{special_character}"
+announce do |accent_character|
+  puts "#{accent_character} Your flight is boarding in 5 minutes. #{accent_character}"
 end
 ```
 
@@ -493,8 +493,8 @@ function announce(instructions) {
   console.log("********** THANK YOU FOR FLYING ONE-WAY AIR **********");
 }
 
-announce(function(specialCharacter) {
-  console.log(`${specialCharacter} Your flight is boarding in 5 minutes ${specialCharacter}`);
+announce(function(accentCharacter) {
+  console.log(`${accentCharacter} Your flight is boarding in 5 minutes ${accentCharacter}`);
 });
 ```
 
@@ -509,8 +509,8 @@ def announce(salutation, valediction, &instructions)
   puts "********** #{valediction} **********"
 end
 
-announce("DEAR PASSENGER", "THANK YOU FOR FLYING ONE-WAY AIR") do |special_character|
-  puts "#{special_character} Your flight is boarding in 5 minutes. #{special_character}"
+announce("DEAR PASSENGER", "THANK YOU FOR FLYING ONE-WAY AIR") do |accent_character|
+  puts "#{accent_character} Your flight is boarding in 5 minutes. #{accent_character}"
 end
 ```
 
@@ -523,8 +523,8 @@ function announce(salutation, valediction, instructions) {
   console.log("********** " + valediction + " **********");
 }
 
-announce("DEAR PASSENGER", "THANK YOU FOR FLYING ONE-WAY AIR", function(specialCharacter) {
-  console.log(specialCharacter + " Your flight is boarding in 5 minutes. " + specialCharacter);
+announce("DEAR PASSENGER", "THANK YOU FOR FLYING ONE-WAY AIR", function(accentCharacter) {
+  console.log(accentCharacter + " Your flight is boarding in 5 minutes. " + accentCharacter);
 });
 ```
 
