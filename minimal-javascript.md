@@ -745,7 +745,7 @@ Let's see if we can use our new JavaScript skills to improve this experience —
  1. Break the default behavior of links and forms, so when the user clicks on them, they don't go anywhere.
  2. Make the same GET/PATCH/POST/DELETE request to whatever route that the link or form would have made, with the same parameters; but do it in the background, using JavaScript.
  3. In the action triggered by the request, instead of responding with a `.html.erb` template or redirecting as usual, we'll **respond with a `.js.erb` template containing jQuery**.
- 4. The jQuery will run in the user's browser to update just the part of the page that needs it (adding the comment, changing the like count, etc).
+ 4. The jQuery will run in the user's browser and update just the part of the page that needs it (adding the comment, changing the like count, etc).
  5. Voilá! Ajax!
 
 That's coming up next.
