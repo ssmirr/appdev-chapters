@@ -256,10 +256,10 @@ Ruby blocks are an example of a general concept in computer programming known as
 
 Callbacks are extremely common — we've seen and used them many times before, and not just every time we used a Ruby block with `do`/`end`. Think about it:
 
- - From the name, it's obvious that [ActiveRecord Callbacks](https://guides.rubyonrails.org/active_record_callbacks.html) are callbacks.
- - [The `dependent: destroy` option](https://guides.rubyonrails.org/association_basics.html#options-for-belongs-to-dependent) and [the `counter_cache: true` option](https://guides.rubyonrails.org/association_basics.html#options-for-belongs-to) are ready-made ActiveRecord callbacks.
- - [ActiveRecord validations](https://guides.rubyonrails.org/active_record_validations.html) are a form of callbacks.
- - [`before_action` and `after_action` filters](https://guides.rubyonrails.org/action_controller_overview.html#filters) in controllers are callbacks
+ - From the name, it's obvious that [ActiveRecord Callbacks](https://guides.rubyonrails.org/active_record_callbacks.html){:target="_blank} are callbacks.
+ - [The `dependent: destroy` option](https://guides.rubyonrails.org/association_basics.html#options-for-belongs-to-dependent){:target="_blank} and [the `counter_cache: true` option](https://guides.rubyonrails.org/association_basics.html#options-for-belongs-to){:target="_blank} are ready-made ActiveRecord callbacks.
+ - [ActiveRecord validations](https://guides.rubyonrails.org/active_record_validations.html){:target="_blank} are a form of callbacks.
+ - [`before_action` and `after_action` filters](https://guides.rubyonrails.org/action_controller_overview.html#filters){:target="_blank} in controllers are callbacks
  - Even controller actions themselves (code that we write in advance and give to `routes.rb` to run later when a user visits a URL) are callbacks! Most of our work all along has been writing callbacks, if you squint.
 
 That said, JavaScript, and particularly the sort of JavaScript that we're going to be writing (to make our pages interactive) is _really_ callback-heavy.
@@ -270,9 +270,9 @@ So: let's now, finally, take a look at JavaScript — through a Rails developer'
 
 ## JavaScript for Rails Developers
 
-### Ruby -> JavaScript [rosetta stone](https://en.wikipedia.org/wiki/Rosetta_Stone)
+### Ruby -> JavaScript [rosetta stone](https://blog.britishmuseum.org/everything-you-ever-wanted-to-know-about-the-rosetta-stone/){:target="_blank}
 
-First, go through the following Ruby statements and the roughly equivalent translation into JavaScript and see if they all make sense to you. If not, experiment with them. To experiment, create an HTML file on your computer ([VSCode](https://code.visualstudio.com/) is a good choice for an editor), write your code in a `<script>` tag, open the file in Chrome, and look at the output in [the JavaScript console](https://developer.chrome.com/docs/devtools/console/javascript/).
+First, go through the following Ruby statements and the roughly equivalent translation into JavaScript and see if they all make sense to you. If not, experiment with them. To experiment, create an HTML file on your computer ([VSCode](https://code.visualstudio.com/){:target="_blank} is a good choice for an editor), write your code in a `<script>` tag, open the file in Chrome, and look at the output in [the JavaScript console](https://developer.chrome.com/docs/devtools/console/javascript/){:target="_blank}.
 
 Ask questions on Piazza about anything that's fuzzy.
 
@@ -605,7 +605,7 @@ Sound familiar? It was the same story with CSS; with CSS, developers came togeth
 
 In 2021, jQuery isn't absolutely essential to survival, the way it was for many years. Many developers have started to drop it and just use vanilla JavaScript, which does have some benefits in terms of performance/the amount of data users have to download.
 
-However, I still use jQuery on almost every project and I recommend that you do too, because I'm not interested in dealing with the 1% of cases where there are still rough edges. Let's create a new HTML file and start to experiment with jQuery. [Here's a convenient CDN](https://code.jquery.com/) we can use to pull it in:
+However, I still use jQuery on almost every project and I recommend that you do too, because I'm not interested in dealing with the 1% of cases where there are still rough edges. Let's create a new HTML file and start to experiment with jQuery. [Here's a convenient CDN](https://code.jquery.com/){:target="_blank} we can use to pull it in:
 
 ```html
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -631,7 +631,7 @@ Let's get some HTML elements in our page to work with. (You can add the standard
 
 ### The jQuery function
 
-Our primary entrypoint into the utility of the library is one function: `jQuery()`. Let me point out right away the [the official jQuery documentation](https://api.jquery.com/jquery/) is quite good, so you should refer to it often.
+Our primary entrypoint into the utility of the library is one function: `jQuery()`. Let me point out right away the [the official jQuery documentation](https://api.jquery.com/jquery/){:target="_blank} is quite good, so you should refer to it often.
 
 The `jQuery()` function is sort of like the `document.getElementsByTag()`, `document.getElementsByClassName()`, `document.getElementByID()`, etc, functions that we met earlier — but all wrapped into one. You pass in any CSS selector (as a string) as an argument, and `jQuery()` will return an array of matching elements. Try this in the JS console:
 
@@ -716,23 +716,23 @@ x.on("click", function() {
 
 Now, whenever `x` is clicked, elements with class `west` will slide up and down. Nice!
 
-Other examples of events are `mouseover`, `submit` (for forms), `keydown` and `focus` (for inputs).
+Other examples of events that we'll listen for with [the on method](https://api.jquery.com/on/){:target="_blank} are `mouseover`, `submit` (for forms), `keydown` and `focus` (for inputs).
 
 #### Frequently used jQuery methods
 
 Read about and experiment with the following methods. If you need to, refresh the page to reset the state of the elements:
 
- - [https://api.jquery.com/hide/](https://api.jquery.com/hide/)
- - [https://api.jquery.com/show/](https://api.jquery.com/show/)
- - [https://api.jquery.com/toggle/](https://api.jquery.com/toggle/)
- - [https://api.jquery.com/remove/](https://api.jquery.com/remove/)
- - [https://api.jquery.com/append/](https://api.jquery.com/append/)
- - [https://api.jquery.com/prepend/](https://api.jquery.com/prepend/)
- - [https://api.jquery.com/slideUp/](https://api.jquery.com/slideUp/)
- - [https://api.jquery.com/slideDown/](https://api.jquery.com/slideDown/)
- - [https://api.jquery.com/fadeToggle/](https://api.jquery.com/fadeToggle/)
- - [https://api.jquery.com/replacewith/](https://api.jquery.com/replacewith/)
- - [https://api.jquery.com/html/](https://api.jquery.com/html/)
+ - [https://api.jquery.com/hide/](https://api.jquery.com/hide/){:target="_blank}
+ - [https://api.jquery.com/show/](https://api.jquery.com/show/){:target="_blank}
+ - [https://api.jquery.com/toggle/](https://api.jquery.com/toggle/){:target="_blank}
+ - [https://api.jquery.com/remove/](https://api.jquery.com/remove/){:target="_blank}
+ - [https://api.jquery.com/append/](https://api.jquery.com/append/){:target="_blank}
+ - [https://api.jquery.com/prepend/](https://api.jquery.com/prepend/){:target="_blank}
+ - [https://api.jquery.com/slideUp/](https://api.jquery.com/slideUp/){:target="_blank}
+ - [https://api.jquery.com/slideDown/](https://api.jquery.com/slideDown/){:target="_blank}
+ - [https://api.jquery.com/fadeToggle/](https://api.jquery.com/fadeToggle/){:target="_blank}
+ - [https://api.jquery.com/replacewith/](https://api.jquery.com/replacewith/){:target="_blank}
+ - [https://api.jquery.com/html/](https://api.jquery.com/html/){:target="_blank}
 
 ## Conclusion
 
