@@ -785,7 +785,7 @@ For example, [here's a nice datepicker library](https://getdatepicker.com/5-4/Us
 
 Note that, if you use libraries like [the datepicker](https://getdatepicker.com/5-4/Usage/){:target="blank"} above, Google Maps, or any JS library that acts upon one of your HTML elements: you need to wait until the element that you want to call the method on has been loaded before it will work. Unlike CSS, JavaScript runs _asynchronously_ in the browser, so there's no guarantee that just because the `<script>` tag appears in the document after the element that the element will have been fully loaded in time.
 
-To solve this problem, jQuery adds a `.ready` method to the `$(document)` object that we can, you guessed it, provide a callback to; and we put all our code that binds event handlers to elements within this callback, and it will execute only after the document has been fully loaded.
+To solve this problem, jQuery adds a `.ready` method to the `$(document)` object that we can, you guessed it, provide a callback to. If we put all our code that binds event handlers to elements within this callback, it will execute only after the document has been fully loaded.
 
 For example, to use the datepicker library referenced above, rather than just this:
 
