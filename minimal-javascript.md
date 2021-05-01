@@ -26,7 +26,9 @@ Welcome back! What did you think?
 
 First of all, compare your experience learning JavaScript for the first time to when you learned Ruby for the first time. How did it feel this time around to learn about variables, string interpolation, arrays, arguments, `split`, etc?
 
-_So_ much better, right? This was, for me, one of the best things about learning Ruby. After learning (the friendly, welcoming) Ruby and building some applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second[^second_lang] language was _so much easier_, and the third was even easier still.
+_So_ much better, right? This was, for me, one of the best things about learning Ruby.
+
+After learning (the friendly, welcoming) Ruby and building some applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second[^second_lang] language was _so much easier_, and the third was even easier still.
 
 Conversely, every language has some distinctive characteristics about it that will change the way you _think_ and make you better at your previous languages. Welcome to being a polyglot programmer 🙌🏾 
 
@@ -690,6 +692,32 @@ Or even smoooooother:
 ```js
 x.fadeToggle(5000);
 ```
+
+### Using callbacks
+
+As I mentioned earlier, JavaScript is callback-heavy. Here's a simple example:
+
+In the smoooooother example above, we had the element take 5 seconds to fade. What if we wanted to have something after the element faded out, but not until then? No problem! The method (like most jQuery methods) accepts a callback (the equivalent of a Ruby block):
+
+```js
+x.fadeToggle(5000, function() {
+  alert("All done!");
+});
+```
+
+Another common thing we'll do is bind **event handlers** to elements. Try the following:
+
+```js
+x.on("click", function() {
+  $(".west").slideToggle();
+});
+```
+
+Now, whenever `x` is clicked, elements with class `west` will slide up and down. Nice!
+
+Other examples of events are `mouseover`, `submit` (for forms), `keydown` and `focus` (for inputs).
+
+#### Frequently used jQuery methods
 
 Read about and experiment with the following methods. If you need to, refresh the page to reset the state of the elements:
 
