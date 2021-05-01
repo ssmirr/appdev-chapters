@@ -34,7 +34,7 @@ First of all, compare your experience learning JavaScript for the first time to 
 
 _So_ much better, right? This was, for me, one of the best things about learning Ruby.
 
-After learning (the friendly, welcoming) Ruby and building some applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second[^second_lang] language was _so much easier_, and the third was even easier still.
+After learning (the friendly, welcoming) Ruby and building some pragmatic, real-world applications in Rails, and through that getting a pretty good understanding of programming _concepts_ (variables, conditionals, loops, objects, methods, arguments, etc) — my second[^second_lang] language was _so much easier_, and the third was even easier still.
 
 Conversely, every language has some distinctive characteristics about it that will change the way you _think_ and make you better at your previous languages. Welcome to being a polyglot programmer 🙌🏾 
 
