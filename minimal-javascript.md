@@ -759,17 +759,27 @@ It's worth looking through the docs for what you need; but usually, you can Goog
 
 Here are the jQuery methods that I wind up using most frequently. Read about and experiment with them. If you need to, refresh the page to reset the state of the elements:
 
- - [https://api.jquery.com/hide/](https://api.jquery.com/hide/){:target="_blank}
- - [https://api.jquery.com/show/](https://api.jquery.com/show/){:target="_blank}
- - [https://api.jquery.com/toggle/](https://api.jquery.com/toggle/){:target="_blank}
- - [https://api.jquery.com/slideUp/](https://api.jquery.com/slideUp/){:target="_blank}
- - [https://api.jquery.com/slideDown/](https://api.jquery.com/slideDown/){:target="_blank}
- - [https://api.jquery.com/fadeToggle/](https://api.jquery.com/fadeToggle/){:target="_blank}
- - [https://api.jquery.com/remove/](https://api.jquery.com/remove/){:target="_blank}
- - [https://api.jquery.com/append/](https://api.jquery.com/append/){:target="_blank}
- - [https://api.jquery.com/prepend/](https://api.jquery.com/prepend/){:target="_blank}
- - [https://api.jquery.com/replaceWwith/](https://api.jquery.com/replaceWith/){:target="_blank}
- - [https://api.jquery.com/html/](https://api.jquery.com/html/){:target="_blank}
+ - [hide()](https://api.jquery.com/hide/){:target="_blank}
+ - [show()](https://api.jquery.com/show/){:target="_blank}
+ - [toggle()](https://api.jquery.com/toggle/){:target="_blank}
+ - [slideUp()](https://api.jquery.com/slideUp/){:target="_blank}
+ - [slideDown()](https://api.jquery.com/slideDown/){:target="_blank}
+ - [fadeToggle()](https://api.jquery.com/fadeToggle/){:target="_blank}
+ - [remove()](https://api.jquery.com/remove/){:target="_blank}
+ - [append()](https://api.jquery.com/append/){:target="_blank}
+ - [prepend()](https://api.jquery.com/prepend/){:target="_blank}
+ - [replaceWith()](https://api.jquery.com/replaceWith/){:target="_blank}
+ - [html()](https://api.jquery.com/html/){:target="_blank}
+ - [removeClass()](https://api.jquery.com/removeClass/){:target="_blank}
+ - [val()](https://api.jquery.com/val/){:target="_blank}
+ - [focus()](https://api.jquery.com/focus/){:target="_blank}
+ - [submit()](https://api.jquery.com/submit/){:target="_blank}
+
+## jQuery plugins
+
+Even if we just stopped here, you've already gained a lot of power, because jQuery has a whole ecosystem of plugins built around it. A lot of library authors architected their projects as: "locate the element on your page with `$()`, call my function on it, and POOF, it will turn into a chart/datepicker/calendar/carousel/etc".
+
+For example, [here's a nice datepicker library](https://getdatepicker.com/5-4/Usage/){:target="blank"} that plays well with Bootstrap. There are _many_ other jQuery plugins out there that follow the same pattern.
 
 ## Conclusion
 
