@@ -564,9 +564,9 @@ for_each_in(fruits) do |f|
 end
 ```
 
-If you can do it, you're in great shape for what we want to do — adding interactivity to our apps with **A**synchronous **J**avaScript **A**nd **X**ML — AJAX[^ajaj]!
+If you can do it, you're in great shape for what we want to do — adding interactivity to our apps with **A**synchronous **J**avaScript **A**nd **X**ML — Ajax[^ajaj]!
 
-[^ajaj]: No one really uses XML for it anymore, but the name sounds much better than "AJAJ" (for JSON) or "AJAH" (for HTML), so we stuck with AJAX 😉
+[^ajaj]: No one really uses XML for it anymore, but Ajax sounds much better than "Ajaj" (for JSON) or "Ajah" (for HTML), so we stuck with it 😉
 
 ## Manipulating HTML elements
 
