@@ -626,7 +626,7 @@ Let's get some HTML elements in our page to work with. (You can add the standard
 
 <h1>Cities</h1>
 
-<ul>
+<ul id="cities_list">
   <li class="northeast">New York</li>
   <li class="west">Los Angeles</li>
   <li id="best" class="midwest">Chicago</li>
@@ -637,7 +637,9 @@ Let's get some HTML elements in our page to work with. (You can add the standard
 
 ### The jQuery function
 
-Our primary entrypoint into the utility of the library is one function: `jQuery()`. Let me point out right away the [the official jQuery documentation](https://api.jquery.com/jquery/){:target="_blank} is quite good, so you should refer to it often.
+jQuery is an incredibly useful library, and gives us access to a massive ecosystem of plugins; but basically, the way we use it starts out in just one way: by calling the `jQuery()` function[^official_docs].
+
+[^official_docs]: Let me point out right away the [the official jQuery documentation](https://api.jquery.com/jquery/){:target="_blank} is quite good, so you should refer to it often.
 
 The `jQuery()` function is sort of like the `document.getElementsByTag()`, `document.getElementsByClassName()`, `document.getElementByID()`, etc, functions that we met earlier — but all wrapped into one. You pass in any CSS selector (as a string) as an argument, and `jQuery()` will return an array of matching elements. Try this in the JS console:
 
@@ -698,6 +700,22 @@ Or even smoooooother:
 x.fadeToggle(5000);
 ```
 
+### Creating elements with jQuery
+
+You can also programmatically create elements using jQuery. Pass a string containing HTML directly to `$()`:
+
+```js
+let another_city = $("<li class='northeast'>Philadelphia</li>");
+```
+
+Then, you can add it to the DOM:
+
+```
+list = $("#cities_list");
+
+list.append(another_city);
+```
+
 ### Using callbacks
 
 As I mentioned earlier, JavaScript is callback-heavy. Here's a simple example:
@@ -726,17 +744,30 @@ Other examples of events that we'll listen for with [the on method](https://api.
 
 #### Frequently used jQuery methods
 
-Read about and experiment with the following methods. If you need to, refresh the page to reset the state of the elements:
+If you look at the left sidebar of the jQuery docs, you'll see they nicely organize methods by category:
+
+ - [Effects](https://api.jquery.com/category/effects/){:target="_blank}
+ - DOM [Manipulation](https://api.jquery.com/category/manipulation/){:target="_blank}
+    -  [Insertion Around](https://api.jquery.com/category/manipulation/dom-insertion-around/){:target="_blank}
+    -  [Insertion Inside](https://api.jquery.com/category/manipulation/dom-insertion-inside/){:target="_blank}
+    -  [Insertion Outside](https://api.jquery.com/category/manipulation/dom-insertion-outside/){:target="_blank}
+    -  [Removal](https://api.jquery.com/category/manipulation/dom-removal/){:target="_blank}
+    -  [Replacement](https://api.jquery.com/category/manipulation/dom-replacement/){:target="_blank}
+ - [CSS](https://api.jquery.com/category/css/){:target="_blank}
+
+It's worth looking through the docs for what you need; but usually, you can Google "jQuery how to ________" and have pretty good success. E.g., "jquery how to add an element as the last child".
+
+Here are the jQuery methods that I wind up using most frequently. Read about and experiment with them. If you need to, refresh the page to reset the state of the elements:
 
  - [https://api.jquery.com/hide/](https://api.jquery.com/hide/){:target="_blank}
  - [https://api.jquery.com/show/](https://api.jquery.com/show/){:target="_blank}
  - [https://api.jquery.com/toggle/](https://api.jquery.com/toggle/){:target="_blank}
- - [https://api.jquery.com/remove/](https://api.jquery.com/remove/){:target="_blank}
- - [https://api.jquery.com/append/](https://api.jquery.com/append/){:target="_blank}
- - [https://api.jquery.com/prepend/](https://api.jquery.com/prepend/){:target="_blank}
  - [https://api.jquery.com/slideUp/](https://api.jquery.com/slideUp/){:target="_blank}
  - [https://api.jquery.com/slideDown/](https://api.jquery.com/slideDown/){:target="_blank}
  - [https://api.jquery.com/fadeToggle/](https://api.jquery.com/fadeToggle/){:target="_blank}
+ - [https://api.jquery.com/remove/](https://api.jquery.com/remove/){:target="_blank}
+ - [https://api.jquery.com/append/](https://api.jquery.com/append/){:target="_blank}
+ - [https://api.jquery.com/prepend/](https://api.jquery.com/prepend/){:target="_blank}
  - [https://api.jquery.com/replacewith/](https://api.jquery.com/replacewith/){:target="_blank}
  - [https://api.jquery.com/html/](https://api.jquery.com/html/){:target="_blank}
 
