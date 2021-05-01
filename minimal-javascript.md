@@ -20,6 +20,12 @@ Thankfully, also like CSS, JavaScript has made tremendous strides in the last 5-
 
 For the very basics of JavaScript, I recommend this Scrimba course: [Introduction to JavaScript](https://scrimba.com/learn/introtojavascript){:target="_blank"}. You should be able to watch it on 1.5x or 2x speed. Go ahead, I'll wait.
 
+---
+
+---
+
+---
+
 Welcome back! What did you think?
 
 ### This ain't your first rodeo
