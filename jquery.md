@@ -37,29 +37,103 @@ Sound familiar? It was the same story with CSS; with CSS, developers came togeth
 
 In 2021, jQuery isn't absolutely essential to survival, the way it was for many years. Many developers have started to drop it and just use vanilla JavaScript, which does have some benefits in terms of performance/the amount of data users have to download.
 
-However, I still use jQuery on almost every project and I recommend that you do too, because I'm not interested in dealing with the 1% of cases where there are still rough edges. So, let's go grab it. [Here's a convenient CDN](https://code.jquery.com/) we can use:
+However, I still use jQuery on almost every project and I recommend that you do too, because I'm not interested in dealing with the 1% of cases where there are still rough edges. Let's create a new HTML file and start to experiment with jQuery. [Here's a convenient CDN](https://code.jquery.com/) we can use to pull it in:
 
 ```html
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 ```
 
-I've already added the above `<script>` tag to [this solutions file](https://github.com/appdev-projects/javascript_intro/blob/b1bb82ae3b80fec5fc8ccc0cb4dcf7bb2b7fa31d/hello.html). You can download it and work in there if you like, or you could start a file from scratch to experiment with.
-
 ## Add some elements
 
-Let's get some HTML elements in our page to work with.
+Let's get some HTML elements in our page to work with. (You can add the standard HTML boilerplate around it if you want to.)
 
 ```html
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <h1>Cities</h1>
-<p id="best">Chicago</p>
-<p>Atlanta</p>
-<p>New York</p>
-<p>San Francisco</p>
-<p><a id="add" href="#">Add Los Angeles</a></p>
 
-<div><a id="hide" href="https://m.wikipedia.org/">Click here to hide</a></div>
-<div><a id="show" href="https://m.wikipedia.org/">Click here to show</a></div>
-<div><a id="toggle" href="https://m.wikipedia.org/">Click here to toggle</a></div>
+<ul>
+  <li class="northeast">New York</li>
+  <li class="west">Los Angeles</li>
+  <li id="best" class="midwest">Chicago</li>
+  <li class="south">Houston</li>
+  <li class="west">Phoenix</li>
+</ul>
 ```
+
+## The jQuery function
+
+Our primary entrypoint into the utility of the library is one function: `jQuery()`. Let me point out right away the [the official jQuery documentation](https://api.jquery.com/jquery/) is quite good, so you should refer to it often.
+
+The `jQuery()` function is sort of like the `document.getElementsByTag()`, `document.getElementsByClassName()`, `document.getElementByID()`, etc, functions that we met earlier — but all wrapped into one. You pass in any CSS selector (as a string) as an argument, and `jQuery()` will return an array of matching elements. Try this in the JS console:
+
+```js
+jQuery("li");
+jQuery(".west");
+jQuery("#best");
+```
+
+Since we're going to be using the `jQuery()` function _a lot_, they conveniently aliased it as `$()`, to save us a lot of typing. So the above could also be shortened to:
+
+```js
+$("li");
+$(".west");
+$("#best");
+```
+
+## DOM manipulation
+
+Once we've queried the DOM for the elements we're interested in, jQuery provides many methods for manipulating them. Let's try putting an element in a variable:
+
+```js
+let x = $("#best");
+```
+
+Now, we can manipulate it:
+
+```js
+x.hide();
+```
+
+Poof! Let's bring it back:
+
+```js
+x.show();
+```
+
+Or, if we're not sure what state it's in (visible or invisible) to start with, we can toggle:
+
+```js
+x.toggle();
+x.toggle();
+x.toggle();
+```
+
+That's pretty abrupt, though. How about something a little smoother?
+
+```js
+x.hide();
+x.fadeIn();
+x.fadeOut();
+x.fadeToggle();
+```
+
+Or even smoooooother:
+
+```js
+x.fadeToggle(5000);
+```
+
+Read about and experiment with the following methods. If you need to, refresh the page to reset the state of the elements:
+
+ - [https://api.jquery.com/hide/](https://api.jquery.com/hide/)
+ - [https://api.jquery.com/show/](https://api.jquery.com/show/)
+ - [https://api.jquery.com/toggle/](https://api.jquery.com/toggle/)
+ - [https://api.jquery.com/remove/](https://api.jquery.com/remove/)
+ - [https://api.jquery.com/append/](https://api.jquery.com/append/)
+ - [https://api.jquery.com/prepend/](https://api.jquery.com/prepend/)
+ - [https://api.jquery.com/slideUp/](https://api.jquery.com/slideUp/)
+ - [https://api.jquery.com/slideDown/](https://api.jquery.com/slideDown/)
+ - [https://api.jquery.com/fadeToggle/](https://api.jquery.com/fadeToggle/)
+ - [https://api.jquery.com/replacewith/](https://api.jquery.com/replacewith/)
+ - [https://api.jquery.com/html/](https://api.jquery.com/html/)
