@@ -369,22 +369,28 @@ greet("Raghu");
 Ruby:
 
 ```ruby
-city = "Toledo"
+city = "Mumbai"
+
 if city == "Chicago"
   puts "You live in the best city ever!"
+elsif city == "Berlin"
+  puts "You live in a great city!"
 else
-  puts "You live in a so-so city."
+  puts "You live in a nice city."
 end
 ```
 
 JavaScript:
 
 ```js
-let city = "Toledo";
+let city = "Mumbai";
+
 if (city === "Chicago") {
   console.log("You live in the best city ever!");
+} else if (city === "Berlin") {
+  console.log("You live in a great city!");
 } else {
-  console.log("You live in a so-so city.");
+  console.log("You live in a nice city.");
 }
 ```
 
