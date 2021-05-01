@@ -797,7 +797,7 @@ For example, to use the datepicker library referenced above, rather than just th
 
 We should do something like the following:
 
-```js
+```html
 <script>
   $(document).ready(function() {
     $('#datetimepicker1').datetimepicker();
