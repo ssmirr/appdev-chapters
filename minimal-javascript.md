@@ -699,7 +699,7 @@ Read about and experiment with the following methods. If you need to, refresh th
 
 And that, from the perspective of a Rails developer who wants to improve the UX of their web application, is all we _need_ to know about JavaScript — for the moment.
 
-Now, we're ready to revamp the interactions in our UI. When someone clicks on a link or submits a form, in many cases we end up redirecting them to the same URL that they were on before; but they wind up at the top of the page, losing their scroll position. Annoying!
+Now, we're ready to revamp the interactions in our UI. When someone clicks on a link or submits a form, in many cases (usually after we CRUD some data in some table(s)) we end up redirecting them to the same URL that they were on before; but they wind up at the top of the page, losing their scroll position. Annoying!
 
 Let's see if we can use our new JavaScript skills to improve this experience — with a technique called Ajax. We're going to:
 
