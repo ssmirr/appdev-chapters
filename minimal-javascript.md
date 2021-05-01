@@ -375,8 +375,7 @@ JavaScript:
 let city = "Toledo";
 if (city === "Chicago") {
   console.log("You live in the best city ever!");
-}
-else {
+} else {
   console.log("You live in a so-so city.");
 }
 ```
@@ -697,7 +696,9 @@ x.fadeToggle(5000);
 
 As I mentioned earlier, JavaScript is callback-heavy. Here's a simple example:
 
-In the smoooooother example above, we had the element take 5 seconds to fade. What if we wanted to have something after the element faded out, but not until then? No problem! The method (like most jQuery methods) accepts a callback (the equivalent of a Ruby block):
+In the smoooooother example above, we had the element take 5 seconds to fade. What if we wanted to have something happen after the element faded out, but not until then?
+
+No problem! `fadeToggle` (like most jQuery methods) accepts a callback that it will run once it completes:
 
 ```js
 x.fadeToggle(5000, function() {
@@ -742,8 +743,8 @@ Now, we're ready to revamp the interactions in our UI. When someone clicks on a 
 Let's see if we can use our new JavaScript skills to improve this experience — with a technique called Ajax. We're going to:
 
  1. Break the default behavior of links and forms, so when the user clicks on them, they don't go anywhere.
- 2. Make the GET/PATCH/POST/DELETE request to whatever route that the link or form would have made in the background, using JavaScript.
- 3. From the action, respond with a bit of jQuery instead of with a `.html.erb` template.
+ 2. Make the same GET/PATCH/POST/DELETE request to whatever route that the link or form would have made, with the same parameters; but do it in the background, using JavaScript.
+ 3. In the action triggered by the request, instead of responding with a `.html.erb` template or redirecting as usual, we'll **respond with a `.js.erb` template containing jQuery**.
  4. The jQuery will run in the user's browser to update just the part of the page that needs it (adding the comment, changing the like count, etc).
  5. Voilá! Ajax!
 
