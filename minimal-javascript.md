@@ -740,7 +740,9 @@ x.on("click", function() {
 
 Now, whenever `x` is clicked, elements with class `west` will slide up and down. Nice!
 
-Other examples of events that we'll listen for with [the on method](https://api.jquery.com/on/){:target="_blank} are `mouseover`, `submit` (for forms), `keydown` and `focus` (for inputs).
+As you can see, we can use [the `on` method](https://api.jquery.com/on/){:target="_blank} to react to `"click"`s to any element; we're no longer constrained to users only clicking `<a>`s or `<button>`s. `"mouseover"` is another event that applies to almost any element.
+
+Examples of events that apply to only certain kinds of elements are `"change"` (for `<select>`s), `"keydown"` (for `<input>`s), and `"submit"` (for forms).
 
 #### Frequently used jQuery methods
 
