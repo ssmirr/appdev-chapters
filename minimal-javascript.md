@@ -785,7 +785,9 @@ For example, [here's a nice datepicker library](https://getdatepicker.com/5-4/Us
 
 Note that, if you use libraries like [the datepicker](https://getdatepicker.com/5-4/Usage/){:target="blank"} above, Google Maps, or any JS library that acts upon one of your HTML elements: you need to wait until the element that you want to call the method on has been loaded before it will work. Unlike CSS, JavaScript runs _asynchronously_ in the browser, so there's no guarantee that just because the `<script>` tag appears in the document after the element that the element will have been fully loaded in time.
 
-To solve this problem, jQuery adds a `.ready` method to the `$(document)` object that we can, you guessed it, provide a callback to. If we put all our code that binds event handlers to elements within this callback, it will execute only after the document has been fully loaded.
+To solve this problem, jQuery adds a `.ready` method[^ready_read_more] to the `$(document)` object that we can, you guessed it, provide a callback to. If we put all our code that binds event handlers to elements within this callback, it will execute only after the document has been fully loaded.
+
+[^ready_read_more]: [Read more about `$(document).ready` here](https://learn.jquery.com/using-jquery-core/document-ready/){:target="_blank"}, if you're interested.
 
 For example, to use the datepicker library referenced above, rather than just this:
 
@@ -805,15 +807,15 @@ We should do something like the following:
 </script>
 ```
 
-[Read more about `$(document).ready` here](https://learn.jquery.com/using-jquery-core/document-ready/){:target="_blank"}, if you're interested.
-
 ## Turbolinks
 
 ### turbolinks:load
 
-Rails, by default, includes a library called Turbolinks that actually has been doing some Ajax for us all along without us even knowing it. When users click on links, Turbolinks has been only replacing the `<body>` of the document, to make the application feel a bit snappier.
+Rails, by default, includes a library called Turbolinks[^turbolinks_read_more] that actually has been doing some Ajax for us all along without us even knowing it. When users click on links, Turbolinks has been only replacing the `<body>` of the document, to make the application feel a bit snappier.
 
 This, however, can mess with our jQuery, which is listening for `$(document).ready` (which only fires when a full page reload occurs) to initialize event handlers when users navigate to different pages. To solve this, we can use the `turbolinks:load` event instead:
+
+[^turbolinks_read_more]: [Read more about Turbolinks here](https://github.com/turbolinks/turbolinks#installing-javascript-behavior){:target="_blank"}, if you're interested.
 
 ```js
 $( document ).on('turbolinks:load', function() {
@@ -828,8 +830,6 @@ If you pull in a 3rd-party JavaScript library (say, for example, Google Maps), a
 Try the `turbolinks:load` fix above. Or sometimes you have to do some other things, [as we did to fix the Bootstrap modal in Photogram Industrial](https://www.honeybadger.io/blog/turbolinks/){:target="_blank"}.
 
 A common strategy is to [just disable Turbolinks](https://stackoverflow.com/questions/38649550/rails-how-to-disable-turbolinks-in-rails-5){:target="_blank"}. Since we're about to add real Ajax to our application anyway, having the automatic sort-of-but-not-really-Ajax of Turbolinks becomes less helpful.
-
-[Read more about Turbolinks here](https://github.com/turbolinks/turbolinks#installing-javascript-behavior){:target="_blank"}, if you're interested.
 
 ## Conclusion
 
