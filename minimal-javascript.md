@@ -272,7 +272,7 @@ That said, JavaScript, and particularly the sort of JavaScript that we're going 
 
 That's because a lot of what we're going to want to do is attach **event handlers** to elements in our HTML that will wait for the user to perform some interaction (for example, click on something, or drag-and-drop something), and then it is supposed to spring to life and run the _callback_ we give it (`.call()` the block, in Ruby terms).
 
-So: let's now, finally, take a look at JavaScript — through a Rails developer's eyes.
+Okay, with that review of blocks under our belt, let's now, finally, take a look at JavaScript — from a Rails developer's perspective.
 
 ## JavaScript for Rails Developers
 
