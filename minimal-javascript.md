@@ -792,6 +792,8 @@ Even if we just stopped here, you've already gained a lot of power, because jQue
 
 For example, [here's a nice datepicker library](https://getdatepicker.com/5-4/Usage/){:target="blank"} that plays well with Bootstrap. There are _many_ other jQuery plugins out there that follow the same pattern.
 
+You now also have full access to all of the goodies in Bootstrap, like [the Popover component](https://getbootstrap.com/docs/4.6/components/popovers/#example-enable-popovers-everywhere){:target="blank"}, which requires that you initialize it using jQuery (it doesn't automatically initialize for performance reasons).
+
 ## $(document).ready
 
 Note that, if you use libraries like [the datepicker](https://getdatepicker.com/5-4/Usage/){:target="blank"} above, Google Maps, or any JS library that acts upon one of your HTML elements: you need to wait until the element that you want to call the method on has been loaded before it will work. Unlike CSS, JavaScript runs _asynchronously_ in the browser, so there's no guarantee that just because the `<script>` tag appears in the document after the element that the element will have been fully loaded in time.
