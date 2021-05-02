@@ -780,6 +780,7 @@ Here are the jQuery methods that I wind up using most frequently. Read about and
  - [prepend()](https://api.jquery.com/prepend/){:target="_blank}
  - [replaceWith()](https://api.jquery.com/replaceWith/){:target="_blank}
  - [html()](https://api.jquery.com/html/){:target="_blank}
+ - [addClass()](https://api.jquery.com/addClass/){:target="_blank}
  - [removeClass()](https://api.jquery.com/removeClass/){:target="_blank}
  - [val()](https://api.jquery.com/val/){:target="_blank}
  - [focus()](https://api.jquery.com/focus/){:target="_blank}
