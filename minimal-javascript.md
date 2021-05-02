@@ -836,7 +836,7 @@ $( document ).on('turbolinks:load', function() {
 })
 ```
 
-### If your JavaScript libraries are acting funny, it's probably turbolinks
+### If your JavaScript libraries are acting funny, it's probably Turbolinks
 
 If you pull in a 3rd-party JavaScript library (say, for example, Google Maps), and you notice some weird behavior, especially things that are resolved when you do a full page refresh: the issue is probably related to Turbolinks.
 
