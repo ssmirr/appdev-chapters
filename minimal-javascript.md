@@ -278,7 +278,7 @@ Okay, with that review of blocks under our belt, let's now, finally, take a look
 
 ### Ruby -> JavaScript translations
 
-First, go through the following Ruby statements and the roughly equivalent translation[^rosetta_stone] into JavaScript and see if they all make sense to you. If not, experiment with them. To experiment, create an HTML file on your computer ([VSCode](https://code.visualstudio.com/){:target="_blank} is a good choice for an editor), write your code in a `<script>` tag, open the file in Chrome, and look at the output in [the JavaScript console](https://developer.chrome.com/docs/devtools/console/javascript/){:target="_blank}.
+First, go through the following Ruby statements and the roughly equivalent translation[^rosetta_stone] into JavaScript and see if they all make sense to you. If not, experiment with them. To experiment, create an HTML file on your computer ([VSCode](https://code.visualstudio.com/){:target="_blank} is a good choice for an editor), write your code within a `<script>` tag, open the file in Chrome, and look at the output in [the JavaScript console](https://developer.chrome.com/docs/devtools/console/javascript/){:target="_blank}.
 
 [^rosetta_stone]: I find that a ["rosetta stone"](https://blog.britishmuseum.org/everything-you-ever-wanted-to-know-about-the-rosetta-stone/){:target="_blank} approach is very helpful when learning a new programming language.
 
