@@ -270,7 +270,7 @@ Callbacks are extremely common — we've seen and used them many times before, a
 
 That said, JavaScript, and particularly the sort of JavaScript that we're going to be writing (to make our pages interactive) is _really_ callback-heavy.
 
-That's because a lot of what we're going to want to do is attach **event handlers** to elements in our HTML that will wait for the user to perform some interaction (for example, click on it, or mouse-over it), and then it is supposed to spring to life and run the _callback_ we give it (`.call()` the block, in Ruby terms).
+That's because a lot of what we're going to want to do is attach **event handlers** to elements in our HTML that will wait for the user to perform some interaction (for example, click on something, or drag-and-drop something), and then it is supposed to spring to life and run the _callback_ we give it (`.call()` the block, in Ruby terms).
 
 So: let's now, finally, take a look at JavaScript — through a Rails developer's eyes.
 
