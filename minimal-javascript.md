@@ -85,7 +85,7 @@ end
 
 ---
 
-What we need here is to define a method that is capable of receiving not just an argument, which we're used to doing with parentheses, but a **block**.
+What we need to do here is define a method that is capable of receiving not just an argument, which we're used to doing with parentheses, but a **block**.
 
 In Ruby, we actually don't have to do anything at all to our method in order to allow it to receive a block; if a block is provided by the user of the method, it will automatically be captured and we (the method authors) can invoke it with `yield`:
 
