@@ -401,15 +401,20 @@ Even better, we're still conforming to our _mental model_ of RCAV+CRUD, which is
 
 On the other hand: for very complicated "single page" applications that really don't fit the RESTful, document/URL-based paradigm (think Google Sheets), this approach using [Rails' "Unobtrusive AJAX"](https://guides.rubyonrails.org/working_with_javascript_in_rails.html){:target="_blank"} may not be the best choice.
 
-For cases like that, we will have to consider breaking apart our application into a back-end that serves only JSON (i.e. doesn't support requests of format HTML nor JS); and front-end clients will have to consume the API. The JSON API that we develop will have to be much more robust than the taste we got earlier by simply doing:
+For cases like that, we will have to consider breaking apart our application into:
+
+ - a back-end that serves only JSON (i.e. doesn't support requests of format HTML nor JS)
+ - and front-end clients that consume that JSON API.
+
+The JSON API that we develop will have to be much more robust than the taste we got earlier by simply doing:
 
 ```ruby
 format.json { render json: @movies }
 ```
 
-Typically the back-end and front-end will now be developed by their own specialists, since now will require much more work.
+Typically the back-end and front-end will now be developed by their own specialists, since both will now require much more work and will require markedly different languages/paradigms.
 
-We could build a complicated web-client using `$().ajax` to fetch JSON from our API and `$()` to create and insert elements into the DOM, but it's usually better to use a framework like React, Vue, or Angular.
+We _could_ build one of these web-clients using `$().ajax` to fetch JSON from our API and `$()` to create and insert elements into the DOM, but it's usually better to use a framework like React, Vue, or Angular.
 
 All in all, going the SPA-route dramatically increases cost and reduces development velocity versus using the Rails Ajax approach outlined above.[^native_clients] But,in some cases, we have no choice. _Only_ go down the SPA road when a simpler approach won't work! Far too many teams choose an SPA framework when their app isn't a single-page at all; if it's a classic, document-based, RESTful CRUD application, you can build for 1/4 the cost if you treat as such. And, as you learned above, you can still make it snappy and interactive using sprinkles of unobtrusive Ajax.
 
