@@ -317,7 +317,7 @@ var added_comment = $("<%= escape_javascript(render 'comments/comment', comment:
 
 Now give it a try and look at the response:
 
-![](/assets/render-without-escape-js.png)
+![](/assets/render-with-escape-js.png)
 
 And, it works again — and it looks great. If you want to, you can use an abbreviation for the `escape_javascript()` helper — `j()`:
 
