@@ -28,7 +28,7 @@ Secondly, we need to attach a custom JavaScript event handler to the link such t
 
 Finally, the request that is placed must be of the format `.js`, rather than `.html`. Then, we can `respond_to` it accordingly.
 
-Ok, phew. How are we going to do all this? Well, there's a helper method that's going to do it all for us, but just as a thought experiment: here's what we'd need to know in order to do it ourselves:
+Ok, phew. How are we going to do all this? Well, fortunately the `link_to` and `form_with` methods are going to do it all for us; but just as a thought experiment, here's what we'd need in order to do it ourselves:
 
  - The [jQuery ajax() method](https://api.jquery.com/jquery.ajax/){:target="_blank"}. It is the equivalent of when we used [`HTTP.get()` or `HTTP.post()`](https://github.com/httprb/http#basic-usage){:target="_blank"} to interact with APIs in Ruby; you provide it with a URL and it places a request to that URL.
  - We can `return false` from `on("click")`'s callback, or use [the preventDefault method](https://api.jquery.com/event.preventdefault/){:target="_blank"}, to prevent the user from going anywhere when they click the link.
