@@ -36,7 +36,7 @@ Ok, phew. How are we going to do all this? Well, fortunately the `link_to` and `
 With these pieces, we _could_ write the code ourselves; it would look something like the following:
 
 ```erb
-<%= link_to "#",                               # removed the href since we're breaking the link anyway
+<%= link_to "#", # comment,                    # removed the href since we're breaking the link anyway
       # method: :delete,                       # removed the method since we're breaking the link anyway
       class: "btn btn-link btn-sm text-muted",
       id: "#{dom_id(comment)}_delete_link" do  # added an id to the link so that I can bind a click handler to it %>
