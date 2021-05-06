@@ -752,7 +752,7 @@ As you can see, we can use [the `on` method](https://api.jquery.com/on/){:target
 
 Examples of events that apply to only certain kinds of elements are `"change"` (for `<select>`s), `"keydown"` (for `<input>`s), and `"submit"` (for forms).
 
-#### Frequently used jQuery methods
+### Frequently used jQuery methods
 
 If you look at the left sidebar of [the jQuery docs](https://api.jquery.com/){:target="_blank}, you'll see they nicely organize methods by category:
 
@@ -831,7 +831,7 @@ This, however, can mess with our jQuery, which is listening for `$(document).rea
 [^turbolinks_read_more]: [Read more about Turbolinks here](https://github.com/turbolinks/turbolinks#installing-javascript-behavior){:target="_blank"}, if you're interested.
 
 ```js
-$( document ).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
   console.log("It works on each visit!")
 })
 ```
