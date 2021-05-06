@@ -1,4 +1,4 @@
-# Rails Unobtrusive Ajax
+# Ajax with Rails UJS
 
 ## Objective
 

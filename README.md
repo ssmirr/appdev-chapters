@@ -59,6 +59,10 @@ Works in progress, and not in order.
  2. [A few Git aliases](https://chapters.firstdraft.com/chapters/857)
  3. [Continuous Delivery](https://chapters.firstdraft.com/chapters/858)
  4. [Authorization with Pundit](https://chapters.firstdraft.com/chapters/860)
- 5. [Minimal JavaScript for Rails Developers](https://chapters.firstdraft.com/chapters/861)
-   
+ 5. [Minimal JavaScript for Rails Developers](https://chapters.firstdraft.com/chapters/861)  
+ 5. [Ajax with Rails UJS](https://chapters.firstdraft.com/chapters/862)
+
+---
+---
+
 Please let us know if you find any links to pages that are no longer live, or any other errata.
