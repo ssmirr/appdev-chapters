@@ -1,4 +1,4 @@
-# JavaScript for Rails Developers
+# Minimal JavaScript for Rails Developers
 
 ## History
 
@@ -14,7 +14,7 @@ However, like CSS, it can't undo mistakes in the design of the language[^ten_day
 
 Thankfully, also like CSS, JavaScript has made tremendous strides in the last 5-10 years in paving over the warts of the past with new features and getting them adopted across _most_ browsers so that, in 2021, it's quite nice to use.
 
-[^ten_days]: The initial design of JavaScript was done in just 10 days. This sometimes painfully obvious in the early days.
+[^ten_days]: The initial design of JavaScript was done in just 10 days. This was (sometimes painfully) obvious in the early days.
 
 ## The very basics
 
