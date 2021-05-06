@@ -300,7 +300,7 @@ Either way — we now have the comment being added to the correct spot in the D
 Right now we're using a `<p>` tag for the comment, but we had a beautifully styled component for a comment with a lot more markup, CSS classes, nested elements, etc, already. Fortunately, we don't have to type all of the HTML for a comment right into the `$()` method, because we're 1) inside a `.js.erb` template, and 2) we have a partial that represents a comment already!
 
 ```js
-var added_comment = $("<%= render 'comments/comment' comment: @comment %>");
+var added_comment = $("<%= render 'comments/comment', comment: @comment %>");
 ```
 
 If you try this and look at the response, you'll see our partial being rendered beautifully:
@@ -314,14 +314,20 @@ The issue is that our HTML contains a lot of characters that are not allowed wit
 Oh no! Does that mean we can't use our partials after all, and we have to type in all the HTML ourselves, being careful to escape every illegal character? Thankfully, no — Rails includes a helper method called `escape_javascript()`. Give it your string, and it will return another string with all characters that JavaScript doesn't like nicely escaped:
 
 ```js
-var added_comment = $("<%= escape_javascript(render 'comments/comment' comment: @comment) %>");
+var added_comment = $("<%= escape_javascript(render 'comments/comment', comment: @comment) %>");
 ```
 
 Now give it a try and look at the response:
 
 ![](/assets/render-without-escape-js.png)
 
-And, it works again — and it looks great.
+And, it works again — and it looks great. If you want to, you can use an abbreviation for the `escape_javascript()` helper — `j()`:
+
+```js
+var added_comment = $("<%= j(render 'comments/comment', comment: @comment) %>");
+```
+
+I sorta like how clearly `escape_javascript()` reads, but the brevity of `j()` is nice too. Your call.
 
 #### Clear the form input
 
