@@ -36,17 +36,17 @@ Ok, phew. How are we going to do all this? Well, fortunately the `link_to` and `
 With these pieces, we _could_ write the code ourselves; it would look something like the following:
 
 ```erb
-<%= link_to "#", # comment,                    # removed the href since we're breaking the link anyway
-      # method: :delete,                       # removed the method since we're breaking the link anyway
+<%= link_to "#", # comment,                      # removed the href since we're breaking the link anyway
+      # method: :delete,                         # removed the method since we're breaking the link anyway
       class: "btn btn-link btn-sm text-muted",
-      id: "#{dom_id(comment)}_delete_link" do  # added an id to the link so that I can bind a click handler to it %>
+      id: "#comment_{comment.id}_delete_link" do # added an id to the link so that I can bind a click handler to it %>
   
   <i class="fas fa-trash fa-fw"></i>
 <% end %>
 
 <script>
   // bind the click handler
-  $("#<%= dom_id(comment) %>_delete_link").on("click", function() { 
+  $("#comment_<%= comment.id %>_delete_link").on("click", function() { 
     
     $.ajax({
       url: "/comments/<%= comment.id %>", // what URL to submit a request to
@@ -101,13 +101,13 @@ Now try clicking delete on a comment. You ought to see `bye comment!` in the JS 
 
 #### View Source for JS responses
 
-An incredibly important thing to note: since your templates are now JavaScript, one of your primary debugging tools — looking at HTML with **View Source** — can no longer help you. How do you see the actual JavaScript that your templates are producing and sending to the browser?
+**A very important note:** Since your templates are now JavaScript, one of your primary debugging tools — looking at HTML with **View Source** — can no longer help you. How do you see the actual JavaScript that your templates are producing and sending to the browser?
 
 Chrome has your back. Go to the Network tab in the Dev Tools:
 
 ![](/assets/js-view-source.png)
 
-This will be incredibly important to use as we move along. You will definitely, 💯, absolutely make typos in the jQuery selectors that you try to compose using ERB tags in these templates, and it's essential that you use the Network tab to debug.
+This will be _crucial_ to use as we move along. You will definitely, 💯, absolutely make typos in the jQuery selectors that you try to compose using ERB tags in these templates, and it's essential that you use the Network tab to debug.
 
 #### Remove the comment
 
