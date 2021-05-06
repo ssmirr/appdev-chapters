@@ -81,7 +81,7 @@ In the `comments#destroy` action, let's expand the `respond_to` block to handle 
 
 ```ruby
 respond_to do |format|
-  # Handle JSON and HTML formats
+  # Handle JSON and HTML formats above as usual
 
   format.js do
     render template: "comments/destroy.js.erb"
@@ -201,7 +201,7 @@ In the `comments#create` action, let's expand the `respond_to` block to handle r
 
 ```ruby
 respond_to do |format|
-  # Handle JSON and HTML formats
+  # Handle JSON and HTML formats above as usual
 
   format.js do
     render template: "comments/create.js.erb"
@@ -219,7 +219,7 @@ We can just say:
 
 ```ruby
 respond_to do |format|
-  # Handle JSON and HTML formats
+  # Handle JSON and HTML formats above as usual
 
   format.js
 end
