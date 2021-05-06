@@ -397,7 +397,7 @@ Explore the target to find other things to practice Ajax on:
 
 If you can successfully Ajaxify the CRUD operations above, you're in great shape to build snappy, modern web applications that meet the expectations of today's users. The benefit of using this approach is that we're still using most of our code — routes, controllers, models, even view templates (especially partials).
 
-Even better, we're still conforming to our straightforward _mental model_ of RCAV+CRUD, which is straightforward for a small team, or even a single-person team, to iterate quickly with. This is a fantastic approach to use, especially in the early days while finding product/market fit, and satisfies the needs of 95% of the applications I've built for myself or for clients.
+Even better, we're still conforming to our _mental model_ of RCAV+CRUD, which is straightforward for a small team, or even a single-person team, to iterate quickly with. This is a fantastic approach to use, especially in the early days while finding product/market fit, and satisfies the needs of 95% of the applications I've built for myself or for clients.
 
 On the other hand: for very complicated "single page" applications that really don't fit the RESTful, document/URL-based paradigm (think Google Sheets), this approach using [Rails' "Unobtrusive AJAX"](https://guides.rubyonrails.org/working_with_javascript_in_rails.html){:target="_blank"} may not be the best choice.
 
