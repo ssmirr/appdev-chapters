@@ -371,6 +371,21 @@ The same old steps:
 
 See if you can Ajaxify edit/update on your own.
 
+---
+
+---
+
+---
+
+### Solutions
+
+When you're ready to look at solutions for Ajaxifying CRUD for comments:
+
+ - `comments#destroy`: [fdf0a58](https://github.com/appdev-projects/pg-ajax-1/commit/fdf0a5807e9872edc49c88442d57df3611768039){:target="_blank"}
+ - `comments#create`: [ed934201](https://github.com/appdev-projects/pg-ajax-1/commit/ed934201f19880b553bf0c3e6bac897bab20dcf5){:target="_blank"}
+ - `comments#edit`: [155fe45](https://github.com/appdev-projects/pg-ajax-1/commit/155fe4558ee1697663d80a9c5b4a1657ef5e6ec4){:target="_blank"}
+ - `comments#update`: [b8517f1](https://github.com/appdev-projects/pg-ajax-1/commit/b8517f1509e92741b3f0e1f6f13d3cd950acfbbd){:target="_blank"}
+
 ### Other challenges
 
 Explore the target to find other things to practice Ajax on:
