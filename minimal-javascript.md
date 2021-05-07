@@ -778,11 +778,14 @@ Here are the jQuery methods that I wind up using most frequently. Read about and
  - [remove()](https://api.jquery.com/remove/){:target="_blank}
  - [append()](https://api.jquery.com/append/){:target="_blank}
  - [prepend()](https://api.jquery.com/prepend/){:target="_blank}
+ - [before()](https://api.jquery.com/before/){:target="_blank}
+ - [after()](https://api.jquery.com/after/){:target="_blank}
  - [replaceWith()](https://api.jquery.com/replaceWith/){:target="_blank}
  - [html()](https://api.jquery.com/html/){:target="_blank}
  - [addClass()](https://api.jquery.com/addClass/){:target="_blank}
  - [removeClass()](https://api.jquery.com/removeClass/){:target="_blank}
  - [val()](https://api.jquery.com/val/){:target="_blank}
+ - [trigger()](https://api.jquery.com/trigger/){:target="_blank} (particularly useful with `"reset"` to clear all of the inputs in a form)
  - [focus()](https://api.jquery.com/focus/){:target="_blank}
  - [submit()](https://api.jquery.com/submit/){:target="_blank}
 
