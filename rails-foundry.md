@@ -54,5 +54,5 @@ This will make it so that an automated notification is posted to the channel whe
 
 Whenever you're ready for initial code review, or re-review after you've made changes to address earlier reviews, do two things:
 
- 1. Use GitHub's built-in functionality to [request code review in your PR](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review)[:target="_blank"] from all three instructors.
+ 1. Use GitHub's built-in functionality to [request code review in your PR](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/requesting-a-pull-request-review){:target="_blank"} from all three instructors.
  2. Post a message in the `#review-requests` Slack channel asking for review from your fellow students. Usually we say something like "Could use some review on this please 👀: [https://github.com/demostudent14/my-awesome-project/pull/1](https://github.com/demostudent14/my-awesome-project/pull/1)"
