@@ -36,9 +36,11 @@ In the #review-requests Slack channel ([`/join` it if you're not in it](https://
 
 The very first time you use the `/github` Slack bot, it will ask you to authenticate. Go through the usual GitHub OAuth flow.
 
-By default, when you subscribe a Slack channel to a repository using the GitHub integration, it adds four listeners for four events: `issues`, `pulls`, `commits`, and `releases`. When any of these things occur, a message is added to the channel. The integration allows you to use Slack as a centralized, customizable notification stream for certain types of GitHub events.
+By default, when you subscribe a Slack channel to a repository using the GitHub integration, it adds listeners for four events: `issues`, `pulls`, `commits`, and `releases`.
 
-In this channel, we don't want notifications for any of these four types of events, so let's unsubscribe from them:
+When any of these events occur (i.e. a new issue is opened), a message is added to the channel. The integration allows you to use Slack as a centralized, customizable notification stream for certain types of GitHub events.
+
+In the `#review-requests` channel, we don't want notifications for any of these four events, so let's unsubscribe from them:
 
  - `/github unsubscribe demostudent14/my-awesome-project issues`
  - `/github unsubscribe demostudent14/my-awesome-project pulls`
@@ -65,3 +67,5 @@ This will make it so that an automated notification is posted to the channel whe
  - `/github subscribe demostudent14/my-awesome-project comments`
 
 This will make it so that an automated notification is posted to the channel whenever any comment is made on a PR or issue. This will be a place to go to see all the discussion that is happening across all of our projects.
+
+There will likely be a lot of activity in this channel; so you may want to [tweak your notification settings](https://slack.com/help/articles/360056534254-Manage-notifications-for-specific-channels-and-direct-messages){:target="_blank"} for it if it becomes too much.
