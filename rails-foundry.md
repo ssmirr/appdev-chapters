@@ -25,7 +25,7 @@ Whenever you're ready for initial code review, or re-review after you've made ch
     It's ultimately up to you, the author, when to merge your branch; we're not here to approve your PRs. We're simply providing feedback.
  2. Post a message in the `#review-requests` Slack channel ([`/join` it if you're not in it](https://slack.com/help/articles/205239967-Join-a-channel){:target="_blank"}) asking for review from your fellow students. Usually we say something like "Could use some review on this please 👀: [https://github.com/demostudent14/my-awesome-project/pull/1](https://github.com/demostudent14/my-awesome-project/pull/1)"
 
-    Please keep an eye on this channel and if you see a request for review that you think looks interesting, pop in and participate in the PR discussion. Reading other people's code and asking questions about it is one of the very best ways to learn, and having to explain your own code to someone else is extremely valuable as well; so the more you all code review each other, the better off bo
+    Please keep an eye on this channel and if you see a request for review that you think looks interesting, pop in and participate in the PR discussion. Reading other people's code and asking questions about it is one of the very best ways to learn, and having to explain your own code to someone else is extremely valuable as well; so the more you all code review each other, the better off everyone will be.
 
 ### review-requests channel
 
