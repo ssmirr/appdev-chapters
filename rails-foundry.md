@@ -25,6 +25,8 @@ Whenever you're ready for initial code review, or re-review after you've made ch
     It's ultimately up to you, the author, when to merge your branch; we're not here to approve your PRs. We're simply providing feedback.
  2. Post a message in the `#review-requests` Slack channel ([`/join` it if you're not in it](https://slack.com/help/articles/205239967-Join-a-channel){:target="_blank"}) asking for review from your fellow students. Usually we say something like "Could use some review on this please 👀: [https://github.com/demostudent14/my-awesome-project/pull/1](https://github.com/demostudent14/my-awesome-project/pull/1)"
 
+    Please keep an eye on this channel and if you see a request for review that you think looks interesting, pop in and participate in the PR discussion. Reading other people's code and asking questions about it is one of the very best ways to learn, and having to explain your own code to someone else is extremely valuable as well; so the more you all code review each other, the better off bo
+
 ### review-requests channel
 
 We'll use the `#review-requests` channel in our Slack to ask each other for code review. We'll also use the GitHub+Slack app to get automated notifications of when instructors request changes, so that we can all learn from each other's feedback.
@@ -35,7 +37,9 @@ We'll use the `#review-requests` channel in our Slack to ask each other for code
 
 In the #review-requests Slack channel ([`/join` it if you're not in it](https://slack.com/help/articles/205239967-Join-a-channel){:target="_blank"}), send the following messages, substituting your own repository name instead of `demostudent14/my-awesome-project`:
 
- - `/github subscribe demostudent14/my-awesome-project`
+```
+/github subscribe demostudent14/my-awesome-project
+```
 
 The very first time you use the `/github` Slack bot, it will ask you to authenticate. Go through the usual GitHub OAuth flow.
 
@@ -45,14 +49,15 @@ When any of these events occur (i.e. a new issue is opened), a message is added 
 
 In the `#review-requests` channel, we don't want notifications for any of these four events, so let's unsubscribe from them:
 
- - `/github unsubscribe demostudent14/my-awesome-project issues`
- - `/github unsubscribe demostudent14/my-awesome-project pulls`
- - `/github unsubscribe demostudent14/my-awesome-project commits`
- - `/github unsubscribe demostudent14/my-awesome-project releases`
+```
+/github unsubscribe demostudent14/my-awesome-project issues pulls commits releases
+```
 
 Then, let's subscribe to the `reviews` event:
 
- - `/github subscribe demostudent14/my-awesome-project reviews`
+```
+/github subscribe demostudent14/my-awesome-project reviews
+```
 
 This will make it so that an automated notification is posted to the channel when instructor reviews are submitted, in case other students want to peruse them.
 
@@ -60,14 +65,17 @@ This will make it so that an automated notification is posted to the channel whe
 
 [`/join` the #repo channel](https://slack.com/help/articles/205239967-Join-a-channel){:target="_blank"} and send the following messages, substituting your own repository name instead of `demostudent14/my-awesome-project`:
 
- - `/github subscribe demostudent14/my-awesome-project`
+```
+/github subscribe demostudent14/my-awesome-project
+```
 
- - `/github unsubscribe demostudent14/my-awesome-project issues`
- - `/github unsubscribe demostudent14/my-awesome-project pulls`
- - `/github unsubscribe demostudent14/my-awesome-project commits`
- - `/github unsubscribe demostudent14/my-awesome-project releases`
+```
+/github unsubscribe demostudent14/my-awesome-project issues pulls commits releases
+```
 
- - `/github subscribe demostudent14/my-awesome-project comments`
+```
+/github subscribe demostudent14/my-awesome-project comments
+```
 
 This will make it so that an automated notification is posted to the channel whenever any comment is made on a PR or issue. This will be a place to go to see all the discussion that is happening across all of our projects.
 
