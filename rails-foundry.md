@@ -12,6 +12,8 @@ Our GitHub usernames are:
  - `pmckernin`
  - `raghubetina`
 
+Post a message in the `#review-requests` Slack channel ([`/join` it if you're not in it](https://slack.com/help/articles/205239967-Join-a-channel){:target="_blank"}) with the URL of your repository so that we know to accept your invitation (GitHub doesn't send us a notification).
+
 ## Getting code review
 
 ### Asking for review
