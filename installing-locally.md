@@ -48,4 +48,6 @@ But investing energy in learning Docker is probably not worth it right now if it
 
 Now that you'll be navigating multiple folders on your own computer, as opposed to a single folder per Gitpod workspace that has only one application in it, it would be good to become more familiar with the command-line.
 
-I like [Unix for the Beginning Mage](https://lab46.g7n.org/_media/haas/ufbm.pdf){:target="_blank"}. The first three chapters are a good place to start for now; eventually, you might want to read through all of it.
+[Here is a nice brief intro to the shell](https://missing.csail.mit.edu/2020/course-shell/#topic-1-the-shell){:target="_blank"}, from a larger course called ["The Missing Semester of Your CS Education" from MIT](https://missing.csail.mit.edu/){:target="_blank"}.
+
+Another resource is [Unix for the Beginning Mage](https://lab46.g7n.org/_media/haas/ufbm.pdf){:target="_blank"}. The first three chapters are a good place to start for now; eventually, you might want to read through all of it.
