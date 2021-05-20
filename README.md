@@ -61,6 +61,7 @@ Works in progress, and not in order.
  4. [Authorization with Pundit](https://chapters.firstdraft.com/chapters/860)
  5. [Minimal JavaScript for Rails Developers](https://chapters.firstdraft.com/chapters/861)  
  5. [Ajax with Rails UJS](https://chapters.firstdraft.com/chapters/863)
+ 6. [Installing Ruby locally](https://chapters.firstdraft.com/chapters/865)
 
 ---
 ---
