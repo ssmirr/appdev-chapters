@@ -21,7 +21,7 @@ That said, installation on Windows has gotten a _lot_ better over the years. Her
 
 ### Simplest: railsinstaller.org
 
- 1. My recommendation for right now is to use the single-click installer offered by railsinstaller.org. Follow the instructions at [installrails.com](http://installrails.com/){:target="_blank"}. (It appears the railsinstaller.org website is down as of this writing, but you can [download the .exe file from GitHub](https://github.com/railsinstaller/railsinstaller-windows/releases){:target="_blank"}).    
+ 1. My recommendation for right now is to use the single-click installer offered by railsinstaller.org. Follow the instructions at [installrails.com](http://installrails.com/steps/railsinstaller_windows){:target="_blank"}. (It appears the railsinstaller.org website is down as of this writing, but you can [download the .exe file from GitHub](https://github.com/railsinstaller/railsinstaller-windows/releases){:target="_blank"}).    
  2. At the step where it asks you to install Sublime Text, I recommend instead using [VSCode](https://code.visualstudio.com/) since it is nearly identical to what we've used in Gitpod. Later, you should experiment with [customizing VSCode](https://betterprogramming.pub/vs-code-extensions-for-ruby-on-rails-developers-917474e03e04){:target="_blank"}. Even later, you should try out [RubyMine](https://www.jetbrains.com/community/education/#students){:target="_blank"} and see which you like best.
  
 ### Better: Windows Subsystem for Linux
