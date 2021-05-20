@@ -30,12 +30,6 @@ Microsoft has done a 180 and fully embraced Linux; to the extent that you can no
 
 [GoRails has a good guide](https://gorails.com/setup/windows/10) for getting set up with WSL + Rails.
 
-### Best: Docker
-
-In the long-run, I believe the best solution for both Windows and Mac will be to [Dockerize your Rails application](https://pragprog.com/titles/ridocker/docker-for-rails-developers/){:target="_blank"}. 
-
-But investing energy in learning Docker is probably not worth it right now. A couple years from now after you have dozens of Rails apps on your machine, all using different version of Ruby and various gems, and you're feeling then pinch of [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell){:target="_blank"}: that will be the time to explore Docker.
-
 ## Mac
 
  - I prefer [iTerm2](https://iterm2.com/){:target="_blank"} over the built in Terminal.app, but the latter is good too.
@@ -43,6 +37,7 @@ But investing energy in learning Docker is probably not worth it right now. A co
  - I also use [thoughtbot's dotfiles](https://github.com/thoughtbot/dotfiles){:target="_blank"}.
  - I recommend [VSCode](https://code.visualstudio.com/) since it is nearly identical to what we've used in Gitpod. Later, you should experiment with [customizing VSCode](https://betterprogramming.pub/vs-code-extensions-for-ruby-on-rails-developers-917474e03e04){:target="_blank"}. Even later, you should try out [RubyMine](https://www.jetbrains.com/community/education/#students){:target="_blank"} and see which you like best.
 
+## Docker
 
 In the long-run, I believe the best solution for both Windows and Mac will be to [Dockerize your Rails application](https://pragprog.com/titles/ridocker/docker-for-rails-developers/){:target="_blank"}. 
 
