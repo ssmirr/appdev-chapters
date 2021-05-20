@@ -39,6 +39,6 @@ Microsoft has done a 180 and fully embraced Linux; to the extent that you can no
 
 ## Docker
 
-In the long-run, I believe the best solution for both Windows and Mac will be to [Dockerize your Rails application](https://pragprog.com/titles/ridocker/docker-for-rails-developers/){:target="_blank"}. 
+In the long-run, I believe the best solution for both Windows and Mac will be to [Dockerize your Rails application](https://pragprog.com/titles/ridocker/docker-for-rails-developers/){:target="_blank"}. Docker makes it easy to deploy applications to any cloud infrastructure provider (Amazon AWS, Microsoft Azure, etc) by providing a standard way to package up environments; but in doing so, it also makes it convenient to set up development environments for each app without running into [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell){:target="_blank"}.
 
-But investing energy in learning Docker is probably not worth it right now. A couple years from now after you have dozens of Rails apps on your machine, all using different version of Ruby and various gems, and you're feeling then pinch of [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell){:target="_blank"}: that will be the time to explore Docker.
+But investing energy in learning Docker is probably not worth it right now if it's only for development environment purposes. A couple years from now after you have dozens of Rails apps on your machine, all using different version of Ruby and various gems, and you're feeling then pinch of dependency hell: that will be the time to explore Docker.
