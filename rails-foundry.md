@@ -6,6 +6,8 @@ Please use the following procedure to request code review as you build out your 
 
 After you've created your repository, however you do that (perhaps by [using vanilla-rails as a template](https://github.com/appdev-projects/vanilla-rails/generate){:target="_blank"}), please [add the instructors to it as collaborators](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository){:target="_blank"}.
 
+Ideally, your repository is under an organization (as opposed to under your personal account), and you could [add us as team members](https://docs.github.com/en/enterprise-server@3.0/organizations/managing-membership-in-your-organization/adding-people-to-your-organization){:target="_blank"}; then, we'd automatically get access to all repositories in the organization.
+
 Our GitHub usernames are:
 
  - `jelaniwoods`
