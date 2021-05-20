@@ -36,6 +36,7 @@ Microsoft has done a 180 and fully embraced Linux; to the extent that you can no
  - I use [thoughtbot's laptop script](https://github.com/thoughtbot/laptop){:target="_blank"} to install everything I need in one fell swoop, and recommend that you do so also.
  - I also use [thoughtbot's dotfiles](https://github.com/thoughtbot/dotfiles){:target="_blank"}.
  - I recommend [VSCode](https://code.visualstudio.com/) since it is nearly identical to what we've used in Gitpod. Later, you should experiment with [customizing VSCode](https://betterprogramming.pub/vs-code-extensions-for-ruby-on-rails-developers-917474e03e04){:target="_blank"}. Even later, you should try out [RubyMine](https://www.jetbrains.com/community/education/#students){:target="_blank"} and see which you like best.
+ - Test your installation [by creating an app](http://installrails.com/steps/create_your_first_app){:target="_blank"}.
 
 ## Docker
 
