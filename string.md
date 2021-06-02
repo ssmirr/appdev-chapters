@@ -45,9 +45,9 @@ What's an ASCII code? At the hardware level, computers only store integers (spec
 46|`.`|62|`>`|78|`N`|94|`^`|110|`n`|126|`~`
 47|`/`|63|`?`|79|`O`|95|`_`|111|`o`|
 
-Given those ASCII codes, we can now build up a new string from scratch like so:
+Given those ASCII codes, we can now build up a new string from scratch like so. Give it a try ▶
 
-```ruby
+```ruby | {type: 'script'}
 my_string = String.new
 
 p my_string
@@ -71,8 +71,6 @@ my_string.concat(33)
 
 p my_string
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/creating-objects-with-new?lite=true){:target="_blank"}
 
 ### String literals
 
@@ -118,15 +116,13 @@ Wild! And, as we learned earlier when we were [introduced](https://chapters.firs
 "hi" + " there" # => "hi there"
 ```
 
-Now this is really starting to look familiar! It's a lot like the calculator language, actually. [Developer happiness](https://chapters.firstdraft.com/chapters/755#developer-happiness){:target="_blank"}, indeed.
+Now this is really starting to look familiar! It's a lot like the calculator language, actually. [Developer happiness](https://chapters.firstdraft.com/chapters/755#developer-happiness){:target="_blank"}, indeed. Give it a try ▶
 
-```ruby
+```ruby | {type: 'script'}
 a = "Hello"
 b = "World"
 p a + b        # You can add strings together
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/concatenation?lite=true){:target="_blank"}
 
 ### String multiplication, a.k.a *
 
@@ -140,7 +136,7 @@ This sort of makes sense, if you think about multiplication as being repeated ad
 
 [^more_sugar]: More syntactic sugar here, like with the `+` method above; you can say `"Ya" * 5` rather than `"Ya".*(5)`.
 
-```ruby
+```ruby  | {type: 'script'}
 p "Hello" * 3
 ```
 
@@ -148,7 +144,7 @@ p "Hello" * 3
 
 The order matters, though. See what happens when you try:
 
-```ruby
+```ruby | {type: 'script'}
 3 * "Hello"
 ```
 
@@ -162,23 +158,19 @@ Thus, we can see why the `String` version of `*` and the `Integer` version of `*
 
 ### upcase
 
-The upcase method returns a copy of the `String` with all lowercase letters replaced with their uppercase counterparts.
+The upcase method returns a copy of the `String` with all lowercase letters replaced with their uppercase counterparts ▶
 
-```ruby
+```ruby  | {type: 'script'}
 p "hello".upcase
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/upcase?lite=true){:target="_blank"}
-
 ### downcase
 
-The downcase method returns a copy of the `String` with all uppercase letters replaced with their lowercase counterparts.
+The downcase method returns a copy of the `String` with all uppercase letters replaced with their lowercase counterparts ▶
 
-```ruby
+```ruby | {type: 'script'}
 p "I'M NOT YELLING AT YOU".downcase
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/downcase?lite=true){:target="_blank"}
 
 ### swapcase
 
@@ -190,23 +182,19 @@ p "FaMiLy".swapcase # => "fAmIlY
 
 ### reverse
 
-The reverse method returns a new `String` with the characters from the `String` in reverse order.
+The reverse method returns a new `String` with the characters from the `String` in reverse order ▶
 
-```ruby
+```ruby | {type: 'script'}
 p "I can speak in backwords words".reverse
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/reverse?lite=true){:target="_blank"}
-
 ### length
 
-The length method  returns the number of characters (as an `Integer`) that a `String` has.
+The length method  returns the number of characters (as an `Integer`) that a `String` has ▶
 
-```ruby
+```ruby | {type: 'script'}
 p "Supercalifragilisticexpialidocious".length
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/length?lite=true){:target="_blank"}
 
 ### chomp
 
@@ -221,23 +209,26 @@ This seemingly strange task is very common due to the way that getting user inpu
 
 `chomp` can also remove other specified character(s) from the end of the string, if they are provided as an argument:
 
-```ruby
-"1 apples".chomp("s") # => "1 apple"
-"1 apple".chomp("s") # => "1 apple"
+```ruby | {type: 'script'}
+p "1 apples".chomp("s") # => "1 apple"
+p "1 apple".chomp("s") # => "1 apple"
+
+p "Hey!".chomp("!")
+
+p "This ends in a newline\n"
+p "This ends in a newline\n".chomp
 ```
 
 [Click here for a REPL to try it.](https://repl.it/@raghubetina/chomp?lite=true){:target="_blank"}
 
 ### gsub
 
-The gsub method returns a copy of the `String` it was called on with all occurrences of the first argument substituted for the second argument.
+The gsub method returns a copy of the `String` it was called on with all occurrences of the first argument substituted for the second argument ▶
 
-```ruby
+```ruby | {type: 'script'}
 a = "Hello"
 p a.gsub("ll", "ww")  # => "Hewwo"
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/gsub?lite=true){:target="_blank"}
 
 #### Advanced gsub techniques
 
@@ -272,49 +263,41 @@ For now, we're just going to copy-paste a few simple regexes[^regexone] that com
 
 ### to_i
 
-Sometimes you have a string that contains a number, usually input from a user, and want to do math on it. `to_i` will attempt to convert a `String` object into an `Integer` object.
+Sometimes you have a string that contains a number, usually input from a user, and want to do math on it. `to_i` will attempt to convert a `String` object into an `Integer` object ▶
 
-```ruby
+```ruby | {type: 'script'}
 p "8".to_i
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/toi?lite=true){:target="_blank"}
-
 ### strip
 
-`strip` removes all leading and trailing whitespace.
+`strip` removes all leading and trailing whitespace ▶
 
-```ruby
+```ruby | {type: 'script'}
 p "   This has a lot of space on the outside     ".strip
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/strip?lite=true){:target="_blank"}
 
 ### capitalize
 
 capitalize returns a `String` with the first character converted to uppercase and the remainder to lowercase.
 
-```ruby
+```ruby | {type: 'script'}
 p "beginning".capitalize
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/capitalize?lite=true){:target="_blank"}
 
 ### split
 
 This transforms the `String` into an `Array` (a list), which we'll [read more about later](https://chapters.firstdraft.com/chapters/758).
 
-If you provide no argument, the string is split upon whitespace, which is handy for e.g. turning a sentence into a list of words:
+If you provide no argument, the string is split upon whitespace, which is handy for e.g. turning a sentence into a list of words ▶
 
-```ruby
+```ruby | {type: 'script'}
 sentence = "Hi I'd like to learn how to program please!"
 
 words = sentence.split
 
 p words
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/split?lite=true){:target="_blank"}
 
 If you do provide an argument to `.split`, then the string will be chopped up wherever that argument occurs instead of whitespace — for example, use `"4,8,15,16,23,42".split(",")` to split on commas.
 
@@ -328,39 +311,35 @@ a.at(-1) # => "!"
 
 ### include?
 
-`include?` takes a String argument and returns `true` or `false` if the argument exists in the String that `include?` is called on. 
+`include?` takes a String argument and returns `true` or `false` if the argument exists in the String that `include?` is called on. Give this a try ▶
 
-```ruby
+```ruby | {type: 'script'}
 p "Happy Days".include?("H")
 
 p "Happy Days".include?("Z")
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/stringinclude?lite=true){:target="_blank"}
-
 ## More on adding strings together
 
-We spend a lot of time composing strings of output for our users, so let's see a few more examples. Try this:
+We spend a lot of time composing strings of output for our users, so let's see a few more examples. Try this ▶
 
-```ruby
+```ruby | {type: 'script'}
 number = 6 * 7
 message = "Your lucky number for today is " + number + "."
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/String-interpolation?lite=true){:target="_blank"}
-
 You'll see that Ruby gets confused (RTEM!), because we are trying to add an integer to a string and it doesn't feel comfortable with that.
 
-The solution is to tell the `Integer` to convert itself to a `String` first using the method called `.to_s`, or "to string". Try this instead:
+The solution is to tell the `Integer` to convert itself to a `String` first using the method called `.to_s`, or "to string". Try this instead ▶
 
-```ruby
+```ruby | {type: 'script'}
 number = 6 * 7
 message = "Your lucky number for today is " + number.to_s + "."
 ```
 
 The above technique for composing strings, adding them together with `+`, is called string addition.
 
-There's another technique for composing strings that I personally find a bit easier; it's called **string interpolation**. Try this instead:
+There's another technique for composing strings that I personally find a bit easier; it's called **string interpolation**. Try this instead ▶
 
 ```ruby
 number = 6 * 7
@@ -375,9 +354,11 @@ If you find interpolation confusing, feel free to just use addition.
 
 We can make our programs much more interesting if we allow the users of the program to interact with them by supplying input. We can do this with the `gets` method (pronounced "get S", short for "get string"), which will pause the program and wait for the user to type something in the terminal and press <kbd>return</kbd>. The return value of the `gets` method will be a `String` containing what the user typed, which we can store in a variable and then process further like any other `String`.
 
-For example, rather than saying "Hello, world!", let's have the computer say hello to the user by name instead. When you run this program, it will pause after saying `"What's your name?"` and you will have to type something in and press <kbd>return</kbd>. **Click on the terminal to put focus there**, and then you'll be able to type into it:
+For example, rather than saying "Hello, world!", let's have the computer say hello to the user by name instead. When you run this program, it will pause after saying `"What's your name?"` and you will have to type something in and press <kbd>return</kbd>.
 
-```ruby
+First, click on ✏ to create this script file:
+
+```ruby | {type: 'file', path: '/tmp/gets.rb'}
 p "What's your name?"
 
 their_name = gets
@@ -385,7 +366,9 @@ their_name = gets
 p "Hello, " + their_name + "!"
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/Hello-gets?lite=true){:target="_blank"}
+Then run the script by typing `ruby /tmp/gets.rb` in the terminal:
+```bash | {type: 'terminal'}
+```
 
 Great! Our first user input. However, you'll notice a couple of things. First of all, there's a `\n` sneaking into the input. `\n` represents a newline character, and it's in there because of the <kbd>return</kbd> that is pressed to submit the input.
 

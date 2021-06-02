@@ -4,7 +4,7 @@
 
 Consider the following program, which utilizes an `if` statement:
 
-```ruby
+```ruby|{type: 'script'}
 numbers = Array.new
 
 if numbers.length < 10
@@ -17,8 +17,6 @@ len = numbers.length
 p numbers
 p len
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/loops-conditionally-doing-something-once?lite=true){:target="_blank"}
 
 What do you expect the output of the program to be when you click run? Try to interpret the program yourself before you ask Ruby to.
 
@@ -34,7 +32,7 @@ At the end of the day, `numbers` has one element in it and `len` is `1`.
 
 Now, consider almost identical code, but with the `if` keyword swapped for a new keyword — `while`:
 
-```ruby
+```ruby|{type: 'script'}
 numbers = Array.new
 
 while numbers.length < 10
@@ -47,8 +45,6 @@ len = numbers.length
 p numbers
 p len
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/loops-conditionally-doing-something-multiple-times?lite=true){:target="_blank"}
 
 `while` works almost exactly like `if` — it evaluates the expression next to it, and if the expression is truthy, it executes the code on the lines between it and it's `end`; if not, it ignores the code on the lines between it and it's `end`.
 
@@ -85,7 +81,7 @@ Fundamentally, all looping is implemented with `while`; but, this being Ruby, th
 
 exactly 10 times. I could do it using `while` like this; try interpreting the following code before you click "run":
 
-```ruby
+```ruby | {type: 'script'}
 mississipis = 1
 
 while mississipis <= 10
@@ -95,15 +91,13 @@ while mississipis <= 10
 end
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/loops-mississippis-with-while?lite=true){:target="_blank"}
-
 Does the code make sense to you?[^incrementing]
 
 [^incrementing]: If the line `mississipis = missippis + 1` looks a little odd to you, you're not alone. [Remember, this is _variable assignment_](https://chapters.firstdraft.com/chapters/754#updating-variables){:target="_blank"}, not equivalence. So the expression on the right side (`mississipis + 1`) is evaluated _first_ until there's just one object (e.g `2`) left; and then that object replaces the contents of the variable (`missippis`) named on the left. Rinse and repeat.
 
 Or, rather than `while`, I could use `Integer`'s `.times` method, like this:
 
-```ruby
+```ruby | {type: 'script'}
 mississipis = 1
 
 10.times do
@@ -112,8 +106,6 @@ mississipis = 1
   mississipis = mississipis + 1
 end
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/loops-mississippis-with-times?lite=true){:target="_blank"}
 
 Notice there's a new keyword here: `do`. This is because the `.times` method, in order to do its job of executing some code 10 times, needs a special argument — _the code to execute_.
 
@@ -125,13 +117,11 @@ So, given a **block** of code, the `10.times` method will execute it for us exac
 
 But the `.times` method will save us even more trouble than that; we can stop worrying about creating and incrementing the counter variable, `mississipis`, too. The `.times` method will create a **block variable** and assign values to it for us automatically, but we have to choose a name for it using some new syntax after the `do`: the vertical bars, `| |`, or "pipes". It looks like this:
 
-```ruby
+```ruby | {type: 'script'}
 10.times do |mississipis|
   p mississipis.to_s + " Mississippi"
 end
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/loops-first-block-variable?lite=true){:target="_blank"}
 
 Try running it. Here's what's going on:
 
@@ -147,7 +137,7 @@ Why does `.times` start by assigning `0` to its block variable during the first 
 
 Fortunately, Ruby provides lots of other looping convenience methods that we can take advantage of instead, and each one assigns different values to its block variable.
 
-In the REPL above, replace `10.times` with each of the following and play around with the arguments to get a sense of how each method works:
+In the code snippet above, replace `10.times` with each of the following and play around with the arguments to get a sense of how each method works:
 
 ```ruby
 5.upto(10)

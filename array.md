@@ -12,19 +12,17 @@ _container_ for other objects, and can hold however many objects we want.
 
 As always, we have the formal way of creating a new object in Ruby: use the `.new` method on the parent class:
 
-```ruby
+```ruby | {type: 'script'}
 cities = Array.new
 ```
 
-Try it out and see what you get if you `p cities`:
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/Arraynew?lite=true){:target="_blank}
+Try it out and see what you get if you `p cities` ☝.
 
 ### push
 
 As you can see, Ruby represents an `Array` with square brackets, `[]`. The brand new array is empty; let's add some **elements** to it with the `.push` method. Try this:
 
-```ruby
+```ruby | {type: 'script'}
 cities = Array.new
 
 cities.push("Chicago")
@@ -71,16 +69,14 @@ Now let's familiarize ourselves with some of `Array`s methods.
 
 After adding elements to the list, the next most important thing we need to be able to do is retrieve an element back out from the list. Our first tool for doing that is `.at`.
 
-The `.at` method takes an `Integer` argument, which is interpreted as the position, or **index**, in the `Array` of the element that you want to retrieve. Give it a try:
+The `.at` method takes an `Integer` argument, which is interpreted as the position, or **index**, in the `Array` of the element that you want to retrieve. Give it a try ▶:
 
-```ruby
+```ruby | {type: 'script'}
 cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
 
 p cities
 p cities.at(2)
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/array-at?lite=true){:target="_blank}
 
 Whoa! Did you expect `cities.at(2)` to return `"LA"`? I sure didn't, the first time I tried it; I was expecting `"NYC"`.
 
@@ -111,15 +107,14 @@ cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
 p cities[2] # => "LA"
 ```
 
-Which is sort of nice. I prefer `.at` because I think it reads better, but feel free to use the square brackets if you like that style better.
+Which is sort of nice. I prefer `.at` because I think it reads better, but feel free to use the square brackets if you like that style better. You will get the same value in both cases ▶ :
 
-```ruby
+```ruby | {type: 'script'}
 array = [8, 3, 1, 19, 23, 3]
 
+p array.[](2)
 p array[2]
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/array-square-bracket?lite=true){:target="_blank}
 
 ### first, last
 
@@ -127,15 +122,13 @@ Since retrieving the elements at positions `0` (the first one) and `-1` (the las
 
 ### index
 
-The `.index` method is sort of the inverse of `.at`: given an object, `.index` searches within the array and returns the index where it resides. Give it a try:
+The `.index` method is sort of the inverse of `.at`: given an object, `.index` searches within the array and returns the index where it resides. Give it a try ▶ :
 
-```ruby
+```ruby | {type: 'script'}
 cities = ["Chicago", "NYC", "LA", "SF", "NOLA"]
 
 p cities.index("SF")
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/array-index?lite=true){:target="_blank}
 
 Some further things for you to experiment with:
 
@@ -164,7 +157,7 @@ a.at(-1) # => "!"
 
 This is particularly handy for us because it allows us to get a `String` of input from users with `gets` and then transform it into an `Array` for processing:
 
-```ruby
+```ruby | {type: 'file', path: '/tmp/stringsplit.rb'}
 p "Enter a series of numbers, separated by spaces:"
 
 user_string = gets.chomp
@@ -178,15 +171,17 @@ p user_numbers
 p "You entered " + length.to_s + " numbers."
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/gets-with-split?lite=true){:target="_blank}
+Run the script below by running `ruby /tmp/stringsplit.rb` ▶ :
+```bash | {type: 'terminal'}
+```
 
-We'll be using this technique for the remainder of our test REPLs, to make things more interesting.
+We'll be using this technique for the remainder of our examples, to make things more interesting.
 
 ### count
 
-`.count` counts how many elements are in the list, if called with no arguments. If an argument is provided, it counts how many times that argument occurs in the list.
+`.count` counts how many elements are in the list, if called with no arguments. If an argument is provided, it counts how many times that argument occurs in the list. Give it a try ▶ :
 
-```ruby
+```ruby | {type: 'script'}
 a = [8, 3, 1, 19, 23, 3]
 
 p a.count
@@ -194,94 +189,87 @@ p a.count
 p a.count(3)
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/count?lite=true){:target="_blank}
- 
 ### include?
 
 A thin convenience layer on top of `.count`, `.include?` will quickly tell you whether a value is present within an `Array`:
 
 ```ruby
 a = [ "a", "b", "c" ]
-a.include?("b")   # => true
-a.include?("z")   # => false
+a.include?("b")
+a.include?("z")
 ```
 
 ### exclude?
 
 Similar to `.include?`, but the opposite:
 
-```ruby
+```ruby | {type: 'script'}
 a = [ "a", "b", "c" ]
-a.exclude?("b")   # => false
-a.exclude?("z")   # => true
+a.exclude?("b")
+a.exclude?("z")
 ```
 
 ### reverse
 
-```ruby
+```ruby | {type: 'script'}
 array = [8, 3, 1, 19, 23, 3]
 
 p array.reverse # => [3, 23, 19, 1, 3, 8]
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/array-reverse?lite=true){:target="_blank}
-
 ### sort
 
-```ruby
+```ruby | {type: 'script'}
 array = [12, 4, 5, 13, 56, 32]
 
 p array.sort # => [4, 5, 12, 13, 32, 56]
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/sort?lite=true){:target="_blank}
-
 ### shuffle
 
-```ruby
+Returns a copy of array in random order ▶
+```ruby | {type: 'script'}
 array = [1, 2, 3, 4, 5]
 
-p array.shuffle # Returns a copy of array in random order
+p array.shuffle
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/shuffle?lite=true){:target="_blank}
 
 ### sample
 
-```ruby
+Returns a single random element from the array ▶
+
+```ruby | {type: 'script'}
 array = [8, 3, 1, 19, 23, 3]
 
-p array.sample # => Returns a single random element from the array
+p array.sample
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/sample?lite=true){:target="_blank}
 
 ### min
 
-```ruby
+Returns the smallest element in the array ▶
+
+```ruby | {type: 'script'}
 a = [8, 3, 1, 19, 23, 3]
 
 p a.min # => 1
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/min?lite=true){:target="_blank}
-
 ### max
 
-```ruby
+Returns the largest element in the array ▶
+
+```ruby | {type: 'script'}
 a = [8, 3, 1, 19, 23, 3]
 
 p a.max # => 23
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/max?lite=true){:target="_blank}
-
 ### sum
 
-```ruby
+Returns the sum of all the elements in the array ▶
+
+```ruby | {type: 'script'}
 a = [8, 3, 1, 19, 23, 3]
 
 p a.sum # => 57
 ```
-
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/sum?lite=true){:target="_blank}
