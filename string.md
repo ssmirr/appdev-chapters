@@ -22,9 +22,9 @@ This will, however, just give us back an empty string `""`. We would then have t
 
 ### ASCII Codes
 
-What's an ASCII code? At the hardware level, computers only store integers (specifically, in _binary_ form — using only `0`s and `1s`); so all other datatypes need to be encoded somehow as a number. [ASCII](https://en.wikipedia.org/wiki/ASCII){:target="_blank"}, or American Standard Code for Information Interchange, was one scheme that was developed in the early days of computing to store English characters as integers[^unicode]. The codes are as follows:
+What's an ASCII code? At the hardware level, computers only store integers (specifically, in _binary_ form — using only `0`s and `1s`); so all other datatypes need to be encoded somehow as a number. [ASCII](https://en.wikipedia.org/wiki/ASCII), or American Standard Code for Information Interchange, was one scheme that was developed in the early days of computing to store English characters as integers[^unicode]. The codes are as follows:
 
-[^unicode]: Nowadays we use much more sophisticated encoding schemes such as [Unicode](https://en.wikipedia.org/wiki/Unicode){:target="_blank"} that supports glyphs from many more languages, and even emojis 🙌🏾 Fortunately, Ruby handles most of this low-level stuff for us behind the scenes, so we never really have to worry about it anymore.
+[^unicode]: Nowadays we use much more sophisticated encoding schemes such as [Unicode](https://en.wikipedia.org/wiki/Unicode) that supports glyphs from many more languages, and even emojis 🙌🏾 Fortunately, Ruby handles most of this low-level stuff for us behind the scenes, so we never really have to worry about it anymore.
 
 **ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**|**ASCII Code**|**Character**
 :-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
@@ -110,13 +110,13 @@ But here's where it gets interesting; Ruby has another bit of nice _syntactic su
 "hi" +(" there") # => "hi there"
 ```
 
-Wild! And, as we learned earlier when we were [introduced](https://chapters.firstdraft.com/chapters/755#make-the-invisible-visible){:target="_blank"} to the `p` method, Ruby also allows you to omit the parentheses around arguments if you want to; so this can be further shortened to:
+Wild! And, as we learned earlier when we were [introduced](https://chapters.firstdraft.com/chapters/755#make-the-invisible-visible) to the `p` method, Ruby also allows you to omit the parentheses around arguments if you want to; so this can be further shortened to:
 
 ```ruby
 "hi" + " there" # => "hi there"
 ```
 
-Now this is really starting to look familiar! It's a lot like the calculator language, actually. [Developer happiness](https://chapters.firstdraft.com/chapters/755#developer-happiness){:target="_blank"}, indeed. Give it a try ▶
+Now this is really starting to look familiar! It's a lot like the calculator language, actually. [Developer happiness](https://chapters.firstdraft.com/chapters/755#developer-happiness), indeed. Give it a try ▶
 
 ```ruby | {type: 'script'}
 a = "Hello"
@@ -140,21 +140,19 @@ This sort of makes sense, if you think about multiplication as being repeated ad
 p "Hello" * 3
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/multiplication?lite=true){:target="_blank"}
-
 The order matters, though. See what happens when you try:
 
 ```ruby | {type: 'script'}
 3 * "Hello"
 ```
 
-Read The Error Message ([RTEM](https://chapters.firstdraft.com/chapters/754#seriously-please-read-the-error-message){:target="_blank"})!
+Read The Error Message ([RTEM](https://chapters.firstdraft.com/chapters/754#seriously-please-read-the-error-message))!
 
 Does this make sense? `"Hello" * 3` is calling the `String` method `*` with an argument of `3`, which kinda makes sense (add `"Hello"` to itself `3` times).
 
 But `3 * "Hello"` is calling the `Integer` method `*` with an argument of `"Hello"`, which doesn't make much sense (what would it mean to add `3` to itself `"Hello"` times?).
 
-Thus, we can see why the `String` version of `*` and the `Integer` version of `*` both need an integer argument. Again, [the bottom line](https://chapters.firstdraft.com/chapters/754#the-bottom-line){:target="_blank"} is — at all times as you are writing Ruby, you should be thinking: "What **class** is this object? What **methods** does _this_ class have available?" Even when there's some syntactic sugar making things _look_ unconventional, don't forget your basics! It's still `noun.verb` under the hood.
+Thus, we can see why the `String` version of `*` and the `Integer` version of `*` both need an integer argument. Again, [the bottom line](https://chapters.firstdraft.com/chapters/754#the-bottom-line) is — at all times as you are writing Ruby, you should be thinking: "What **class** is this object? What **methods** does _this_ class have available?" Even when there's some syntactic sugar making things _look_ unconventional, don't forget your basics! It's still `noun.verb` under the hood.
 
 ### upcase
 
@@ -219,7 +217,7 @@ p "This ends in a newline\n"
 p "This ends in a newline\n".chomp
 ```
 
-[Click here for a REPL to try it.](https://repl.it/@raghubetina/chomp?lite=true){:target="_blank"}
+[Click here for a REPL to try it.](https://repl.it/@raghubetina/chomp?lite=true)
 
 ### gsub
 
@@ -238,7 +236,7 @@ In Ruby, we work with regular expressions the way we work with everything else �
 
 For now, we're just going to copy-paste a few simple regexes[^regexone] that come in handy with `gsub`, in particular:
 
-[^regexone]: If your project requires scanning text for patterns, then [RegexOne](https://regexone.com/){:target="_blank"} is a good resource for learning more. [Rubular](https://rubular.com/) is handy for quickly testing your regular expressions against some example strings.
+[^regexone]: If your project requires scanning text for patterns, then [RegexOne](https://regexone.com/) is a good resource for learning more. [Rubular](https://rubular.com/) is handy for quickly testing your regular expressions against some example strings.
 
  - `/\s+/` matches all whitespace, so we can use it with `gsub` to _remove_ all whitespace:
 
@@ -341,7 +339,7 @@ The above technique for composing strings, adding them together with `+`, is cal
 
 There's another technique for composing strings that I personally find a bit easier; it's called **string interpolation**. Try this instead ▶
 
-```ruby
+```ruby | {type: 'script'}
 number = 6 * 7
 message = "Your lucky number for today is #{number}."
 ```
@@ -394,7 +392,7 @@ Most of the time, we'll stick with `p`, since it provides more details while deb
 
 ### gets.chomp
 
-We almost never want to keep the `\n` that results from the <kbd>return</kbd> keypress that submits the user's input. Fortunately, [the handy `.chomp` method](https://chapters.firstdraft.com/chapters/757#chomp){:target="_blank"} does exactly what we need — if there's a `\n` at the end of a string, it will remove it; if there isn't, it does nothing. So, in practice, when we call `gets` we almost always tack a `.chomp` on to it immediately. Try modifying the program to:
+We almost never want to keep the `\n` that results from the <kbd>return</kbd> keypress that submits the user's input. Fortunately, [the handy `.chomp` method](https://chapters.firstdraft.com/chapters/757#chomp) does exactly what we need — if there's a `\n` at the end of a string, it will remove it; if there isn't, it does nothing. So, in practice, when we call `gets` we almost always tack a `.chomp` on to it immediately. Try modifying the program to:
 
 ```ruby
 their_name = gets.chomp
