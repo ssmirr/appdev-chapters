@@ -16,7 +16,7 @@ As always, we have the formal way of creating a new object in Ruby: use the `.ne
 cities = Array.new
 ```
 
-Try it out and see what you get if you `p cities` ☝.
+Try it out and see what you get if you add `p cities` ☝.
 
 ### push
 
@@ -36,7 +36,7 @@ p cities
 
 Now we're talking! We've stored multiple strings within a single array using the `.push` method[^push_alias]. Ruby separates the elements in an array with commas.
 
-[^push_alias]:You might come across a shorthand for `.push`, the `<<` method, known as the "shovel" operator. This allows you to write something like:
+[^push_alias]: You might come across a shorthand for `.push`, the `<<` method, known as the "shovel" operator. This allows you to write something like:
     ```ruby
     cities.<<("Chicago")
     ```

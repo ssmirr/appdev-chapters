@@ -324,6 +324,7 @@ We spend a lot of time composing strings of output for our users, so let's see a
 ```ruby | {type: 'script'}
 number = 6 * 7
 message = "Your lucky number for today is " + number + "."
+p message
 ```
 
 You'll see that Ruby gets confused (RTEM!), because we are trying to add an integer to a string and it doesn't feel comfortable with that.
@@ -333,6 +334,7 @@ The solution is to tell the `Integer` to convert itself to a `String` first usin
 ```ruby | {type: 'script'}
 number = 6 * 7
 message = "Your lucky number for today is " + number.to_s + "."
+p message
 ```
 
 The above technique for composing strings, adding them together with `+`, is called string addition.
@@ -342,6 +344,7 @@ There's another technique for composing strings that I personally find a bit eas
 ```ruby | {type: 'script'}
 number = 6 * 7
 message = "Your lucky number for today is #{number}."
+p message
 ```
 
 Basically, inside the string, you place `#{}` where you eventually want your value to go. Inside the curly braces, you can write any Ruby expression without worrying about whether it is a string or not. The expression will be evaluated, converted to a string, and added to the string right in that spot. You can interpolate as many expressions as you want into a single string. Pretty neat!
